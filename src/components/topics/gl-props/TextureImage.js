@@ -69,7 +69,7 @@ const TextureImage = {
         gl.uniform1i(sampler, 0);
     })
     //image.src = "https://pbs.twimg.com/profile_images/664169149002874880/z1fmxo00.jpg"
-    image.src = "/img/cat.jpg";
+    image.src = "img/cat.jpg";
   },
 
   clearBuffers : (target) => {

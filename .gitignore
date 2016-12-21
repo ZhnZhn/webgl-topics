@@ -7,7 +7,7 @@ bundle.min.js.map
 config.js
 dependency-bundle.js
 dependency-bundle.js.map
-webgl-topic.html
+webgl-topics.html
 index_jspm.html
 lint.txt
 npm-debug.log
