@@ -1,0 +1,29 @@
+)]}
+{
+ "version": 3,
+ "sources": "D:\\_Dev\\_React\\_WebGL_Topic\\src\\components\\panel-config-gl\\RowPerspective.jsx",
+ "file": "D:\\_Dev\\_React\\_WebGL_Topic\\js\\components\\panel-config-gl\\RowPerspective.js",
+ "sourceRoot": "",
+ "names": [
+  "RowPerspective",
+  "props",
+  "_handleSetPerspective",
+  "comp",
+  "onGetComp",
+  "perspectiveNear",
+  "near",
+  "getValue",
+  "perspectiveFar",
+  "far",
+  "createPerspective",
+  "ROW",
+  "CAPTION",
+  "LABEL",
+  "INPUT_FLOAT_3",
+  "propTypes",
+  "number",
+  "isRequired",
+  "func"
+ ],
+ "mappings": ";;;;;;;;AAAA;;;;AAEA;;;;AACA;;;;AAEA;;;;;;;;;;;;IAEMA,c;;;AACJ,0BAAYC,KAAZ,EAAkB;AAAA;;AAAA,gIACVA,KADU;;AAAA,UAIlBC,qBAJkB,GAIM,YAAM;AAC5B,UAAMC,OAAO,MAAKF,KAAL,CAAWG,SAAX,EAAb;AACAD,WAAKE,eAAL,GAAuB,MAAKC,IAAL,CAAUC,QAAV,EAAvB;AACAJ,WAAKK,cAAL,GAAsB,MAAKC,GAAL,CAASF,QAAT,EAAtB;AACAJ,WAAKO,iBAAL,CAAuBP,IAAvB;AACD,KATiB;;AAAA;AAEjB;;;;6BASO;AAAA;;AAAA,mBACsC,KAAKF,KAD3C;AAAA,UACEI,eADF,UACEA,eADF;AAAA,UACmBG,cADnB,UACmBA,cADnB;;AAEN,aACE;AAAA;AAAA,UAAK,OAAO,cAAMG,GAAlB;AACE;AAAA;AAAA,YAAM,OAAO,cAAMC,OAAnB;AAAA;AAAA,SADF;AAIE;AAAA;AAAA,YAAM,OAAO,cAAMC,KAAnB;AAAA;AAAA,SAJF;AAOE;AACE,eAAM;AAAA,mBAAQ,OAAKP,IAAL,GAAYH,IAApB;AAAA,WADR;AAEE,iBAAOE,eAFT;AAGE,sBAAY,cAAMS;AAHpB,UAPF;AAYE;AAAA;AAAA,YAAM,OAAO,cAAMD,KAAnB;AAAA;AAAA,SAZF;AAeE;AACE,eAAM;AAAA,mBAAQ,OAAKJ,GAAL,GAAWN,IAAnB;AAAA,WADR;AAEE,iBAAOK,cAFT;AAGE,sBAAY,cAAMM;AAHpB,UAfF;AAoBE,6DAAW,SAAS,KAAKZ,qBAAzB;AApBF,OADF;AAwBD;;;;;;AAGHF,eAAee,SAAf,GAA2B;AACzBV,mBAAkB,iBAAUW,MAAV,CAAiBC,UADV;AAEzBT,kBAAiB,iBAAUQ,MAAV,CAAiBC,UAFT;AAGzBb,aAAY,iBAAUc,IAAV,CAAeD;AAHF,CAA3B;;kBAMejB,c"
+}

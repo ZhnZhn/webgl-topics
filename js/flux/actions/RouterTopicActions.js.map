@@ -1,0 +1,14 @@
+)]}
+{
+ "version": 3,
+ "sources": "D:\\_Dev\\_React\\_WebGL_Topic\\src\\flux\\actions\\RouterTopicActions.js",
+ "file": "D:\\_Dev\\_React\\_WebGL_Topic\\js\\flux\\actions\\RouterTopicActions.js",
+ "sourceRoot": "",
+ "names": [
+  "RouterTopicActionTypes",
+  "VIEW_TOPIC",
+  "RouterTopicActions",
+  "createActions"
+ ],
+ "mappings": ";;;;;;;AAAA;;;;;;;;AAEO,IAAMA,0DAAyB;AACpCC,cAAa;AADuB,CAA/B;;AAIP,IAAMC,qBAAqB,iBAAOC,aAAP,qBACxBH,uBAAuBC,UADC,EACa,EADb,EAA3B;;kBAIeC,kB"
+}

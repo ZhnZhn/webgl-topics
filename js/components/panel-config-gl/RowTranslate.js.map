@@ -1,0 +1,27 @@
+)]}
+{
+ "version": 3,
+ "sources": "D:\\_Dev\\_React\\_WebGL_Topic\\src\\components\\panel-config-gl\\RowTranslate.jsx",
+ "file": "D:\\_Dev\\_React\\_WebGL_Topic\\js\\components\\panel-config-gl\\RowTranslate.js",
+ "sourceRoot": "",
+ "names": [
+  "RowTranslate",
+  "props",
+  "_handleSetTranslate",
+  "comp",
+  "onGetComp",
+  "zMatrixTranslate",
+  "translateZ",
+  "getValue",
+  "configMatrix",
+  "ROW",
+  "CAPTION",
+  "LABEL",
+  "INPUT_FLOAT_3",
+  "propTypes",
+  "number",
+  "isRequired",
+  "func"
+ ],
+ "mappings": ";;;;;;;;AAAA;;;;AAEA;;;;AACA;;;;AAEA;;;;;;;;;;;;IAEMA,Y;;;AACJ,wBAAYC,KAAZ,EAAkB;AAAA;;AAAA,4HACVA,KADU;;AAAA,UAIlBC,mBAJkB,GAII,YAAM;AAC1B,UAAMC,OAAO,MAAKF,KAAL,CAAWG,SAAX,EAAb;AACAD,WAAKE,gBAAL,GAAwB,MAAKC,UAAL,CAAgBC,QAAhB,EAAxB;AACAJ,WAAKK,YAAL,CAAkBL,IAAlB;AACD,KARiB;;AAAA;AAEjB;;;;6BAQO;AAAA;;AAAA,UACEE,gBADF,GACuB,KAAKJ,KAD5B,CACEI,gBADF;;;AAGN,aACE;AAAA;AAAA,UAAK,OAAO,cAAMI,GAAlB;AACE;AAAA;AAAA,YAAM,OAAO,cAAMC,OAAnB;AAAA;AAAA,SADF;AAIE;AAAA;AAAA,YAAM,OAAO,cAAMC,KAAnB;AAAA;AAAA,SAJF;AAOE;AACE,eAAM;AAAA,mBAAQ,OAAKL,UAAL,GAAkBH,IAA1B;AAAA,WADR;AAEE,iBAAOE,gBAFT;AAGE,sBAAY,cAAMO;AAHpB,UAPF;AAYE,6DAAW,SAAS,KAAKV,mBAAzB;AAZF,OADF;AAgBD;;;;;;AAGHF,aAAaa,SAAb,GAAyB;AACvBR,oBAAmB,iBAAUS,MAAV,CAAiBC,UADb;AAEvBX,aAAY,iBAAUY,IAAV,CAAeD;AAFJ,CAAzB;;kBAKef,Y"
+}

@@ -1,0 +1,18 @@
+)]}
+{
+ "version": 3,
+ "sources": "D:\\_Dev\\_React\\_WebGL_Topic\\src\\components\\header\\Header.jsx",
+ "file": "D:\\_Dev\\_React\\_WebGL_Topic\\js\\components\\header\\Header.js",
+ "sourceRoot": "",
+ "names": [
+  "STYLE",
+  "CAPTION",
+  "display",
+  "color",
+  "fontSize",
+  "fontWeight",
+  "marginLeft",
+  "Header"
+ ],
+ "mappings": ";;;;;;AAAA;;;;;;AAEA,IAAMA,QAAQ;AACZC,WAAU;AACRC,aAAU,cADF;AAERC,WAAO,mBAFC;AAGRC,cAAW,MAHH;AAIRC,gBAAa,MAJL;AAKRC,gBAAa;AALL;AADE,CAAd;;AAUA,IAAMC,SAAS,SAATA,MAAS;AAAA,SACb;AAAA;AAAA,MAAQ,WAAU,QAAlB,EAA2B,MAAK,QAAhC;AACE;AAAA;AAAA,QAAM,OAAOP,MAAMC,OAAnB;AAAA;AAAA,KADF;AAIE;AAAA;AAAA,QAAK,WAAU,aAAf,EAA6B,MAAK,YAAlC;AACG;AAAA;AAAA,UAAG,WAAU,mBAAb,EAAiC,MAAK,EAAtC;AAAA;AAAA,OADH;AAEG;AAAA;AAAA,UAAG,WAAU,mBAAb,EAAiC,MAAK,EAAtC;AAAA;AAAA,OAFH;AAGG;AAAA;AAAA,UAAG,WAAU,mBAAb,EAAiC,MAAK,EAAtC;AAAA;AAAA;AAHH;AAJF,GADa;AAAA,CAAf;;kBAaeM,M"
+}

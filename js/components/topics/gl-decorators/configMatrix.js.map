@@ -1,0 +1,18 @@
+)]}
+{
+ "version": 3,
+ "sources": "D:\\_Dev\\_React\\_WebGL_Topic\\src\\components\\topics\\gl-decorators\\configMatrix.js",
+ "file": "D:\\_Dev\\_React\\_WebGL_Topic\\js\\components\\topics\\gl-decorators\\configMatrix.js",
+ "sourceRoot": "",
+ "names": [
+  "_configMatrix",
+  "target",
+  "zMatrixTranslate",
+  "matrix",
+  "create",
+  "translate",
+  "configMatrix",
+  "prototype"
+ ],
+ "mappings": ";;;;;;;AACA;;AAEO,IAAMA,wCAAgB,SAAhBA,aAAgB,CAACC,MAAD,EAAY;AACvC;AADuC,8BAEPA,MAFO,CAE/BC,gBAF+B;AAAA,MAE/BA,gBAF+B,yCAEd,CAAC,CAFa;AAAA,MAGrCC,MAHqC,GAG5BF,OAAOE,MAAP,GAAgB,eAAKC,MAAL,EAHY;;AAIvC,iBAAKC,SAAL,CAAeF,MAAf,EAAuBA,MAAvB,EAA+B,CAAC,CAAD,EAAI,CAAJ,EAAOD,gBAAP,CAA/B;AACD,CALM;;AAOP,IAAMI,eAAe,SAAfA,YAAe,CAACL,MAAD,EAAY;AAC/BA,SAAOM,SAAP,CAAiBD,YAAjB,GAAgCN,aAAhC;AACD,CAFD;;kBAIeM,Y"
+}

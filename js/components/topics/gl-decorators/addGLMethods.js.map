@@ -1,0 +1,22 @@
+)]}
+{
+ "version": 3,
+ "sources": "D:\\_Dev\\_React\\_WebGL_Topic\\src\\components\\topics\\gl-decorators\\addGLMethods.js",
+ "file": "D:\\_Dev\\_React\\_WebGL_Topic\\js\\components\\topics\\gl-decorators\\addGLMethods.js",
+ "sourceRoot": "",
+ "names": [
+  "addGLMethods",
+  "target",
+  "console",
+  "log",
+  "prototype",
+  "initGL",
+  "createShaders",
+  "createPerspective",
+  "setPointSize",
+  "configMatrix",
+  "draw",
+  "startAnimation"
+ ],
+ "mappings": ";;;;;;AACA;;AACA;;AACA;;AACA;;AACA;;AACA;;AACA;;AAGA,IAAMA,eAAe,SAAfA,YAAe,CAACC,MAAD,EAAY;AAC9BC,WAAQC,GAAR,CAAYF,MAAZ;AACAA,UAAOG,SAAP,CAAiBC,MAAjB;AACAJ,UAAOG,SAAP,CAAiBE,aAAjB;AACAL,UAAOG,SAAP,CAAiBG,iBAAjB;AACAN,UAAOG,SAAP,CAAiBI,YAAjB;AACAP,UAAOG,SAAP,CAAiBK,YAAjB;AACAR,UAAOG,SAAP,CAAiBM,IAAjB;AACAT,UAAOG,SAAP,CAAiBO,cAAjB;AACA,UAAOV,MAAP;AACF,CAVD;;kBAYeD,Y"
+}

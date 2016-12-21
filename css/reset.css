@@ -1,0 +1,36 @@
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+    font-family: "Roboto", "Arial", "Lato", sans-serif;
+    font-weight: 300;
+    background-color: gray;
+}
+
+html {
+  font-size: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  outline: 0px none;
+}
+a:visited {
+  /*color : #551a8b;*/
+  color: gray;
+}
+
+button {
+  background: transparent none repeat scroll 0% 0%;
+  border: 0px none;
+  padding: 0px;
+  margin: 0px;
+  font-family: inherit;
+
+  -moz-appearance: none;
+}

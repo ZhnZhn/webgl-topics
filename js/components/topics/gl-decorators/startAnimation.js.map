@@ -1,0 +1,35 @@
+)]}
+{
+ "version": 3,
+ "sources": "D:\\_Dev\\_React\\_WebGL_Topic\\src\\components\\topics\\gl-decorators\\startAnimation.js",
+ "file": "D:\\_Dev\\_React\\_WebGL_Topic\\js\\components\\topics\\gl-decorators\\startAnimation.js",
+ "sourceRoot": "",
+ "names": [
+  "_startAnimation",
+  "target",
+  "initGL",
+  "createShaders",
+  "createPerspective",
+  "setPointSize",
+  "configMatrix",
+  "draw",
+  "props",
+  "valuesForInit",
+  "_createVertices",
+  "createVertices",
+  "_createIndices",
+  "createIndices",
+  "_loadTexture",
+  "loadTexture",
+  "_draw",
+  "_valuesForInit",
+  "Object",
+  "assign",
+  "key",
+  "isWithoutPerspective",
+  "isWithoutPointSize",
+  "startAnimation",
+  "prototype"
+ ],
+ "mappings": ";;;;;;;AAAA;;;;;;AAEO,IAAMA,4CAAkB,SAAlBA,eAAkB,CAACC,MAAD,EAAY;AAAA,QAE/BC,MAF+B,GAM7BD,MAN6B,CAE/BC,MAF+B;AAAA,QAEvBC,aAFuB,GAM7BF,MAN6B,CAEvBE,aAFuB;AAAA,QAG/BC,iBAH+B,GAM7BH,MAN6B,CAG/BG,iBAH+B;AAAA,QAGZC,YAHY,GAM7BJ,MAN6B,CAGZI,YAHY;AAAA,QAGEC,YAHF,GAM7BL,MAN6B,CAGEK,YAHF;AAAA,QAI/BC,IAJ+B,GAM7BN,MAN6B,CAI/BM,IAJ+B;AAAA,QAK/BC,KAL+B,GAM7BP,MAN6B,CAK/BO,KAL+B;AAAA,QAQ/BC,aAR+B,GAa7BD,KAb6B,CAQ/BC,aAR+B;AAAA,QASdC,eATc,GAa7BF,KAb6B,CAS/BG,cAT+B;AAAA,QAUfC,cAVe,GAa7BJ,KAb6B,CAU/BK,aAV+B;AAAA,QAWjBC,YAXiB,GAa7BN,KAb6B,CAW/BO,WAX+B;AAAA,QAYxBC,KAZwB,GAa7BR,KAb6B,CAY/BD,IAZ+B;AAAA,QAcjCU,cAdiC,GAchBC,OAAOC,MAAP,CAAc,EAAd,sBAA4BV,aAA5B,CAdgB;;AAgBvC,SAAI,IAAMW,GAAV,IAAiBH,cAAjB,EAAgC;AAC9BhB,eAAOmB,GAAP,IAAcH,eAAeG,GAAf,CAAd;AACD;;AAEDlB,WAAOD,MAAP;AACAE,kBAAcF,MAAd;AACAS,oBAAgBT,MAAhB;;AAEA,QAAI,CAACA,OAAOoB,oBAAZ,EAAiC;AAC/BjB,0BAAkBH,MAAlB;AACD;;AAED,QAAI,CAACA,OAAOqB,kBAAZ,EAA+B;AAC7BjB,qBAAaJ,MAAb;AACD;AACDK,iBAAaL,MAAb;;AAEA,QAAI,OAAOW,cAAP,KAA0B,UAA9B,EAAyC;AACvCA,uBAAeX,MAAf;AACD;AACD,QAAI,OAAOa,YAAP,KAAwB,UAA5B,EAAuC;AACrCA,qBAAab,MAAb;AACD;;AAED,QAAI,OAAOe,KAAP,KAAiB,UAArB,EAAiC;AAAEA,cAAMf,MAAN;AAAe,KAAlD,MACiC;AAAEM,aAAKN,MAAL;AAAe;AAErD,CA3CM;;AA6CP,IAAMsB,iBAAiB,SAAjBA,cAAiB,CAACtB,MAAD,EAAY;AACjCA,WAAOuB,SAAP,CAAiBD,cAAjB,GAAkCvB,eAAlC;AACD,CAFD;;kBAIeuB,c"
+}

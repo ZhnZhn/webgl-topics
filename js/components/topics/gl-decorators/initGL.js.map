@@ -1,0 +1,23 @@
+)]}
+{
+ "version": 3,
+ "sources": "D:\\_Dev\\_React\\_WebGL_Topic\\src\\components\\topics\\gl-decorators\\initGL.js",
+ "file": "D:\\_Dev\\_React\\_WebGL_Topic\\js\\components\\topics\\gl-decorators\\initGL.js",
+ "sourceRoot": "",
+ "names": [
+  "_init",
+  "target",
+  "canvas",
+  "gl",
+  "getContext",
+  "enable",
+  "DEPTH_TEST",
+  "viewport",
+  "width",
+  "height",
+  "clearColor",
+  "initGL",
+  "prototype"
+ ],
+ "mappings": ";;;;;AACO,IAAMA,wBAAQ,SAARA,KAAQ,CAACC,MAAD,EAAY;AAAA,MACvBC,MADuB,GACZD,MADY,CACvBC,MADuB;;;AAG/BD,SAAOE,EAAP,GAAYD,OAAOE,UAAP,CAAkB,OAAlB,CAAZ;AACAH,SAAOE,EAAP,CAAUE,MAAV,CAAiBJ,OAAOE,EAAP,CAAUG,UAA3B;AACAL,SAAOE,EAAP,CAAUI,QAAV,CAAmB,CAAnB,EAAsB,CAAtB,EAAyBL,OAAOM,KAAhC,EAAuCN,OAAOO,MAA9C;AACAR,SAAOE,EAAP,CAAUO,UAAV,CAAqB,GAArB,EAA0B,GAA1B,EAA+B,GAA/B,EAAoC,CAApC;AACD,CAPM;;AAUP,IAAMC,SAAS,SAATA,MAAS,CAACV,MAAD,EAAY;AACvBA,SAAOW,SAAP,CAAiBD,MAAjB,GAA0BX,KAA1B;AACH,CAFD;;AAIA;;;;;;;;kBAQeW,M"
+}

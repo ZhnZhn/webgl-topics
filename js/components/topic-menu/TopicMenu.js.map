@@ -1,0 +1,12 @@
+)]}
+{
+ "version": 3,
+ "sources": "D:\\_Dev\\_React\\_WebGL_Topic\\src\\components\\topic-menu\\TopicMenu.jsx",
+ "file": "D:\\_Dev\\_React\\_WebGL_Topic\\js\\components\\topic-menu\\TopicMenu.js",
+ "sourceRoot": "",
+ "names": [
+  "TopicMenu",
+  "props"
+ ],
+ "mappings": ";;;;;;AAAA;;;;AAEA;;;;AAEA;;;;;;AAEA,IAAMA,YAAY,SAAZA,SAAY,CAACC,KAAD;AAAA,SAChB;AAAA;AAAA,MAAS,WAAU,SAAnB,EAA6B,UAAS,IAAtC;AACE;AAAA;AAAA,QAAK,WAAU,eAAf,EAA+B,MAAK,YAApC;AACG,sDAAM,8BAAN;AADH,KADF;AAIE;AAAA;AAAA,QAAK,WAAU,iBAAf;AACE;AAAA;AAAA,UAAQ,WAAU,uBAAlB,EAA0C,MAAK,QAA/C;AAAA;AAAA;AADF;AAJF,GADgB;AAAA,CAAlB;;kBAaeD,S"
+}

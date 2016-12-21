@@ -1,0 +1,17 @@
+)]}
+{
+ "version": 3,
+ "sources": "D:\\_Dev\\_React\\_WebGL_Topic\\src\\flux\\stores\\RouterTopicSlice.js",
+ "file": "D:\\_Dev\\_React\\_WebGL_Topic\\js\\flux\\stores\\RouterTopicSlice.js",
+ "sourceRoot": "",
+ "names": [
+  "RouterTopicSlice",
+  "_setTopicId",
+  "topicId",
+  "state",
+  "trigger",
+  "VIEW_TOPIC",
+  "onViewTopic"
+ ],
+ "mappings": ";;;;;;AAAA;;AAEA,IAAMA,mBAAmB;AAEvBC,aAFuB,uBAEXC,OAFW,EAEH;AAClB,SAAKC,KAAL,CAAWD,OAAX,GAAqBA,OAArB;AACA,SAAKE,OAAL,CAAa,2CAAuBC,UAApC,EAAgD,KAAKF,KAArD;AACD,GALsB;AAOvBG,aAPuB,uBAOXJ,OAPW,EAOH;AAClB,SAAKD,WAAL,CAAiBC,OAAjB;AACD;AATsB,CAAzB;;kBAYeF,gB"
+}

@@ -1,0 +1,26 @@
+)]}
+{
+ "version": 3,
+ "sources": "D:\\_Dev\\_React\\_WebGL_Topic\\src\\components\\topics\\factoryTopic.js",
+ "file": "D:\\_Dev\\_React\\_WebGL_Topic\\js\\components\\topics\\factoryTopic.js",
+ "sourceRoot": "",
+ "names": [
+  "_rTopic",
+  "DEFAULT",
+  "props",
+  "RANDOM_TRIANGLES",
+  "CORONA",
+  "PLANE",
+  "CUBE",
+  "TEXTURE_IMAGE",
+  "CUBE_WITH_LIGHT",
+  "factoryTopic",
+  "topicId",
+  "config",
+  "key",
+  "Date",
+  "now",
+  "Comp"
+ ],
+ "mappings": ";;;;;;AAEA;;;;AAEA;;;;AACA;;;;AACA;;;;AACA;;;;AACA;;;;AACA;;;;;;AAEA,IAAMA,UAAU;AACdC,WAAU,EAAEC,gCAAF,EADI;AAEd;AACAC,oBAAmB,EAAED,gCAAF,EAHL;AAIdE,UAAS,EAAEF,6BAAF,EAJK;AAKdG,SAAQ,EAAEH,sBAAF,EALM;AAMdI,QAAO,EAAEJ,qBAAF,EANO;AAOdK,iBAAgB,EAAEL,6BAAF,EAPF;AAQdM,mBAAkB,EAAEN,8BAAF;AARJ,CAAhB,C,CAXA;;AAsBA,IAAMO,eAAe,SAAfA,YAAe,CAACC,OAAD,EAAa;AAChC,MAAMC,SAAUX,QAAQU,OAAR,CAAhB;AAAA,MACMR,QAASS,MAAD,GACJA,OAAOT,KADH,GAEJF,QAAQC,OAAR,CAAgBC,KAH1B;;AAKAA,QAAMU,GAAN,GAAYF,UAAUG,KAAKC,GAAL,EAAtB;AACA;AACA,SAAO,EAAEC,0BAAF,EAAqBb,YAArB,EAAP;AAED,CAVD;;kBAaeO,Y"
+}

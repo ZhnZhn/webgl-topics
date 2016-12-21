@@ -1,0 +1,24 @@
+)]}
+{
+ "version": 3,
+ "sources": "D:\\_Dev\\_React\\_WebGL_Topic\\src\\components\\topics\\WebGLTopic.jsx",
+ "file": "D:\\_Dev\\_React\\_WebGL_Topic\\js\\components\\topics\\WebGLTopic.js",
+ "sourceRoot": "",
+ "names": [
+  "WIDTH",
+  "HEIGHT",
+  "STYLE",
+  "ROOT",
+  "float",
+  "WebGLTopic",
+  "props",
+  "_handleClickCanvas",
+  "isAnimate",
+  "isStopDraw",
+  "startAnimation",
+  "clearBuffers",
+  "canvas",
+  "el"
+ ],
+ "mappings": ";;;;;;;;;;AAAA;;;;AAEA;;;;AACA;;;;AACA;;;;AACA;;;;AACA;;;;AACA;;;;AACA;;;;;;;;;;;;AAEA;;AAEA,IAAMA,QAAQ,GAAd;AAAA,IACMC,SAAS,GADf;AAAA,IAEMC,QAAQ;AACRC,QAAO;AACLC,WAAQ;AADH;AADC,CAFd;;AAQA;;IAQMC,U;;;AAEJ,sBAAYC,KAAZ,EAAkB;AAAA;;AAAA;;AAAA,UAqBlBC,kBArBkB,GAqBG,YAAM;AACzB,YAAKC,SAAL,GAAiB,CAAC,MAAKA,SAAvB;AACD,KAvBiB;;AAGhB,UAAKA,SAAL,GAAiB,IAAjB;AACA,UAAKC,UAAL,GAAkB,KAAlB;AAJgB;AAKjB;;;;wCAEkB;AAAA,UACTC,cADS,GACU,KAAKJ,KADf,CACTI,cADS;;AAEjB,UAAK,OAAOA,cAAP,KAA0B,UAA/B,EAA0C;AACxCA,uBAAe,IAAf;AACD,OAFD,MAEO;AACL,aAAKA,cAAL,CAAoB,IAApB;AACD;AACF;;;2CAEqB;AACpB,WAAKD,UAAL,GAAkB,IAAlB;AACA,WAAKH,KAAL,CAAWK,YAAX,CAAwB,IAAxB;AACD;;;6BAMO;AAAA;;AACN,aACE;AACG,aAAM;AAAA,iBAAM,OAAKC,MAAL,GAAcC,EAApB;AAAA,SADT;AAEG,eAAOb,KAFV;AAGG,gBAAQC,MAHX;AAIG,eAAOC,MAAMC,IAJhB;AAKG,iBAAS,KAAKI;AALjB,QADF;AAUD;;;;;;kBAGYF,U"
+}

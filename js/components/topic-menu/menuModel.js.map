@@ -1,0 +1,16 @@
+)]}
+{
+ "version": 3,
+ "sources": "D:\\_Dev\\_React\\_WebGL_Topic\\src\\components\\topic-menu\\menuModel.js",
+ "file": "D:\\_Dev\\_React\\_WebGL_Topic\\js\\components\\topic-menu\\menuModel.js",
+ "sourceRoot": "",
+ "names": [
+  "menuModel",
+  "caption",
+  "items",
+  "title",
+  "onClick",
+  "viewTopic"
+ ],
+ "mappings": ";;;;;;AACA;;;;;;AAEA,IAAMA,YAAY,CAChB;AACEC,WAAU,OADZ;AAEEC,SAAQ,CACN,EAAEC,OAAO,kBAAT,EAA8BC,SAAU;AAAA,aAAM,6BAAQC,SAAR,CAAkB,kBAAlB,CAAN;AAAA,KAAxC,EADM,EAEN,EAAEF,OAAO,QAAT,EAAoBC,SAAU;AAAA,aAAM,6BAAQC,SAAR,CAAkB,QAAlB,CAAN;AAAA,KAA9B,EAFM,EAGN,EAAEF,OAAO,OAAT,EAAkBC,SAAW;AAAA,aAAM,6BAAQC,SAAR,CAAkB,OAAlB,CAAN;AAAA,KAA7B,EAHM,EAIN,EAAEF,OAAO,MAAT,EAAiBC,SAAW;AAAA,aAAM,6BAAQC,SAAR,CAAkB,MAAlB,CAAN;AAAA,KAA5B,EAJM,EAKN,EAAEF,OAAO,cAAT,EAAyBC,SAAW;AAAA,aAAM,6BAAQC,SAAR,CAAkB,eAAlB,CAAN;AAAA,KAApC,EALM,EAMN,EAAEF,OAAO,eAAT,EAA0BC,SAAW;AAAA,aAAM,6BAAQC,SAAR,CAAkB,iBAAlB,CAAN;AAAA,KAArC,EANM;AAFV,CADgB,CAAlB;;kBAceL,S"
+}
