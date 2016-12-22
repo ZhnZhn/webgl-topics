@@ -6,9 +6,23 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _class;
+
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
+
+var _setModeToAll = require('./decorators/setModeToAll');
+
+var _setModeToAll2 = _interopRequireDefault(_setModeToAll);
+
+var _onChangeMode = require('./decorators/onChangeMode');
+
+var _onChangeMode2 = _interopRequireDefault(_onChangeMode);
+
+var _calcInputMode = require('./decorators/calcInputMode');
+
+var _calcInputMode2 = _interopRequireDefault(_calcInputMode);
 
 var _InputFloat = require('../zhn-atoms/InputFloat');
 
@@ -30,7 +44,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var RowPerspective = function (_Component) {
+var RowPerspective = (0, _setModeToAll2.default)(_class = (0, _onChangeMode2.default)(_class = (0, _calcInputMode2.default)(_class = function (_Component) {
   _inherits(RowPerspective, _Component);
 
   function RowPerspective(props) {
@@ -39,12 +53,23 @@ var RowPerspective = function (_Component) {
     var _this = _possibleConstructorReturn(this, (RowPerspective.__proto__ || Object.getPrototypeOf(RowPerspective)).call(this, props));
 
     _this._handleSetPerspective = function () {
-      var comp = _this.props.onGetComp();
-      comp.perspectiveNear = _this.near.getValue();
-      comp.perspectiveFar = _this.far.getValue();
+      var comp = _this.props.onGetComp(),
+          near = _this.near,
+          far = _this.far;
+
+
+      comp.perspectiveNear = near.getValue();
+      comp.perspectiveFar = far.getValue();
       comp.createPerspective(comp);
+
+      _this._setModeToAll(2);
     };
 
+    _this.mode = {
+      near: 2,
+      far: 2,
+      bt: 2
+    };
     return _this;
   }
 
@@ -74,8 +99,10 @@ var RowPerspective = function (_Component) {
           ref: function ref(comp) {
             return _this2.near = comp;
           },
+          inputKey: 'near',
           value: perspectiveNear,
-          inputStyle: _Row2.default.INPUT_FLOAT_3
+          inputStyle: _Row2.default.INPUT_FLOAT_3,
+          onChangeMode: this._onChangeMode.bind(this)
         }),
         _react2.default.createElement(
           'span',
@@ -86,16 +113,23 @@ var RowPerspective = function (_Component) {
           ref: function ref(comp) {
             return _this2.far = comp;
           },
+          inputKey: 'far',
           value: perspectiveFar,
-          inputStyle: _Row2.default.INPUT_FLOAT_3
+          inputStyle: _Row2.default.INPUT_FLOAT_3,
+          onChangeMode: this._onChangeMode.bind(this)
         }),
-        _react2.default.createElement(_ButtonSet2.default, { onClick: this._handleSetPerspective })
+        _react2.default.createElement(_ButtonSet2.default, {
+          ref: function ref(bt) {
+            return _this2.bt = bt;
+          },
+          onClick: this._handleSetPerspective
+        })
       );
     }
   }]);
 
   return RowPerspective;
-}(_react.Component);
+}(_react.Component)) || _class) || _class) || _class;
 
 RowPerspective.propTypes = {
   perspectiveNear: _react.PropTypes.number.isRequired,

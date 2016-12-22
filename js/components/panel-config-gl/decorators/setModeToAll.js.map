@@ -1,0 +1,18 @@
+)]}
+{
+ "version": 3,
+ "sources": "D:\\_Dev\\_React\\_WebGL_Topic\\src\\components\\panel-config-gl\\decorators\\setModeToAll.js",
+ "file": "D:\\_Dev\\_React\\_WebGL_Topic\\js\\components\\panel-config-gl\\decorators\\setModeToAll.js",
+ "sourceRoot": "",
+ "names": [
+  "_setModeToAll",
+  "value",
+  "key",
+  "mode",
+  "setMode",
+  "setModeToAll",
+  "target",
+  "prototype"
+ ],
+ "mappings": ";;;;;;AACA,IAAMA,gBAAgB,SAAhBA,aAAgB,CAASC,KAAT,EAAe;AAClC,OAAI,IAAMC,GAAV,IAAiB,KAAKC,IAAtB,EAA2B;AACzB,SAAKA,IAAL,CAAUD,GAAV,IAAiBD,KAAjB;AACA,SAAKC,GAAL,EAAUE,OAAV,CAAkBH,KAAlB;AACD;AACH,CALD;;AAOA,IAAMI,eAAe,SAAfA,YAAe,CAACC,MAAD,EAAY;AAC/BA,SAAOC,SAAP,CAAiBP,aAAjB,GAAiCA,aAAjC;AACD,CAFD;;kBAIeK,Y"
+}

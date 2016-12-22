@@ -10,7 +10,7 @@ export const _createPerspective = (target) => {
 
   const _perspectiveLocation = gl.getUniformLocation(shaderProgram, "perspectiveMatrix");
   gl.uniformMatrix4fv(_perspectiveLocation, false, _perspectiveMatrix);
-  
+
 }
 
 const createPerspective = (target) => {
