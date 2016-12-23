@@ -10,11 +10,19 @@ import startAnimation from './gl-decorators/startAnimation';
 
 //import addGLMethods from './gl-decorators/addGLMethods';
 
+import Button from '../zhn-atoms/Button';
+
 const WIDTH = 500
     , HEIGHT = 500
     , STYLE = {
       ROOT : {
+        position : 'relative',
         float : 'left'
+      },
+      BT_RUN : {
+        position: 'absolute',
+        top: '4px',
+        'right' : '8px'
       }
     }
 
@@ -51,18 +59,28 @@ class WebGLTopic extends Component {
 
   _handleClickCanvas = () => {
     this.isAnimate = !this.isAnimate
+    this.forceUpdate();
   }
 
-  render(){
+  render(){    
     return (
-      <canvas
-         ref={ el => this.canvas = el }
-         width={WIDTH}
-         height={HEIGHT}
-         style={STYLE.ROOT}
-         onClick={this._handleClickCanvas}
-      >
-      </canvas>
+      <div style={STYLE.ROOT}>
+        <canvas
+           ref={ el => this.canvas = el }
+           width={WIDTH}
+           height={HEIGHT}
+           onClick={this._handleClickCanvas}
+        >
+        </canvas>
+        {
+          (this.isAnimate === false) &&
+          <Button
+            caption="Run Animation"
+            style={STYLE.BT_RUN}
+            onClick={this._handleClickCanvas}
+         />
+        }
+      </div>
     );
   }
 }

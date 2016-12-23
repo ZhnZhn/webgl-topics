@@ -71,7 +71,10 @@ var RowDrawMode = function (_Component) {
           options: _drawModeOptions,
           onSelect: this._handleSelectDrawMode
         }),
-        _react2.default.createElement(_ButtonSet2.default, { onClick: this._handleSetDrawMode })
+        _react2.default.createElement(_ButtonSet2.default, {
+          mode: 1,
+          onClick: this._handleSetDrawMode
+        })
       );
     }
   }]);

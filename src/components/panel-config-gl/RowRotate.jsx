@@ -47,9 +47,11 @@ class RowRotate extends Component {
         <InputFloat
           ref={ comp => this.rotateX = comp }
           inputKey="rotateX"
-          value={rX}
           inputStyle={STYLE.INPUT_FLOAT_3}
+          value={rX}
+          step={0.001}
           onChangeMode={onChangeMode}
+          onKeyDownEnter={this._handleSetRotation}
         />
         <span style={STYLE.LABEL}>
           Y:
@@ -57,9 +59,11 @@ class RowRotate extends Component {
         <InputFloat
           ref={ comp => this.rotateY = comp }
           inputKey="rotateY"
-          value={rY}
           inputStyle={STYLE.INPUT_FLOAT_3}
+          value={rY}
+          step={0.001}
           onChangeMode={onChangeMode}
+          onKeyDownEnter={this._handleSetRotation}
         />
         <span style={STYLE.LABEL}>
           Z:
@@ -67,9 +71,11 @@ class RowRotate extends Component {
         <InputFloat
           ref={ comp => this.rotateZ = comp }
           inputKey="rotateZ"
-          value={rZ}
           inputStyle={STYLE.INPUT_FLOAT_3}
+          value={rZ}
+          step={0.001}
           onChangeMode={onChangeMode}
+          onKeyDownEnter={this._handleSetRotation}
         />
         <ButtonSet
            ref={ bt => this.bt = bt }

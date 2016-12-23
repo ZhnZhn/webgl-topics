@@ -41,7 +41,10 @@ class RowDrawMode extends Component {
           options={_drawModeOptions}
           onSelect={this._handleSelectDrawMode}
         />
-        <ButtonSet onClick={this._handleSetDrawMode} />
+        <ButtonSet
+           mode={1}
+           onClick={this._handleSetDrawMode}
+        />
       </div>
     );
   }

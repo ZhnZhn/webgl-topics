@@ -13,7 +13,9 @@ var STYLE = {
     borderRadius: '8px',
     padding: '4px 6px',
     marginLeft: '16px',
-    cursor: 'pointer'
+    cursor: 'pointer',
+    position: 'relative',
+    top: '4px'
   },
   VALID_CHANGED: {
     color: '#673ab7',

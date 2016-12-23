@@ -8,122 +8,11 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _InputSelect = require('./InputSelect.Style');
+
+var _InputSelect2 = _interopRequireDefault(_InputSelect);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var styles = {
-  rootDiv: {
-    position: 'relative',
-    display: 'inline-block',
-    backgroundColor: '#E1E1CB',
-    width: '170px'
-
-  },
-  inputText: {
-    background: 'transparent none repeat scroll 0 0',
-    border: 'medium none',
-    outline: 'medium none',
-    height: '30px',
-    paddingLeft: '10px',
-    color: 'green',
-    width: '140px',
-    fontSize: '16px',
-    fontWeight: 'bold'
-  },
-  rootOptionDiv: {
-    position: 'absolute',
-    left: 0,
-    backgroundColor: '#E1E1CB',
-    color: 'green',
-    width: '170px',
-    //height: '160px',
-    zIndex: '10',
-    borderBottomLeftRadius: '5px',
-    borderBottomRightRadius: '5px'
-  },
-  optionDiv: {
-    //height: '160px',
-    minHeight: '160px',
-    maxHeight: '200px',
-    overflow: 'auto'
-  },
-  spinnerCell: {
-    position: 'relative',
-    left: '8px',
-    top: '4px',
-    display: 'inline-block',
-    width: '16px',
-    height: '16px'
-  },
-  spinnerFailedCell: {
-    position: 'relative',
-    left: '8px',
-    top: '4px',
-    display: 'inline-block',
-    width: '16px',
-    height: '16px',
-    borderColor: '#F44336',
-    cursor: 'pointer'
-  },
-  arrowCell: {
-    cursor: 'pointer',
-    //display: table-cell
-    position: 'relative',
-    textAlign: 'center',
-    verticalAlign: 'middle',
-    //width: '25px',
-    width: '35px',
-    paddingRight: '5px',
-    marginLeft: '10px'
-
-  },
-  arrow: {
-    borderColor: '#999 transparent transparent',
-    borderStyle: 'solid',
-    borderWidth: '5px 5px 2.5px',
-    //borderWidth: '10px 10px 5px',
-    display: 'inline-block',
-    height: '0px',
-    width: '0px'
-  },
-  inputHr: {
-    borderWidth: 'medium medium 1px',
-    borderStyle: 'none none solid',
-    borderColor: '#1B75BB',
-    borderImage: 'none',
-    margin: 0,
-    marginLeft: '10px',
-    marginBottom: '5px',
-    width: '150px'
-
-  },
-  itemDiv: {
-    cursor: 'pointer',
-    paddingTop: '4px',
-    paddingLeft: '5px',
-    paddingBottom: '4px'
-    //lineHeight: '14px'
-  },
-  itemOdd: {
-    backgroundColor: '#C3C3AC'
-  },
-  itemEven: {
-    backgroundColor: '#D5D5BC'
-  },
-  optionsFooter: {
-    backgroundColor: 'silver',
-    borderBottomLeftRadius: '5px',
-    borderBottomRightRadius: '5px'
-  },
-  fileredSpan: {
-    display: 'inline-block',
-    color: 'gray',
-    fontWeight: 'bold',
-    //height: '20px',
-    paddingLeft: '10px',
-    paddingTop: '4px',
-    paddingBottom: '4px'
-  }
-};
 
 var ZhSelect = _react2.default.createClass({
   displayName: 'ZhSelect',
@@ -280,90 +169,98 @@ var ZhSelect = _react2.default.createClass({
     switch (event.keyCode) {
       // enter
       case 13:
-        var item = this.state.options[this.indexActiveOption];
+        {
+          var item = this.state.options[this.indexActiveOption];
 
-        if (item && item.caption) {
-          this.setState({
-            value: item.caption,
-            isShowOption: false,
-            isValidDomOptionsCache: true
-          });
+          if (item && item.caption) {
+            this.setState({
+              value: item.caption,
+              isShowOption: false,
+              isValidDomOptionsCache: true
+            });
 
-          if (item.value !== 'noresult') {
-            this.props.onSelect(item);
-          } else {
-            this.props.onSelect(null);
+            if (item.value !== 'noresult') {
+              this.props.onSelect(item);
+            } else {
+              this.props.onSelect(null);
+            }
           }
+          break;
         }
-        break;
       //escape
       case 27:
-        if (this.state.isShowOption) {
-          this.setState({ isShowOption: false });
-        } else {
-          this._undecorateActiveOption();
-          this._setStateToInit(this.props.options);
-          this.props.onSelect(null);
+        {
+          if (this.state.isShowOption) {
+            this.setState({ isShowOption: false });
+          } else {
+            this._undecorateActiveOption();
+            this._setStateToInit(this.props.options);
+            this.props.onSelect(null);
+          }
+          break;
         }
-        break;
       //down
       case 40:
-        if (!this.state.isShowOption) {
-          this.setState({ isShowOption: true });
-        } else {
-          event.preventDefault();
+        {
+          if (!this.state.isShowOption) {
+            this.setState({ isShowOption: true });
+          } else {
+            event.preventDefault();
 
-          var domActiveOption = this._getDomForActiveOption();
+            var domActiveOption = this._getDomForActiveOption();
 
-          if (domActiveOption) {
-            this._undecorateOfDomActiveOption(domActiveOption);
+            if (domActiveOption) {
+              this._undecorateOfDomActiveOption(domActiveOption);
 
-            this.indexActiveOption += 1;
-            if (this.indexActiveOption >= this.state.options.length) {
-              this.indexActiveOption = 0;
-              this.domOptions.scrollTop = 0;
-            }
+              this.indexActiveOption += 1;
+              if (this.indexActiveOption >= this.state.options.length) {
+                this.indexActiveOption = 0;
+                this.domOptions.scrollTop = 0;
+              }
 
-            domActiveOption = this._getDomForActiveOption();
-            this._decorateOfDomActiveOption(domActiveOption);
+              domActiveOption = this._getDomForActiveOption();
+              this._decorateOfDomActiveOption(domActiveOption);
 
-            var offsetTop = this.refs["v" + this.indexActiveOption].offsetTop;
-            var scrollTop = this.domOptions.scrollTop;
-            if (offsetTop - scrollTop > 70) {
-              this.domOptions.scrollTop += offsetTop - scrollTop - 70;
+              var offsetTop = this.refs["v" + this.indexActiveOption].offsetTop;
+              var scrollTop = this.domOptions.scrollTop;
+              if (offsetTop - scrollTop > 70) {
+                this.domOptions.scrollTop += offsetTop - scrollTop - 70;
+              }
             }
           }
+          break;
         }
-        break;
       //up
       case 38:
-        if (this.state.isShowOption) {
-          event.preventDefault();
+        {
+          if (this.state.isShowOption) {
+            event.preventDefault();
 
-          var _domActiveOption = this._getDomForActiveOption();
-          if (_domActiveOption) {
-            this._undecorateOfDomActiveOption(_domActiveOption);
+            var _domActiveOption = this._getDomForActiveOption();
+            if (_domActiveOption) {
+              this._undecorateOfDomActiveOption(_domActiveOption);
 
-            this.indexActiveOption -= 1;
-            if (this.indexActiveOption < 0) {
-              this.indexActiveOption = this.state.options.length - 1;
-              var offsetTop2 = this.refs["v" + this.indexActiveOption].offsetTop;
-              this.domOptions.scrollTop = offsetTop2;
-            }
+              this.indexActiveOption -= 1;
+              if (this.indexActiveOption < 0) {
+                this.indexActiveOption = this.state.options.length - 1;
+                var offsetTop2 = this.refs["v" + this.indexActiveOption].offsetTop;
+                this.domOptions.scrollTop = offsetTop2;
+              }
 
-            _domActiveOption = this._getDomForActiveOption();
-            this._decorateOfDomActiveOption(_domActiveOption);
+              _domActiveOption = this._getDomForActiveOption();
+              this._decorateOfDomActiveOption(_domActiveOption);
 
-            var _offsetTop = _domActiveOption.offsetTop;
-            var _scrollTop = this.domOptions.scrollTop;
-            if (_offsetTop - _scrollTop < 70) {
-              this.domOptions.scrollTop -= 70 - (_offsetTop - _scrollTop);
+              var _offsetTop = _domActiveOption.offsetTop;
+              var _scrollTop = this.domOptions.scrollTop;
+              if (_offsetTop - _scrollTop < 70) {
+                this.domOptions.scrollTop -= 70 - (_offsetTop - _scrollTop);
+              }
             }
           }
+          break;
         }
-        break;
       default:
-        /*console.log(event.keyCode);*/return undefined;
+        return undefined;
     }
   },
 
@@ -393,12 +290,12 @@ var ZhSelect = _react2.default.createClass({
     if (options) {
       if (!isValidDomOptionsCache) {
         _domOptions = options.map(function (item, index) {
-          var _styleDiv = index % 2 === 0 ? styles.itemOdd : styles.itemEven;
+          var _styleDiv = index % 2 === 0 ? _InputSelect2.default.itemOdd : _InputSelect2.default.itemEven;
           return _react2.default.createElement(
             'div',
             {
               className: 'option-row',
-              style: Object.assign({}, styles.itemDiv, _styleDiv),
+              style: Object.assign({}, _InputSelect2.default.itemDiv, _styleDiv),
               key: index,
               ref: "v" + index,
               onClick: _this._handlerClickOption.bind(_this, item, index)
@@ -421,7 +318,7 @@ var ZhSelect = _react2.default.createClass({
 
     return _react2.default.createElement(
       'div',
-      { style: Object.assign({}, styles.rootOptionDiv, _styleOptions, _styleDivWidth) },
+      { style: Object.assign({}, _InputSelect2.default.rootOptionDiv, _styleOptions, _styleDivWidth) },
       _react2.default.createElement(
         'div',
         {
@@ -429,16 +326,16 @@ var ZhSelect = _react2.default.createClass({
             return _this.domOptions = c;
           },
           key: '1',
-          style: Object.assign({}, styles.optionDiv, _styleOptions, _styleDivWidth)
+          style: Object.assign({}, _InputSelect2.default.optionDiv, _styleOptions, _styleDivWidth)
         },
         _domOptions
       ),
       _react2.default.createElement(
         'div',
-        { key: '2', style: styles.optionsFooter },
+        { key: '2', style: _InputSelect2.default.optionsFooter },
         _react2.default.createElement(
           'span',
-          { style: styles.fileredSpan },
+          { style: _InputSelect2.default.fileredSpan },
           'Filtered ',
           _numberFilteredItems,
           ' : ',
@@ -453,18 +350,18 @@ var ZhSelect = _react2.default.createClass({
       return _react2.default.createElement(
         'span',
         {
-          style: styles.arrowCell,
+          style: _InputSelect2.default.arrowCell,
           onClick: this._handlerToggleOptions },
-        _react2.default.createElement('span', { style: Object.assign({}, styles.arrow, _styleArrow) })
+        _react2.default.createElement('span', { style: Object.assign({}, _InputSelect2.default.arrow, _styleArrow) })
       );
     } else if (isLoading) {
       return _react2.default.createElement('span', {
-        style: styles.spinnerCell,
+        style: _InputSelect2.default.spinnerCell,
         'data-loader': 'circle'
       });
     } else if (isLoadingFailed) {
       return _react2.default.createElement('span', {
-        style: styles.spinnerFailedCell,
+        style: _InputSelect2.default.spinnerFailedCell,
         'data-loader': 'circle-failed',
         onClick: this.props.onLoadOption
       });
@@ -511,20 +408,20 @@ var ZhSelect = _react2.default.createClass({
       _domAfterInput = _react2.default.createElement(
         'span',
         {
-          style: styles.arrowCell,
+          style: _InputSelect2.default.arrowCell,
           onClick: this._handlerToggleOptions },
-        _react2.default.createElement('span', { style: Object.assign({}, styles.arrow, _styleArrow) })
+        _react2.default.createElement('span', { style: Object.assign({}, _InputSelect2.default.arrow, _styleArrow) })
       );
     } else if (isLoading) {
       _placeholder = 'Loading' + optionNames + '...';
       _domAfterInput = _react2.default.createElement('span', {
-        style: styles.spinnerCell,
+        style: _InputSelect2.default.spinnerCell,
         'data-loader': 'circle'
       });
     } else if (isLoadingFailed) {
       _placeholder = 'Loading' + optionNames + ' Failed';
       _domAfterInput = _react2.default.createElement('span', {
-        style: styles.spinnerFailedCell,
+        style: _InputSelect2.default.spinnerFailedCell,
         'data-loader': 'circle-failed',
         onClick: this.props.onLoadOption
       });
@@ -532,19 +429,19 @@ var ZhSelect = _react2.default.createClass({
 
     return _react2.default.createElement(
       'div',
-      { style: Object.assign({}, styles.rootDiv, _styleDivWidth) },
+      { style: Object.assign({}, _InputSelect2.default.rootDiv, _styleDivWidth) },
       _react2.default.createElement('input', {
         ref: function ref(c) {
           return _this2.domInputText = c;
         },
         type: 'text',
         value: value,
-        style: Object.assign({}, styles.inputText, _styleInputWidth),
+        style: Object.assign({}, _InputSelect2.default.inputText, _styleInputWidth),
         placeholder: _placeholder,
         onChange: this._handlerInputChange,
         onKeyDown: this._handlerInputKeyDown }),
       _domAfterInput,
-      _react2.default.createElement('hr', { style: Object.assign({}, styles.inputHr, _styleHr) }),
+      _react2.default.createElement('hr', { style: Object.assign({}, _InputSelect2.default.inputHr, _styleHr) }),
       _domOptions
     );
   },

@@ -16,6 +16,7 @@
   "author": "ZhnZhn",
   "license": "MIT",
   "dependencies": {
+    "big.js": "^3.1.3",
     "gl-matrix": "^2.3.2",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
@@ -23,6 +24,7 @@
   },
   "jspm": {
     "dependencies": {
+      "big.js": "npm:big.js@^3.1.3",
       "gl-matrix": "npm:gl-matrix@^2.3.2",
       "react": "npm:react@^15.4.1",
       "react-dom": "npm:react-dom@^15.4.1",
@@ -31,12 +33,14 @@
     "devDependencies": {}
   },
   "devDependencies": {
+    "ava": "^0.17.0",
     "babel-core": "^6.20.0",
     "babel-eslint": "^7.1.1",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-preset-es2015": "^6.18.0",
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-2": "^6.18.0",
+    "enzyme": "^2.7.0",
     "eslint": "^3.12.2",
     "eslint-plugin-react": "5.2.2",
     "gulp": "^3.9.1",
@@ -48,6 +52,8 @@
     "gulp-rev": "^7.1.2",
     "html-webpack-plugin": "^2.24.1",
     "jspm": "^0.16.48",
+    "react-addons-test-utils": "^15.4.1",
+    "sinon": "^1.17.6",
     "webpack": "^1.14.0"
   }
 }

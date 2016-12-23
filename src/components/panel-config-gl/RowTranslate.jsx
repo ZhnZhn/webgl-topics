@@ -44,9 +44,10 @@ class RowTranslate extends Component{
         <InputFloat
           ref={ comp => this.translateZ = comp }
           inputKey="translateZ"
-          value={zMatrixTranslate}
           inputStyle={STYLE.INPUT_FLOAT_3}
+          value={zMatrixTranslate}
           onChangeMode={this._onChangeMode.bind(this)}
+          onKeyDownEnter={this._handleSetTranslate}
         />
         <ButtonSet
             ref={ bt => this.bt = bt }

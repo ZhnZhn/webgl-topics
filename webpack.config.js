@@ -6,7 +6,7 @@ module.exports = {
   entry: {
     lib: [
            "react", "react-dom", "reflux",
-           "gl-matrix"
+           "gl-matrix", "big.js"
          ],
      app: "./js/index.js"
   },

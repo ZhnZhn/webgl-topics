@@ -30,12 +30,14 @@ class RowPerspective extends Component{
     comp.perspectiveNear = near.getValue()
     comp.perspectiveFar = far.getValue();
     comp.createPerspective(comp);
-    
+
     this._setModeToAll(2);
   }
 
+
   render(){
     const { perspectiveNear, perspectiveFar } = this.props
+        , onChangeMode = this._onChangeMode.bind(this)
     return(
       <div style={STYLE.ROW}>
         <span style={STYLE.CAPTION}>
@@ -47,9 +49,10 @@ class RowPerspective extends Component{
         <InputFloat
           ref={ comp => this.near = comp }
           inputKey="near"
-          value={perspectiveNear}
           inputStyle={STYLE.INPUT_FLOAT_3}
-          onChangeMode={this._onChangeMode.bind(this)}
+          value={perspectiveNear}
+          onChangeMode={onChangeMode}
+          onKeyDownEnter={this._handleSetPerspective}
         />
         <span style={STYLE.LABEL}>
           far:
@@ -59,7 +62,8 @@ class RowPerspective extends Component{
           inputKey="far"
           value={perspectiveFar}
           inputStyle={STYLE.INPUT_FLOAT_3}
-          onChangeMode={this._onChangeMode.bind(this)}
+          onChangeMode={onChangeMode}
+          onKeyDownEnter={this._handleSetPerspective}
         />
         <ButtonSet
            ref={ bt => this.bt = bt }

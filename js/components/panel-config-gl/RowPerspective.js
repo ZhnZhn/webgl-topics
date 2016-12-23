@@ -80,7 +80,8 @@ var RowPerspective = (0, _setModeToAll2.default)(_class = (0, _onChangeMode2.def
 
       var _props = this.props,
           perspectiveNear = _props.perspectiveNear,
-          perspectiveFar = _props.perspectiveFar;
+          perspectiveFar = _props.perspectiveFar,
+          onChangeMode = this._onChangeMode.bind(this);
 
       return _react2.default.createElement(
         'div',
@@ -100,9 +101,10 @@ var RowPerspective = (0, _setModeToAll2.default)(_class = (0, _onChangeMode2.def
             return _this2.near = comp;
           },
           inputKey: 'near',
-          value: perspectiveNear,
           inputStyle: _Row2.default.INPUT_FLOAT_3,
-          onChangeMode: this._onChangeMode.bind(this)
+          value: perspectiveNear,
+          onChangeMode: onChangeMode,
+          onKeyDownEnter: this._handleSetPerspective
         }),
         _react2.default.createElement(
           'span',
@@ -116,7 +118,8 @@ var RowPerspective = (0, _setModeToAll2.default)(_class = (0, _onChangeMode2.def
           inputKey: 'far',
           value: perspectiveFar,
           inputStyle: _Row2.default.INPUT_FLOAT_3,
-          onChangeMode: this._onChangeMode.bind(this)
+          onChangeMode: onChangeMode,
+          onKeyDownEnter: this._handleSetPerspective
         }),
         _react2.default.createElement(_ButtonSet2.default, {
           ref: function ref(bt) {

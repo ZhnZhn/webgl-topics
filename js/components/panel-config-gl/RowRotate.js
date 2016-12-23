@@ -99,9 +99,11 @@ var RowRotate = (0, _setModeToAll2.default)(_class = (0, _onChangeMode2.default)
             return _this2.rotateX = comp;
           },
           inputKey: 'rotateX',
-          value: rX,
           inputStyle: _Row2.default.INPUT_FLOAT_3,
-          onChangeMode: onChangeMode
+          value: rX,
+          step: 0.001,
+          onChangeMode: onChangeMode,
+          onKeyDownEnter: this._handleSetRotation
         }),
         _react2.default.createElement(
           'span',
@@ -113,9 +115,11 @@ var RowRotate = (0, _setModeToAll2.default)(_class = (0, _onChangeMode2.default)
             return _this2.rotateY = comp;
           },
           inputKey: 'rotateY',
-          value: rY,
           inputStyle: _Row2.default.INPUT_FLOAT_3,
-          onChangeMode: onChangeMode
+          value: rY,
+          step: 0.001,
+          onChangeMode: onChangeMode,
+          onKeyDownEnter: this._handleSetRotation
         }),
         _react2.default.createElement(
           'span',
@@ -127,9 +131,11 @@ var RowRotate = (0, _setModeToAll2.default)(_class = (0, _onChangeMode2.default)
             return _this2.rotateZ = comp;
           },
           inputKey: 'rotateZ',
-          value: rZ,
           inputStyle: _Row2.default.INPUT_FLOAT_3,
-          onChangeMode: onChangeMode
+          value: rZ,
+          step: 0.001,
+          onChangeMode: onChangeMode,
+          onKeyDownEnter: this._handleSetRotation
         }),
         _react2.default.createElement(_ButtonSet2.default, {
           ref: function ref(bt) {
