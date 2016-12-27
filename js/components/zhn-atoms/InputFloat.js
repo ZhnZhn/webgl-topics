@@ -262,7 +262,7 @@ var InputFloat = (_temp = _class = function (_Component) {
 
 
 InputFloat.defaultProps = {
-  value: '',
+  value: '0',
   step: 0.1
 };
 

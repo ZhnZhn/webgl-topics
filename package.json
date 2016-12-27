@@ -11,6 +11,7 @@
     "bundle": "jspm bundle js/**/* - [js/**/*] dependency-bundle.js",
     "build": "webpack --colors --progress",
     "gulp": "gulp",
+    "test:one": "ava src/**/__tests__/**/*.test.js --verbose --watch --source='InputFloat*'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "ZhnZhn",
@@ -55,5 +56,17 @@
     "react-addons-test-utils": "^15.4.1",
     "sinon": "^1.17.6",
     "webpack": "^1.14.0"
+  },
+  "ava": {
+    "babel": {
+      "presets": [
+        "es2015",
+        "stage-2",
+        "react"
+      ]
+    },
+    "files": [
+      "src/**/__tests__/**/*.test.js"
+    ]
   }
 }

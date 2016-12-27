@@ -26,7 +26,7 @@ class InputFloat extends Component {
       value : value,
       initedValue : value,
       step : step
-    }
+    }    
   }
 
   componentWillReceiveProps(nextProps){
@@ -183,7 +183,7 @@ class InputFloat extends Component {
 }
 
 InputFloat.defaultProps = {
-  value : '',
+  value : '0',
   step : 0.1
 }
 
