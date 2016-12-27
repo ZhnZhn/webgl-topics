@@ -4,6 +4,7 @@ import setModeToAll from './decorators/setModeToAll';
 import onChangeMode from './decorators/onChangeMode';
 import calcInputMode from './decorators/calcInputMode';
 
+import Label from '../zhn-atoms/Label';
 import InputFloat from '../zhn-atoms/InputFloat';
 import ButtonSet from '../zhn-atoms/ButtonSet';
 
@@ -40,28 +41,31 @@ class RowPerspective extends Component{
         , onChangeMode = this._onChangeMode.bind(this)
     return(
       <div style={STYLE.ROW}>
-        <span style={STYLE.CAPTION}>
-          perspective:
-        </span>
-        <span style={STYLE.LABEL}>
-          near:
-        </span>
+        <Label
+          style={STYLE.CAPTION}
+          title="perspective:"
+        />
+        <Label
+          style={STYLE.LABEL}
+          title="near:"
+        />
         <InputFloat
           ref={ comp => this.near = comp }
           inputKey="near"
-          inputStyle={STYLE.INPUT_FLOAT_3}
+          inputStyle={STYLE.INPUT_FLOAT_2}
           value={perspectiveNear}
           onChangeMode={onChangeMode}
           onKeyDownEnter={this._handleSetPerspective}
         />
-        <span style={STYLE.LABEL}>
-          far:
-        </span>
+        <Label
+          style={STYLE.LABEL}
+          title="far:"
+        />                
         <InputFloat
           ref={ comp => this.far = comp }
           inputKey="far"
           value={perspectiveFar}
-          inputStyle={STYLE.INPUT_FLOAT_3}
+          inputStyle={STYLE.INPUT_FLOAT_2}
           onChangeMode={onChangeMode}
           onKeyDownEnter={this._handleSetPerspective}
         />

@@ -4,6 +4,7 @@ import setModeToAll from './decorators/setModeToAll';
 import onChangeMode from './decorators/onChangeMode';
 import calcInputMode from './decorators/calcInputMode';
 
+import Label from '../zhn-atoms/Label';
 import InputFloat from '../zhn-atoms/InputFloat';
 import ButtonSet from '../zhn-atoms/ButtonSet';
 
@@ -38,12 +39,14 @@ class RowRotate extends Component {
         , onChangeMode = this._onChangeMode.bind(this)
     return(
       <div style={STYLE.ROW}>
-        <span style={STYLE.CAPTION}>
-          rotate:
-        </span>
-        <span style={STYLE.LABEL}>
-          X:
-        </span>
+        <Label
+          style={STYLE.CAPTION}
+          title="rotate:"
+        />
+        <Label
+          style={STYLE.LABEL}
+          title="X:"
+        />
         <InputFloat
           ref={ comp => this.rotateX = comp }
           inputKey="rotateX"
@@ -53,9 +56,10 @@ class RowRotate extends Component {
           onChangeMode={onChangeMode}
           onKeyDownEnter={this._handleSetRotation}
         />
-        <span style={STYLE.LABEL}>
-          Y:
-        </span>
+        <Label
+          style={STYLE.LABEL}
+          title="Y:"
+        />
         <InputFloat
           ref={ comp => this.rotateY = comp }
           inputKey="rotateY"
@@ -65,9 +69,10 @@ class RowRotate extends Component {
           onChangeMode={onChangeMode}
           onKeyDownEnter={this._handleSetRotation}
         />
-        <span style={STYLE.LABEL}>
-          Z:
-        </span>
+        <Label
+          style={STYLE.LABEL}
+          title="Z:"
+        />
         <InputFloat
           ref={ comp => this.rotateZ = comp }
           inputKey="rotateZ"

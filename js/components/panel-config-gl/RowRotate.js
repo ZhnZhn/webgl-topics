@@ -24,6 +24,10 @@ var _calcInputMode = require('./decorators/calcInputMode');
 
 var _calcInputMode2 = _interopRequireDefault(_calcInputMode);
 
+var _Label = require('../zhn-atoms/Label');
+
+var _Label2 = _interopRequireDefault(_Label);
+
 var _InputFloat = require('../zhn-atoms/InputFloat');
 
 var _InputFloat2 = _interopRequireDefault(_InputFloat);
@@ -84,16 +88,14 @@ var RowRotate = (0, _setModeToAll2.default)(_class = (0, _onChangeMode2.default)
       return _react2.default.createElement(
         'div',
         { style: _Row2.default.ROW },
-        _react2.default.createElement(
-          'span',
-          { style: _Row2.default.CAPTION },
-          'rotate:'
-        ),
-        _react2.default.createElement(
-          'span',
-          { style: _Row2.default.LABEL },
-          'X:'
-        ),
+        _react2.default.createElement(_Label2.default, {
+          style: _Row2.default.CAPTION,
+          title: 'rotate:'
+        }),
+        _react2.default.createElement(_Label2.default, {
+          style: _Row2.default.LABEL,
+          title: 'X:'
+        }),
         _react2.default.createElement(_InputFloat2.default, {
           ref: function ref(comp) {
             return _this2.rotateX = comp;
@@ -105,11 +107,10 @@ var RowRotate = (0, _setModeToAll2.default)(_class = (0, _onChangeMode2.default)
           onChangeMode: onChangeMode,
           onKeyDownEnter: this._handleSetRotation
         }),
-        _react2.default.createElement(
-          'span',
-          { style: _Row2.default.LABEL },
-          'Y:'
-        ),
+        _react2.default.createElement(_Label2.default, {
+          style: _Row2.default.LABEL,
+          title: 'Y:'
+        }),
         _react2.default.createElement(_InputFloat2.default, {
           ref: function ref(comp) {
             return _this2.rotateY = comp;
@@ -121,11 +122,10 @@ var RowRotate = (0, _setModeToAll2.default)(_class = (0, _onChangeMode2.default)
           onChangeMode: onChangeMode,
           onKeyDownEnter: this._handleSetRotation
         }),
-        _react2.default.createElement(
-          'span',
-          { style: _Row2.default.LABEL },
-          'Z:'
-        ),
+        _react2.default.createElement(_Label2.default, {
+          style: _Row2.default.LABEL,
+          title: 'Z:'
+        }),
         _react2.default.createElement(_InputFloat2.default, {
           ref: function ref(comp) {
             return _this2.rotateZ = comp;

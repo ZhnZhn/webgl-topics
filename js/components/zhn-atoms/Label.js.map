@@ -1,0 +1,13 @@
+)]}
+{
+ "version": 3,
+ "sources": "D:\\_Dev\\_React\\_WebGL_Topic\\src\\components\\zhn-atoms\\Label.jsx",
+ "file": "D:\\_Dev\\_React\\_WebGL_Topic\\js\\components\\zhn-atoms\\Label.js",
+ "sourceRoot": "",
+ "names": [
+  "Label",
+  "style",
+  "title"
+ ],
+ "mappings": ";;;;;;AAAA;;;;;;AAEA,IAAMA,QAAQ,SAARA,KAAQ;AAAA,MAAEC,KAAF,QAAEA,KAAF;AAAA,MAASC,KAAT,QAASA,KAAT;AAAA,SACZ;AAAA;AAAA;AACG,iBAAU,cADb;AAEG,aAAOD;AAFV;AAIGC;AAJH,GADY;AAAA,CAAd;;kBASeF,K"
+}

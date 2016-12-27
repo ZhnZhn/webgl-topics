@@ -24,6 +24,10 @@ var _calcInputMode = require('./decorators/calcInputMode');
 
 var _calcInputMode2 = _interopRequireDefault(_calcInputMode);
 
+var _Label = require('../zhn-atoms/Label');
+
+var _Label2 = _interopRequireDefault(_Label);
+
 var _InputFloat = require('../zhn-atoms/InputFloat');
 
 var _InputFloat2 = _interopRequireDefault(_InputFloat);
@@ -78,22 +82,20 @@ var RowTranslate = (0, _setModeToAll2.default)(_class = (0, _onChangeMode2.defau
       return _react2.default.createElement(
         'div',
         { style: _Row2.default.ROW },
-        _react2.default.createElement(
-          'span',
-          { style: _Row2.default.CAPTION },
-          'translate:'
-        ),
-        _react2.default.createElement(
-          'span',
-          { style: _Row2.default.LABEL },
-          'Z:'
-        ),
+        _react2.default.createElement(_Label2.default, {
+          style: _Row2.default.CAPTION,
+          title: 'translate:'
+        }),
+        _react2.default.createElement(_Label2.default, {
+          style: _Row2.default.LABEL,
+          title: 'Z:'
+        }),
         _react2.default.createElement(_InputFloat2.default, {
           ref: function ref(comp) {
             return _this2.translateZ = comp;
           },
           inputKey: 'translateZ',
-          inputStyle: _Row2.default.INPUT_FLOAT_3,
+          inputStyle: _Row2.default.INPUT_FLOAT_2,
           value: zMatrixTranslate,
           onChangeMode: this._onChangeMode.bind(this),
           onKeyDownEnter: this._handleSetTranslate

@@ -24,6 +24,10 @@ var _calcInputMode = require('./decorators/calcInputMode');
 
 var _calcInputMode2 = _interopRequireDefault(_calcInputMode);
 
+var _Label = require('../zhn-atoms/Label');
+
+var _Label2 = _interopRequireDefault(_Label);
+
 var _InputFloat = require('../zhn-atoms/InputFloat');
 
 var _InputFloat2 = _interopRequireDefault(_InputFloat);
@@ -86,38 +90,35 @@ var RowPerspective = (0, _setModeToAll2.default)(_class = (0, _onChangeMode2.def
       return _react2.default.createElement(
         'div',
         { style: _Row2.default.ROW },
-        _react2.default.createElement(
-          'span',
-          { style: _Row2.default.CAPTION },
-          'perspective:'
-        ),
-        _react2.default.createElement(
-          'span',
-          { style: _Row2.default.LABEL },
-          'near:'
-        ),
+        _react2.default.createElement(_Label2.default, {
+          style: _Row2.default.CAPTION,
+          title: 'perspective:'
+        }),
+        _react2.default.createElement(_Label2.default, {
+          style: _Row2.default.LABEL,
+          title: 'near:'
+        }),
         _react2.default.createElement(_InputFloat2.default, {
           ref: function ref(comp) {
             return _this2.near = comp;
           },
           inputKey: 'near',
-          inputStyle: _Row2.default.INPUT_FLOAT_3,
+          inputStyle: _Row2.default.INPUT_FLOAT_2,
           value: perspectiveNear,
           onChangeMode: onChangeMode,
           onKeyDownEnter: this._handleSetPerspective
         }),
-        _react2.default.createElement(
-          'span',
-          { style: _Row2.default.LABEL },
-          'far:'
-        ),
+        _react2.default.createElement(_Label2.default, {
+          style: _Row2.default.LABEL,
+          title: 'far:'
+        }),
         _react2.default.createElement(_InputFloat2.default, {
           ref: function ref(comp) {
             return _this2.far = comp;
           },
           inputKey: 'far',
           value: perspectiveFar,
-          inputStyle: _Row2.default.INPUT_FLOAT_3,
+          inputStyle: _Row2.default.INPUT_FLOAT_2,
           onChangeMode: onChangeMode,
           onKeyDownEnter: this._handleSetPerspective
         }),

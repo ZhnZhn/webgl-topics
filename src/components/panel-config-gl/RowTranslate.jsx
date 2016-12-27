@@ -4,6 +4,7 @@ import setModeToAll from './decorators/setModeToAll';
 import onChangeMode from './decorators/onChangeMode';
 import calcInputMode from './decorators/calcInputMode';
 
+import Label from '../zhn-atoms/Label';
 import InputFloat from '../zhn-atoms/InputFloat';
 import ButtonSet from '../zhn-atoms/ButtonSet';
 
@@ -35,16 +36,18 @@ class RowTranslate extends Component{
 
     return(
       <div style={STYLE.ROW}>
-        <span style={STYLE.CAPTION}>
-          translate:
-        </span>
-        <span style={STYLE.LABEL}>
-          Z:
-        </span>
+        <Label
+          style={STYLE.CAPTION}
+          title="translate:"
+        />
+        <Label
+          style={STYLE.LABEL}
+          title="Z:"
+        />
         <InputFloat
           ref={ comp => this.translateZ = comp }
           inputKey="translateZ"
-          inputStyle={STYLE.INPUT_FLOAT_3}
+          inputStyle={STYLE.INPUT_FLOAT_2}
           value={zMatrixTranslate}
           onChangeMode={this._onChangeMode.bind(this)}
           onKeyDownEnter={this._handleSetTranslate}

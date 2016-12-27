@@ -14,8 +14,11 @@ const STYLE = {
     fontWeight : 'bold',
     fontSize : '16px'
   },
+  INPUT_FLOAT_2 : {
+    width: '35px'
+  },
   INPUT_FLOAT_3 : {
-    width: '55px'
+    width: '45px'
   }
 }
 

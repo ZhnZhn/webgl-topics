@@ -17,13 +17,13 @@ var STYLE = {
     border: 'medium none',
     outline: 'medium none',
     height: '26px',
-    paddingLeft: '5px',
+    //paddingLeft: '5px',
     color: 'green',
     width: '40px',
     fontSize: '16px',
     fontWeight: 'bold',
     backgroundColor: '#E1E1CB',
-    marginLeft: '5px',
+    //marginLeft : '5px',
     marginRight: '5px',
     display: 'inline'
   },
@@ -33,9 +33,10 @@ var STYLE = {
     borderColor: 'red',
     borderImage: 'none',
     margin: 0,
-    marginLeft: '10px',
+    //marginLeft: '5px',
     marginBottom: '5px',
-    width: '75%'
+    width: '100%'
+    //width: '75%'
   },
   VALID_CHANGED: {
     borderColor: '#673ab7'
@@ -45,6 +46,26 @@ var STYLE = {
   },
   NOT_VALID: {
     borderColor: '#F44336'
+  },
+
+  ARROW: {
+    display: 'inline-block',
+    position: 'relative',
+    //borderColor: 'rgb(153, 153, 153) transparent transparent',
+    borderColor: 'rgb(1, 1, 1) transparent transparent',
+    borderStyle: 'solid',
+    borderWidth: '12px 6px 4px',
+    cursor: 'pointer'
+  },
+  ARROW_PLUS: {
+    transform: 'rotateX(180deg)',
+    marginLeft: '6px',
+    marginRight: '6px',
+    top: '3px'
+  },
+  ARROW_MINUS: {
+    top: '8px',
+    marginRight: '6px'
   }
 };
 

@@ -26,7 +26,7 @@ class InputFloat extends Component {
       value : value,
       initedValue : value,
       step : step
-    }    
+    }
   }
 
   componentWillReceiveProps(nextProps){
@@ -74,6 +74,34 @@ class InputFloat extends Component {
      return this.state.initedValue !== parseFloat(value);
   }
 
+  _increaseOnStep = () => {
+    const { value, step } = this.state
+          , valueNext = (new Big(value)).plus(step).toString()
+          , nextMode = this._calcMode(valueNext)
+     this._callOnChangeMode(nextMode);
+     //this.input.focus();
+     this.setState({
+        mode : nextMode,
+        value : valueNext
+     })
+  }
+
+  _decreaseOnStep = () => {
+    const { value, step } = this.state
+          , valueNext = (new Big(value)).minus(step).toString()
+          , nextMode = this._calcMode(valueNext)
+     this._callOnChangeMode(nextMode);
+     //this.input.focus();
+     this.setState({
+        mode : nextMode,
+        value : valueNext
+     })
+  }
+
+  _handleClickRoot = () => {
+    this.input.focus();
+  }
+
   _handleInputChange = (event) => {
     const strValue = event.target.value
     this._updateValue(strValue)
@@ -101,26 +129,12 @@ class InputFloat extends Component {
        //up
        case 38 : {
          event.preventDefault();
-         const { value, step } = this.state
-               , valueNext = (new Big(value)).plus(step).toString()
-               , nextMode = this._calcMode(valueNext)
-          this._callOnChangeMode(nextMode);
-          this.setState({
-             mode : nextMode,
-             value : valueNext
-          })
+         this._increaseOnStep();
        break;}
        //down
        case 40 : {
         event.preventDefault();
-        const { value, step } = this.state
-              , valueNext = (new Big(value)).minus(step).toString()
-              , nextMode = this._calcMode(valueNext)
-         this._callOnChangeMode(nextMode);
-         this.setState({
-            mode : nextMode,
-            value : valueNext
-         })
+        this._decreaseOnStep();
        break;}
        default : return undefined;
     }
@@ -149,15 +163,29 @@ class InputFloat extends Component {
         , _hrStyle = _hmModeStyle[mode]
 
     return (
-      <div style={STYLE.ROOT}>
-        <input
-          type="text"
-          style={Object.assign({}, STYLE.INPUT, inputStyle)}
-          value={value}
-          onChange={this._handleInputChange}
-          onKeyDown={this._handleInputKeyDown}
+      <div
+         style={STYLE.ROOT}
+         onClick={this._handleClickRoot}
+      >
+        <span
+           style={Object.assign({}, STYLE.ARROW, STYLE.ARROW_PLUS)}
+           onClick={this._increaseOnStep}
         />
-        <hr style={Object.assign({}, STYLE.HR, _hrStyle)}></hr>
+        <div style={{ display: 'inline-block'}}>
+          <input
+            ref={input => this.input = input }
+            type="text"
+            style={Object.assign({}, STYLE.INPUT, inputStyle)}
+            value={value}
+            onChange={this._handleInputChange}
+            onKeyDown={this._handleInputKeyDown}
+          />
+          <hr style={Object.assign({}, STYLE.HR, _hrStyle)}></hr>
+        </div>
+        <span
+           style={Object.assign({}, STYLE.ARROW, STYLE.ARROW_MINUS)}
+           onClick={this._decreaseOnStep}
+        />
       </div>
     );
   }

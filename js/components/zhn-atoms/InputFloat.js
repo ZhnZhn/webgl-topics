@@ -90,6 +90,8 @@ var InputFloat = (_temp = _class = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
+      var _this2 = this;
+
       var inputStyle = this.props.inputStyle,
           _state = this.state,
           value = _state.value,
@@ -99,15 +101,33 @@ var InputFloat = (_temp = _class = function (_Component) {
 
       return _react2.default.createElement(
         'div',
-        { style: _InputFloat2.default.ROOT },
-        _react2.default.createElement('input', {
-          type: 'text',
-          style: Object.assign({}, _InputFloat2.default.INPUT, inputStyle),
-          value: value,
-          onChange: this._handleInputChange,
-          onKeyDown: this._handleInputKeyDown
+        {
+          style: _InputFloat2.default.ROOT,
+          onClick: this._handleClickRoot
+        },
+        _react2.default.createElement('span', {
+          style: Object.assign({}, _InputFloat2.default.ARROW, _InputFloat2.default.ARROW_PLUS),
+          onClick: this._increaseOnStep
         }),
-        _react2.default.createElement('hr', { style: Object.assign({}, _InputFloat2.default.HR, _hrStyle) })
+        _react2.default.createElement(
+          'div',
+          { style: { display: 'inline-block' } },
+          _react2.default.createElement('input', {
+            ref: function ref(input) {
+              return _this2.input = input;
+            },
+            type: 'text',
+            style: Object.assign({}, _InputFloat2.default.INPUT, inputStyle),
+            value: value,
+            onChange: this._handleInputChange,
+            onKeyDown: this._handleInputKeyDown
+          }),
+          _react2.default.createElement('hr', { style: Object.assign({}, _InputFloat2.default.HR, _hrStyle) })
+        ),
+        _react2.default.createElement('span', {
+          style: Object.assign({}, _InputFloat2.default.ARROW, _InputFloat2.default.ARROW_MINUS),
+          onClick: this._decreaseOnStep
+        })
       );
     }
   }, {
@@ -137,13 +157,13 @@ var InputFloat = (_temp = _class = function (_Component) {
 
   return InputFloat;
 }(_react.Component), _initialiseProps = function _initialiseProps() {
-  var _this2 = this;
+  var _this3 = this;
 
   this._calcMode = function (value) {
-    if (!_this2._onTest(value)) {
+    if (!_this3._onTest(value)) {
       return 0;
     }
-    if (_this2._isChanged(value)) {
+    if (_this3._isChanged(value)) {
       return 1;
     }
     return 2;
@@ -163,12 +183,46 @@ var InputFloat = (_temp = _class = function (_Component) {
   };
 
   this._isChanged = function (value) {
-    return _this2.state.initedValue !== parseFloat(value);
+    return _this3.state.initedValue !== parseFloat(value);
+  };
+
+  this._increaseOnStep = function () {
+    var _state2 = _this3.state,
+        value = _state2.value,
+        step = _state2.step,
+        valueNext = new _big2.default(value).plus(step).toString(),
+        nextMode = _this3._calcMode(valueNext);
+
+    _this3._callOnChangeMode(nextMode);
+    //this.input.focus();
+    _this3.setState({
+      mode: nextMode,
+      value: valueNext
+    });
+  };
+
+  this._decreaseOnStep = function () {
+    var _state3 = _this3.state,
+        value = _state3.value,
+        step = _state3.step,
+        valueNext = new _big2.default(value).minus(step).toString(),
+        nextMode = _this3._calcMode(valueNext);
+
+    _this3._callOnChangeMode(nextMode);
+    //this.input.focus();
+    _this3.setState({
+      mode: nextMode,
+      value: valueNext
+    });
+  };
+
+  this._handleClickRoot = function () {
+    _this3.input.focus();
   };
 
   this._handleInputChange = function (event) {
     var strValue = event.target.value;
-    _this2._updateValue(strValue);
+    _this3._updateValue(strValue);
   };
 
   this._handleInputKeyDown = function (event) {
@@ -176,24 +230,24 @@ var InputFloat = (_temp = _class = function (_Component) {
       // enter
       case 13:
         {
-          if (_this2.isOnKeyDownEnterFn) {
-            _this2.props.onKeyDownEnter();
+          if (_this3.isOnKeyDownEnterFn) {
+            _this3.props.onKeyDownEnter();
           }
           break;
         }
       // esc
       case 27:
         {
-          var _state2 = _this2.state,
-              value = _state2.value,
-              initedValue = _state2.initedValue;
+          var _state4 = _this3.state,
+              value = _state4.value,
+              initedValue = _state4.initedValue;
 
           if (value !== initedValue || "" + initedValue === "0") {
-            _this2._callOnChangeMode(2);
-            _this2.setState({ mode: 2, value: initedValue });
+            _this3._callOnChangeMode(2);
+            _this3.setState({ mode: 2, value: initedValue });
           } else {
-            _this2._callOnChangeMode(1);
-            _this2.setState({ mode: 1, value: 0 });
+            _this3._callOnChangeMode(1);
+            _this3.setState({ mode: 1, value: 0 });
           }
           break;
         }
@@ -201,36 +255,14 @@ var InputFloat = (_temp = _class = function (_Component) {
       case 38:
         {
           event.preventDefault();
-
-          var _state3 = _this2.state,
-              _value = _state3.value,
-              step = _state3.step,
-              valueNext = new _big2.default(_value).plus(step).toString(),
-              nextMode = _this2._calcMode(valueNext);
-
-          _this2._callOnChangeMode(nextMode);
-          _this2.setState({
-            mode: nextMode,
-            value: valueNext
-          });
+          _this3._increaseOnStep();
           break;
         }
       //down
       case 40:
         {
           event.preventDefault();
-
-          var _state4 = _this2.state,
-              _value2 = _state4.value,
-              _step = _state4.step,
-              _valueNext = new _big2.default(_value2).minus(_step).toString(),
-              _nextMode = _this2._calcMode(_valueNext);
-
-          _this2._callOnChangeMode(_nextMode);
-          _this2.setState({
-            mode: _nextMode,
-            value: _valueNext
-          });
+          _this3._decreaseOnStep();
           break;
         }
       default:
@@ -239,10 +271,10 @@ var InputFloat = (_temp = _class = function (_Component) {
   };
 
   this._callOnChangeMode = function (nextMode) {
-    var mode = _this2.state.mode;
+    var mode = _this3.state.mode;
 
-    if (_this2.isOnChangeModeFn && mode !== nextMode) {
-      var _props = _this2.props,
+    if (_this3.isOnChangeModeFn && mode !== nextMode) {
+      var _props = _this3.props,
           inputKey = _props.inputKey,
           onChangeMode = _props.onChangeMode;
 
@@ -251,9 +283,9 @@ var InputFloat = (_temp = _class = function (_Component) {
   };
 
   this._updateValue = function (strValue) {
-    var nextMode = _this2._calcMode(strValue);
-    _this2._callOnChangeMode(nextMode);
-    _this2.setState({
+    var nextMode = _this3._calcMode(strValue);
+    _this3._callOnChangeMode(nextMode);
+    _this3.setState({
       mode: nextMode,
       value: strValue
     });
