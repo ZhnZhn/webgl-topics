@@ -47,7 +47,8 @@ const STYLE = {
     display: 'inline-block',
     position: 'relative',
     //borderColor: 'rgb(153, 153, 153) transparent transparent',
-    borderColor: 'rgb(1, 1, 1) transparent transparent',
+    //borderColor: 'rgb(1, 1, 1) transparent transparent',
+    borderColor: 'rgb(103, 58, 183) transparent transparent',
     borderStyle: 'solid',
     borderWidth: '12px 6px 4px',
     cursor : 'pointer'

@@ -8,16 +8,18 @@ import Plane from './gl-props/Plane';
 import Cube from './gl-props/Cube';
 import TextureImage from './gl-props/TextureImage';
 import CubeWithLight from './gl-props/CubeWithLight';
+import CubeTransparent from './gl-props/CubeTransparent';
 
 const _rTopic = {
-  DEFAULT : { props : RandomTriangles },  
+  DEFAULT : { props : RandomTriangles },
   //DEFAULT : { props : CubeWithLight },
   RANDOM_TRIANGLES : { props : RandomTriangles },
   CORONA : { props : CoronaSample },
   PLANE : { props : Plane },
   CUBE : { props : Cube },
   TEXTURE_IMAGE : { props: TextureImage },
-  CUBE_WITH_LIGHT : { props: CubeWithLight }
+  CUBE_WITH_LIGHT : { props: CubeWithLight },
+  CUBE_TRANSPARENT : { props : CubeTransparent }
 }
 
 const factoryTopic = (topicId) => {

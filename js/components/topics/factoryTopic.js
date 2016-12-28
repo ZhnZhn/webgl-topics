@@ -32,7 +32,13 @@ var _CubeWithLight = require('./gl-props/CubeWithLight');
 
 var _CubeWithLight2 = _interopRequireDefault(_CubeWithLight);
 
+var _CubeTransparent = require('./gl-props/CubeTransparent');
+
+var _CubeTransparent2 = _interopRequireDefault(_CubeTransparent);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//import React from 'react';
 
 var _rTopic = {
   DEFAULT: { props: _RandomTriangles2.default },
@@ -42,8 +48,9 @@ var _rTopic = {
   PLANE: { props: _Plane2.default },
   CUBE: { props: _Cube2.default },
   TEXTURE_IMAGE: { props: _TextureImage2.default },
-  CUBE_WITH_LIGHT: { props: _CubeWithLight2.default }
-}; //import React from 'react';
+  CUBE_WITH_LIGHT: { props: _CubeWithLight2.default },
+  CUBE_TRANSPARENT: { props: _CubeTransparent2.default }
+};
 
 var factoryTopic = function factoryTopic(topicId) {
   var config = _rTopic[topicId],

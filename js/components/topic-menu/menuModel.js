@@ -24,6 +24,8 @@ var menuModel = [{
       return _RouterTopicActions2.default.viewTopic('TEXTURE_IMAGE');
     } }, { title: "CubeWithLight", onClick: function onClick() {
       return _RouterTopicActions2.default.viewTopic('CUBE_WITH_LIGHT');
+    } }, { title: "CubeTransparent", onClick: function onClick() {
+      return _RouterTopicActions2.default.viewTopic('CUBE_TRANSPARENT');
     } }]
 }];
 

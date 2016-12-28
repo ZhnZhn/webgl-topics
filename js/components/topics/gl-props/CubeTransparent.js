@@ -10,14 +10,22 @@ var _fnGL2 = _interopRequireDefault(_fnGL);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Cube = {
+var CubeTransparent = {
   valuesForInit: {
     zMatrixTranslate: -4,
-    isDrawElemnts: true
+    isDrawElemnts: true,
+    drawMode: "LINES"
   },
 
   createVertices: function createVertices(target) {
-    var vertices = target.vertices = [-1, -1, -1, 1, 0, 0, 1, 1, -1, -1, 1, 1, 0, 1, -1, 1, -1, 0, 1, 1, 1, 1, 1, -1, 0, 0, 1, 1, -1, 1, 1, 1, 0.5, 0, 1, 1, 1, 1, 0.5, 1, 1, 1, -1, -1, 1, 1, 0, 0.5, 1, 1, -1, 1, 0.5, 0, 1, 1];
+    var vertices = target.vertices = [0, 0, 0, 1, 1, 1, 1, -1, -1, -1, 1, 0, 0, 1, //1df
+    1, -1, -1, 1, 1, 0, 1, //2df
+    -1, 1, -1, 1, 0, 0, 1, //3uf
+    1, 1, -1, 1, 1, 0, 1, //4uf
+    -1, -1, 1, 1, 0, 0, 1, //5dn
+    1, -1, 1, 1, 1, 0, 1, //6dn
+    -1, 1, 1, 1, 0, 0, 1, //7un
+    1, 1, 1, 1, 1, 0, 1];
 
     target.vertexCount = vertices.length / 7;
     var gl = target.gl,
@@ -29,7 +37,7 @@ var Cube = {
   },
 
   createIndices: function createIndices(target) {
-    var indices = target.indices = [0, 1, 2, 1, 2, 3, 2, 3, 4, 3, 4, 5, 4, 5, 6, 5, 6, 7, 6, 7, 0, 7, 0, 1, 0, 2, 6, 2, 6, 4, 1, 3, 7, 3, 7, 5];
+    var indices = target.indices = [0, 1, 0, 2, 0, 3, 0, 4, 0, 5, 0, 6, 0, 7, 0, 8, 1, 2, 2, 4, 4, 3, 3, 1, 1, 5, 5, 6, 6, 2, 6, 8, 8, 7, 7, 5, 8, 4, 7, 3];
     target.indexCount = indices.length;
     var gl = target.gl;
 
@@ -47,5 +55,5 @@ var Cube = {
 
 };
 
-exports.default = Cube;
-//# sourceMappingURL=D:\_Dev\_React\_WebGL_Topic\js\components\topics\gl-props\Cube.js.map
+exports.default = CubeTransparent;
+//# sourceMappingURL=D:\_Dev\_React\_WebGL_Topic\js\components\topics\gl-props\CubeTransparent.js.map

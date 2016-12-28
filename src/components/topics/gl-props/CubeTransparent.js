@@ -1,21 +1,23 @@
 import fnGL from '../gl-fn/fnGL'
 
-const Cube = {
+const CubeTransparent = {
   valuesForInit : {
     zMatrixTranslate : -4,
-    isDrawElemnts : true
+    isDrawElemnts : true,
+    drawMode : "LINES"
   },
 
   createVertices : (target) => {
     const vertices = target.vertices = [
-      -1, -1, -1,   1, 0, 0, 1,
-       1, -1, -1,   1, 1, 0, 1,
-      -1, 1, -1,    0, 1, 1, 1,
-       1, 1, -1,    0, 0, 1, 1,
-      -1, 1, 1,     1, 0.5, 0, 1,
-       1, 1, 1,     0.5, 1, 1, 1,
-      -1, -1, 1,    1, 0, 0.5, 1,
-       1, -1, 1,    0.5, 0, 1, 1
+       0, 0, 0,     1, 1, 1, 1,
+      -1, -1, -1,   1, 0, 0, 1,  //1df
+       1, -1, -1,   1, 1, 0, 1,  //2df
+      -1,  1, -1,   1, 0, 0, 1,  //3uf
+       1,  1, -1,   1, 1, 0, 1,  //4uf
+      -1, -1,  1,   1, 0, 0, 1,  //5dn
+       1, -1,  1,   1, 1, 0, 1,  //6dn
+      -1,  1,  1,   1, 0, 0, 1,  //7un
+       1,  1,  1,   1, 1, 0, 1,  //8un
     ];
 
 
@@ -36,17 +38,17 @@ const Cube = {
 
  createIndices : (target) => {
    const indices = target.indices = [
-    0, 1, 2,   1, 2, 3,
-    2, 3, 4,   3, 4, 5,
-    4, 5, 6,   5, 6, 7,
-    6, 7, 0,   7, 0, 1,
-    0, 2, 6,   2, 6, 4,
-    1, 3, 7,   3, 7, 5
+    0, 1,  0, 2,  0, 3,  0, 4,
+    0, 5,  0, 6,  0, 7,  0, 8,
+    1, 2,  2, 4,  4, 3,  3, 1,
+    1, 5,  5, 6,  6, 2,
+    6, 8,  8, 7,  7, 5,
+    8, 4,  7, 3
   ];
   target.indexCount = indices.length;
   const { gl } = target
   target.indexBuffer = fnGL.createBuffer(
-    gl, new Uint8Array(indices), "ELEMENT_ARRAY_BUFFER"
+     gl, new Uint8Array(indices), "ELEMENT_ARRAY_BUFFER"
   );
 },
 
@@ -58,4 +60,4 @@ clearBuffers : (target) => {
 
 }
 
-export default Cube
+export default CubeTransparent

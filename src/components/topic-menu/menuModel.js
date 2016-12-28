@@ -10,7 +10,8 @@ const menuModel = [
       { title: "Plane", onClick :  () => Actions.viewTopic('PLANE') },
       { title: "Cube", onClick :  () => Actions.viewTopic('CUBE') },
       { title: "TextureImage", onClick :  () => Actions.viewTopic('TEXTURE_IMAGE') },
-      { title: "CubeWithLight", onClick :  () => Actions.viewTopic('CUBE_WITH_LIGHT') }
+      { title: "CubeWithLight", onClick :  () => Actions.viewTopic('CUBE_WITH_LIGHT') },
+      { title: "CubeTransparent", onClick :  () => Actions.viewTopic('CUBE_TRANSPARENT') }
     ]
   }
 ];
