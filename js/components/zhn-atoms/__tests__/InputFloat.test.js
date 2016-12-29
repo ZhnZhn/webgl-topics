@@ -47,8 +47,8 @@ var _fnGetWrapper = function _fnGetWrapper(props) {
   t.is(wrapper.state("step"), dfStep);
 
   var instance = wrapper.instance();
-  t.is(instance.isOnChangeModeFn, undefined);
-  t.is(instance.isOnKeyDownEnterFn, undefined);
+  t.false(instance.isOnChangeModeFn);
+  t.false(instance.isOnKeyDownEnterFn);
 });
 
 (0, _ava2.default)('should cache boolean flag for onChangeMode, onKeyDownEnter props', function (t) {

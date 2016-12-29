@@ -1,13 +1,15 @@
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
 exports._startAnimation = undefined;
 
-var _dfValues = require("../gl-props/dfValues");
+var _dfValues = require('../gl-props/dfValues');
 
 var _dfValues2 = _interopRequireDefault(_dfValues);
+
+var _is = require('../../../utils/is');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -43,14 +45,14 @@ var _startAnimation = exports._startAnimation = function _startAnimation(target)
     }
     configMatrix(target);
 
-    if (typeof _createIndices === "function") {
+    if ((0, _is.isFunction)(_createIndices)) {
         _createIndices(target);
     }
-    if (typeof _loadTexture === "function") {
+    if ((0, _is.isFunction)(_loadTexture)) {
         _loadTexture(target);
     }
 
-    if (typeof _draw === "function") {
+    if ((0, _is.isFunction)(_draw)) {
         _draw(target);
     } else {
         draw(target);

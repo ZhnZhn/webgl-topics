@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import Big from 'big.js'
 
+import { isFunction, isFloat } from '../../utils/is'
 import STYLE from './InputFloat.Style';
 
 const _hmModeStyle = {
@@ -11,39 +12,29 @@ const _hmModeStyle = {
 
 class InputFloat extends Component {
 
+  _getInitedState = (props) => {
+     const { value, step, onChangeMode, onKeyDownEnter } = props
+
+     this.isOnChangeModeFn = isFunction(onChangeMode);
+     this.isOnKeyDownEnterFn = isFunction(onKeyDownEnter);
+
+     return {
+       mode : (this._onTest(value)) ? 2 : 0,
+       value : value,
+       initedValue : value,
+       step : step
+     };
+  }
+
   constructor(props){
     super(props);
 
-    const { value, step, onChangeMode, onKeyDownEnter } = props
-    if (typeof onChangeMode === "function") {
-      this.isOnChangeModeFn = true;
-    }
-    if (typeof onKeyDownEnter === "function") {
-      this.isOnKeyDownEnterFn = true;
-    }
-    this.state = {
-      mode : (this._onTest(value)) ? 2 : 0,
-      value : value,
-      initedValue : value,
-      step : step
-    }
+    this.state = this._getInitedState(props);
   }
 
   componentWillReceiveProps(nextProps){
     if (nextProps !== this.props){
-      const { value, step, onChangeMode, onKeyDownEnter } = nextProps
-      if (typeof onChangeMode === "function") {
-        this.isOnChangeModeFn = true;
-      }
-      if (typeof onKeyDownEnter === "function") {
-        this.isOnKeyDownEnterFn = true;
-      }
-      this.setState({
-        mode : (this._onTest(value)) ? 2 : 0,
-        value : value,
-        initedValue : value,
-        step : step
-      });
+      this.setState(this._getInitedState(nextProps))
     }
   }
 
@@ -57,17 +48,8 @@ class InputFloat extends Component {
     return 2;
   }
 
-  _onTest = (str) => {
-    const trimmed = (""+str).trim()
-        , result = parseFloat(trimmed)
-    if (isNaN(result)){
-      return false;
-    }
-    if ((""+result).length !== trimmed.length){
-      return false;
-    }
-
-    return true;
+  _onTest = (strOrNumber) => {
+     return isFloat(strOrNumber);
   }
 
   _isChanged = (value) => {
@@ -79,7 +61,6 @@ class InputFloat extends Component {
           , valueNext = (new Big(value)).plus(step).toString()
           , nextMode = this._calcMode(valueNext)
      this._callOnChangeMode(nextMode);
-     //this.input.focus();
      this.setState({
         mode : nextMode,
         value : valueNext
@@ -91,7 +72,6 @@ class InputFloat extends Component {
           , valueNext = (new Big(value)).minus(step).toString()
           , nextMode = this._calcMode(valueNext)
      this._callOnChangeMode(nextMode);
-     //this.input.focus();
      this.setState({
         mode : nextMode,
         value : valueNext
@@ -171,7 +151,7 @@ class InputFloat extends Component {
            style={Object.assign({}, STYLE.ARROW, STYLE.ARROW_PLUS)}
            onClick={this._increaseOnStep}
         />
-        <div style={{ display: 'inline-block'}}>
+        <div style={STYLE.DIV_INPUT}>
           <input
             ref={input => this.input = input }
             type="text"
@@ -203,11 +183,6 @@ class InputFloat extends Component {
     }
   }
 
-  /*
-  setValue(value){
-    this.setState({ value })
-  }
-  */
 }
 
 InputFloat.defaultProps = {
@@ -218,7 +193,10 @@ InputFloat.defaultProps = {
 InputFloat.propTypes = {
   inputKey : PropTypes.string.isRequired,
   inputStyle : PropTypes.object,
-  value : PropTypes.string,
+  value : PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ]),
   step : PropTypes.number,
   onChangeMode : PropTypes.func,
   onKeyDownEnter : PropTypes.func

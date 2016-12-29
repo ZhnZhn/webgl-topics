@@ -14,6 +14,10 @@ const _fnAddColor = (vertices, i) => {
 }
 
 const Plane = {
+  valuesForInit : {
+    drawMode : "TRIANGLE_FAN"
+  },
+
   createVertices : (target) => {
     const vertices = target.vertices = [];
     //vertices.push( 0, 0, 0,  0, 0, 0, 1);
@@ -38,9 +42,7 @@ const Plane = {
       gl, shaderProgram, "colors", 4,
       Float32Array.BYTES_PER_ELEMENT*7,
       Float32Array.BYTES_PER_ELEMENT*3
-    );
-
-    target.drawMode = "TRIANGLE_FAN";
+    );    
 },
 
  clearBuffers : (target) => {

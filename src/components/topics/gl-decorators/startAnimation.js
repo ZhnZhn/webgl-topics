@@ -1,4 +1,5 @@
 import dfValues from '../gl-props/dfValues';
+import { isFunction } from '../../../utils/is'
 
 export const _startAnimation = (target) => {
     const {
@@ -14,7 +15,7 @@ export const _startAnimation = (target) => {
             loadTexture : _loadTexture,
             draw : _draw
           } = props
-        , _valuesForInit = Object.assign({}, dfValues, valuesForInit)  
+        , _valuesForInit = Object.assign({}, dfValues, valuesForInit)
 
     for(const key in _valuesForInit){
       target[key] = _valuesForInit[key]
@@ -33,16 +34,15 @@ export const _startAnimation = (target) => {
     }
     configMatrix(target);
 
-    if (typeof _createIndices === "function"){
+    if (isFunction(_createIndices)) {
       _createIndices(target)
     }
-    if (typeof _loadTexture === "function"){
+    if(isFunction(_loadTexture)) {
       _loadTexture(target)
     }
 
-    if (typeof _draw === "function") { _draw(target) }
-    else                             { draw(target)  }
-
+    if (isFunction(_draw)){ _draw(target)}
+    else                  { draw(target) }    
 }
 
 const startAnimation = (target) => {

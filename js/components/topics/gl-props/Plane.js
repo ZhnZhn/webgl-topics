@@ -24,6 +24,10 @@ var _fnAddColor = function _fnAddColor(vertices, i) {
 };
 
 var Plane = {
+  valuesForInit: {
+    drawMode: "TRIANGLE_FAN"
+  },
+
   createVertices: function createVertices(target) {
     var vertices = target.vertices = [];
     //vertices.push( 0, 0, 0,  0, 0, 0, 1);
@@ -43,8 +47,6 @@ var Plane = {
 
     target.buffer = _fnGL2.default.createBuffer(gl, new Float32Array(vertices));
     _fnGL2.default.createAttrib(gl, shaderProgram, "coords", 3, Float32Array.BYTES_PER_ELEMENT * 7, 0, false).createAttrib(gl, shaderProgram, "colors", 4, Float32Array.BYTES_PER_ELEMENT * 7, Float32Array.BYTES_PER_ELEMENT * 3);
-
-    target.drawMode = "TRIANGLE_FAN";
   },
 
   clearBuffers: function clearBuffers(target) {

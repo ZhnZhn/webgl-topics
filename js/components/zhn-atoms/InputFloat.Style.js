@@ -12,6 +12,9 @@ var STYLE = {
     marginLeft: '5px',
     marginRight: '5px'
   },
+  DIV_INPUT: {
+    display: 'inline-block'
+  },
   INPUT: {
     background: 'transparent none repeat scroll 0 0',
     border: 'medium none',

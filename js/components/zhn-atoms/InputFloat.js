@@ -16,6 +16,8 @@ var _big = require('big.js');
 
 var _big2 = _interopRequireDefault(_big);
 
+var _is = require('../../utils/is');
+
 var _InputFloat = require('./InputFloat.Style');
 
 var _InputFloat2 = _interopRequireDefault(_InputFloat);
@@ -44,23 +46,7 @@ var InputFloat = (_temp = _class = function (_Component) {
 
     _initialiseProps.call(_this);
 
-    var value = props.value,
-        step = props.step,
-        onChangeMode = props.onChangeMode,
-        onKeyDownEnter = props.onKeyDownEnter;
-
-    if (typeof onChangeMode === "function") {
-      _this.isOnChangeModeFn = true;
-    }
-    if (typeof onKeyDownEnter === "function") {
-      _this.isOnKeyDownEnterFn = true;
-    }
-    _this.state = {
-      mode: _this._onTest(value) ? 2 : 0,
-      value: value,
-      initedValue: value,
-      step: step
-    };
+    _this.state = _this._getInitedState(props);
     return _this;
   }
 
@@ -68,23 +54,7 @@ var InputFloat = (_temp = _class = function (_Component) {
     key: 'componentWillReceiveProps',
     value: function componentWillReceiveProps(nextProps) {
       if (nextProps !== this.props) {
-        var value = nextProps.value,
-            step = nextProps.step,
-            onChangeMode = nextProps.onChangeMode,
-            onKeyDownEnter = nextProps.onKeyDownEnter;
-
-        if (typeof onChangeMode === "function") {
-          this.isOnChangeModeFn = true;
-        }
-        if (typeof onKeyDownEnter === "function") {
-          this.isOnKeyDownEnterFn = true;
-        }
-        this.setState({
-          mode: this._onTest(value) ? 2 : 0,
-          value: value,
-          initedValue: value,
-          step: step
-        });
+        this.setState(this._getInitedState(nextProps));
       }
     }
   }, {
@@ -111,7 +81,7 @@ var InputFloat = (_temp = _class = function (_Component) {
         }),
         _react2.default.createElement(
           'div',
-          { style: { display: 'inline-block' } },
+          { style: _InputFloat2.default.DIV_INPUT },
           _react2.default.createElement('input', {
             ref: function ref(input) {
               return _this2.input = input;
@@ -146,18 +116,29 @@ var InputFloat = (_temp = _class = function (_Component) {
         this.setState({ mode: mode });
       }
     }
-
-    /*
-    setValue(value){
-      this.setState({ value })
-    }
-    */
-
   }]);
 
   return InputFloat;
 }(_react.Component), _initialiseProps = function _initialiseProps() {
   var _this3 = this;
+
+  this._getInitedState = function (props) {
+    var value = props.value,
+        step = props.step,
+        onChangeMode = props.onChangeMode,
+        onKeyDownEnter = props.onKeyDownEnter;
+
+
+    _this3.isOnChangeModeFn = (0, _is.isFunction)(onChangeMode);
+    _this3.isOnKeyDownEnterFn = (0, _is.isFunction)(onKeyDownEnter);
+
+    return {
+      mode: _this3._onTest(value) ? 2 : 0,
+      value: value,
+      initedValue: value,
+      step: step
+    };
+  };
 
   this._calcMode = function (value) {
     if (!_this3._onTest(value)) {
@@ -169,17 +150,8 @@ var InputFloat = (_temp = _class = function (_Component) {
     return 2;
   };
 
-  this._onTest = function (str) {
-    var trimmed = ("" + str).trim(),
-        result = parseFloat(trimmed);
-    if (isNaN(result)) {
-      return false;
-    }
-    if (("" + result).length !== trimmed.length) {
-      return false;
-    }
-
-    return true;
+  this._onTest = function (strOrNumber) {
+    return (0, _is.isFloat)(strOrNumber);
   };
 
   this._isChanged = function (value) {
@@ -194,7 +166,6 @@ var InputFloat = (_temp = _class = function (_Component) {
         nextMode = _this3._calcMode(valueNext);
 
     _this3._callOnChangeMode(nextMode);
-    //this.input.focus();
     _this3.setState({
       mode: nextMode,
       value: valueNext
@@ -209,7 +180,6 @@ var InputFloat = (_temp = _class = function (_Component) {
         nextMode = _this3._calcMode(valueNext);
 
     _this3._callOnChangeMode(nextMode);
-    //this.input.focus();
     _this3.setState({
       mode: nextMode,
       value: valueNext
@@ -301,7 +271,7 @@ InputFloat.defaultProps = {
 InputFloat.propTypes = {
   inputKey: _react.PropTypes.string.isRequired,
   inputStyle: _react.PropTypes.object,
-  value: _react.PropTypes.string,
+  value: _react.PropTypes.oneOfType([_react.PropTypes.string, _react.PropTypes.number]),
   step: _react.PropTypes.number,
   onChangeMode: _react.PropTypes.func,
   onKeyDownEnter: _react.PropTypes.func

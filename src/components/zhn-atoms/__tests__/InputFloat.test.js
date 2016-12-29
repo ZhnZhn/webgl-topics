@@ -32,8 +32,8 @@ test('should has state value="0", initedValue="0", step=0.1 by default ', t => {
   t.is(wrapper.state("step"), dfStep)
 
   const instance = wrapper.instance()
-  t.is(instance.isOnChangeModeFn, undefined)
-  t.is(instance.isOnKeyDownEnterFn, undefined)
+  t.false(instance.isOnChangeModeFn)
+  t.false(instance.isOnKeyDownEnterFn)
 })
 
 test('should cache boolean flag for onChangeMode, onKeyDownEnter props', t => {

@@ -30,6 +30,11 @@ const TextureImage = {
     gl_FragColor = texture2D(sampler, varyingTextureCoords);
   }
   `,
+
+  valuesForInit : {
+    drawMode : "TRIANGLE_STRIP"
+  },
+
   createVertices : (target) => {
     const vertices = target.vertices = [
       -1, -1,  0, 0,
@@ -50,9 +55,8 @@ const TextureImage = {
       Float32Array.BYTES_PER_ELEMENT*2,
       false
     );
-
-    target.drawMode = "TRIANGLE_STRIP";
   },
+  
   loadTexture : (target) => {
     const image = document.createElement("img");
     image.crossOrigin = "";

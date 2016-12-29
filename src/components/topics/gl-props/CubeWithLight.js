@@ -32,7 +32,9 @@ const CubeWithLight = {
   `,
 
   valuesForInit : {
-    zMatrixTranslate : -4
+    zMatrixTranslate : -4,
+    isWithoutPointSize : true,
+    isDrawElemnts : true
   },
 
   createVertices : (target) => {
@@ -76,15 +78,6 @@ fnGL.createAttrib(
  const lightDirection = gl.getUniformLocation(shaderProgram, "lightDirection")
  gl.uniform3f(lightDirection, 0.5, 1, 0);
 
-
-
- target.isWithoutPointSize = true;
- //target.isWithoutPerspective = true;
-//poitSize;
-//perspectiveMatrix
-
-//target.zMatrixTranslate = -4
-
   },
 
  createIndices : (target) => {
@@ -98,8 +91,9 @@ fnGL.createAttrib(
   ];
   target.indexCount = indices.length;
   const { gl } = target
-  target.indexBuffer = fnGL.createBuffer(gl, new Uint8Array(indices), "ELEMENT_ARRAY_BUFFER")
-  target.isDrawElemnts = true;
+  target.indexBuffer = fnGL.createBuffer(
+    gl, new Uint8Array(indices), "ELEMENT_ARRAY_BUFFER"
+  )
 },
 
 clearBuffers : (target) => {

@@ -16,7 +16,9 @@ var CubeWithLight = {
   fragmentShaderCode: "\n  precision mediump float;\n  varying vec4 varyingColors;\n  void main(void) {\n    gl_FragColor = varyingColors;\n  }\n  ",
 
   valuesForInit: {
-    zMatrixTranslate: -4
+    zMatrixTranslate: -4,
+    isWithoutPointSize: true,
+    isDrawElemnts: true
   },
 
   createVertices: function createVertices(target) {
@@ -38,13 +40,6 @@ var CubeWithLight = {
     gl.uniform3f(lightColor, 1, 1, 1);
     var lightDirection = gl.getUniformLocation(shaderProgram, "lightDirection");
     gl.uniform3f(lightDirection, 0.5, 1, 0);
-
-    target.isWithoutPointSize = true;
-    //target.isWithoutPerspective = true;
-    //poitSize;
-    //perspectiveMatrix
-
-    //target.zMatrixTranslate = -4
   },
 
   createIndices: function createIndices(target) {
@@ -53,7 +48,6 @@ var CubeWithLight = {
     var gl = target.gl;
 
     target.indexBuffer = _fnGL2.default.createBuffer(gl, new Uint8Array(indices), "ELEMENT_ARRAY_BUFFER");
-    target.isDrawElemnts = true;
   },
 
   clearBuffers: function clearBuffers(target) {
