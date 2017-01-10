@@ -62,7 +62,7 @@ class WebGLTopic extends Component {
     this.forceUpdate();
   }
 
-  render(){    
+  render(){
     return (
       <div style={STYLE.ROOT}>
         <canvas
@@ -71,6 +71,8 @@ class WebGLTopic extends Component {
            height={HEIGHT}
            onClick={this._handleClickCanvas}
         >
+          Your browser doesn't appear to support the
+          <code>&lt;canvas&gt;</code> element.
         </canvas>
         {
           (this.isAnimate === false) &&

@@ -18,14 +18,37 @@ const  fnGL = {
     return this;
   },
 
-  rotateTransformMatrix : (gl, shaderProgram, matrix, rX, rY, rZ) => {
-    //mat4.rotateX(matrix, matrix, -0.007);
+  translateMatrix : (target) => {
+    const {
+            matrix,
+            trZ, trZD, minTrZ, maxTrZ, trZStep
+          } = target
+
+    if (trZD === -1) {
+      if (trZ>minTrZ){
+        target.trZ = trZ - trZStep
+      } else {
+       target.trZD = 1
+      }
+    } else {
+      if (trZ<maxTrZ){
+        target.trZ = trZ + trZStep
+      } else {
+       target.trZD = -1
+      }
+    }
+
+    const translateMatrix = mat4.create()
+    mat4.translate(translateMatrix, translateMatrix, [0, 0, target.trZD*trZStep])
+    mat4.multiply(matrix, translateMatrix, matrix)
+
+  },
+
+  rotateMatrix : (target) => {
+    const { matrix, rX, rY, rZ } = target
     mat4.rotateX(matrix, matrix, rX);
     mat4.rotateY(matrix, matrix, rY);
     mat4.rotateZ(matrix, matrix, rZ);
-
-    var transformMatrix = gl.getUniformLocation(shaderProgram, "transformMatrix");
-    gl.uniformMatrix4fv(transformMatrix, false, matrix);
   }
 
 }

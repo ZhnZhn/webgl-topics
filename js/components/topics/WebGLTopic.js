@@ -113,14 +113,24 @@ var WebGLTopic = (0, _initGL2.default)(_class = (0, _createShaders2.default)(_cl
       return _react2.default.createElement(
         'div',
         { style: STYLE.ROOT },
-        _react2.default.createElement('canvas', {
-          ref: function ref(el) {
-            return _this2.canvas = el;
+        _react2.default.createElement(
+          'canvas',
+          {
+            ref: function ref(el) {
+              return _this2.canvas = el;
+            },
+            width: WIDTH,
+            height: HEIGHT,
+            onClick: this._handleClickCanvas
           },
-          width: WIDTH,
-          height: HEIGHT,
-          onClick: this._handleClickCanvas
-        }),
+          'Your browser doesn\'t appear to support the',
+          _react2.default.createElement(
+            'code',
+            null,
+            '<canvas>'
+          ),
+          ' element.'
+        ),
         this.isAnimate === false && _react2.default.createElement(_Button2.default, {
           caption: 'Run Animation',
           style: STYLE.BT_RUN,

@@ -14,22 +14,26 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var _draw = exports._draw = function _draw(target) {
   var gl = target.gl,
       isAnimate = target.isAnimate,
-      matrix = target.matrix,
-      shaderProgram = target.shaderProgram,
       vertexCount = target.vertexCount,
       isStopDraw = target.isStopDraw,
       draw = target.draw,
       _target$drawMode = target.drawMode,
       drawMode = _target$drawMode === undefined ? "TRIANGLES" : _target$drawMode,
-      rX = target.rX,
-      rY = target.rY,
-      rZ = target.rZ,
       isDrawElemnts = target.isDrawElemnts,
-      indexCount = target.indexCount;
+      indexCount = target.indexCount,
+      isDynamicTranslate = target.isDynamicTranslate,
+      matrixLocation = target.matrixLocation,
+      matrix = target.matrix;
 
 
   if (isAnimate) {
-    _fnGL2.default.rotateTransformMatrix(gl, shaderProgram, matrix, rX, rY, rZ);
+
+    _fnGL2.default.rotateMatrix(target);
+    if (isDynamicTranslate) {
+      _fnGL2.default.translateMatrix(target);
+    }
+
+    gl.uniformMatrix4fv(matrixLocation, false, matrix);
     gl.clear(gl.COLOR_BUFFER_BIT);
 
     if (isDrawElemnts) {

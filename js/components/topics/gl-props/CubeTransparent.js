@@ -14,7 +14,14 @@ var CubeTransparent = {
   valuesForInit: {
     zMatrixTranslate: -4,
     isDrawElemnts: true,
-    drawMode: "LINES"
+    drawMode: "LINES",
+
+    isDynamicTranslate: true,
+    trZStep: 0.005,
+    trZ: -4,
+    trZD: -1,
+    minTrZ: -10,
+    maxTrZ: -2
   },
 
   createVertices: function createVertices(target) {

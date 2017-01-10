@@ -1,16 +1,22 @@
 import fnGL from '../gl-fn/fnGL';
 
-
 export const _draw = (target) => {
     const {
-            gl, isAnimate, matrix, shaderProgram, vertexCount,
+            gl, isAnimate, vertexCount,
             isStopDraw, draw, drawMode="TRIANGLES",
-            rX, rY, rZ,
-            isDrawElemnts, indexCount
+            isDrawElemnts, indexCount,
+            isDynamicTranslate,
+            matrixLocation, matrix
           } = target
 
     if (isAnimate){
-      fnGL.rotateTransformMatrix(gl, shaderProgram, matrix, rX, rY, rZ)
+
+      fnGL.rotateMatrix(target)
+      if(isDynamicTranslate){
+        fnGL.translateMatrix(target)
+      }
+
+      gl.uniformMatrix4fv(matrixLocation, false, matrix);
       gl.clear(gl.COLOR_BUFFER_BIT);
 
       if (isDrawElemnts){
