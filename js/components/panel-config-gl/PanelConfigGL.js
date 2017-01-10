@@ -26,7 +26,7 @@ var _PanelRotate = require('./PanelRotate');
 
 var _PanelRotate2 = _interopRequireDefault(_PanelRotate);
 
-var _Panel = require('./Panel.STYLE');
+var _Panel = require('./Panel.Style');
 
 var _Panel2 = _interopRequireDefault(_Panel);
 

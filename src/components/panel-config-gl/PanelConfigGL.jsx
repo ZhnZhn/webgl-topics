@@ -5,7 +5,7 @@ import PanelPerspective from './PanelPerspective';
 import PanelTranslate from './PanelTranslate';
 import PanelRotate from './PanelRotate';
 
-import STYLE from './Panel.STYLE';
+import STYLE from './Panel.Style';
 
 class PanelConfigGL extends Component{
 
