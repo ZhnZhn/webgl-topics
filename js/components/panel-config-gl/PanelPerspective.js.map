@@ -1,0 +1,27 @@
+)]}
+{
+ "version": 3,
+ "sources": "D:\\_Dev\\_React\\_WebGL_Topic\\src\\components\\panel-config-gl\\PanelPerspective.jsx",
+ "file": "D:\\_Dev\\_React\\_WebGL_Topic\\js\\components\\panel-config-gl\\PanelPerspective.js",
+ "sourceRoot": "",
+ "names": [
+  "PanelPerspective",
+  "props",
+  "_fnAfterSet",
+  "comp",
+  "createPerspective",
+  "perspectiveNear",
+  "perspectiveFar",
+  "onGetComp",
+  "Object",
+  "assign",
+  "OPEN_CLOSE",
+  "paddingTop",
+  "LABEL_PERSPECTIVE",
+  "propTypes",
+  "number",
+  "isRequired",
+  "func"
+ ],
+ "mappings": ";;;;;;;;AAAA;;;;AAEA;;;;AACA;;;;AAEA;;;;;;;;;;;;IAEMA,gB;;;AACJ,4BAAYC,KAAZ,EAAkB;AAAA;;AAAA,oIACVA,KADU;;AAAA,UAIlBC,WAJkB,GAIJ,UAACC,IAAD,EAAU;AACtBA,WAAKC,iBAAL,CAAuBD,IAAvB;AACD,KANiB;;AAAA;AAEjB;;;;6BAMO;AAAA,mBACkD,KAAKF,KADvD;AAAA,UACGI,eADH,UACGA,eADH;AAAA,UACoBC,cADpB,UACoBA,cADpB;AAAA,UACoCC,SADpC,UACoCA,SADpC;;;AAGN,aACE;AAAA;AAAA;AACG,mBAAQ,aADX;AAEG,iBAAOC,OAAOC,MAAP,CAAc,EAAd,EAAkB,gBAAMC,UAAxB,EAAoC,EAACC,YAAY,MAAb,EAApC;AAFV;AAIE;AACG,mBAAQ,OADX;AAEG,iBAAON,eAFV;AAGG,mBAAQ,iBAHX;AAIG,sBAAY,gBAAMO,iBAJrB;AAKG,qBAAWL,SALd;AAMG,sBAAY,KAAKL;AANpB,UAJF;AAYE;AACG,mBAAQ,MADX;AAEG,iBAAOI,cAFV;AAGG,sBAAY,gBAAMM,iBAHrB;AAIG,mBAAQ,gBAJX;AAKG,qBAAWL,SALd;AAMG,sBAAY,KAAKL;AANpB;AAZF,OADF;AAuBD;;;;;;AAGHF,iBAAiBa,SAAjB,GAA6B;AAC3BR,mBAAkB,iBAAUS,MAAV,CAAiBC,UADR;AAE3BT,kBAAiB,iBAAUQ,MAAV,CAAiBC,UAFP;AAG3BR,aAAY,iBAAUS,IAAV,CAAeD;AAHA,CAA7B;;kBAMef,gB"
+}

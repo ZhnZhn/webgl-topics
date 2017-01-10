@@ -34,8 +34,8 @@ class RowDrawMode extends Component {
   render(){
     return(
       <div style={STYLE.ROW}>
-        <span style={STYLE.CAPTION}>
-          drawMode:
+        <span style={Object.assign(STYLE.CAPTION, {color: '#a487d4'})}>
+          DrawMode:
         </span>
         <InputSelect
           options={_drawModeOptions}

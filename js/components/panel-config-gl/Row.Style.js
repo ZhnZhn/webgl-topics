@@ -19,6 +19,12 @@ var STYLE = {
     fontWeight: 'bold',
     fontSize: '16px'
   },
+  LABEL_ROW: {
+    paddingLeft: '24px',
+    color: 'gray',
+    fontWeight: 'bold',
+    fontSize: '16px'
+  },
   INPUT_FLOAT_2: {
     width: '35px'
   },

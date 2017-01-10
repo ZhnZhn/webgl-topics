@@ -1,0 +1,22 @@
+)]}
+{
+ "version": 3,
+ "sources": "D:\\_Dev\\_React\\_WebGL_Topic\\src\\components\\panel-config-gl\\PanelTranslate.jsx",
+ "file": "D:\\_Dev\\_React\\_WebGL_Topic\\js\\components\\panel-config-gl\\PanelTranslate.js",
+ "sourceRoot": "",
+ "names": [
+  "PanelTranslate",
+  "props",
+  "_fnAfterSet",
+  "comp",
+  "configMatrix",
+  "zMatrixTranslate",
+  "onGetComp",
+  "OPEN_CLOSE",
+  "propTypes",
+  "number",
+  "isRequired",
+  "func"
+ ],
+ "mappings": ";;;;;;;;AAAA;;;;AAEA;;;;AACA;;;;AAEA;;;;;;;;;;;;IAEMA,c;;;AACJ,0BAAYC,KAAZ,EAAkB;AAAA;;AAAA,gIACVA,KADU;;AAAA,UAIlBC,WAJkB,GAIJ,UAACC,IAAD,EAAU;AACrBA,WAAKC,YAAL,CAAkBD,IAAlB;AACF,KANiB;;AAAA;AAEjB;;;;6BAMO;AAAA,mBACkC,KAAKF,KADvC;AAAA,UACEI,gBADF,UACEA,gBADF;AAAA,UACoBC,SADpB,UACoBA,SADpB;;AAEN,aACE;AAAA;AAAA;AACE,mBAAQ,WADV;AAEE,iBAAO,gBAAMC;AAFf;AAIE;AACA,mBAAQ,IADR;AAEA,iBAAOF,gBAFP;AAGA,mBAAQ,kBAHR;AAIA,qBAAWC,SAJX;AAKA,sBAAY,KAAKJ;AALjB;AAJF,OADF;AAcD;;;;;;AAGHF,eAAeQ,SAAf,GAA2B;AACzBH,oBAAmB,iBAAUI,MAAV,CAAiBC,UADX;AAEzBJ,aAAY,iBAAUK,IAAV,CAAeD;AAFF,CAA3B;;kBAKeV,c"
+}

@@ -1,0 +1,21 @@
+)]}
+{
+ "version": 3,
+ "sources": "D:\\_Dev\\_React\\_WebGL_Topic\\src\\components\\panel-config-gl\\PanelRotate.jsx",
+ "file": "D:\\_Dev\\_React\\_WebGL_Topic\\js\\components\\panel-config-gl\\PanelRotate.js",
+ "sourceRoot": "",
+ "names": [
+  "PanelRotate",
+  "props",
+  "rX",
+  "rY",
+  "rZ",
+  "onGetComp",
+  "OPEN_CLOSE",
+  "propTypes",
+  "number",
+  "isRequired",
+  "func"
+ ],
+ "mappings": ";;;;;;;;AACA;;;;AAEA;;;;AACA;;;;AAEA;;;;;;;;;;;;IAEMA,W;;;AACJ,uBAAYC,KAAZ,EAAkB;AAAA;;AAAA,qHACVA,KADU;AAEjB;;;;6BAEO;AAAA,mBAC4B,KAAKA,KADjC;AAAA,UACEC,EADF,UACEA,EADF;AAAA,UACMC,EADN,UACMA,EADN;AAAA,UACUC,EADV,UACUA,EADV;AAAA,UACcC,SADd,UACcA,SADd;;AAEN,aACE;AAAA;AAAA;AACG,mBAAS,IADZ;AAEG,mBAAQ,QAFX;AAGG,iBAAO,gBAAMC;AAHhB;AAKE;AACG,mBAAQ,IADX;AAEG,iBAAOJ,EAFV;AAGG,mBAAQ,IAHX;AAIG,qBAAWG;AAJd,UALF;AAWE;AACG,mBAAQ,IADX;AAEG,iBAAOF,EAFV;AAGG,mBAAQ,IAHX;AAIG,qBAAWE;AAJd,UAXF;AAiBE;AACG,mBAAQ,IADX;AAEG,iBAAOD,EAFV;AAGG,mBAAQ,IAHX;AAIG,qBAAWC;AAJd;AAjBF,OADF;AA0BD;;;;;;AAGHL,YAAYO,SAAZ,GAAwB;AACtBL,MAAK,iBAAUM,MAAV,CAAiBC,UADA;AAEtBN,MAAK,iBAAUK,MAAV,CAAiBC,UAFA;AAGtBL,MAAK,iBAAUI,MAAV,CAAiBC,UAHA;AAItBJ,aAAY,iBAAUK,IAAV,CAAeD;AAJL,CAAxB;;kBAOeT,W"
+}

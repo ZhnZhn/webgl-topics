@@ -1,0 +1,29 @@
+)]}
+{
+ "version": 3,
+ "sources": "D:\\_Dev\\_React\\_WebGL_Topic\\src\\components\\panel-config-gl\\Panel.Style.js",
+ "file": "D:\\_Dev\\_React\\_WebGL_Topic\\js\\components\\panel-config-gl\\Panel.Style.js",
+ "sourceRoot": "",
+ "names": [
+  "STYLE",
+  "ROOT",
+  "float",
+  "marginLeft",
+  "marginTop",
+  "marginBottom",
+  "ROOT_CAPTION",
+  "color",
+  "fontSize",
+  "fontWeight",
+  "OPEN_CLOSE",
+  "lineHeight",
+  "paddingTop",
+  "paddingBottom",
+  "backgroundColor",
+  "LABEL_PERSPECTIVE",
+  "display",
+  "width",
+  "textAlign"
+ ],
+ "mappings": ";;;;;;AACA,IAAMA,QAAQ;AACZC,QAAO;AACLC,WAAQ,MADH;AAELC,gBAAa,MAFR;AAGLC,eAAY,KAHP;AAILC,kBAAe;AAJV,GADK;AAOZC,gBAAe;AACbC,WAAO,aADM;AAEbC,cAAU,MAFG;AAGbC,gBAAY;AAHC,GAPH;AAYZC,cAAa;AACVC,gBAAY,CADF;AAEVC,gBAAa,KAFH;AAGVC,mBAAgB,KAHN;AAIVC,qBAAiB;AAJP,GAZD;AAkBZC,qBAAoB;AAClBC,aAAU,cADQ;AAElBC,WAAQ,MAFU;AAGlBC,eAAY;AAHM;AAlBR,CAAd;;kBAyBelB,K"
+}

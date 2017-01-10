@@ -10,17 +10,17 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _InputSelect = require('../zhn-atoms/InputSelect');
+var _OpenClose = require('../zhn-atoms/OpenClose');
 
-var _InputSelect2 = _interopRequireDefault(_InputSelect);
+var _OpenClose2 = _interopRequireDefault(_OpenClose);
 
-var _ButtonSet = require('../zhn-atoms/ButtonSet');
+var _RowProp = require('./RowProp');
 
-var _ButtonSet2 = _interopRequireDefault(_ButtonSet);
+var _RowProp2 = _interopRequireDefault(_RowProp);
 
-var _Row = require('./Row.Style');
+var _Panel = require('./Panel.Style');
 
-var _Row2 = _interopRequireDefault(_Row);
+var _Panel2 = _interopRequireDefault(_Panel);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -30,61 +30,52 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var _drawModeOptions = [{ caption: "TRIANGLES", value: "TRIANGLES" }, { caption: "TRIANGLE_STRIP", value: "TRIANGLE_STRIP" }, { caption: "TRIANGLE_FAN", value: "TRIANGLE_FAN" }, { caption: "LINES", value: "LINES" }, { caption: "LINE_STRIP", value: "LINE_STRIP" }, { caption: "LINE_LOOP", value: "LINE_LOOP" }, { caption: "POINTS", value: "POINTS" }];
+var PanelTranslate = function (_Component) {
+  _inherits(PanelTranslate, _Component);
 
-var RowDrawMode = function (_Component) {
-  _inherits(RowDrawMode, _Component);
+  function PanelTranslate(props) {
+    _classCallCheck(this, PanelTranslate);
 
-  function RowDrawMode(props) {
-    _classCallCheck(this, RowDrawMode);
+    var _this = _possibleConstructorReturn(this, (PanelTranslate.__proto__ || Object.getPrototypeOf(PanelTranslate)).call(this, props));
 
-    var _this = _possibleConstructorReturn(this, (RowDrawMode.__proto__ || Object.getPrototypeOf(RowDrawMode)).call(this, props));
-
-    _this._handleSelectDrawMode = function (item) {
-      _this.drawMode = item;
-    };
-
-    _this._handleSetDrawMode = function () {
-      var drawMode = _this.drawMode;
-
-      if (drawMode) {
-        var comp = _this.props.onGetComp();
-        comp.drawMode = drawMode.value;
-      }
+    _this._fnAfterSet = function (comp) {
+      comp.configMatrix(comp);
     };
 
     return _this;
   }
 
-  _createClass(RowDrawMode, [{
+  _createClass(PanelTranslate, [{
     key: 'render',
     value: function render() {
+      var _props = this.props,
+          zMatrixTranslate = _props.zMatrixTranslate,
+          onGetComp = _props.onGetComp;
+
       return _react2.default.createElement(
-        'div',
-        { style: _Row2.default.ROW },
-        _react2.default.createElement(
-          'span',
-          { style: Object.assign(_Row2.default.CAPTION, { color: '#a487d4' }) },
-          'DrawMode:'
-        ),
-        _react2.default.createElement(_InputSelect2.default, {
-          options: _drawModeOptions,
-          onSelect: this._handleSelectDrawMode
-        }),
-        _react2.default.createElement(_ButtonSet2.default, {
-          mode: 1,
-          onClick: this._handleSetDrawMode
+        _OpenClose2.default,
+        {
+          caption: 'Translate',
+          style: _Panel2.default.OPEN_CLOSE
+        },
+        _react2.default.createElement(_RowProp2.default, {
+          labelBy: 'Z:',
+          value: zMatrixTranslate,
+          propKey: 'zMatrixTranslate',
+          onGetComp: onGetComp,
+          fnAfterSet: this._fnAfterSet
         })
       );
     }
   }]);
 
-  return RowDrawMode;
+  return PanelTranslate;
 }(_react.Component);
 
-RowDrawMode.propTypes = {
+PanelTranslate.propTypes = {
+  zMatrixTranslate: _react.PropTypes.number.isRequired,
   onGetComp: _react.PropTypes.func.isRequired
 };
 
-exports.default = RowDrawMode;
-//# sourceMappingURL=D:\_Dev\_React\_WebGL_Topic\js\components\panel-config-gl\RowDrawMode.js.map
+exports.default = PanelTranslate;
+//# sourceMappingURL=D:\_Dev\_React\_WebGL_Topic\js\components\panel-config-gl\PanelTranslate.js.map

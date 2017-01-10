@@ -48,13 +48,13 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var RowRotate = (0, _setModeToAll2.default)(_class = (0, _onChangeMode2.default)(_class = (0, _calcInputMode2.default)(_class = function (_Component) {
-  _inherits(RowRotate, _Component);
+var RowRotateAll = (0, _setModeToAll2.default)(_class = (0, _onChangeMode2.default)(_class = (0, _calcInputMode2.default)(_class = function (_Component) {
+  _inherits(RowRotateAll, _Component);
 
-  function RowRotate(props) {
-    _classCallCheck(this, RowRotate);
+  function RowRotateAll(props) {
+    _classCallCheck(this, RowRotateAll);
 
-    var _this = _possibleConstructorReturn(this, (RowRotate.__proto__ || Object.getPrototypeOf(RowRotate)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (RowRotateAll.__proto__ || Object.getPrototypeOf(RowRotateAll)).call(this, props));
 
     _this._handleSetRotation = function () {
       var comp = _this.props.onGetComp();
@@ -74,7 +74,7 @@ var RowRotate = (0, _setModeToAll2.default)(_class = (0, _onChangeMode2.default)
     return _this;
   }
 
-  _createClass(RowRotate, [{
+  _createClass(RowRotateAll, [{
     key: 'render',
     value: function render() {
       var _this2 = this;
@@ -147,15 +147,15 @@ var RowRotate = (0, _setModeToAll2.default)(_class = (0, _onChangeMode2.default)
     }
   }]);
 
-  return RowRotate;
+  return RowRotateAll;
 }(_react.Component)) || _class) || _class) || _class;
 
-RowRotate.propTypes = {
+RowRotateAll.propTypes = {
   rX: _react.PropTypes.number.isRequired,
   rY: _react.PropTypes.number.isRequired,
   rZ: _react.PropTypes.number.isRequired,
   onGetComp: _react.PropTypes.func.isRequired
 };
 
-exports.default = RowRotate;
-//# sourceMappingURL=D:\_Dev\_React\_WebGL_Topic\js\components\panel-config-gl\RowRotate.js.map
+exports.default = RowRotateAll;
+//# sourceMappingURL=D:\_Dev\_React\_WebGL_Topic\js\components\panel-config-gl\RowRotateAll.js.map

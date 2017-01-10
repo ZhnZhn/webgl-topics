@@ -1,5 +1,5 @@
 
-const STYLE = {
+const STYLE = {  
   ROW : {
      marginTop : '12px'
   },
@@ -10,6 +10,12 @@ const STYLE = {
     fontSize : '16px'
   },
   LABEL : {
+    color : 'gray',
+    fontWeight : 'bold',
+    fontSize : '16px'
+  },
+  LABEL_ROW : {
+    paddingLeft : '24px',
     color : 'gray',
     fontWeight : 'bold',
     fontSize : '16px'

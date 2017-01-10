@@ -1,23 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 import RowDrawMode from './RowDrawMode';
-import RowPerspective from './RowPerspective';
-import RowTranslate from './RowTranslate';
-import RowRotate from './RowRotate';
+import PanelPerspective from './PanelPerspective';
+import PanelTranslate from './PanelTranslate';
+import PanelRotate from './PanelRotate';
 
-const STYLE = {
-  ROOT : {
-    float : 'left',
-    marginLeft : '20px',
-    marginTop : '8px',
-    marginBottom : '16px'
-  },
-  PANEL_CAPTION : {
-    color: 'forestgreen',
-    fontSize: '16px',
-    fontWeight: 'bold'
-  }
-}
+import STYLE from './Panel.STYLE';
 
 class PanelConfigGL extends Component{
 
@@ -34,24 +22,29 @@ class PanelConfigGL extends Component{
           } = valuesForInit
     return (
       <div style={STYLE.ROOT}>
-         <span style={STYLE.PANEL_CAPTION}>
-           ConfigGL
+         <span style={STYLE.ROOT_CAPTION}>
+           Config WebGL Topic
          </span>
         <RowDrawMode
           {...{ onGetComp }}
         />
-        <RowPerspective
+        <PanelPerspective
           {...{ perspectiveNear, perspectiveFar, onGetComp }}
         />
-        <RowTranslate
-           {...{ zMatrixTranslate, onGetComp }}
-         />
-        <RowRotate
+        <PanelTranslate
+          {...{ zMatrixTranslate, onGetComp }}
+        />
+         <PanelRotate
            {...{ rX, rY, rZ, onGetComp }}
          />
       </div>
     );
   }
+}
+
+PanelConfigGL.propTypes = {
+  valuesForInit : PropTypes.object.isRequired,
+  onGetComp : PropTypes.func.isRequired
 }
 
 export default PanelConfigGL

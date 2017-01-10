@@ -10,17 +10,17 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _InputSelect = require('../zhn-atoms/InputSelect');
+var _OpenClose = require('../zhn-atoms/OpenClose');
 
-var _InputSelect2 = _interopRequireDefault(_InputSelect);
+var _OpenClose2 = _interopRequireDefault(_OpenClose);
 
-var _ButtonSet = require('../zhn-atoms/ButtonSet');
+var _RowProp = require('./RowProp');
 
-var _ButtonSet2 = _interopRequireDefault(_ButtonSet);
+var _RowProp2 = _interopRequireDefault(_RowProp);
 
-var _Row = require('./Row.Style');
+var _Panel = require('./Panel.Style');
 
-var _Row2 = _interopRequireDefault(_Row);
+var _Panel2 = _interopRequireDefault(_Panel);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -30,61 +30,64 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var _drawModeOptions = [{ caption: "TRIANGLES", value: "TRIANGLES" }, { caption: "TRIANGLE_STRIP", value: "TRIANGLE_STRIP" }, { caption: "TRIANGLE_FAN", value: "TRIANGLE_FAN" }, { caption: "LINES", value: "LINES" }, { caption: "LINE_STRIP", value: "LINE_STRIP" }, { caption: "LINE_LOOP", value: "LINE_LOOP" }, { caption: "POINTS", value: "POINTS" }];
+var PanelPerspective = function (_Component) {
+  _inherits(PanelPerspective, _Component);
 
-var RowDrawMode = function (_Component) {
-  _inherits(RowDrawMode, _Component);
+  function PanelPerspective(props) {
+    _classCallCheck(this, PanelPerspective);
 
-  function RowDrawMode(props) {
-    _classCallCheck(this, RowDrawMode);
+    var _this = _possibleConstructorReturn(this, (PanelPerspective.__proto__ || Object.getPrototypeOf(PanelPerspective)).call(this, props));
 
-    var _this = _possibleConstructorReturn(this, (RowDrawMode.__proto__ || Object.getPrototypeOf(RowDrawMode)).call(this, props));
-
-    _this._handleSelectDrawMode = function (item) {
-      _this.drawMode = item;
-    };
-
-    _this._handleSetDrawMode = function () {
-      var drawMode = _this.drawMode;
-
-      if (drawMode) {
-        var comp = _this.props.onGetComp();
-        comp.drawMode = drawMode.value;
-      }
+    _this._fnAfterSet = function (comp) {
+      comp.createPerspective(comp);
     };
 
     return _this;
   }
 
-  _createClass(RowDrawMode, [{
+  _createClass(PanelPerspective, [{
     key: 'render',
     value: function render() {
+      var _props = this.props,
+          perspectiveNear = _props.perspectiveNear,
+          perspectiveFar = _props.perspectiveFar,
+          onGetComp = _props.onGetComp;
+
+
       return _react2.default.createElement(
-        'div',
-        { style: _Row2.default.ROW },
-        _react2.default.createElement(
-          'span',
-          { style: Object.assign(_Row2.default.CAPTION, { color: '#a487d4' }) },
-          'DrawMode:'
-        ),
-        _react2.default.createElement(_InputSelect2.default, {
-          options: _drawModeOptions,
-          onSelect: this._handleSelectDrawMode
+        _OpenClose2.default,
+        {
+          caption: 'Perspective',
+          style: Object.assign({}, _Panel2.default.OPEN_CLOSE, { paddingTop: '16px' })
+        },
+        _react2.default.createElement(_RowProp2.default, {
+          labelBy: 'Near:',
+          value: perspectiveNear,
+          propKey: 'perspectiveNear',
+          styleLabel: _Panel2.default.LABEL_PERSPECTIVE,
+          onGetComp: onGetComp,
+          fnAfterSet: this._fnAfterSet
         }),
-        _react2.default.createElement(_ButtonSet2.default, {
-          mode: 1,
-          onClick: this._handleSetDrawMode
+        _react2.default.createElement(_RowProp2.default, {
+          labelBy: 'Far:',
+          value: perspectiveFar,
+          styleLabel: _Panel2.default.LABEL_PERSPECTIVE,
+          propKey: 'perspectiveFar',
+          onGetComp: onGetComp,
+          fnAfterSet: this._fnAfterSet
         })
       );
     }
   }]);
 
-  return RowDrawMode;
+  return PanelPerspective;
 }(_react.Component);
 
-RowDrawMode.propTypes = {
+PanelPerspective.propTypes = {
+  perspectiveNear: _react.PropTypes.number.isRequired,
+  perspectiveFar: _react.PropTypes.number.isRequired,
   onGetComp: _react.PropTypes.func.isRequired
 };
 
-exports.default = RowDrawMode;
-//# sourceMappingURL=D:\_Dev\_React\_WebGL_Topic\js\components\panel-config-gl\RowDrawMode.js.map
+exports.default = PanelPerspective;
+//# sourceMappingURL=D:\_Dev\_React\_WebGL_Topic\js\components\panel-config-gl\PanelPerspective.js.map

@@ -13,7 +13,7 @@ import STYLE from './Row.Style'
 @setModeToAll
 @onChangeMode
 @calcInputMode
-class RowRotate extends Component {
+class RowRotateAll extends Component {
   constructor(props){
     super(props)
 
@@ -91,11 +91,11 @@ class RowRotate extends Component {
   }
 }
 
-RowRotate.propTypes = {
+RowRotateAll.propTypes = {
   rX : PropTypes.number.isRequired,
   rY : PropTypes.number.isRequired,
   rZ : PropTypes.number.isRequired,
   onGetComp : PropTypes.func.isRequired
 }
 
-export default RowRotate
+export default RowRotateAll
