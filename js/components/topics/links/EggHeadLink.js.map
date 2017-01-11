@@ -1,0 +1,30 @@
+)]}
+{
+ "version": 3,
+ "sources": "D:\\_Dev\\_React\\_WebGL_Topic\\src\\components\\topics\\links\\EggHeadLink.js",
+ "file": "D:\\_Dev\\_React\\_WebGL_Topic\\js\\components\\topics\\links\\EggHeadLink.js",
+ "sourceRoot": "",
+ "names": [
+  "STYLE",
+  "LINK",
+  "display",
+  "PRO",
+  "marginLeft",
+  "padding",
+  "borderRadius",
+  "color",
+  "textDecoration",
+  "background",
+  "fontWeight",
+  "EggHeadLink",
+  "style",
+  "title",
+  "href",
+  "isPro",
+  "_proEl",
+  "undefined",
+  "Object",
+  "assign"
+ ],
+ "mappings": ";;;;;;AAAA;;;;;;AAEA,IAAMA,QAAQ;AACZC,QAAO;AACLC,aAAS;AADJ,GADK;AAIZC,OAAM;AACJC,gBAAa,KADT;AAEJC,aAAS,SAFL;AAGJH,aAAS,cAHL;AAIJI,kBAAc,KAJV;AAKJC,WAAO,SALH;AAMJC,oBAAgB,MANZ;AAOJC,gBAAY,SAPR;AAQJC,gBAAa;AART;AAJM,CAAd;;AAgBA,IAAMC,cAAc,SAAdA,WAAc,OAAmC;AAAA,MAAhCC,KAAgC,QAAhCA,KAAgC;AAAA,MAAzBC,KAAyB,QAAzBA,KAAyB;AAAA,MAAlBC,IAAkB,QAAlBA,IAAkB;AAAA,MAAZC,KAAY,QAAZA,KAAY;;AACrD,MAAMC,SAAUD,KAAD,GACJ;AAAA;AAAA,MAAM,OAAOf,MAAMG,GAAnB;AAAA;AAAA,GADI,GAELc,SAFV;AAGA,SACE;AAAA;AAAA;AACG,iBAAU,aADb;AAEG,aAAOC,OAAOC,MAAP,CAAc,EAAd,EAAkBnB,MAAMC,IAAxB,EAA8BW,KAA9B,CAFV;AAGG,YAAME;AAHT;AAKE;AAAA;AAAA;AAAOD;AAAP,KALF;AAMGG;AANH,GADF;AAUD,CAdD;;kBAgBeL,W"
+}

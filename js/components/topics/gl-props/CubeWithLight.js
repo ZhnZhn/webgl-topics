@@ -1,24 +1,30 @@
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _fnGL = require("../gl-fn/fnGL");
+var _fnGL = require('../gl-fn/fnGL');
 
 var _fnGL2 = _interopRequireDefault(_fnGL);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var CubeWithLight = {
-  vertexShaderCode: "\n  attribute vec4 coords;\n  uniform mat4 transformMatrix;\n  uniform mat4 perspectiveMatrix;\n\n  attribute vec3 normal;\n  uniform vec3 lightColor;\n  uniform vec3 lightDirection;\n\n  varying vec4 varyingColors;\n  void main(void){\n    vec3 norm = normalize(normal);\n    vec3 ld = normalize(lightDirection);\n    float dotProduct = max(dot(norm, ld), 0.0);\n    vec3 vertexColor = lightColor * vec3(1, 1, 0) * dotProduct;\n    varyingColors = vec4(vertexColor, 1);\n\n    gl_Position = perspectiveMatrix * transformMatrix * coords;\n  }\n  ",
+  vertexShaderCode: '\n  attribute vec4 coords;\n  uniform mat4 transformMatrix;\n  uniform mat4 perspectiveMatrix;\n\n  attribute vec3 normal;\n  uniform vec3 lightColor;\n  uniform vec3 lightDirection;\n\n  varying vec4 varyingColors;\n  void main(void){\n    vec3 norm = normalize(normal);\n    vec3 ld = normalize(lightDirection);\n    float dotProduct = max(dot(norm, ld), 0.0);\n    vec3 vertexColor = lightColor * vec3(1, 1, 0) * dotProduct;\n    varyingColors = vec4(vertexColor, 1);\n\n    gl_Position = perspectiveMatrix * transformMatrix * coords;\n  }\n  ',
 
-  fragmentShaderCode: "\n  precision mediump float;\n  varying vec4 varyingColors;\n  void main(void) {\n    gl_FragColor = varyingColors;\n  }\n  ",
+  fragmentShaderCode: '\n  precision mediump float;\n  varying vec4 varyingColors;\n  void main(void) {\n    gl_FragColor = varyingColors;\n  }\n  ',
 
   valuesForInit: {
     zMatrixTranslate: -4,
     isWithoutPointSize: true,
-    isDrawElemnts: true
+    isDrawElemnts: true,
+    topicLink: {
+      type: 'EGGHEAD',
+      title: 'Egghead : Course : Build Complex 3D models with WebGL',
+      href: 'https://egghead.io/courses/build-complex-3d-models-with-webgl',
+      isPro: true
+    }
   },
 
   createVertices: function createVertices(target) {

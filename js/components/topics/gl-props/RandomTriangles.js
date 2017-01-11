@@ -1,16 +1,23 @@
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _fnGL = require("../gl-fn/fnGL");
+var _fnGL = require('../gl-fn/fnGL');
 
 var _fnGL2 = _interopRequireDefault(_fnGL);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var RandomTriangles = {
+  valuesForInit: {
+    topicLink: {
+      type: 'EGGHEAD',
+      title: 'Egghead : Course : Build Complex 3D models with WebGL',
+      href: 'https://egghead.io/courses/build-complex-3d-models-with-webgl'
+    }
+  },
 
   createVertices: function createVertices(target) {
     var gl = target.gl,

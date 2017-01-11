@@ -1,10 +1,10 @@
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _fnGL = require("../gl-fn/fnGL");
+var _fnGL = require('../gl-fn/fnGL');
 
 var _fnGL2 = _interopRequireDefault(_fnGL);
 
@@ -25,7 +25,13 @@ var _fnAddColor = function _fnAddColor(vertices, i) {
 
 var Plane = {
   valuesForInit: {
-    drawMode: "TRIANGLE_FAN"
+    drawMode: "TRIANGLE_FAN",
+    topicLink: {
+      type: 'EGGHEAD',
+      title: 'Egghead : Course : Build Complex 3D models with WebGL',
+      href: 'https://egghead.io/courses/build-complex-3d-models-with-webgl',
+      isPro: true
+    }
   },
 
   createVertices: function createVertices(target) {

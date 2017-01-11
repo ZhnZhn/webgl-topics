@@ -32,7 +32,13 @@ const TextureImage = {
   `,
 
   valuesForInit : {
-    drawMode : "TRIANGLE_STRIP"
+    drawMode : "TRIANGLE_STRIP",
+    topicLink : {
+      type : 'EGGHEAD',
+      title : 'Egghead : Course : Build Complex 3D models with WebGL',
+      href : 'https://egghead.io/courses/build-complex-3d-models-with-webgl',
+      isPro : true
+    }
   },
 
   createVertices : (target) => {
@@ -56,7 +62,7 @@ const TextureImage = {
       false
     );
   },
-  
+
   loadTexture : (target) => {
     const image = document.createElement("img");
     image.crossOrigin = "";

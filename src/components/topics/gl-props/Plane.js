@@ -15,7 +15,13 @@ const _fnAddColor = (vertices, i) => {
 
 const Plane = {
   valuesForInit : {
-    drawMode : "TRIANGLE_FAN"
+    drawMode : "TRIANGLE_FAN",
+    topicLink : {
+      type : 'EGGHEAD',
+      title : 'Egghead : Course : Build Complex 3D models with WebGL',
+      href : 'https://egghead.io/courses/build-complex-3d-models-with-webgl',
+      isPro : true
+    }    
   },
 
   createVertices : (target) => {
@@ -42,7 +48,7 @@ const Plane = {
       gl, shaderProgram, "colors", 4,
       Float32Array.BYTES_PER_ELEMENT*7,
       Float32Array.BYTES_PER_ELEMENT*3
-    );    
+    );
 },
 
  clearBuffers : (target) => {

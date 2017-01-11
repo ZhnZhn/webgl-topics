@@ -2,6 +2,15 @@ import fnGL from '../gl-fn/fnGL';
 
 const CoronaSample = {
 
+  valuesForInit : {
+    topicLink : {
+      type : 'EGGHEAD',
+      title : 'Egghead : Course : Build Complex 3D models with WebGL',
+      href : 'https://egghead.io/courses/build-complex-3d-models-with-webgl',
+      isPro : true
+    }
+  },
+
   createVertices : (target) => {
     const vertices = target.vertices = [
       0.88, -0.25, -0.18,  1, 0, 0, 1,

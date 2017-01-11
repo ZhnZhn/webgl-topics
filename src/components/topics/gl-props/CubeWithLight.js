@@ -34,7 +34,13 @@ const CubeWithLight = {
   valuesForInit : {
     zMatrixTranslate : -4,
     isWithoutPointSize : true,
-    isDrawElemnts : true
+    isDrawElemnts : true,
+    topicLink : {
+      type : 'EGGHEAD',
+      title : 'Egghead : Course : Build Complex 3D models with WebGL',
+      href : 'https://egghead.io/courses/build-complex-3d-models-with-webgl',
+      isPro : true
+    }
   },
 
   createVertices : (target) => {
