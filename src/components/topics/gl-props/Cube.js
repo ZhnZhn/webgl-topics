@@ -3,7 +3,13 @@ import fnGL from '../gl-fn/fnGL'
 const Cube = {
   valuesForInit : {
     zMatrixTranslate : -4,
-    isDrawElemnts : true
+    isDrawElemnts : true,
+    topicLink : {
+      type : 'EGGHEAD',
+      title : 'Egghead : Course : Build Complex 3D models with WebGL',
+      href : 'https://egghead.io/courses/build-complex-3d-models-with-webgl',
+      isPro : true
+    }    
   },
 
   createVertices : (target) => {

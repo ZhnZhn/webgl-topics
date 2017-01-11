@@ -14,6 +14,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _RouterLink = require('./links/RouterLink');
+
+var _RouterLink2 = _interopRequireDefault(_RouterLink);
+
 var _initGL = require('./gl-decorators/initGL');
 
 var _initGL2 = _interopRequireDefault(_initGL);
@@ -83,6 +87,21 @@ var WebGLTopic = (0, _initGL2.default)(_class = (0, _createShaders2.default)(_cl
       _this.forceUpdate();
     };
 
+    _this._renderTopicLink = function (valuesForInit) {
+      if (!valuesForInit) {
+        return undefined;
+      } else {
+        var _valuesForInit$topicL = valuesForInit.topicLink,
+            topicLink = _valuesForInit$topicL === undefined ? {} : _valuesForInit$topicL,
+            type = topicLink.type,
+            Comp = _RouterLink2.default[type];
+
+        if (typeof Comp === 'undefined') {
+          return undefined;
+        } else return _react2.default.createElement(Comp, topicLink);
+      }
+    };
+
     _this.isAnimate = true;
     _this.isStopDraw = false;
     return _this;
@@ -110,6 +129,8 @@ var WebGLTopic = (0, _initGL2.default)(_class = (0, _createShaders2.default)(_cl
     value: function render() {
       var _this2 = this;
 
+      var valuesForInit = this.props.valuesForInit;
+
       return _react2.default.createElement(
         'div',
         { style: STYLE.ROOT },
@@ -135,7 +156,8 @@ var WebGLTopic = (0, _initGL2.default)(_class = (0, _createShaders2.default)(_cl
           caption: 'Run Animation',
           style: STYLE.BT_RUN,
           onClick: this._handleClickCanvas
-        })
+        }),
+        this._renderTopicLink(valuesForInit)
       );
     }
   }]);

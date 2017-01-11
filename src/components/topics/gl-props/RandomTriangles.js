@@ -1,6 +1,13 @@
 import fnGL from '../gl-fn/fnGL';
 
 const RandomTriangles = {
+  valuesForInit : {
+    topicLink : {
+      type : 'EGGHEAD',
+      title : 'Egghead : Course : Build Complex 3D models with WebGL',
+      href : 'https://egghead.io/courses/build-complex-3d-models-with-webgl'
+    }
+  },
 
   createVertices : (target) => {
     const { gl, shaderProgram } = target

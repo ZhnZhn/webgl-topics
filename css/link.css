@@ -1,0 +1,14 @@
+.native-link {
+  display: block;
+  color: #0b8fff;
+  font-weight: bold;
+  font-size: 16px;
+  border-bottom: thin solid;
+  text-decoration: none;
+}
+.native-link:hover{
+  border-bottom-width: medium;
+}
+.native-link:visited{
+  color: #0b8fff;
+}

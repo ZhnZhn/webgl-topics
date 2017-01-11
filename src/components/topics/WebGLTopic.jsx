@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import RouterLink from './links/RouterLink';
+
 import initGL from './gl-decorators/initGL';
 import createShaders from './gl-decorators/createShaders';
 import createPerspective from './gl-decorators/createPerspective';
@@ -62,7 +64,22 @@ class WebGLTopic extends Component {
     this.forceUpdate();
   }
 
+  _renderTopicLink = (valuesForInit) => {
+    if (!valuesForInit){
+      return undefined;
+    } else {
+      const { topicLink={} } = valuesForInit
+          , { type } = topicLink
+          , Comp = RouterLink[type]
+      if (typeof Comp === 'undefined'){
+        return undefined;
+      } else
+        return (<Comp {...topicLink} />);
+    }
+  }
+
   render(){
+    const { valuesForInit } = this.props    
     return (
       <div style={STYLE.ROOT}>
         <canvas
@@ -81,6 +98,9 @@ class WebGLTopic extends Component {
             style={STYLE.BT_RUN}
             onClick={this._handleClickCanvas}
          />
+        }
+        {
+          this._renderTopicLink(valuesForInit)
         }
       </div>
     );
