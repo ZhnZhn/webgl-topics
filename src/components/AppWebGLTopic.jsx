@@ -8,7 +8,7 @@ import Footer from './footer/Footer';
 const AppWebGLTopic = ({ store }) => (
   <div className="app" role="application">
     <Header />
-    <TopicMenu />
+    <TopicMenu store={store} />
     <TopicWrapper store={store} />
     <Footer />
   </div>

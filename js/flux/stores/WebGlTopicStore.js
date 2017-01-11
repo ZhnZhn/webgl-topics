@@ -22,7 +22,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var WebGlStore = _reflux2.default.createStore(_extends({
   listenables: [_RouterTopicActions2.default],
-  state: {}
+  state: {
+    topicId: 'RANDOM_TRIANGLES'
+  }
 
 }, _RouterTopicSlice2.default));
 

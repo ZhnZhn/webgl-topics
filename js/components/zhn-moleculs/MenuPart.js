@@ -19,21 +19,29 @@ var STYLE = {
     lineHeight: 2,
     paddingLeft: '8px',
     backgroundColor: '#24282A'
+  },
+  ITEM: {
+    color: 'gray'
+  },
+  ITEM_CURRENT: {
+    borderRight: '8px solid #80c040'
   }
 };
 
-var _renderMenuItems = function _renderMenuItems(items) {
+var _renderMenuItems = function _renderMenuItems(items, topicId) {
   return items.map(function (item, index) {
-    var title = item.title,
+    var id = item.id,
+        title = item.title,
         onClick = item.onClick,
-        className = index % 2 ? 'row__topic__even not-selected' : 'row__topic__odd not-selected';
+        className = index % 2 ? 'row__topic__even not-selected' : 'row__topic__odd not-selected',
+        _style = id === topicId ? STYLE.ITEM_CURRENT : undefined;
 
     return _react2.default.createElement(
       'div',
       {
-        key: index,
+        key: id,
         className: className,
-        style: { color: 'gray' },
+        style: Object.assign({}, STYLE.ITEM, _style),
         onClick: onClick
       },
       title
@@ -43,13 +51,14 @@ var _renderMenuItems = function _renderMenuItems(items) {
 
 var MenuPart = function MenuPart(props) {
   var dataModel = props.dataModel,
+      topicId = props.topicId,
       caption = dataModel.caption,
       items = dataModel.items;
 
   return _react2.default.createElement(
     _OpenClose2.default,
     { caption: caption, style: STYLE.ROOT },
-    _renderMenuItems(items)
+    _renderMenuItems(items, topicId)
   );
 };
 

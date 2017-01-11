@@ -5,13 +5,35 @@ const menuModel = [
   {
     caption : 'WebGL',
     items : [
-      { title: "Random Triangles" , onClick : () => Actions.viewTopic('RANDOM_TRIANGLES') },
-      { title: "Corona" , onClick : () => Actions.viewTopic('CORONA') },
-      { title: "Plane", onClick :  () => Actions.viewTopic('PLANE') },
-      { title: "Cube", onClick :  () => Actions.viewTopic('CUBE') },
-      { title: "TextureImage", onClick :  () => Actions.viewTopic('TEXTURE_IMAGE') },
-      { title: "CubeWithLight", onClick :  () => Actions.viewTopic('CUBE_WITH_LIGHT') },
-      { title: "CubeTransparent", onClick :  () => Actions.viewTopic('CUBE_TRANSPARENT') }
+      {
+        id : 'RANDOM_TRIANGLES',
+        title: "Random Triangles" ,
+        onClick : () => Actions.viewTopic('RANDOM_TRIANGLES')
+      },{
+        id : 'CORONA',
+        title: "Corona" ,
+        onClick : () => Actions.viewTopic('CORONA')
+      },{
+        id : 'PLANE',
+        title: "Plane",
+        onClick : () => Actions.viewTopic('PLANE')
+      },{
+        id : 'CUBE',
+        title: "Cube",
+        onClick : () => Actions.viewTopic('CUBE')
+      },{
+        id : 'TEXTURE_IMAGE',
+        title: "TextureImage",
+        onClick : () => Actions.viewTopic('TEXTURE_IMAGE')
+      },{
+        id : 'CUBE_WITH_LIGHT',
+        title: "CubeWithLight",
+        onClick : () => Actions.viewTopic('CUBE_WITH_LIGHT')
+      },{
+        id : 'CUBE_TRANSPARENT',
+        title: "CubeTransparent",
+        onClick : () => Actions.viewTopic('CUBE_TRANSPARENT')
+      }
     ]
   }
 ];

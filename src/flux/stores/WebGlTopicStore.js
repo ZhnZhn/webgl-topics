@@ -5,8 +5,10 @@ import RouterTopicActions from '../actions/RouterTopicActions'
 import RouterTopicSlice from './RouterTopicSlice';
 
 const WebGlStore = Reflux.createStore({
-  listenables : [ RouterTopicActions ],  
-  state : {},
+  listenables : [ RouterTopicActions ],
+  state : {
+    topicId : 'RANDOM_TRIANGLES'
+  },
 
   ...RouterTopicSlice
 });

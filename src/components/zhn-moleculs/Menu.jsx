@@ -5,20 +5,24 @@ import MenuPart from './MenuPart';
 
 const Menu = React.createClass({
 
-  _renderMenuParts(menuModel){
+ _renderMenuParts(menuModel, topicId){
     return menuModel.map((menuPart, index) => {
       return (
-         <MenuPart dataModel={menuPart} key={index} />
+         <MenuPart
+            key={index}
+            dataModel={menuPart}
+            topicId={topicId}
+          />
       );
     })
   },
 
   render(){
-    const { menuModel, rootStyle } = this.props
+    const { rootStyle, menuModel, topicId } = this.props
 
     return (
       <div style={rootStyle}>
-        { this._renderMenuParts(menuModel)}
+        { this._renderMenuParts(menuModel, topicId)}
       </div>
     );
   }

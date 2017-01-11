@@ -32,7 +32,7 @@ var AppWebGLTopic = function AppWebGLTopic(_ref) {
     'div',
     { className: 'app', role: 'application' },
     _react2.default.createElement(_Header2.default, null),
-    _react2.default.createElement(_TopicMenu2.default, null),
+    _react2.default.createElement(_TopicMenu2.default, { store: store }),
     _react2.default.createElement(_Main2.default, { store: store }),
     _react2.default.createElement(_Footer2.default, null)
   );

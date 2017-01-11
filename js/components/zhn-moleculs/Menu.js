@@ -16,21 +16,26 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var Menu = _react2.default.createClass({
   displayName: 'Menu',
-  _renderMenuParts: function _renderMenuParts(menuModel) {
+  _renderMenuParts: function _renderMenuParts(menuModel, topicId) {
     return menuModel.map(function (menuPart, index) {
-      return _react2.default.createElement(_MenuPart2.default, { dataModel: menuPart, key: index });
+      return _react2.default.createElement(_MenuPart2.default, {
+        key: index,
+        dataModel: menuPart,
+        topicId: topicId
+      });
     });
   },
   render: function render() {
     var _props = this.props,
+        rootStyle = _props.rootStyle,
         menuModel = _props.menuModel,
-        rootStyle = _props.rootStyle;
+        topicId = _props.topicId;
 
 
     return _react2.default.createElement(
       'div',
       { style: rootStyle },
-      this._renderMenuParts(menuModel)
+      this._renderMenuParts(menuModel, topicId)
     );
   }
 });

@@ -12,21 +12,49 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var menuModel = [{
   caption: 'WebGL',
-  items: [{ title: "Random Triangles", onClick: function onClick() {
+  items: [{
+    id: 'RANDOM_TRIANGLES',
+    title: "Random Triangles",
+    onClick: function onClick() {
       return _RouterTopicActions2.default.viewTopic('RANDOM_TRIANGLES');
-    } }, { title: "Corona", onClick: function onClick() {
+    }
+  }, {
+    id: 'CORONA',
+    title: "Corona",
+    onClick: function onClick() {
       return _RouterTopicActions2.default.viewTopic('CORONA');
-    } }, { title: "Plane", onClick: function onClick() {
+    }
+  }, {
+    id: 'PLANE',
+    title: "Plane",
+    onClick: function onClick() {
       return _RouterTopicActions2.default.viewTopic('PLANE');
-    } }, { title: "Cube", onClick: function onClick() {
+    }
+  }, {
+    id: 'CUBE',
+    title: "Cube",
+    onClick: function onClick() {
       return _RouterTopicActions2.default.viewTopic('CUBE');
-    } }, { title: "TextureImage", onClick: function onClick() {
+    }
+  }, {
+    id: 'TEXTURE_IMAGE',
+    title: "TextureImage",
+    onClick: function onClick() {
       return _RouterTopicActions2.default.viewTopic('TEXTURE_IMAGE');
-    } }, { title: "CubeWithLight", onClick: function onClick() {
+    }
+  }, {
+    id: 'CUBE_WITH_LIGHT',
+    title: "CubeWithLight",
+    onClick: function onClick() {
       return _RouterTopicActions2.default.viewTopic('CUBE_WITH_LIGHT');
-    } }, { title: "CubeTransparent", onClick: function onClick() {
+    }
+  }, {
+    id: 'CUBE_TRANSPARENT',
+    title: "CubeTransparent",
+    onClick: function onClick() {
       return _RouterTopicActions2.default.viewTopic('CUBE_TRANSPARENT');
-    } }]
+    }
+  }]
 }];
 
 exports.default = menuModel;
