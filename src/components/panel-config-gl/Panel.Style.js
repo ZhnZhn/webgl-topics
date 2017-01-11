@@ -17,6 +17,10 @@ const STYLE = {
      paddingBottom : '8px',
      backgroundColor: '#33373A'
   },
+  INPUT_SELECT : {
+    marginTop: '8px',
+    marginBottom: '16px'
+  },
   LABEL_PERSPECTIVE : {
     display : 'inline-block',
     width : '65px',

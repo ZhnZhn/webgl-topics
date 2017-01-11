@@ -10,9 +10,9 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _RowDrawMode = require('./RowDrawMode');
+var _PanelDrawMode = require('./PanelDrawMode');
 
-var _RowDrawMode2 = _interopRequireDefault(_RowDrawMode);
+var _PanelDrawMode2 = _interopRequireDefault(_PanelDrawMode);
 
 var _PanelPerspective = require('./PanelPerspective');
 
@@ -68,7 +68,7 @@ var PanelConfigGL = function (_Component) {
           { style: _Panel2.default.ROOT_CAPTION },
           'Config WebGL Topic'
         ),
-        _react2.default.createElement(_RowDrawMode2.default, { onGetComp: onGetComp }),
+        _react2.default.createElement(_PanelDrawMode2.default, { onGetComp: onGetComp }),
         _react2.default.createElement(_PanelPerspective2.default, { perspectiveNear: perspectiveNear, perspectiveFar: perspectiveFar, onGetComp: onGetComp }),
         _react2.default.createElement(_PanelTranslate2.default, { zMatrixTranslate: zMatrixTranslate, onGetComp: onGetComp }),
         _react2.default.createElement(_PanelRotate2.default, { rX: rX, rY: rY, rZ: rZ, onGetComp: onGetComp })

@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 
-import RowDrawMode from './RowDrawMode';
+import PanelDrawMode from './PanelDrawMode';
 import PanelPerspective from './PanelPerspective';
 import PanelTranslate from './PanelTranslate';
 import PanelRotate from './PanelRotate';
@@ -25,9 +25,14 @@ class PanelConfigGL extends Component{
          <span style={STYLE.ROOT_CAPTION}>
            Config WebGL Topic
          </span>
+        <PanelDrawMode
+          {...{ onGetComp }}
+        />
+        {/*
         <RowDrawMode
           {...{ onGetComp }}
         />
+        */}
         <PanelPerspective
           {...{ perspectiveNear, perspectiveFar, onGetComp }}
         />

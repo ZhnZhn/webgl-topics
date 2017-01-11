@@ -20,7 +20,7 @@ class PanelPerspective extends Component{
     return (
       <OpenClose
          caption="Perspective"
-         style={Object.assign({}, STYLE.OPEN_CLOSE, {paddingTop: '16px'})}
+         style={STYLE.OPEN_CLOSE}
       >
         <RowProp
            labelBy="Near:"

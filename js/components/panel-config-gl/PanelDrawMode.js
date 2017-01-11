@@ -14,9 +14,13 @@ var _OpenClose = require('../zhn-atoms/OpenClose');
 
 var _OpenClose2 = _interopRequireDefault(_OpenClose);
 
-var _RowProp = require('./RowProp');
+var _InputSelect = require('../zhn-atoms/InputSelect');
 
-var _RowProp2 = _interopRequireDefault(_RowProp);
+var _InputSelect2 = _interopRequireDefault(_InputSelect);
+
+var _ButtonSet = require('../zhn-atoms/ButtonSet');
+
+var _ButtonSet2 = _interopRequireDefault(_ButtonSet);
 
 var _Panel = require('./Panel.Style');
 
@@ -30,64 +34,60 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var PanelPerspective = function (_Component) {
-  _inherits(PanelPerspective, _Component);
+var _drawModeOptions = [{ caption: "TRIANGLES", value: "TRIANGLES" }, { caption: "TRIANGLE_STRIP", value: "TRIANGLE_STRIP" }, { caption: "TRIANGLE_FAN", value: "TRIANGLE_FAN" }, { caption: "LINES", value: "LINES" }, { caption: "LINE_STRIP", value: "LINE_STRIP" }, { caption: "LINE_LOOP", value: "LINE_LOOP" }, { caption: "POINTS", value: "POINTS" }];
 
-  function PanelPerspective(props) {
-    _classCallCheck(this, PanelPerspective);
+var PanelDrawMode = function (_Component) {
+  _inherits(PanelDrawMode, _Component);
 
-    var _this = _possibleConstructorReturn(this, (PanelPerspective.__proto__ || Object.getPrototypeOf(PanelPerspective)).call(this, props));
+  function PanelDrawMode(props) {
+    _classCallCheck(this, PanelDrawMode);
 
-    _this._fnAfterSet = function (comp) {
-      comp.createPerspective(comp);
+    var _this = _possibleConstructorReturn(this, (PanelDrawMode.__proto__ || Object.getPrototypeOf(PanelDrawMode)).call(this, props));
+
+    _this._handleSelectDrawMode = function (item) {
+      _this.drawMode = item;
+    };
+
+    _this._handleSetDrawMode = function () {
+      var drawMode = _this.drawMode;
+
+      if (drawMode) {
+        var comp = _this.props.onGetComp();
+        comp.drawMode = drawMode.value;
+      }
     };
 
     return _this;
   }
 
-  _createClass(PanelPerspective, [{
+  _createClass(PanelDrawMode, [{
     key: 'render',
     value: function render() {
-      var _props = this.props,
-          perspectiveNear = _props.perspectiveNear,
-          perspectiveFar = _props.perspectiveFar,
-          onGetComp = _props.onGetComp;
-
-
       return _react2.default.createElement(
         _OpenClose2.default,
         {
-          caption: 'Perspective',
+          caption: 'DrawMode',
           style: _Panel2.default.OPEN_CLOSE
         },
-        _react2.default.createElement(_RowProp2.default, {
-          labelBy: 'Near:',
-          value: perspectiveNear,
-          propKey: 'perspectiveNear',
-          styleLabel: _Panel2.default.LABEL_PERSPECTIVE,
-          onGetComp: onGetComp,
-          fnAfterSet: this._fnAfterSet
+        _react2.default.createElement(_InputSelect2.default, {
+          options: _drawModeOptions,
+          styleRoot: _Panel2.default.INPUT_SELECT,
+          onSelect: this._handleSelectDrawMode
         }),
-        _react2.default.createElement(_RowProp2.default, {
-          labelBy: 'Far:',
-          value: perspectiveFar,
-          styleLabel: _Panel2.default.LABEL_PERSPECTIVE,
-          propKey: 'perspectiveFar',
-          onGetComp: onGetComp,
-          fnAfterSet: this._fnAfterSet
+        _react2.default.createElement(_ButtonSet2.default, {
+          mode: 1,
+          onClick: this._handleSetDrawMode
         })
       );
     }
   }]);
 
-  return PanelPerspective;
+  return PanelDrawMode;
 }(_react.Component);
 
-PanelPerspective.propTypes = {
-  perspectiveNear: _react.PropTypes.number.isRequired,
-  perspectiveFar: _react.PropTypes.number.isRequired,
+PanelDrawMode.propTypes = {
   onGetComp: _react.PropTypes.func.isRequired
 };
 
-exports.default = PanelPerspective;
-//# sourceMappingURL=D:\_Dev\_React\_WebGL_Topic\js\components\panel-config-gl\PanelPerspective.js.map
+exports.default = PanelDrawMode;
+//# sourceMappingURL=D:\_Dev\_React\_WebGL_Topic\js\components\panel-config-gl\PanelDrawMode.js.map

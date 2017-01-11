@@ -372,7 +372,9 @@ var ZhSelect = _react2.default.createClass({
   render: function render() {
     var _this2 = this;
 
-    var width = this.props.width,
+    var _props2 = this.props,
+        width = _props2.width,
+        styleRoot = _props2.styleRoot,
         _state2 = this.state,
         value = _state2.value,
         isLocalMode = _state2.isLocalMode,
@@ -392,10 +394,10 @@ var ZhSelect = _react2.default.createClass({
 
     var _domOptions = isLocalMode || isShowOption ? this.renderOptions() : null;
 
-    var _props2 = this.props,
-        isLoading = _props2.isLoading,
-        isLoadingFailed = _props2.isLoadingFailed,
-        placeholder = _props2.placeholder,
+    var _props3 = this.props,
+        isLoading = _props3.isLoading,
+        isLoadingFailed = _props3.isLoadingFailed,
+        placeholder = _props3.placeholder,
         _state3 = this.state,
         optionName = _state3.optionName,
         optionNames = _state3.optionNames;
@@ -429,7 +431,7 @@ var ZhSelect = _react2.default.createClass({
 
     return _react2.default.createElement(
       'div',
-      { style: Object.assign({}, _InputSelect2.default.rootDiv, _styleDivWidth) },
+      { style: Object.assign({}, _InputSelect2.default.rootDiv, _styleDivWidth, styleRoot) },
       _react2.default.createElement('input', {
         ref: function ref(c) {
           return _this2.domInputText = c;

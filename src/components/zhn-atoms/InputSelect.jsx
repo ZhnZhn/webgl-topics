@@ -334,7 +334,7 @@ const ZhSelect = React.createClass({
   },
 
   render: function(){
-    const {width} = this.props
+    const {width, styleRoot} = this.props
         , {value, isLocalMode, isShowOption } = this.state;
 
     const _styleArrow = isShowOption ? {borderColor: '#1B75BB transparent transparent'} : null;
@@ -386,7 +386,7 @@ const ZhSelect = React.createClass({
 
 
     return (
-      <div style={Object.assign({},styles.rootDiv, _styleDivWidth)}>
+      <div style={Object.assign({},styles.rootDiv, _styleDivWidth, styleRoot)}>
         <input
            ref={c => this.domInputText = c}
            type="text"
