@@ -45,8 +45,24 @@ body {
   position: relative;
   float: left;
   padding: 0px 1.25rem;
-  color: inherit;
+  color: gray;
+  /*color: inherit;*/
   text-decoration: none;
+}
+.header__github-link {
+  display: inline-block;
+  position: relative;
+  float: left;
+  text-decoration: none;
+  fill: black;
+  transition: fill 200ms ease-out;
+}
+.header__github-link svg {
+  width: 2.5rem;
+  height: 3rem;
+}
+.header__github-link:hover {
+  fill: #80c040;
 }
 
 .sidebar {

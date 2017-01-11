@@ -1,0 +1,14 @@
+)]}
+{
+ "version": 3,
+ "sources": "D:\\_Dev\\_React\\_WebGL_Topic\\src\\components\\header\\GitHubLink.jsx",
+ "file": "D:\\_Dev\\_React\\_WebGL_Topic\\js\\components\\header\\GitHubLink.js",
+ "sourceRoot": "",
+ "names": [
+  "GitHubLink",
+  "className",
+  "title",
+  "href"
+ ],
+ "mappings": ";;;;;;AAAA;;;;;;AAEA,IAAMA,aAAa,SAAbA,UAAa,OAAgC;AAAA,MAA7BC,SAA6B,QAA7BA,SAA6B;AAAA,MAAlBC,KAAkB,QAAlBA,KAAkB;AAAA,MAAXC,IAAW,QAAXA,IAAW;;AACjD,SACE;AAAA;AAAA;AACE,iBAAWF,SADb;AAEE,aAAOC,KAFT;AAGE,YAAMC;AAHR;AAKE;AAAA;AAAA,QAAK,SAAQ,WAAb,EAAyB,OAAM,4BAA/B,EAA4D,aAAU,SAAtE,EAAgF,aAAU,SAA1F,EAAoG,mBAAgB,OAApH,EAA4H,qBAAkB,OAA9I;AACE;AAAA;AAAA;AAAA;AAAA,OADF;AAEE,8CAAM,GAAE,yqBAAR;AAFF;AALF,GADF;AAYD,CAbD;;kBAeeH,U"
+}
