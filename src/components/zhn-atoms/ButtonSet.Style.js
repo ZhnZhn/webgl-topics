@@ -12,19 +12,17 @@ const STYLE = {
     position : 'relative',
     top : '4px'
   },
-  VALID_CHANGED : {    
+  VALID_CHANGED : {
     color: '#DEB887',
-    border: '2px solid #DEB887',
-    //color: '#673ab7',
-    //border: '2px solid #673ab7',
+    border: '2px solid #DEB887'
   },
   VALID_NOT_CHANGED : {
     color: '#9e9e9e',
-    border: '2px solid #9e9e9e',
+    border: '2px solid #9e9e9e'
   },
   NOT_VALID : {
     color: '#F44336',
-    border: '2px solid #F44336',
+    border: '2px solid #F44336'
   }
 
 }
