@@ -155,3 +155,12 @@ body {
   background: #1E1E1E none repeat scroll 0% 0%;
   box-shadow: 0px 1px #000 inset;
 }
+
+.not-selected {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome all / Safari all / Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox all */
+  -ms-user-select: none;       /* IE 10+ */
+  user-select: none;           /* Likely future */
+}

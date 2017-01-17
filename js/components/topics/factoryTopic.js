@@ -4,9 +4,15 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _rTopic2;
+
 var _WebGLTopic = require('./WebGLTopic');
 
 var _WebGLTopic2 = _interopRequireDefault(_WebGLTopic);
+
+var _ID = require('./ID');
+
+var _ID2 = _interopRequireDefault(_ID);
 
 var _RandomTriangles = require('./gl-props/RandomTriangles');
 
@@ -38,26 +44,18 @@ var _CubeTransparent2 = _interopRequireDefault(_CubeTransparent);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//import React from 'react';
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var _rTopic = {
-  DEFAULT: { props: _RandomTriangles2.default },
-  //DEFAULT : { props : CubeWithLight },
-  RANDOM_TRIANGLES: { props: _RandomTriangles2.default },
-  CORONA: { props: _CoronaSample2.default },
-  PLANE: { props: _Plane2.default },
-  CUBE: { props: _Cube2.default },
-  TEXTURE_IMAGE: { props: _TextureImage2.default },
-  CUBE_WITH_LIGHT: { props: _CubeWithLight2.default },
-  CUBE_TRANSPARENT: { props: _CubeTransparent2.default }
-};
+var _rTopic = (_rTopic2 = {
+  DEFAULT: { props: _RandomTriangles2.default }
+
+}, _defineProperty(_rTopic2, _ID2.default.RANDOM_TRIANGLES, { props: _RandomTriangles2.default }), _defineProperty(_rTopic2, _ID2.default.CROWN, { props: _CoronaSample2.default }), _defineProperty(_rTopic2, _ID2.default.PLANE, { props: _Plane2.default }), _defineProperty(_rTopic2, _ID2.default.CUBE, { props: _Cube2.default }), _defineProperty(_rTopic2, _ID2.default.TEXTURE_IMAGE, { props: _TextureImage2.default }), _defineProperty(_rTopic2, _ID2.default.CUBE_WITH_LIGHT, { props: _CubeWithLight2.default }), _defineProperty(_rTopic2, _ID2.default.CUBE_TRANSPARENT, { props: _CubeTransparent2.default }), _rTopic2);
 
 var factoryTopic = function factoryTopic(topicId) {
   var config = _rTopic[topicId],
       props = config ? config.props : _rTopic.DEFAULT.props;
 
   props.key = topicId + Date.now();
-  //return React.createElement(WebGLTopic, props);
   return { Comp: _WebGLTopic2.default, props: props };
 };
 

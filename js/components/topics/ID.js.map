@@ -1,0 +1,18 @@
+)]}
+{
+ "version": 3,
+ "sources": "D:\\_Dev\\_React\\_WebGL_Topic\\src\\components\\topics\\ID.js",
+ "file": "D:\\_Dev\\_React\\_WebGL_Topic\\js\\components\\topics\\ID.js",
+ "sourceRoot": "",
+ "names": [
+  "ID",
+  "RANDOM_TRIANGLES",
+  "CROWN",
+  "PLANE",
+  "CUBE",
+  "TEXTURE_IMAGE",
+  "CUBE_WITH_LIGHT",
+  "CUBE_TRANSPARENT"
+ ],
+ "mappings": ";;;;;;;AAEA,IAAMA,KAAK;AACTC,oBAAmB,kBADV;AAETC,SAAQ,OAFC;AAGTC,SAAQ,OAHC;AAITC,QAAO,MAJE;AAKTC,iBAAgB,eALP;AAMTC,mBAAkB,iBANT;AAOTC,oBAAmB;AAPV,CAAX;;kBAUeP,E"
+}

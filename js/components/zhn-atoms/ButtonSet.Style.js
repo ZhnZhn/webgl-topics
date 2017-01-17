@@ -18,8 +18,8 @@ var STYLE = {
     top: '4px'
   },
   VALID_CHANGED: {
-    color: '#673ab7',
-    border: '2px solid #673ab7'
+    color: '#DEB887',
+    border: '2px solid #DEB887'
   },
   VALID_NOT_CHANGED: {
     color: '#9e9e9e',

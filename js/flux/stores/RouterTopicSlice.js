@@ -9,10 +9,10 @@ var _RouterTopicActions = require('../actions/RouterTopicActions');
 var RouterTopicSlice = {
   _setTopicId: function _setTopicId(topicId) {
     this.state.topicId = topicId;
-    this.trigger(_RouterTopicActions.RouterTopicActionTypes.VIEW_TOPIC, this.state);
   },
   onViewTopic: function onViewTopic(topicId) {
     this._setTopicId(topicId);
+    this.trigger(_RouterTopicActions.RouterTopicActionTypes.VIEW_TOPIC, this.state);
   }
 };
 

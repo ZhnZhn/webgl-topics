@@ -9,7 +9,8 @@
   "createStore",
   "listenables",
   "state",
-  "topicId"
+  "topicId",
+  "RANDOM_TRIANGLES"
  ],
- "mappings": ";;;;;;;;AAAA;;;;AAEA;;;;AAEA;;;;;;AAEA,IAAMA,aAAa,iBAAOC,WAAP;AACjBC,eAAc,8BADG;AAEjBC,SAAQ;AACNC,aAAU;AADJ;;AAFS,+BAAnB;;kBASeJ,U"
+ "mappings": ";;;;;;;;AAAA;;;;AAEA;;;;AACA;;;;AAEA;;;;;;AAEA,IAAMA,aAAa,iBAAOC,WAAP;AACjBC,eAAc,8BADG;AAEjBC,SAAQ;AACNC,aAAU,aAAQC;AADZ;;AAFS,+BAAnB;;kBASeL,U"
 }

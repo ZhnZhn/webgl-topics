@@ -1,38 +1,39 @@
 
+import ID from '../topics/ID';
 import Actions from '../../flux/actions/RouterTopicActions'
 
 const menuModel = [
   {
-    caption : 'WebGL',
+    caption : 'WebGL with gl-matrix',
     items : [
       {
-        id : 'RANDOM_TRIANGLES',
+        id : ID.RANDOM_TRIANGLES,
         title: "Random Triangles" ,
-        onClick : () => Actions.viewTopic('RANDOM_TRIANGLES')
+        onClick : () => Actions.viewTopic(ID.RANDOM_TRIANGLES)
       },{
-        id : 'CORONA',
-        title: "Corona" ,
-        onClick : () => Actions.viewTopic('CORONA')
+        id : ID.CROWN,
+        title: "Crown Sample" ,
+        onClick : () => Actions.viewTopic(ID.CROWN)
       },{
-        id : 'PLANE',
+        id : ID.PLANE,
         title: "Plane",
-        onClick : () => Actions.viewTopic('PLANE')
+        onClick : () => Actions.viewTopic(ID.PLANE)
       },{
-        id : 'CUBE',
+        id : ID.CUBE,
         title: "Cube",
-        onClick : () => Actions.viewTopic('CUBE')
+        onClick : () => Actions.viewTopic(ID.CUBE)
       },{
-        id : 'TEXTURE_IMAGE',
+        id : ID.TEXTURE_IMAGE,
         title: "TextureImage",
-        onClick : () => Actions.viewTopic('TEXTURE_IMAGE')
+        onClick : () => Actions.viewTopic(ID.TEXTURE_IMAGE)
       },{
-        id : 'CUBE_WITH_LIGHT',
+        id : ID.CUBE_WITH_LIGHT,
         title: "CubeWithLight",
-        onClick : () => Actions.viewTopic('CUBE_WITH_LIGHT')
+        onClick : () => Actions.viewTopic(ID.CUBE_WITH_LIGHT)
       },{
-        id : 'CUBE_TRANSPARENT',
+        id : ID.CUBE_TRANSPARENT,
         title: "CubeTransparent",
-        onClick : () => Actions.viewTopic('CUBE_TRANSPARENT')
+        onClick : () => Actions.viewTopic(ID.CUBE_TRANSPARENT)
       }
     ]
   }

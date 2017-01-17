@@ -1,5 +1,6 @@
 import Reflux from 'reflux';
 
+import TopicID from '../../components/topics/ID';
 import RouterTopicActions from '../actions/RouterTopicActions'
 
 import RouterTopicSlice from './RouterTopicSlice';
@@ -7,7 +8,7 @@ import RouterTopicSlice from './RouterTopicSlice';
 const WebGlStore = Reflux.createStore({
   listenables : [ RouterTopicActions ],
   state : {
-    topicId : 'RANDOM_TRIANGLES'
+    topicId : TopicID.RANDOM_TRIANGLES
   },
 
   ...RouterTopicSlice

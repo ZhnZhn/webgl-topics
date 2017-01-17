@@ -15,7 +15,7 @@ const STYLE = {
 const Header = () => (
   <header className="header" role="banner">
     <span style={STYLE.CAPTION}>
-      WebGL Topics v. 0.1.0
+      WebGL Topics v. 0.01.0
     </span>
     <nav className="header__nav" role="navigation">
        <a className="header__nav__link" href="javascript:void(0);">One</a>
