@@ -55,8 +55,9 @@ var ButtonSet = function (_Component) {
           _onClick = mode === 1 ? onClick : undefined;
 
       return _react2.default.createElement(
-        'span',
+        'button',
         {
+          className: 'bt',
           style: _style,
           tabIndex: '0',
           onClick: _onClick

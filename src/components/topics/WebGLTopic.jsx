@@ -23,8 +23,8 @@ const WIDTH = 500
       },
       BT_RUN : {
         position: 'absolute',
-        top: '4px',
-        'right' : '8px'
+        top: '8px',
+        right : '8px'
       }
     }
 
@@ -79,7 +79,7 @@ class WebGLTopic extends Component {
   }
 
   render(){
-    const { valuesForInit } = this.props    
+    const { valuesForInit } = this.props
     return (
       <div style={STYLE.ROOT}>
         <canvas

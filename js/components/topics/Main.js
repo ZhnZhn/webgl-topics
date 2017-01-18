@@ -89,8 +89,6 @@ var TopicWrapper = function (_Component) {
           valuesForInit = _compProps$valuesForI === undefined ? {} : _compProps$valuesForI,
           _valuesForInit = Object.assign({}, _dfValues2.default, valuesForInit);
 
-      //console.log(topicId);
-
 
       return _react2.default.createElement(
         'div',

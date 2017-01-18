@@ -6,11 +6,9 @@ const STYLE = {
     fontWeight: 'bold',
     border: '2px solid #673ab7',
     borderRadius: '8px',
-    padding: '4px 6px',
+    padding: '6px 8px',
     marginLeft: '16px',
-    cursor: 'pointer',
-    position : 'relative',
-    top : '4px'
+    position: 'relative'    
   }
 }
 

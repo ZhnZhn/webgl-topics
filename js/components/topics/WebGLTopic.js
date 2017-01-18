@@ -67,8 +67,8 @@ var WIDTH = 500,
   },
   BT_RUN: {
     position: 'absolute',
-    top: '4px',
-    'right': '8px'
+    top: '8px',
+    right: '8px'
   }
 };
 

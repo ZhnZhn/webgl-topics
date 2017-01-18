@@ -6,28 +6,28 @@ Object.defineProperty(exports, "__esModule", {
 
 var STYLE = {
   BT: {
-    color: 'burlywood',
+    color: '#fefcff',
     fontSize: '16px',
     fontWeight: 'bold',
-    border: '2px solid burlywood',
+    backgroundColor: '#673ab7',
+    border: '2px solid #673ab7',
     borderRadius: '8px',
     padding: '4px 6px',
     marginLeft: '16px',
-    cursor: 'pointer',
     position: 'relative',
     top: '4px'
   },
   VALID_CHANGED: {
-    color: '#DEB887',
-    border: '2px solid #DEB887'
+    border: '2px solid #673ab7'
   },
   VALID_NOT_CHANGED: {
-    color: '#9e9e9e',
+    backgroundColor: '#9e9e9e',
     border: '2px solid #9e9e9e'
   },
   NOT_VALID: {
-    color: '#F44336',
-    border: '2px solid #F44336'
+    color: '#f44336',
+    backgroundColor: '#9e9e9e',
+    border: '2px solid #9e9e9e'
   }
 
 };

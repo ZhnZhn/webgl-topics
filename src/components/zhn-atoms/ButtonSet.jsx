@@ -25,17 +25,18 @@ class ButtonSet extends Component{
              ? onClick
              : undefined
     return (
-      <span
+      <button
+        className="bt"
         style={_style}
         tabIndex="0"
         onClick={_onClick}
       >
        Set
-      </span>
+      </button>
     );
   }
 
-  setMode = (mode) => {    
+  setMode = (mode) => {
     this.setState({ mode })
   }
 }

@@ -19,9 +19,9 @@ var Button = function Button(_ref) {
       style = _ref.style,
       onClick = _ref.onClick;
   return _react2.default.createElement(
-    'span',
+    'button',
     {
-      className: 'not-selected',
+      className: 'bt',
       style: Object.assign({}, _Button2.default.BT, style),
       tabIndex: '0',
       onClick: onClick

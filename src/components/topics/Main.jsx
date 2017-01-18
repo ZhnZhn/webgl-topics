@@ -45,9 +45,7 @@ class TopicWrapper extends Component{
     , { valuesForInit={} } = compProps
     , _valuesForInit = Object.assign({}, dfValues, valuesForInit)
 
-    //console.log(topicId);
-
-
+    
     return (
       <div className="container" role="document">
         <main className="container__content" tabIndex="1" role="main">

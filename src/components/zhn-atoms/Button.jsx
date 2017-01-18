@@ -3,14 +3,14 @@ import React from 'react';
 import STYLE from './Button.Style'
 
 const Button = ({ caption, style, onClick }) => (
-  <span
-    className="not-selected"
+  <button
+    className="bt"
     style={Object.assign({}, STYLE.BT, style)}
     tabIndex="0"
     onClick={onClick}
   >
    {caption}
-  </span>
+  </button>
 )
 
 export default Button
