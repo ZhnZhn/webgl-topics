@@ -31,7 +31,7 @@ var Header = function Header() {
     _react2.default.createElement(
       'span',
       { style: STYLE.CAPTION },
-      'WebGL Topics v. 0.01.0'
+      'WebGL Topics v0.01.0'
     ),
     _react2.default.createElement(
       'nav',
