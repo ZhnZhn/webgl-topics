@@ -1,5 +1,5 @@
 # [WebGL-Topics](https://zhnzhn.github.io/webgl-topics)
-**WebGL-Topics** is a **SPA on ReactJs**.
+**WebGL-Topics** is a **SPA on ReactJS**.
 
 ![alt text](screenshots/webgl-topics.png?raw=true "WebGL Topics")
 
