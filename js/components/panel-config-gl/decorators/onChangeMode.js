@@ -19,4 +19,4 @@ var onChangeMode = function onChangeMode(target) {
 };
 
 exports.default = onChangeMode;
-//# sourceMappingURL=D:\_Dev\_React\_WebGL_Topic\js\components\panel-config-gl\decorators\onChangeMode.js.map
+//# sourceMappingURL=onChangeMode.js.map

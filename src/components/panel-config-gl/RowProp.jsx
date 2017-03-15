@@ -14,6 +14,15 @@ import STYLE from './Row.Style'
 @onChangeMode
 @calcInputMode
 class RowProp extends Component{
+  static propTypes = {
+    labelBy: PropTypes.string.isRequired,
+    value: PropTypes.number.isRequired,
+    propKey: PropTypes.string.isRequired,
+    styleLabel: PropTypes.object,
+    onGetComp: PropTypes.func.isRequired,
+    fnAfterSet: PropTypes.func
+  }
+
   constructor(props){
     super(props)
 
@@ -35,15 +44,17 @@ class RowProp extends Component{
   }
 
   render(){
-    const { labelBy, value, styleLabel } = this.props
+    const { labelBy, inputId, value, styleLabel } = this.props
     return (
       <div style={STYLE.ROW}>
         <Label
           style={Object.assign({}, STYLE.LABEL_ROW, styleLabel)}
           title={labelBy}
+          id={inputId}
         />
         <InputFloat
           ref={ comp => this.inputFloat = comp }
+          id={inputId}
           inputKey="inputFloat"
           inputStyle={STYLE.INPUT_FLOAT_3}
           value={value}
@@ -58,15 +69,6 @@ class RowProp extends Component{
       </div>
     );
   }
-}
-
-RowProp.propTypes = {
-  labelBy : PropTypes.string.isRequired,
-  value : PropTypes.number.isRequired,
-  propKey : PropTypes.string.isRequired,
-  styleLabel : PropTypes.object,
-  onGetComp : PropTypes.func.isRequired,
-  fnAfterSet : PropTypes.func
 }
 
 export default RowProp

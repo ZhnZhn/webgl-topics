@@ -6,6 +6,12 @@ import RowProp from './RowProp';
 import STYLE from './Panel.Style';
 
 class PanelPerspective extends Component{
+  static  propTypes = {
+    perspectiveNear : PropTypes.number.isRequired,
+    perspectiveFar : PropTypes.number.isRequired,
+    onGetComp : PropTypes.func.isRequired
+  }
+
   constructor(props){
     super(props);
   }
@@ -24,6 +30,7 @@ class PanelPerspective extends Component{
       >
         <RowProp
            labelBy="Near:"
+           inputId="pNear"
            value={perspectiveNear}
            propKey="perspectiveNear"
            styleLabel={STYLE.LABEL_PERSPECTIVE}
@@ -32,6 +39,7 @@ class PanelPerspective extends Component{
         />
         <RowProp
            labelBy="Far:"
+           inputId="pFar"
            value={perspectiveFar}
            styleLabel={STYLE.LABEL_PERSPECTIVE}
            propKey="perspectiveFar"
@@ -41,12 +49,6 @@ class PanelPerspective extends Component{
       </OpenClose>
     );
   }
-}
-
-PanelPerspective.propTypes = {
-  perspectiveNear : PropTypes.number.isRequired,
-  perspectiveFar : PropTypes.number.isRequired,
-  onGetComp : PropTypes.func.isRequired
 }
 
 export default PanelPerspective

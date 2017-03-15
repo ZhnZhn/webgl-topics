@@ -1,18 +1,1 @@
-)]}
-{
- "version": 3,
- "sources": "D:\\_Dev\\_React\\_WebGL_Topic\\src\\components\\topics\\ID.js",
- "file": "D:\\_Dev\\_React\\_WebGL_Topic\\js\\components\\topics\\ID.js",
- "sourceRoot": "",
- "names": [
-  "ID",
-  "RANDOM_TRIANGLES",
-  "CROWN",
-  "PLANE",
-  "CUBE",
-  "TEXTURE_IMAGE",
-  "CUBE_WITH_LIGHT",
-  "CUBE_TRANSPARENT"
- ],
- "mappings": ";;;;;;;AAEA,IAAMA,KAAK;AACTC,oBAAmB,kBADV;AAETC,SAAQ,OAFC;AAGTC,SAAQ,OAHC;AAITC,QAAO,MAJE;AAKTC,iBAAgB,eALP;AAMTC,mBAAkB,iBANT;AAOTC,oBAAmB;AAPV,CAAX;;kBAUeP,E"
-}
+{"version":3,"sources":["../../../src/components/topics/ID.js"],"names":["ID","RANDOM_TRIANGLES","CROWN","PLANE","CUBE","TEXTURE_IMAGE","CUBE_WITH_LIGHT","CUBE_TRANSPARENT"],"mappings":";;;;;;;AAEA,IAAMA,KAAK;AACTC,oBAAmB,kBADV;AAETC,SAAQ,OAFC;AAGTC,SAAQ,OAHC;AAITC,QAAO,MAJE;AAKTC,iBAAgB,eALP;AAMTC,mBAAkB,iBANT;AAOTC,oBAAmB;AAPV,CAAX;;kBAUeP,E","file":"ID.js","sourcesContent":["\r\n\r\nconst ID = {\r\n  RANDOM_TRIANGLES : 'RANDOM_TRIANGLES',\r\n  CROWN : 'CROWN',\r\n  PLANE : 'PLANE',\r\n  CUBE : 'CUBE',\r\n  TEXTURE_IMAGE : 'TEXTURE_IMAGE',\r\n  CUBE_WITH_LIGHT : 'CUBE_WITH_LIGHT',\r\n  CUBE_TRANSPARENT : 'CUBE_TRANSPARENT'\r\n}\r\n\r\nexport default ID\r\n"]}

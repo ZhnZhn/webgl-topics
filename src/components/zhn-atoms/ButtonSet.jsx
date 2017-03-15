@@ -9,6 +9,14 @@ const _hmModeStyle = {
 }
 
 class ButtonSet extends Component{
+  static propTypes = {
+    mode: PropTypes.number,
+    onClick: PropTypes.func
+  }
+  static defaultProps = {
+    mode: 2,
+    onClick: () => {}
+  }
 
   constructor(props){
     super(props);
@@ -39,15 +47,6 @@ class ButtonSet extends Component{
   setMode = (mode) => {
     this.setState({ mode })
   }
-}
-
-ButtonSet.defaultProps = {
-  mode : 2
-}
-
-ButtonSet.propTypes = {
-  mode : PropTypes.number,
-  onClick : PropTypes.func.isRequired
 }
 
 export default ButtonSet

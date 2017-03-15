@@ -30,5 +30,14 @@ var Button = function Button(_ref) {
   );
 };
 
+process.env.NODE_ENV !== "production" ? Button.propTypes = {
+  caption: _react.PropTypes.string,
+  style: _react.PropTypes.object,
+  onClick: _react.PropTypes.func
+} : void 0;
+Button.defaultProps = {
+  onClick: function onClick() {}
+};
+
 exports.default = Button;
-//# sourceMappingURL=D:\_Dev\_React\_WebGL_Topic\js\components\zhn-atoms\Button.js.map
+//# sourceMappingURL=Button.js.map

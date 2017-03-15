@@ -11,6 +11,26 @@ const _hmModeStyle = {
 }
 
 class InputFloat extends Component {
+   static propTypes = {
+     inputKey: PropTypes.string,
+     inputStyle: PropTypes.object,
+     value: PropTypes.oneOfType([
+       PropTypes.string,
+       PropTypes.number
+     ]),
+     step: PropTypes.number,
+     onChangeMode: PropTypes.func,
+     onKeyDownEnter: PropTypes.func
+   }
+   static defaultProps = {
+     inputKey: 'dfKey',
+     value: '0',
+     step: 0.1,
+     onChangeMode: () => {},
+     onKeyDownEnter: () => {}
+   }
+
+
 
   _getInitedState = (props) => {
      const { value, step, onChangeMode, onKeyDownEnter } = props
@@ -138,7 +158,7 @@ class InputFloat extends Component {
   }
 
   render(){
-    const { inputStyle } = this.props
+    const { inputStyle, id } = this.props
         , { value, mode } = this.state
         , _hrStyle = _hmModeStyle[mode]
 
@@ -154,6 +174,7 @@ class InputFloat extends Component {
         <div style={STYLE.DIV_INPUT}>
           <input
             ref={input => this.input = input }
+            id={id}
             type="text"
             style={Object.assign({}, STYLE.INPUT, inputStyle)}
             value={value}
@@ -183,23 +204,6 @@ class InputFloat extends Component {
     }
   }
 
-}
-
-InputFloat.defaultProps = {
-  value : '0',
-  step : 0.1
-}
-
-InputFloat.propTypes = {
-  inputKey : PropTypes.string.isRequired,
-  inputStyle : PropTypes.object,
-  value : PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number
-  ]),
-  step : PropTypes.number,
-  onChangeMode : PropTypes.func,
-  onKeyDownEnter : PropTypes.func
 }
 
 export default InputFloat

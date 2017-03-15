@@ -1,11 +1,1 @@
-)]}
-{
- "version": 3,
- "sources": "D:\\_Dev\\_React\\_WebGL_Topic\\src\\components\\footer\\Footer.jsx",
- "file": "D:\\_Dev\\_React\\_WebGL_Topic\\js\\components\\footer\\Footer.js",
- "sourceRoot": "",
- "names": [
-  "Footer"
- ],
- "mappings": ";;;;;;AAAA;;;;;;AAEA,IAAMA,SAAS,SAATA,MAAS;AAAA,SACb,uCAAK,WAAU,mBAAf,EAAmC,MAAK,eAAxC,GADa;AAAA,CAAf;;kBAIeA,M"
-}
+{"version":3,"sources":["../../../src/components/footer/Footer.jsx"],"names":["Footer"],"mappings":";;;;;;AAAA;;;;;;AAEA,IAAMA,SAAS,SAATA,MAAS;AAAA,SACb,uCAAK,WAAU,mBAAf,EAAmC,MAAK,eAAxC,GADa;AAAA,CAAf;;kBAIeA,M","file":"Footer.js","sourcesContent":["import React from 'react';\r\n\r\nconst Footer = () => (\r\n  <div className=\"container__footer\" role=\"complementary\"></div>\r\n)\r\n\r\nexport default Footer\r\n"]}

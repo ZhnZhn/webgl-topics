@@ -1,12 +1,1 @@
-)]}
-{
- "version": 3,
- "sources": "D:\\_Dev\\_React\\_WebGL_Topic\\src\\components\\topics\\links\\RouterLink.js",
- "file": "D:\\_Dev\\_React\\_WebGL_Topic\\js\\components\\topics\\links\\RouterLink.js",
- "sourceRoot": "",
- "names": [
-  "RouterLink",
-  "EGGHEAD"
- ],
- "mappings": ";;;;;;AACA;;;;;;AAEA,IAAMA,aAAa;AACjBC;AADiB,CAAnB;;kBAIeD,U"
-}
+{"version":3,"sources":["../../../../src/components/topics/links/RouterLink.js"],"names":["RouterLink","EGGHEAD"],"mappings":";;;;;;AACA;;;;;;AAEA,IAAMA,aAAa;AACjBC;AADiB,CAAnB;;kBAIeD,U","file":"RouterLink.js","sourcesContent":["\r\nimport EggHeadLink from './EggHeadLink';\r\n\r\nconst RouterLink = {\r\n  EGGHEAD : EggHeadLink\r\n}\r\n\r\nexport default RouterLink\r\n"]}

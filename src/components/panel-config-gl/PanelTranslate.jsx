@@ -5,7 +5,12 @@ import RowProp from './RowProp';
 
 import STYLE from './Panel.Style';
 
-class PanelTranslate extends Component{
+class PanelTranslate extends Component {
+  static propTypes = {
+    zMatrixTranslate : PropTypes.number.isRequired,
+    onGetComp : PropTypes.func.isRequired
+  }
+
   constructor(props){
     super(props)
   }
@@ -23,6 +28,7 @@ class PanelTranslate extends Component{
       >
         <RowProp
         labelBy="Z:"
+        inputId="tZ"
         value={zMatrixTranslate}
         propKey="zMatrixTranslate"
         onGetComp={onGetComp}
@@ -31,11 +37,6 @@ class PanelTranslate extends Component{
       </OpenClose>
     )
   }
-}
-
-PanelTranslate.propTypes = {
-  zMatrixTranslate : PropTypes.number.isRequired,
-  onGetComp : PropTypes.func.isRequired
 }
 
 export default PanelTranslate

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 import RouterLink from './links/RouterLink';
 
@@ -9,8 +9,6 @@ import setPointSize from './gl-decorators/setPointSize';
 import configMatrix from './gl-decorators/configMatrix';
 import draw from './gl-decorators/draw';
 import startAnimation from './gl-decorators/startAnimation';
-
-//import addGLMethods from './gl-decorators/addGLMethods';
 
 import Button from '../zhn-atoms/Button';
 
@@ -28,7 +26,7 @@ const WIDTH = 500
       }
     }
 
-//@addGLMethods
+
 @initGL
 @createShaders
 @createPerspective
@@ -37,6 +35,9 @@ const WIDTH = 500
 @draw
 @startAnimation
 class WebGLTopic extends Component {
+   static propTypes = {
+     valuesForInit: PropTypes.object
+   }
 
   constructor(props){
     super();
@@ -55,8 +56,7 @@ class WebGLTopic extends Component {
   }
 
   componentWillUnmount(){
-    this.isStopDraw = true;
-    this.props.clearBuffers(this);
+    this.isStopDraw = true
   }
 
   _handleClickCanvas = () => {
@@ -86,6 +86,7 @@ class WebGLTopic extends Component {
            ref={ el => this.canvas = el }
            width={WIDTH}
            height={HEIGHT}
+           style={{ borderRadius: '2px' }}
            onClick={this._handleClickCanvas}
         >
           Your browser doesn't appear to support the

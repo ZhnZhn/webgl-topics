@@ -9,7 +9,8 @@ var STYLE = {
     position: 'relative',
     display: 'inline-block',
     backgroundColor: '#E1E1CB',
-    width: '170px'
+    width: '170px',
+    boxShadow: '0 2px 2px 0 rgba(0,0,0,0.3), 0 0 0 1px rgba(0,0,0,0.1)'
   },
   inputText: {
     background: 'transparent none repeat scroll 0 0',
@@ -119,4 +120,4 @@ var STYLE = {
 };
 
 exports.default = STYLE;
-//# sourceMappingURL=D:\_Dev\_React\_WebGL_Topic\js\components\zhn-atoms\InputSelect.Style.js.map
+//# sourceMappingURL=InputSelect.Style.js.map

@@ -56,4 +56,4 @@ var RandomTriangles = {
 };
 
 exports.default = RandomTriangles;
-//# sourceMappingURL=D:\_Dev\_React\_WebGL_Topic\js\components\topics\gl-props\RandomTriangles.js.map
+//# sourceMappingURL=RandomTriangles.js.map

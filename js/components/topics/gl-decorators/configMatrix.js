@@ -23,4 +23,4 @@ var configMatrix = function configMatrix(target) {
 };
 
 exports.default = configMatrix;
-//# sourceMappingURL=D:\_Dev\_React\_WebGL_Topic\js\components\topics\gl-decorators\configMatrix.js.map
+//# sourceMappingURL=configMatrix.js.map

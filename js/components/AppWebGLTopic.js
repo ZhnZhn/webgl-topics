@@ -39,4 +39,4 @@ var AppWebGLTopic = function AppWebGLTopic(_ref) {
 };
 
 exports.default = AppWebGLTopic;
-//# sourceMappingURL=D:\_Dev\_React\_WebGL_Topic\js\components\AppWebGLTopic.js.map
+//# sourceMappingURL=AppWebGLTopic.js.map

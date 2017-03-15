@@ -12,16 +12,24 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var Label = function Label(_ref) {
   var style = _ref.style,
-      title = _ref.title;
+      title = _ref.title,
+      id = _ref.id;
   return _react2.default.createElement(
-    "span",
+    "label",
     {
       className: "not-selected",
-      style: style
+      style: style,
+      htmlFor: id
     },
     title
   );
 };
 
+process.env.NODE_ENV !== "production" ? Label.propTypes = {
+  style: _react.PropTypes.object,
+  title: _react.PropTypes.string,
+  id: _react.PropTypes.string
+} : void 0;
+
 exports.default = Label;
-//# sourceMappingURL=D:\_Dev\_React\_WebGL_Topic\js\components\zhn-atoms\Label.js.map
+//# sourceMappingURL=Label.js.map

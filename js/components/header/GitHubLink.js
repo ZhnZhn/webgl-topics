@@ -36,4 +36,4 @@ var GitHubLink = function GitHubLink(_ref) {
 };
 
 exports.default = GitHubLink;
-//# sourceMappingURL=D:\_Dev\_React\_WebGL_Topic\js\components\header\GitHubLink.js.map
+//# sourceMappingURL=GitHubLink.js.map

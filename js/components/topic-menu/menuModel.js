@@ -62,4 +62,4 @@ var menuModel = [{
 }];
 
 exports.default = menuModel;
-//# sourceMappingURL=D:\_Dev\_React\_WebGL_Topic\js\components\topic-menu\menuModel.js.map
+//# sourceMappingURL=menuModel.js.map

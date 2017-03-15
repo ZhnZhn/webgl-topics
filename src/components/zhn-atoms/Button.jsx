@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react'
 
 import STYLE from './Button.Style'
 
@@ -12,5 +12,14 @@ const Button = ({ caption, style, onClick }) => (
    {caption}
   </button>
 )
+
+Button.propTypes = {
+  caption: PropTypes.string,
+  style: PropTypes.object,
+  onClick: PropTypes.func
+}
+Button.defaultProps = {
+  onClick: () => {}
+}
 
 export default Button

@@ -4,7 +4,21 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = require('babel-runtime/helpers/createClass');
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = require('babel-runtime/helpers/inherits');
+
+var _inherits3 = _interopRequireDefault(_inherits2);
 
 var _class;
 
@@ -42,19 +56,13 @@ var _Row2 = _interopRequireDefault(_Row);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
 var RowRotateAll = (0, _setModeToAll2.default)(_class = (0, _onChangeMode2.default)(_class = (0, _calcInputMode2.default)(_class = function (_Component) {
-  _inherits(RowRotateAll, _Component);
+  (0, _inherits3.default)(RowRotateAll, _Component);
 
   function RowRotateAll(props) {
-    _classCallCheck(this, RowRotateAll);
+    (0, _classCallCheck3.default)(this, RowRotateAll);
 
-    var _this = _possibleConstructorReturn(this, (RowRotateAll.__proto__ || Object.getPrototypeOf(RowRotateAll)).call(this, props));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (RowRotateAll.__proto__ || Object.getPrototypeOf(RowRotateAll)).call(this));
 
     _this._handleSetRotation = function () {
       var comp = _this.props.onGetComp();
@@ -74,7 +82,7 @@ var RowRotateAll = (0, _setModeToAll2.default)(_class = (0, _onChangeMode2.defau
     return _this;
   }
 
-  _createClass(RowRotateAll, [{
+  (0, _createClass3.default)(RowRotateAll, [{
     key: 'render',
     value: function render() {
       var _this2 = this;
@@ -146,16 +154,14 @@ var RowRotateAll = (0, _setModeToAll2.default)(_class = (0, _onChangeMode2.defau
       );
     }
   }]);
-
   return RowRotateAll;
 }(_react.Component)) || _class) || _class) || _class;
 
-RowRotateAll.propTypes = {
+process.env.NODE_ENV !== "production" ? RowRotateAll.propTypes = {
   rX: _react.PropTypes.number.isRequired,
   rY: _react.PropTypes.number.isRequired,
   rZ: _react.PropTypes.number.isRequired,
   onGetComp: _react.PropTypes.func.isRequired
-};
-
+} : void 0;
 exports.default = RowRotateAll;
-//# sourceMappingURL=D:\_Dev\_React\_WebGL_Topic\js\components\panel-config-gl\RowRotateAll.js.map
+//# sourceMappingURL=RowRotateAll.js.map

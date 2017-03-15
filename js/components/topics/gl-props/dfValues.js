@@ -16,4 +16,4 @@ var dfValuesForInit = {
 };
 
 exports.default = dfValuesForInit;
-//# sourceMappingURL=D:\_Dev\_React\_WebGL_Topic\js\components\topics\gl-props\dfValues.js.map
+//# sourceMappingURL=dfValues.js.map

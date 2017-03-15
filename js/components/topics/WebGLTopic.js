@@ -4,11 +4,23 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = require('babel-runtime/helpers/createClass');
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = require('babel-runtime/helpers/inherits');
+
+var _inherits3 = _interopRequireDefault(_inherits2);
 
 var _class;
-
-//import addGLMethods from './gl-decorators/addGLMethods';
 
 var _react = require('react');
 
@@ -52,12 +64,6 @@ var _Button2 = _interopRequireDefault(_Button);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
 var WIDTH = 500,
     HEIGHT = 500,
     STYLE = {
@@ -72,15 +78,13 @@ var WIDTH = 500,
   }
 };
 
-//@addGLMethods
-
 var WebGLTopic = (0, _initGL2.default)(_class = (0, _createShaders2.default)(_class = (0, _createPerspective2.default)(_class = (0, _setPointSize2.default)(_class = (0, _configMatrix2.default)(_class = (0, _draw2.default)(_class = (0, _startAnimation2.default)(_class = function (_Component) {
-  _inherits(WebGLTopic, _Component);
+  (0, _inherits3.default)(WebGLTopic, _Component);
 
   function WebGLTopic(props) {
-    _classCallCheck(this, WebGLTopic);
+    (0, _classCallCheck3.default)(this, WebGLTopic);
 
-    var _this = _possibleConstructorReturn(this, (WebGLTopic.__proto__ || Object.getPrototypeOf(WebGLTopic)).call(this));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (WebGLTopic.__proto__ || Object.getPrototypeOf(WebGLTopic)).call(this));
 
     _this._handleClickCanvas = function () {
       _this.isAnimate = !_this.isAnimate;
@@ -107,7 +111,7 @@ var WebGLTopic = (0, _initGL2.default)(_class = (0, _createShaders2.default)(_cl
     return _this;
   }
 
-  _createClass(WebGLTopic, [{
+  (0, _createClass3.default)(WebGLTopic, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
       var startAnimation = this.props.startAnimation;
@@ -122,7 +126,6 @@ var WebGLTopic = (0, _initGL2.default)(_class = (0, _createShaders2.default)(_cl
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
       this.isStopDraw = true;
-      this.props.clearBuffers(this);
     }
   }, {
     key: 'render',
@@ -142,6 +145,7 @@ var WebGLTopic = (0, _initGL2.default)(_class = (0, _createShaders2.default)(_cl
             },
             width: WIDTH,
             height: HEIGHT,
+            style: { borderRadius: '2px' },
             onClick: this._handleClickCanvas
           },
           'Your browser doesn\'t appear to support the',
@@ -161,9 +165,11 @@ var WebGLTopic = (0, _initGL2.default)(_class = (0, _createShaders2.default)(_cl
       );
     }
   }]);
-
   return WebGLTopic;
 }(_react.Component)) || _class) || _class) || _class) || _class) || _class) || _class) || _class;
 
+process.env.NODE_ENV !== "production" ? WebGLTopic.propTypes = {
+  valuesForInit: _react.PropTypes.object
+} : void 0;
 exports.default = WebGLTopic;
-//# sourceMappingURL=D:\_Dev\_React\_WebGL_Topic\js\components\topics\WebGLTopic.js.map
+//# sourceMappingURL=WebGLTopic.js.map

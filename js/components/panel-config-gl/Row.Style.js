@@ -34,4 +34,4 @@ var STYLE = {
 };
 
 exports.default = STYLE;
-//# sourceMappingURL=D:\_Dev\_React\_WebGL_Topic\js\components\panel-config-gl\Row.Style.js.map
+//# sourceMappingURL=Row.Style.js.map

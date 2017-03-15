@@ -5,25 +5,24 @@ const STYLE = {
     display : 'inline-block',
     backgroundColor: 'rgb(225, 225, 203)',
     marginLeft : '5px',
-    marginRight : '5px'
+    marginRight : '5px',
+    boxShadow: '0 2px 2px 0 rgba(0,0,0,0.3), 0 0 0 1px rgba(0,0,0,0.1)'
   },
   DIV_INPUT : {
      display: 'inline-block'
   },
   INPUT : {
+    display : 'inline',
     background: 'transparent none repeat scroll 0 0',
     border: 'medium none',
     outline: 'medium none',
     height: '26px',
-    //paddingLeft: '5px',
     color: 'green',
     width: '40px',
     fontSize: '16px',
     fontWeight: 'bold',
-    backgroundColor : '#E1E1CB',
-    //marginLeft : '5px',
-    marginRight : '5px',
-    display : 'inline'
+    backgroundColor : '#E1E1CB',    
+    marginRight : '5px'
   },
   HR : {
     borderWidth: 'medium medium 2px',

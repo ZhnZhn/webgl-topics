@@ -1,13 +1,1 @@
-)]}
-{
- "version": 3,
- "sources": "D:\\_Dev\\_React\\_WebGL_Topic\\src\\components\\zhn-atoms\\Label.jsx",
- "file": "D:\\_Dev\\_React\\_WebGL_Topic\\js\\components\\zhn-atoms\\Label.js",
- "sourceRoot": "",
- "names": [
-  "Label",
-  "style",
-  "title"
- ],
- "mappings": ";;;;;;AAAA;;;;;;AAEA,IAAMA,QAAQ,SAARA,KAAQ;AAAA,MAAEC,KAAF,QAAEA,KAAF;AAAA,MAASC,KAAT,QAASA,KAAT;AAAA,SACZ;AAAA;AAAA;AACG,iBAAU,cADb;AAEG,aAAOD;AAFV;AAIGC;AAJH,GADY;AAAA,CAAd;;kBASeF,K"
-}
+{"version":3,"sources":["../../../src/components/zhn-atoms/Label.jsx"],"names":["Label","style","title","id","propTypes","object","string"],"mappings":";;;;;;AAAA;;;;;;AAEA,IAAMA,QAAQ,SAARA,KAAQ;AAAA,MAAGC,KAAH,QAAGA,KAAH;AAAA,MAAUC,KAAV,QAAUA,KAAV;AAAA,MAAiBC,EAAjB,QAAiBA,EAAjB;AAAA,SACZ;AAAA;AAAA;AACG,iBAAU,cADb;AAEG,aAAOF,KAFV;AAGG,eAASE;AAHZ;AAKGD;AALH,GADY;AAAA,CAAd;;AAUA,8CAAME,SAAN,GAAkB;AAChBH,SAAO,iBAAUI,MADD;AAEhBH,SAAO,iBAAUI,MAFD;AAGhBH,MAAI,iBAAUG;AAHE,CAAlB;;kBAMeN,K","file":"Label.js","sourcesContent":["import React, { PropTypes } from 'react'\r\n\r\nconst Label = ({ style, title, id }) => (\r\n  <label\r\n     className=\"not-selected\"\r\n     style={style}\r\n     htmlFor={id}\r\n  >\r\n    {title}\r\n  </label>\r\n)\r\n\r\nLabel.propTypes = {\r\n  style: PropTypes.object,\r\n  title: PropTypes.string,\r\n  id: PropTypes.string\r\n}\r\n\r\nexport default Label\r\n"]}

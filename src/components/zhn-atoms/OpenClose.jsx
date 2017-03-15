@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 
 const styles = {
@@ -40,7 +40,7 @@ const OpenClose = React.createClass({
 
   render: function(){
 
-    const { style } = this.props;
+    const { style, toogleStyle } = this.props;
     let pathV, fillV, displayDivStyle, classShow;
     if (this.state.isOpen){
       pathV = this.state.pathOpen;
@@ -57,7 +57,10 @@ const OpenClose = React.createClass({
 
     return (
       <div style={Object.assign({},styles.rootDiv, style)}>
-        <div className="not-selected" onClick={this._handlerClickOpenClose}>
+        <div className="not-selected"
+             style={toogleStyle}
+             onClick={this._handlerClickOpenClose}
+        >
           <div style={{width: '16px', height: '16px', display: 'inline-block'}}>
              <svg
                 viewBox="0 0 16 16" width="100%" height="100%"
@@ -84,4 +87,4 @@ const OpenClose = React.createClass({
   }
 });
 
-export default OpenClose;
+export default OpenClose

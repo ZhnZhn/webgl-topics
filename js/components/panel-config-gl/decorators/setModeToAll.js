@@ -16,4 +16,4 @@ var setModeToAll = function setModeToAll(target) {
 };
 
 exports.default = setModeToAll;
-//# sourceMappingURL=D:\_Dev\_React\_WebGL_Topic\js\components\panel-config-gl\decorators\setModeToAll.js.map
+//# sourceMappingURL=setModeToAll.js.map

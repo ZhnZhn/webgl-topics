@@ -45,6 +45,8 @@ var _draw = exports._draw = function _draw(target) {
 
   if (!isStopDraw) {
     window.requestAnimationFrame(draw.bind(null, target));
+  } else {
+    target.props.clearBuffers(target);
   }
 };
 
@@ -53,4 +55,4 @@ var draw = function draw(target) {
 };
 
 exports.default = draw;
-//# sourceMappingURL=D:\_Dev\_React\_WebGL_Topic\js\components\topics\gl-decorators\draw.js.map
+//# sourceMappingURL=draw.js.map

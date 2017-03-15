@@ -31,4 +31,4 @@ var addGLMethods = function addGLMethods(target) {
 };
 
 exports.default = addGLMethods;
-//# sourceMappingURL=D:\_Dev\_React\_WebGL_Topic\js\components\topics\gl-decorators\addGLMethods.js.map
+//# sourceMappingURL=addGLMethods.js.map

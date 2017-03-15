@@ -17,4 +17,4 @@ var isFloat = exports.isFloat = function isFloat(strOrNumber) {
 
   return trimmed !== "" && regFloat.test(trimmed);
 };
-//# sourceMappingURL=D:\_Dev\_React\_WebGL_Topic\js\utils\is.js.map
+//# sourceMappingURL=is.js.map

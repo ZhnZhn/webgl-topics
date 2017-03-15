@@ -1,16 +1,1 @@
-)]}
-{
- "version": 3,
- "sources": "D:\\_Dev\\_React\\_WebGL_Topic\\src\\flux\\stores\\WebGlTopicStore.js",
- "file": "D:\\_Dev\\_React\\_WebGL_Topic\\js\\flux\\stores\\WebGlTopicStore.js",
- "sourceRoot": "",
- "names": [
-  "WebGlStore",
-  "createStore",
-  "listenables",
-  "state",
-  "topicId",
-  "RANDOM_TRIANGLES"
- ],
- "mappings": ";;;;;;;;AAAA;;;;AAEA;;;;AACA;;;;AAEA;;;;;;AAEA,IAAMA,aAAa,iBAAOC,WAAP;AACjBC,eAAc,8BADG;AAEjBC,SAAQ;AACNC,aAAU,aAAQC;AADZ;;AAFS,+BAAnB;;kBASeL,U"
-}
+{"version":3,"sources":["../../../src/flux/stores/WebGlTopicStore.js"],"names":["WebGlStore","createStore","listenables","state","topicId","RANDOM_TRIANGLES"],"mappings":";;;;;;;;;;AAAA;;;;AAEA;;;;AACA;;;;AAEA;;;;;;AAEA,IAAMA,aAAa,iBAAOC,WAAP;AACjBC,eAAc,8BADG;AAEjBC,SAAQ;AACNC,aAAU,aAAQC;AADZ;;AAFS,+BAAnB;;kBASeL,U","file":"WebGlTopicStore.js","sourcesContent":["import Reflux from 'reflux';\r\n\r\nimport TopicID from '../../components/topics/ID';\r\nimport RouterTopicActions from '../actions/RouterTopicActions'\r\n\r\nimport RouterTopicSlice from './RouterTopicSlice';\r\n\r\nconst WebGlStore = Reflux.createStore({\r\n  listenables : [ RouterTopicActions ],\r\n  state : {\r\n    topicId : TopicID.RANDOM_TRIANGLES\r\n  },\r\n\r\n  ...RouterTopicSlice\r\n});\r\n\r\nexport default WebGlStore\r\n"]}

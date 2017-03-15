@@ -20,4 +20,4 @@ var initGL = function initGL(target) {
 };
 
 exports.default = initGL;
-//# sourceMappingURL=D:\_Dev\_React\_WebGL_Topic\js\components\topics\gl-decorators\initGL.js.map
+//# sourceMappingURL=initGL.js.map

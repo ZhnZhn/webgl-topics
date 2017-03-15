@@ -4,7 +4,9 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+var _extends2 = require('babel-runtime/helpers/extends');
+
+var _extends3 = _interopRequireDefault(_extends2);
 
 var _reflux = require('reflux');
 
@@ -24,7 +26,7 @@ var _RouterTopicSlice2 = _interopRequireDefault(_RouterTopicSlice);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var WebGlStore = _reflux2.default.createStore(_extends({
+var WebGlStore = _reflux2.default.createStore((0, _extends3.default)({
   listenables: [_RouterTopicActions2.default],
   state: {
     topicId: _ID2.default.RANDOM_TRIANGLES
@@ -33,4 +35,4 @@ var WebGlStore = _reflux2.default.createStore(_extends({
 }, _RouterTopicSlice2.default));
 
 exports.default = WebGlStore;
-//# sourceMappingURL=D:\_Dev\_React\_WebGL_Topic\js\flux\stores\WebGlTopicStore.js.map
+//# sourceMappingURL=WebGlTopicStore.js.map

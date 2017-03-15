@@ -4,8 +4,7 @@ import OpenClose from '../zhn-atoms/OpenClose';
 
 const STYLE = {
   ROOT : {
-    lineHeight: 2,
-    paddingLeft: '8px',
+    lineHeight: 2.5,
     backgroundColor: '#24282A'
   },
   ITEM : {
@@ -40,11 +39,15 @@ const _renderMenuItems = function(items, topicId){
 }
 
 const MenuPart = (props) => {
-  const { dataModel, topicId } = props
+  const { dataModel, topicId, toogleStyle } = props
       , { caption, items} = dataModel;
   return (
-    <OpenClose caption={caption} style={STYLE.ROOT}>
-        {_renderMenuItems(items, topicId)}
+    <OpenClose
+        caption={caption}
+        style={STYLE.ROOT}
+        toogleStyle={toogleStyle}
+    >
+       {_renderMenuItems(items, topicId)}
     </OpenClose>
   )
 }

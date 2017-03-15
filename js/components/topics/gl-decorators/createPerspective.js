@@ -26,4 +26,4 @@ var createPerspective = function createPerspective(target) {
 };
 
 exports.default = createPerspective;
-//# sourceMappingURL=D:\_Dev\_React\_WebGL_Topic\js\components\topics\gl-decorators\createPerspective.js.map
+//# sourceMappingURL=createPerspective.js.map

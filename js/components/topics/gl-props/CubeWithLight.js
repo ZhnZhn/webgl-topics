@@ -68,4 +68,4 @@ var CubeWithLight = {
 };
 
 exports.default = CubeWithLight;
-//# sourceMappingURL=D:\_Dev\_React\_WebGL_Topic\js\components\topics\gl-props\CubeWithLight.js.map
+//# sourceMappingURL=CubeWithLight.js.map

@@ -16,8 +16,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var STYLE = {
   ROOT: {
-    lineHeight: 2,
-    paddingLeft: '8px',
+    lineHeight: 2.5,
     backgroundColor: '#24282A'
   },
   ITEM: {
@@ -52,15 +51,20 @@ var _renderMenuItems = function _renderMenuItems(items, topicId) {
 var MenuPart = function MenuPart(props) {
   var dataModel = props.dataModel,
       topicId = props.topicId,
+      toogleStyle = props.toogleStyle,
       caption = dataModel.caption,
       items = dataModel.items;
 
   return _react2.default.createElement(
     _OpenClose2.default,
-    { caption: caption, style: STYLE.ROOT },
+    {
+      caption: caption,
+      style: STYLE.ROOT,
+      toogleStyle: toogleStyle
+    },
     _renderMenuItems(items, topicId)
   );
 };
 
 exports.default = MenuPart;
-//# sourceMappingURL=D:\_Dev\_React\_WebGL_Topic\js\components\zhn-moleculs\MenuPart.js.map
+//# sourceMappingURL=MenuPart.js.map

@@ -63,4 +63,4 @@ var CubeTransparent = {
 };
 
 exports.default = CubeTransparent;
-//# sourceMappingURL=D:\_Dev\_React\_WebGL_Topic\js\components\topics\gl-props\CubeTransparent.js.map
+//# sourceMappingURL=CubeTransparent.js.map

@@ -7,10 +7,11 @@ import PanelConfigGL from '../panel-config-gl/PanelConfigGL';
 
 import dfValues from './gl-props/dfValues';
 
-class TopicWrapper extends Component{
-
-  state = {
-      topidId : undefined
+class TopicWrapper extends Component {
+  static propTypes = {
+    store : PropTypes.shape({
+      listen: PropTypes.func
+    })
   }
 
   constructor(props){
@@ -18,6 +19,9 @@ class TopicWrapper extends Component{
 
     this._onStore = this._onStore.bind(this)
     this.getComponentTopic = this.getComponentTopic.bind(this);
+    this.state = {
+      topidId : undefined
+    }
   }
 
   componentDidMount(){
@@ -45,7 +49,7 @@ class TopicWrapper extends Component{
     , { valuesForInit={} } = compProps
     , _valuesForInit = Object.assign({}, dfValues, valuesForInit)
 
-    
+
     return (
       <div className="container" role="document">
         <main className="container__content" tabIndex="1" role="main">
@@ -64,10 +68,5 @@ class TopicWrapper extends Component{
     );
   }
 }
-
-TopicWrapper.propTypes = {
-  store : PropTypes.object.isRequired
-}
-
 
 export default TopicWrapper

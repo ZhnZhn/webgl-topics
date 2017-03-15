@@ -19,6 +19,7 @@ export const _draw = (target) => {
       gl.uniformMatrix4fv(matrixLocation, false, matrix);
       gl.clear(gl.COLOR_BUFFER_BIT);
 
+
       if (isDrawElemnts){
         gl.drawElements(gl[drawMode], indexCount, gl.UNSIGNED_BYTE, 0);
       } else {
@@ -27,7 +28,9 @@ export const _draw = (target) => {
     }
 
     if (!isStopDraw){
-      window.requestAnimationFrame(draw.bind(null, target));
+      window.requestAnimationFrame(draw.bind(null, target))
+    } else {
+      target.props.clearBuffers(target)
     }
 }
 

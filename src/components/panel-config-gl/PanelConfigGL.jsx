@@ -8,9 +8,16 @@ import PanelRotate from './PanelRotate';
 import STYLE from './Panel.Style';
 
 class PanelConfigGL extends Component{
-
-  constructor(props){
-    super(props);
+  static propTypes = {
+    valuesForInit : PropTypes.shape({
+        perspectiveNear: PropTypes.number,
+        perspectiveFar: PropTypes.number,
+        zMatrixTranslate: PropTypes.number,
+        rX: PropTypes.number,
+        rY: PropTypes.number,
+        rZ: PropTypes.number
+    }).isRequired,
+    onGetComp : PropTypes.func.isRequired
   }
 
   render(){
@@ -28,11 +35,6 @@ class PanelConfigGL extends Component{
         <PanelDrawMode
           {...{ onGetComp }}
         />
-        {/*
-        <RowDrawMode
-          {...{ onGetComp }}
-        />
-        */}
         <PanelPerspective
           {...{ perspectiveNear, perspectiveFar, onGetComp }}
         />
@@ -45,11 +47,6 @@ class PanelConfigGL extends Component{
       </div>
     );
   }
-}
-
-PanelConfigGL.propTypes = {
-  valuesForInit : PropTypes.object.isRequired,
-  onGetComp : PropTypes.func.isRequired
 }
 
 export default PanelConfigGL

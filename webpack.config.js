@@ -6,7 +6,13 @@ module.exports = {
   entry: {
     lib: [
            "react", "react-dom", "reflux",
-           "gl-matrix", "big.js"
+           "gl-matrix", "big.js",
+           "babel-runtime/helpers/classCallCheck",
+           "babel-runtime/helpers/createClass",
+           "babel-runtime/helpers/possibleConstructorReturn",
+           "babel-runtime/helpers/inherits",
+           "babel-runtime/helpers/toConsumableArray",
+           "babel-runtime/helpers/slicedToArray"                                      
          ],
      app: "./js/index.js"
   },

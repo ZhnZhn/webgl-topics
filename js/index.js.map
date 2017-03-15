@@ -1,12 +1,1 @@
-)]}
-{
- "version": 3,
- "sources": "D:\\_Dev\\_React\\_WebGL_Topic\\src\\index.jsx",
- "file": "D:\\_Dev\\_React\\_WebGL_Topic\\js\\index.js",
- "sourceRoot": "",
- "names": [
-  "document",
-  "getElementById"
- ],
- "mappings": ";;AAAA;;;;AACA;;AAEA;;;;AACA;;;;;;AAEA,sBAAO,yDAAK,gCAAL,GAAP,EAA8BA,SAASC,cAAT,CAAwB,KAAxB,CAA9B"
-}
+{"version":3,"sources":["../src/index.jsx"],"names":["document","getElementById"],"mappings":";;AAAA;;;;AACA;;AAEA;;;;AACA;;;;;;AAEA,sBAAO,yDAAK,gCAAL,GAAP,EAA8BA,SAASC,cAAT,CAAwB,KAAxB,CAA9B","file":"index.js","sourcesContent":["import React from 'react';\r\nimport { render } from 'react-dom';\r\n\r\nimport App from './components/AppWebGLTopic';\r\nimport Store from './flux/stores/WebGlTopicStore';\r\n\r\nrender(<App store={Store} />, document.getElementById(\"app\"));\r\n"]}

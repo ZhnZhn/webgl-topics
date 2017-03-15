@@ -5,19 +5,21 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.RouterTopicActionTypes = undefined;
 
+var _defineProperty2 = require('babel-runtime/helpers/defineProperty');
+
+var _defineProperty3 = _interopRequireDefault(_defineProperty2);
+
 var _reflux = require('reflux');
 
 var _reflux2 = _interopRequireDefault(_reflux);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 var RouterTopicActionTypes = exports.RouterTopicActionTypes = {
   VIEW_TOPIC: 'viewTopic'
 };
 
-var RouterTopicActions = _reflux2.default.createActions(_defineProperty({}, RouterTopicActionTypes.VIEW_TOPIC, {}));
+var RouterTopicActions = _reflux2.default.createActions((0, _defineProperty3.default)({}, RouterTopicActionTypes.VIEW_TOPIC, {}));
 
 exports.default = RouterTopicActions;
-//# sourceMappingURL=D:\_Dev\_React\_WebGL_Topic\js\flux\actions\RouterTopicActions.js.map
+//# sourceMappingURL=RouterTopicActions.js.map

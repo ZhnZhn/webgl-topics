@@ -14,8 +14,13 @@ import STYLE from './Row.Style';
 @onChangeMode
 @calcInputMode
 class RowTranslate extends Component{
+  static propTypes = {
+    zMatrixTranslate : PropTypes.number.isRequired,
+    onGetComp : PropTypes.func.isRequired
+  }
+
   constructor(props){
-    super(props)
+    super()
 
     this.mode = {
       translateZ : 2,
@@ -59,11 +64,6 @@ class RowTranslate extends Component{
       </div>
     );
   }
-}
-
-RowTranslate.propTypes = {
-  zMatrixTranslate : PropTypes.number.isRequired,
-  onGetComp : PropTypes.func.isRequired
 }
 
 export default RowTranslate

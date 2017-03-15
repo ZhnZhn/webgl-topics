@@ -26,4 +26,4 @@ var calcInputMode = function calcInputMode(target) {
 };
 
 exports.default = calcInputMode;
-//# sourceMappingURL=D:\_Dev\_React\_WebGL_Topic\js\components\panel-config-gl\decorators\calcInputMode.js.map
+//# sourceMappingURL=calcInputMode.js.map

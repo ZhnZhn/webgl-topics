@@ -9,7 +9,7 @@ class TopicMenu  extends Component {
   constructor(props){
     super(props)
 
-    const { store } = props        
+    const { store } = props
     this.state = {
       topicId : store.state.topicId
     }
@@ -36,6 +36,7 @@ class TopicMenu  extends Component {
       <section className="sidebar" tabindex="-1">
         <div className="sidebar__menu" role="navigation">
            <Menu
+              toogleStyle={{ paddingLeft: '6px' }}
               menuModel={menuModel}
               topicId={topicId}
             />

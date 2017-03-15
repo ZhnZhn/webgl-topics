@@ -64,4 +64,4 @@ var startAnimation = function startAnimation(target) {
 };
 
 exports.default = startAnimation;
-//# sourceMappingURL=D:\_Dev\_React\_WebGL_Topic\js\components\topics\gl-decorators\startAnimation.js.map
+//# sourceMappingURL=startAnimation.js.map

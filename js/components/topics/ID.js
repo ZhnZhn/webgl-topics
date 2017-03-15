@@ -16,4 +16,4 @@ var ID = {
 };
 
 exports.default = ID;
-//# sourceMappingURL=D:\_Dev\_React\_WebGL_Topic\js\components\topics\ID.js.map
+//# sourceMappingURL=ID.js.map

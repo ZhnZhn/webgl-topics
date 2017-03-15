@@ -49,7 +49,9 @@ var OpenClose = _react2.default.createClass({
   },
 
   render: function render() {
-    var style = this.props.style;
+    var _props = this.props,
+        style = _props.style,
+        toogleStyle = _props.toogleStyle;
 
     var pathV = void 0,
         fillV = void 0,
@@ -72,7 +74,10 @@ var OpenClose = _react2.default.createClass({
       { style: Object.assign({}, styles.rootDiv, style) },
       _react2.default.createElement(
         'div',
-        { className: 'not-selected', onClick: this._handlerClickOpenClose },
+        { className: 'not-selected',
+          style: toogleStyle,
+          onClick: this._handlerClickOpenClose
+        },
         _react2.default.createElement(
           'div',
           { style: { width: '16px', height: '16px', display: 'inline-block' } },
@@ -106,4 +111,4 @@ var OpenClose = _react2.default.createClass({
 });
 
 exports.default = OpenClose;
-//# sourceMappingURL=D:\_Dev\_React\_WebGL_Topic\js\components\zhn-atoms\OpenClose.js.map
+//# sourceMappingURL=OpenClose.js.map

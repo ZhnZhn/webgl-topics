@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { PropTypes } from 'react'
 
-const Label = ({style, title }) => (
-  <span
+const Label = ({ style, title, id }) => (
+  <label
      className="not-selected"
      style={style}
+     htmlFor={id}
   >
     {title}
-  </span>
-);
+  </label>
+)
+
+Label.propTypes = {
+  style: PropTypes.object,
+  title: PropTypes.string,
+  id: PropTypes.string
+}
 
 export default Label

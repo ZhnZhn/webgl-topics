@@ -17,4 +17,4 @@ var RouterTopicSlice = {
 };
 
 exports.default = RouterTopicSlice;
-//# sourceMappingURL=D:\_Dev\_React\_WebGL_Topic\js\flux\stores\RouterTopicSlice.js.map
+//# sourceMappingURL=RouterTopicSlice.js.map

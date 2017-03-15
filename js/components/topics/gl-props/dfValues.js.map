@@ -1,17 +1,1 @@
-)]}
-{
- "version": 3,
- "sources": "D:\\_Dev\\_React\\_WebGL_Topic\\src\\components\\topics\\gl-props\\dfValues.js",
- "file": "D:\\_Dev\\_React\\_WebGL_Topic\\js\\components\\topics\\gl-props\\dfValues.js",
- "sourceRoot": "",
- "names": [
-  "dfValuesForInit",
-  "zMatrixTranslate",
-  "rX",
-  "rY",
-  "rZ",
-  "perspectiveNear",
-  "perspectiveFar"
- ],
- "mappings": ";;;;;;AACA,IAAMA,kBAAkB;AACtBC,oBAAmB,CAAC,CADE;;AAGtBC,MAAK,CAAC,KAHgB;AAItBC,MAAK,KAJiB;AAKtBC,MAAK,IALiB;;AAOtBC,mBAAkB,GAPI;AAQtBC,kBAAiB;AARK,CAAxB;;kBAWeN,e"
-}
+{"version":3,"sources":["../../../../src/components/topics/gl-props/dfValues.js"],"names":["dfValuesForInit","zMatrixTranslate","rX","rY","rZ","perspectiveNear","perspectiveFar"],"mappings":";;;;;;AACA,IAAMA,kBAAkB;AACtBC,oBAAmB,CAAC,CADE;;AAGtBC,MAAK,CAAC,KAHgB;AAItBC,MAAK,KAJiB;AAKtBC,MAAK,IALiB;;AAOtBC,mBAAkB,GAPI;AAQtBC,kBAAiB;AARK,CAAxB;;kBAWeN,e","file":"dfValues.js","sourcesContent":["\r\nconst dfValuesForInit = {\r\n  zMatrixTranslate : -2,\r\n\r\n  rX : -0.007,\r\n  rY : 0.012,\r\n  rZ : 0.01,\r\n\r\n  perspectiveNear : 0.1,\r\n  perspectiveFar : 10\r\n}\r\n\r\nexport default dfValuesForInit\r\n"]}

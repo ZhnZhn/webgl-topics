@@ -13,10 +13,15 @@ import  STYLE from './Row.Style';
 @setModeToAll
 @onChangeMode
 @calcInputMode
-class RowPerspective extends Component{
-  constructor(props){
-    super(props);
+class RowPerspective extends Component {
+  static propTypes = {
+    perspectiveNear : PropTypes.number.isRequire,
+    perspectiveFar : PropTypes.number.isRequired,
+    onGetComp : PropTypes.func.isRequired
+  }
 
+  constructor(props){
+    super()
     this.mode = {
       near : 2,
       far : 2,
@@ -60,7 +65,7 @@ class RowPerspective extends Component{
         <Label
           style={STYLE.LABEL}
           title="far:"
-        />                
+        />
         <InputFloat
           ref={ comp => this.far = comp }
           inputKey="far"
@@ -76,12 +81,6 @@ class RowPerspective extends Component{
       </div>
     );
   }
-}
-
-RowPerspective.propTypes = {
-  perspectiveNear : PropTypes.number.isRequired,
-  perspectiveFar : PropTypes.number.isRequired,
-  onGetComp : PropTypes.func.isRequired
 }
 
 export default RowPerspective

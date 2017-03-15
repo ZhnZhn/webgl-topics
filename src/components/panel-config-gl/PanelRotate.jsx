@@ -7,6 +7,13 @@ import RowProp from './RowProp';
 import STYLE from './Panel.Style'
 
 class PanelRotate extends Component{
+  static propTypes = {
+    rX : PropTypes.number.isRequired,
+    rY : PropTypes.number.isRequired,
+    rZ : PropTypes.number.isRequired,
+    onGetComp : PropTypes.func.isRequired
+  }
+
   constructor(props){
     super(props)
   }
@@ -21,18 +28,21 @@ class PanelRotate extends Component{
       >
         <RowProp
            labelBy="X:"
+           inputId="rX"
            value={rX}
            propKey="rX"
            onGetComp={onGetComp}
         />
         <RowProp
            labelBy="Y:"
+           inputId="rY"
            value={rY}
            propKey="rY"
            onGetComp={onGetComp}
         />
         <RowProp
            labelBy="Z:"
+           inputId="rZ"
            value={rZ}
            propKey="rZ"
            onGetComp={onGetComp}
@@ -40,13 +50,6 @@ class PanelRotate extends Component{
       </OpenClose>
     );
   }
-}
-
-PanelRotate.propTypes = {
-  rX : PropTypes.number.isRequired,
-  rY : PropTypes.number.isRequired,
-  rZ : PropTypes.number.isRequired,
-  onGetComp : PropTypes.func.isRequired
 }
 
 export default PanelRotate

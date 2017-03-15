@@ -64,4 +64,4 @@ var Plane = {
 };
 
 exports.default = Plane;
-//# sourceMappingURL=D:\_Dev\_React\_WebGL_Topic\js\components\topics\gl-props\Plane.js.map
+//# sourceMappingURL=Plane.js.map

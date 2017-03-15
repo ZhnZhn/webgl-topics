@@ -16,8 +16,8 @@ const _drawModeOptions = [
 ]
 
 class RowDrawMode extends Component {
-  constructor(props){
-     super(props)
+  static propTypes = {
+    onGetComp : PropTypes.func.isRequired
   }
 
   _handleSelectDrawMode = (item) => {
@@ -48,10 +48,6 @@ class RowDrawMode extends Component {
       </div>
     );
   }
-}
-
-RowDrawMode.propTypes = {
-  onGetComp : PropTypes.func.isRequired
 }
 
 export default RowDrawMode

@@ -72,4 +72,4 @@ var fnGL = {
 };
 
 exports.default = fnGL;
-//# sourceMappingURL=D:\_Dev\_React\_WebGL_Topic\js\components\topics\gl-fn\fnGL.js.map
+//# sourceMappingURL=fnGL.js.map

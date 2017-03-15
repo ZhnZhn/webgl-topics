@@ -54,4 +54,4 @@ var Cube = {
 };
 
 exports.default = Cube;
-//# sourceMappingURL=D:\_Dev\_React\_WebGL_Topic\js\components\topics\gl-props\Cube.js.map
+//# sourceMappingURL=Cube.js.map

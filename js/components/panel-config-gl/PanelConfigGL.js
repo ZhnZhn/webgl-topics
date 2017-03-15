@@ -4,7 +4,21 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = require('babel-runtime/helpers/createClass');
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = require('babel-runtime/helpers/inherits');
+
+var _inherits3 = _interopRequireDefault(_inherits2);
 
 var _react = require('react');
 
@@ -32,22 +46,15 @@ var _Panel2 = _interopRequireDefault(_Panel);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
 var PanelConfigGL = function (_Component) {
-  _inherits(PanelConfigGL, _Component);
+  (0, _inherits3.default)(PanelConfigGL, _Component);
 
-  function PanelConfigGL(props) {
-    _classCallCheck(this, PanelConfigGL);
-
-    return _possibleConstructorReturn(this, (PanelConfigGL.__proto__ || Object.getPrototypeOf(PanelConfigGL)).call(this, props));
+  function PanelConfigGL() {
+    (0, _classCallCheck3.default)(this, PanelConfigGL);
+    return (0, _possibleConstructorReturn3.default)(this, (PanelConfigGL.__proto__ || Object.getPrototypeOf(PanelConfigGL)).apply(this, arguments));
   }
 
-  _createClass(PanelConfigGL, [{
+  (0, _createClass3.default)(PanelConfigGL, [{
     key: 'render',
     value: function render() {
       var _props = this.props,
@@ -75,14 +82,19 @@ var PanelConfigGL = function (_Component) {
       );
     }
   }]);
-
   return PanelConfigGL;
 }(_react.Component);
 
-PanelConfigGL.propTypes = {
-  valuesForInit: _react.PropTypes.object.isRequired,
+process.env.NODE_ENV !== "production" ? PanelConfigGL.propTypes = {
+  valuesForInit: _react.PropTypes.shape({
+    perspectiveNear: _react.PropTypes.number,
+    perspectiveFar: _react.PropTypes.number,
+    zMatrixTranslate: _react.PropTypes.number,
+    rX: _react.PropTypes.number,
+    rY: _react.PropTypes.number,
+    rZ: _react.PropTypes.number
+  }).isRequired,
   onGetComp: _react.PropTypes.func.isRequired
-};
-
+} : void 0;
 exports.default = PanelConfigGL;
-//# sourceMappingURL=D:\_Dev\_React\_WebGL_Topic\js\components\panel-config-gl\PanelConfigGL.js.map
+//# sourceMappingURL=PanelConfigGL.js.map

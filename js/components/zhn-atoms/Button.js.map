@@ -1,17 +1,1 @@
-)]}
-{
- "version": 3,
- "sources": "D:\\_Dev\\_React\\_WebGL_Topic\\src\\components\\zhn-atoms\\Button.jsx",
- "file": "D:\\_Dev\\_React\\_WebGL_Topic\\js\\components\\zhn-atoms\\Button.js",
- "sourceRoot": "",
- "names": [
-  "Button",
-  "caption",
-  "style",
-  "onClick",
-  "Object",
-  "assign",
-  "BT"
- ],
- "mappings": ";;;;;;AAAA;;;;AAEA;;;;;;AAEA,IAAMA,SAAS,SAATA,MAAS;AAAA,MAAGC,OAAH,QAAGA,OAAH;AAAA,MAAYC,KAAZ,QAAYA,KAAZ;AAAA,MAAmBC,OAAnB,QAAmBA,OAAnB;AAAA,SACb;AAAA;AAAA;AACE,iBAAU,IADZ;AAEE,aAAOC,OAAOC,MAAP,CAAc,EAAd,EAAkB,iBAAMC,EAAxB,EAA4BJ,KAA5B,CAFT;AAGE,gBAAS,GAHX;AAIE,eAASC;AAJX;AAMEF;AANF,GADa;AAAA,CAAf;;kBAWeD,M"
-}
+{"version":3,"sources":["../../../src/components/zhn-atoms/Button.jsx"],"names":["Button","caption","style","onClick","Object","assign","BT","propTypes","string","object","func","defaultProps"],"mappings":";;;;;;AAAA;;;;AAEA;;;;;;AAEA,IAAMA,SAAS,SAATA,MAAS;AAAA,MAAGC,OAAH,QAAGA,OAAH;AAAA,MAAYC,KAAZ,QAAYA,KAAZ;AAAA,MAAmBC,OAAnB,QAAmBA,OAAnB;AAAA,SACb;AAAA;AAAA;AACE,iBAAU,IADZ;AAEE,aAAOC,OAAOC,MAAP,CAAc,EAAd,EAAkB,iBAAMC,EAAxB,EAA4BJ,KAA5B,CAFT;AAGE,gBAAS,GAHX;AAIE,eAASC;AAJX;AAMEF;AANF,GADa;AAAA,CAAf;;AAWA,+CAAOM,SAAP,GAAmB;AACjBN,WAAS,iBAAUO,MADF;AAEjBN,SAAO,iBAAUO,MAFA;AAGjBN,WAAS,iBAAUO;AAHF,CAAnB;AAKAV,OAAOW,YAAP,GAAsB;AACpBR,WAAS,mBAAM,CAAE;AADG,CAAtB;;kBAIeH,M","file":"Button.js","sourcesContent":["import React, { PropTypes } from 'react'\r\n\r\nimport STYLE from './Button.Style'\r\n\r\nconst Button = ({ caption, style, onClick }) => (\r\n  <button\r\n    className=\"bt\"\r\n    style={Object.assign({}, STYLE.BT, style)}\r\n    tabIndex=\"0\"\r\n    onClick={onClick}\r\n  >\r\n   {caption}\r\n  </button>\r\n)\r\n\r\nButton.propTypes = {\r\n  caption: PropTypes.string,\r\n  style: PropTypes.object,\r\n  onClick: PropTypes.func\r\n}\r\nButton.defaultProps = {\r\n  onClick: () => {}\r\n}\r\n\r\nexport default Button\r\n"]}

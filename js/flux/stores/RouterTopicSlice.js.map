@@ -1,17 +1,1 @@
-)]}
-{
- "version": 3,
- "sources": "D:\\_Dev\\_React\\_WebGL_Topic\\src\\flux\\stores\\RouterTopicSlice.js",
- "file": "D:\\_Dev\\_React\\_WebGL_Topic\\js\\flux\\stores\\RouterTopicSlice.js",
- "sourceRoot": "",
- "names": [
-  "RouterTopicSlice",
-  "_setTopicId",
-  "topicId",
-  "state",
-  "onViewTopic",
-  "trigger",
-  "VIEW_TOPIC"
- ],
- "mappings": ";;;;;;AAAA;;AAEA,IAAMA,mBAAmB;AAEvBC,aAFuB,uBAEXC,OAFW,EAEH;AAClB,SAAKC,KAAL,CAAWD,OAAX,GAAqBA,OAArB;AACD,GAJsB;AAMvBE,aANuB,uBAMXF,OANW,EAMH;AAClB,SAAKD,WAAL,CAAiBC,OAAjB;AACA,SAAKG,OAAL,CAAa,2CAAuBC,UAApC,EAAgD,KAAKH,KAArD;AACD;AATsB,CAAzB;;kBAYeH,gB"
-}
+{"version":3,"sources":["../../../src/flux/stores/RouterTopicSlice.js"],"names":["RouterTopicSlice","_setTopicId","topicId","state","onViewTopic","trigger","VIEW_TOPIC"],"mappings":";;;;;;AAAA;;AAEA,IAAMA,mBAAmB;AAEvBC,aAFuB,uBAEXC,OAFW,EAEH;AAClB,SAAKC,KAAL,CAAWD,OAAX,GAAqBA,OAArB;AACD,GAJsB;AAMvBE,aANuB,uBAMXF,OANW,EAMH;AAClB,SAAKD,WAAL,CAAiBC,OAAjB;AACA,SAAKG,OAAL,CAAa,2CAAuBC,UAApC,EAAgD,KAAKH,KAArD;AACD;AATsB,CAAzB;;kBAYeH,gB","file":"RouterTopicSlice.js","sourcesContent":["import { RouterTopicActionTypes } from '../actions/RouterTopicActions';\r\n\r\nconst RouterTopicSlice = {\r\n\r\n  _setTopicId(topicId){\r\n    this.state.topicId = topicId;    \r\n  },\r\n\r\n  onViewTopic(topicId){\r\n    this._setTopicId(topicId);\r\n    this.trigger(RouterTopicActionTypes.VIEW_TOPIC, this.state);\r\n  }\r\n}\r\n\r\nexport default RouterTopicSlice\r\n"]}

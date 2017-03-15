@@ -60,4 +60,4 @@ var TextureImage = {
 };
 
 exports.default = TextureImage;
-//# sourceMappingURL=D:\_Dev\_React\_WebGL_Topic\js\components\topics\gl-props\TextureImage.js.map
+//# sourceMappingURL=TextureImage.js.map

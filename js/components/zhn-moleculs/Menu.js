@@ -16,10 +16,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var Menu = _react2.default.createClass({
   displayName: 'Menu',
-  _renderMenuParts: function _renderMenuParts(menuModel, topicId) {
+  _renderMenuParts: function _renderMenuParts(toogleStyle, menuModel, topicId) {
     return menuModel.map(function (menuPart, index) {
       return _react2.default.createElement(_MenuPart2.default, {
         key: index,
+        toogleStyle: toogleStyle,
         dataModel: menuPart,
         topicId: topicId
       });
@@ -28,6 +29,7 @@ var Menu = _react2.default.createClass({
   render: function render() {
     var _props = this.props,
         rootStyle = _props.rootStyle,
+        toogleStyle = _props.toogleStyle,
         menuModel = _props.menuModel,
         topicId = _props.topicId;
 
@@ -35,10 +37,10 @@ var Menu = _react2.default.createClass({
     return _react2.default.createElement(
       'div',
       { style: rootStyle },
-      this._renderMenuParts(menuModel, topicId)
+      this._renderMenuParts(toogleStyle, menuModel, topicId)
     );
   }
 });
 
 exports.default = Menu;
-//# sourceMappingURL=D:\_Dev\_React\_WebGL_Topic\js\components\zhn-moleculs\Menu.js.map
+//# sourceMappingURL=Menu.js.map

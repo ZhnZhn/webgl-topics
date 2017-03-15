@@ -4,7 +4,21 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = require('babel-runtime/helpers/createClass');
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = require('babel-runtime/helpers/inherits');
+
+var _inherits3 = _interopRequireDefault(_inherits2);
 
 var _class, _temp, _initialiseProps;
 
@@ -24,12 +38,6 @@ var _InputFloat2 = _interopRequireDefault(_InputFloat);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
 var _hmModeStyle = {
   0: _InputFloat2.default.NOT_VALID,
   1: _InputFloat2.default.VALID_CHANGED,
@@ -37,12 +45,12 @@ var _hmModeStyle = {
 };
 
 var InputFloat = (_temp = _class = function (_Component) {
-  _inherits(InputFloat, _Component);
+  (0, _inherits3.default)(InputFloat, _Component);
 
   function InputFloat(props) {
-    _classCallCheck(this, InputFloat);
+    (0, _classCallCheck3.default)(this, InputFloat);
 
-    var _this = _possibleConstructorReturn(this, (InputFloat.__proto__ || Object.getPrototypeOf(InputFloat)).call(this, props));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (InputFloat.__proto__ || Object.getPrototypeOf(InputFloat)).call(this, props));
 
     _initialiseProps.call(_this);
 
@@ -50,7 +58,7 @@ var InputFloat = (_temp = _class = function (_Component) {
     return _this;
   }
 
-  _createClass(InputFloat, [{
+  (0, _createClass3.default)(InputFloat, [{
     key: 'componentWillReceiveProps',
     value: function componentWillReceiveProps(nextProps) {
       if (nextProps !== this.props) {
@@ -62,7 +70,9 @@ var InputFloat = (_temp = _class = function (_Component) {
     value: function render() {
       var _this2 = this;
 
-      var inputStyle = this.props.inputStyle,
+      var _props = this.props,
+          inputStyle = _props.inputStyle,
+          id = _props.id,
           _state = this.state,
           value = _state.value,
           mode = _state.mode,
@@ -86,6 +96,7 @@ var InputFloat = (_temp = _class = function (_Component) {
             ref: function ref(input) {
               return _this2.input = input;
             },
+            id: id,
             type: 'text',
             style: Object.assign({}, _InputFloat2.default.INPUT, inputStyle),
             value: value,
@@ -117,9 +128,14 @@ var InputFloat = (_temp = _class = function (_Component) {
       }
     }
   }]);
-
   return InputFloat;
-}(_react.Component), _initialiseProps = function _initialiseProps() {
+}(_react.Component), _class.defaultProps = {
+  inputKey: 'dfKey',
+  value: '0',
+  step: 0.1,
+  onChangeMode: function onChangeMode() {},
+  onKeyDownEnter: function onKeyDownEnter() {}
+}, _initialiseProps = function _initialiseProps() {
   var _this3 = this;
 
   this._getInitedState = function (props) {
@@ -244,9 +260,9 @@ var InputFloat = (_temp = _class = function (_Component) {
     var mode = _this3.state.mode;
 
     if (_this3.isOnChangeModeFn && mode !== nextMode) {
-      var _props = _this3.props,
-          inputKey = _props.inputKey,
-          onChangeMode = _props.onChangeMode;
+      var _props2 = _this3.props,
+          inputKey = _props2.inputKey,
+          onChangeMode = _props2.onChangeMode;
 
       onChangeMode(inputKey, nextMode);
     }
@@ -261,21 +277,13 @@ var InputFloat = (_temp = _class = function (_Component) {
     });
   };
 }, _temp);
-
-
-InputFloat.defaultProps = {
-  value: '0',
-  step: 0.1
-};
-
-InputFloat.propTypes = {
-  inputKey: _react.PropTypes.string.isRequired,
+process.env.NODE_ENV !== "production" ? InputFloat.propTypes = {
+  inputKey: _react.PropTypes.string,
   inputStyle: _react.PropTypes.object,
   value: _react.PropTypes.oneOfType([_react.PropTypes.string, _react.PropTypes.number]),
   step: _react.PropTypes.number,
   onChangeMode: _react.PropTypes.func,
   onKeyDownEnter: _react.PropTypes.func
-};
-
+} : void 0;
 exports.default = InputFloat;
-//# sourceMappingURL=D:\_Dev\_React\_WebGL_Topic\js\components\zhn-atoms\InputFloat.js.map
+//# sourceMappingURL=InputFloat.js.map

@@ -15,4 +15,4 @@ var Footer = function Footer() {
 };
 
 exports.default = Footer;
-//# sourceMappingURL=D:\_Dev\_React\_WebGL_Topic\js\components\footer\Footer.js.map
+//# sourceMappingURL=Footer.js.map

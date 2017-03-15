@@ -15,4 +15,4 @@ var RouterLink = {
 };
 
 exports.default = RouterLink;
-//# sourceMappingURL=D:\_Dev\_React\_WebGL_Topic\js\components\topics\links\RouterLink.js.map
+//# sourceMappingURL=RouterLink.js.map

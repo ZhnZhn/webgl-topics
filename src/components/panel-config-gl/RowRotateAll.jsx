@@ -14,8 +14,16 @@ import STYLE from './Row.Style'
 @onChangeMode
 @calcInputMode
 class RowRotateAll extends Component {
+  static propTypes = {
+    rX : PropTypes.number.isRequired,
+    rY : PropTypes.number.isRequired,
+    rZ : PropTypes.number.isRequired,
+    onGetComp : PropTypes.func.isRequired
+  }
+
+
   constructor(props){
-    super(props)
+    super()
 
     this.mode = {
       rotateX : 2,
@@ -89,13 +97,6 @@ class RowRotateAll extends Component {
       </div>
     );
   }
-}
-
-RowRotateAll.propTypes = {
-  rX : PropTypes.number.isRequired,
-  rY : PropTypes.number.isRequired,
-  rZ : PropTypes.number.isRequired,
-  onGetComp : PropTypes.func.isRequired
 }
 
 export default RowRotateAll

@@ -39,26 +39,33 @@ main:focus {
   background: #1E1E1E none repeat scroll 0% 0%;
   border-bottom: 1px solid #000;
 }
-.header__nav {
-  float: right;
-  margin-right: 0.5rem;
-  font-size: 0.875rem;
-  color: #CBD0D0;
+
+.header__icon-app {
+  display: inline-block;
+  position: absolute;
+  top: 7px;
+  left: 16px;
+  width : 32px;
+  height : 32px;
+  cursor: default;
 }
-.header__nav__link, .header__nav__link:hover {
-  position: relative;
-  float: left;
-  padding: 0px 1.25rem;
-  color: gray;
-  /*color: inherit;*/
-  text-decoration: none;
+.header__label-app {
+  display: inline-block;
+  color:#80c040;
+  margin-left: 50px;  
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 16px;
+  font-weight: bold;
 }
+
 .header__github-link {
   display: inline-block;
-  position: relative;
-  float: left;
+  position: absolute;
+  top: 0px;
+  right: 24px;
   text-decoration: none;
-  fill: black;
+  fill: grey;
   transition: fill 200ms ease-out;
 }
 .header__github-link svg {
@@ -139,7 +146,7 @@ main:focus {
 .container__content {
   position: relative;
   height: 100%;
-  overflow-y: scroll;
+  overflow-y: auto;
   margin-left: 0.875rem;
   padding: 1.25rem 1.5rem 0px;
   font-size: 0.875rem;

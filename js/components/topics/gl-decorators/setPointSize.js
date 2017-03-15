@@ -17,4 +17,4 @@ var setPointSize = function setPointSize(target) {
 };
 
 exports.default = setPointSize;
-//# sourceMappingURL=D:\_Dev\_React\_WebGL_Topic\js\components\topics\gl-decorators\setPointSize.js.map
+//# sourceMappingURL=setPointSize.js.map
