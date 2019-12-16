@@ -22,10 +22,14 @@ var PanelPerspective =
 function (_Component) {
   (0, _inheritsLoose2["default"])(PanelPerspective, _Component);
 
-  function PanelPerspective(props) {
+  function PanelPerspective() {
     var _this;
 
-    _this = _Component.call(this, props) || this;
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _Component.call.apply(_Component, [this].concat(args)) || this;
 
     _this._fnAfterSet = function (comp) {
       comp.createPerspective(comp);
@@ -66,11 +70,6 @@ function (_Component) {
   return PanelPerspective;
 }(_react.Component);
 
-PanelPerspective.propTypes = {
-  perspectiveNear: _react.PropTypes.number.isRequired,
-  perspectiveFar: _react.PropTypes.number.isRequired,
-  onGetComp: _react.PropTypes.func.isRequired
-};
 var _default = PanelPerspective;
 exports["default"] = _default;
 //# sourceMappingURL=PanelPerspective.js.map

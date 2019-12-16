@@ -4,7 +4,9 @@ exports.__esModule = true;
 exports["default"] = void 0;
 var STYLE = {
   ROW: {
-    marginTop: '12px'
+    marginTop: '12px',
+    display: 'flex',
+    alignItems: 'center'
   },
   CAPTION: {
     color: 'gray',

@@ -35,13 +35,13 @@ var menuModel = [{
     onClick: function onClick() {
       return _RouterTopicActions["default"].viewTopic(_ID["default"].CUBE);
     }
-  }, {
-    id: _ID["default"].TEXTURE_IMAGE,
-    title: "TextureImage",
-    onClick: function onClick() {
-      return _RouterTopicActions["default"].viewTopic(_ID["default"].TEXTURE_IMAGE);
-    }
-  }, {
+  },
+  /*{
+  id : ID.TEXTURE_IMAGE,
+  title: "TextureImage",
+  onClick : () => Actions.viewTopic(ID.TEXTURE_IMAGE)
+  },*/
+  {
     id: _ID["default"].CUBE_WITH_LIGHT,
     title: "CubeWithLight",
     onClick: function onClick() {

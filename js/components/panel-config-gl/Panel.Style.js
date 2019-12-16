@@ -20,6 +20,10 @@ var STYLE = {
     paddingBottom: '8px',
     backgroundColor: '#33373A'
   },
+  OC_DIV: {
+    display: 'flex',
+    alignItems: 'center'
+  },
   INPUT_SELECT: {
     marginTop: '8px',
     marginBottom: '16px'

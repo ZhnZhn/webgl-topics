@@ -1,9 +1,9 @@
 import React from 'react';
+import createReactClass from 'create-react-class'
 
 import styles from './InputSelect.Style';
 
-
-const ZhSelect = React.createClass({
+const ZhSelect = createReactClass({
   getDefaultProps(){
     return {
       options : [],
@@ -12,7 +12,7 @@ const ZhSelect = React.createClass({
       isUpdateOptions : false
     }
   },
-  getInitialState: function(){
+  getInitialState(){
      this.domOptionsCache = null;
      this.indexActiveOption = 0;
      const {optionName, optionNames} = this.props
@@ -30,7 +30,7 @@ const ZhSelect = React.createClass({
      }
   },
 
-  componentWillReceiveProps: function(nextProps){
+  UNSAFE_componentWillReceiveProps(nextProps){
     if (this.props !== nextProps){
       if (this.props.options !== nextProps.options
           || nextProps.isUpdateOptions){
@@ -40,7 +40,7 @@ const ZhSelect = React.createClass({
     }
   },
 
-  shouldComponentUpdate: function(nextProps, nextState){
+  shouldComponentUpdate(nextProps, nextState){
     if (this.props !== nextProps || nextProps.isUpdateOptions) {
       nextState.isLocalMode = false;
     } else {
@@ -50,7 +50,7 @@ const ZhSelect = React.createClass({
     return true;
   },
 
-  componentDidUpdate: function(){
+  componentDidUpdate(){
      //Decorate Active Option
      if (this.state.isShowOption){
        let domActiveOption = this._getDomForActiveOption();
@@ -69,34 +69,34 @@ const ZhSelect = React.createClass({
     });
   },
 
-  _getDomForActiveOption: function(){
+  _getDomForActiveOption(){
     return this.refs["v"+this.indexActiveOption];
   },
 
-  _decorateOfDomActiveOption: function(domActiveOption){
+  _decorateOfDomActiveOption(domActiveOption){
     if (domActiveOption){
       domActiveOption.classList.add("option-row__active");
     }
   },
 
-  _decorateActiveOption: function(){
+  _decorateActiveOption(){
     let domActiveOption = this.refs["v"+this.indexActiveOption];
     domActiveOption.classList.add("option-row__active");
   },
 
-  _undecorateActiveOption: function(){
+  _undecorateActiveOption(){
     if (this.refs["v" + this.indexActiveOption]){
       this.refs["v" + this.indexActiveOption].classList.remove("option-row__active");
     }
   },
 
-  _undecorateOfDomActiveOption: function(domActiveOption){
+  _undecorateOfDomActiveOption(domActiveOption){
      if (domActiveOption){
        domActiveOption.classList.remove("option-row__active");
     }
   },
 
-  _makeVisibleOfDomActiveOption: function(domActiveOption){
+  _makeVisibleOfDomActiveOption(domActiveOption){
     if (domActiveOption){
       const offsetTop = domActiveOption.offsetTop;
       const scrollTop = this.domOptions.scrollTop;
@@ -109,7 +109,7 @@ const ZhSelect = React.createClass({
     }
   },
 
-  _makeVisibleActiveOption: function(){
+  _makeVisibleActiveOption(){
     let domActiveOption = this.refs["v"+this.indexActiveOption];
 
     let offsetTop = domActiveOption.offsetTop;
@@ -119,14 +119,14 @@ const ZhSelect = React.createClass({
     }
   },
 
-  _filterOptionsToState: function(options, value){
+  _filterOptionsToState(options, value){
      const valueFor = value.toLowerCase();
      return options.filter( (option, i) => {
        return option.caption.toLowerCase().indexOf(valueFor) !== -1
      })
   },
 
-  _handlerInputChange: function(event){
+  _handlerInputChange(event){
     const value = event.target.value;
     let arr = [];
     if (value.length !== this.state.value.length){
@@ -149,7 +149,7 @@ const ZhSelect = React.createClass({
     }
   },
 
-  _handlerInputKeyDown: function(event){
+  _handlerInputKeyDown(event){
     switch(event.keyCode){
       // enter
       case 13: {
@@ -310,7 +310,7 @@ const ZhSelect = React.createClass({
         <span
            style={styles.arrowCell}
            onClick={this._handlerToggleOptions}>
-          <span style={Object.assign({}, styles.arrow, _styleArrow)}></span>
+          <span style={Object.assign({}, styles.arrow, _styleArrow)} />
         </span>
       );
     } else if (isLoading){
@@ -318,8 +318,7 @@ const ZhSelect = React.createClass({
         <span
           style={styles.spinnerCell}
           data-loader="circle"
-        >
-        </span>
+        />
       )
     } else if (isLoadingFailed) {
       return (
@@ -327,8 +326,7 @@ const ZhSelect = React.createClass({
           style={styles.spinnerFailedCell}
           data-loader="circle-failed"
           onClick={this.props.onLoadOption}
-         >
-        </span>
+        />
       )
     }
   },
@@ -397,7 +395,7 @@ const ZhSelect = React.createClass({
            onKeyDown={this._handlerInputKeyDown}>
         </input>
         {_domAfterInput}
-        <hr style={Object.assign({},styles.inputHr, _styleHr)}></hr>
+        <hr style={Object.assign({},styles.inputHr, _styleHr)} />
         {_domOptions}
 
       </div>

@@ -1,11 +1,11 @@
 "use strict";
 
-var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
 exports.__esModule = true;
 exports["default"] = void 0;
 
-var _react = _interopRequireWildcard(require("react"));
+var _react = _interopRequireDefault(require("react"));
 
 var IconAppLogo = function IconAppLogo(_ref) {
   var className = _ref.className,
@@ -16,11 +16,11 @@ var IconAppLogo = function IconAppLogo(_ref) {
   }, _react["default"].createElement("svg", {
     viewBox: "0 0 32 32",
     xmlns: "http://www.w3.org/2000/svg",
-    "fill-rule": "evenodd",
-    "clip-rule": "evenodd",
-    "stroke-linejoin": "round",
-    "stroke-miterlimit": "2",
-    "stroke-width": "2"
+    fillRule: "evenodd",
+    clipRule: "evenodd",
+    strokeLinejoin: "round",
+    strokeMiterlimit: "2",
+    strokeWidth: "2"
   }, _react["default"].createElement("title", null, title), _react["default"].createElement("rect", {
     ry: "1.8825414",
     rx: "194.14471",
@@ -50,11 +50,14 @@ var IconAppLogo = function IconAppLogo(_ref) {
     stroke: "#a487d4"
   })));
 };
-
+/*
 IconAppLogo.propTypes = {
-  className: _react.PropTypes.string,
-  title: _react.PropTypes.string
-};
+  className: PropTypes.string,
+  title: PropTypes.string
+}
+*/
+
+
 var _default = IconAppLogo;
 exports["default"] = _default;
 //# sourceMappingURL=IconAppLogo.js.map

@@ -1,1 +1,21 @@
-{"version":3,"sources":["../../../src/components/panel-config-gl/PanelTranslate.jsx"],"names":["PanelTranslate","props","_fnAfterSet","comp","configMatrix","render","zMatrixTranslate","onGetComp","STYLE","OPEN_CLOSE","Component","propTypes","PropTypes","number","isRequired","func"],"mappings":";;;;;;;;;;;AAAA;;AAEA;;AACA;;AAEA;;IAEMA,c;;;;;AAMJ,0BAAYC,KAAZ,EAAkB;AAAA;;AAChB,kCAAMA,KAAN;;AADgB,UAIlBC,WAJkB,GAIJ,UAACC,IAAD,EAAU;AACrBA,MAAAA,IAAI,CAACC,YAAL,CAAkBD,IAAlB;AACF,KANiB;;AAAA;AAEjB;;;;SAMDE,M,GAAA,kBAAQ;AAAA,sBACkC,KAAKJ,KADvC;AAAA,QACEK,gBADF,eACEA,gBADF;AAAA,QACoBC,SADpB,eACoBA,SADpB;AAEN,WACE,gCAAC,qBAAD;AACE,MAAA,OAAO,EAAC,WADV;AAEE,MAAA,KAAK,EAAEC,kBAAMC;AAFf,OAIE,gCAAC,mBAAD;AACA,MAAA,OAAO,EAAC,IADR;AAEA,MAAA,OAAO,EAAC,IAFR;AAGA,MAAA,KAAK,EAAEH,gBAHP;AAIA,MAAA,OAAO,EAAC,kBAJR;AAKA,MAAA,SAAS,EAAEC,SALX;AAMA,MAAA,UAAU,EAAE,KAAKL;AANjB,MAJF,CADF;AAeD,G;;;EA/B0BQ,gB;;AAAvBV,c,CACGW,S,GAAY;AACjBL,EAAAA,gBAAgB,EAAGM,iBAAUC,MAAV,CAAiBC,UADnB;AAEjBP,EAAAA,SAAS,EAAGK,iBAAUG,IAAV,CAAeD;AAFV,C;eAiCNd,c","sourcesContent":["import React, { Component, PropTypes } from 'react';\r\n\r\nimport OpenClose from '../zhn-atoms/OpenClose';\r\nimport RowProp from './RowProp';\r\n\r\nimport STYLE from './Panel.Style';\r\n\r\nclass PanelTranslate extends Component {\r\n  static propTypes = {\r\n    zMatrixTranslate : PropTypes.number.isRequired,\r\n    onGetComp : PropTypes.func.isRequired\r\n  }\r\n\r\n  constructor(props){\r\n    super(props)\r\n  }\r\n\r\n  _fnAfterSet = (comp) => {\r\n     comp.configMatrix(comp);\r\n  }\r\n\r\n  render(){\r\n    const { zMatrixTranslate, onGetComp } = this.props\r\n    return (\r\n      <OpenClose\r\n        caption=\"Translate\"\r\n        style={STYLE.OPEN_CLOSE}\r\n      >\r\n        <RowProp\r\n        labelBy=\"Z:\"\r\n        inputId=\"tZ\"\r\n        value={zMatrixTranslate}\r\n        propKey=\"zMatrixTranslate\"\r\n        onGetComp={onGetComp}\r\n        fnAfterSet={this._fnAfterSet}\r\n        />\r\n      </OpenClose>\r\n    )\r\n  }\r\n}\r\n\r\nexport default PanelTranslate\r\n"],"file":"PanelTranslate.js"}
+{
+ "version": 3,
+ "sources": [
+  "../../../src/components/panel-config-gl/PanelTranslate.js"
+ ],
+ "file": "../../../src/components/panel-config-gl/PanelTranslate.js",
+ "names": [
+  "PanelTranslate",
+  "_fnAfterSet",
+  "comp",
+  "configMatrix",
+  "render",
+  "props",
+  "zMatrixTranslate",
+  "onGetComp",
+  "STYLE",
+  "OPEN_CLOSE",
+  "Component"
+ ],
+ "mappings": ";;;;;;;;;;;AAAA;;AAEA;;AACA;;AAEA;;IAEMA,c;;;;;;;;;;;;;;UAQJC,W,GAAc,UAACC,IAAD,EAAU;AACrBA,MAAAA,IAAI,CAACC,YAAL,CAAkBD,IAAlB;AACF,K;;;;;;;SAEDE,M,GAAA,kBAAQ;AAAA,sBACkC,KAAKC,KADvC;AAAA,QACEC,gBADF,eACEA,gBADF;AAAA,QACoBC,SADpB,eACoBA,SADpB;AAEN,WACE,gCAAC,qBAAD;AACE,MAAA,OAAO,EAAC,WADV;AAEE,MAAA,KAAK,EAAEC,kBAAMC;AAFf,OAIE,gCAAC,mBAAD;AACA,MAAA,OAAO,EAAC,IADR;AAEA,MAAA,OAAO,EAAC,IAFR;AAGA,MAAA,KAAK,EAAEH,gBAHP;AAIA,MAAA,OAAO,EAAC,kBAJR;AAKA,MAAA,SAAS,EAAEC,SALX;AAMA,MAAA,UAAU,EAAE,KAAKN;AANjB,MAJF,CADF;AAeD,G;;;EA7B0BS,gB;;eAgCdV,c"
+}

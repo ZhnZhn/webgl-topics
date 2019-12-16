@@ -1,7 +1,7 @@
 
 const STYLE = {
   BT : {
-    color: '#fefcff',    
+    color: '#fefcff',
     fontSize: '16px',
     fontWeight: 'bold',
     backgroundColor: '#673ab7',
@@ -9,8 +9,7 @@ const STYLE = {
     borderRadius: '8px',
     padding: '4px 6px',
     marginLeft: '16px',
-    position : 'relative',
-    top : '4px'
+    height: "30px"    
   },
   VALID_CHANGED : {
     border: '2px solid #673ab7'

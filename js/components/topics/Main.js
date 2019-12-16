@@ -28,14 +28,26 @@ var TopicWrapper =
 function (_Component) {
   (0, _inheritsLoose2["default"])(TopicWrapper, _Component);
 
+  /*
+  static propTypes = {
+    store : PropTypes.shape({
+      listen: PropTypes.func
+    })
+  }
+  */
   function TopicWrapper(props) {
     var _this;
 
-    _this = _Component.call(this) || this;
+    _this = _Component.call(this, props) || this;
+
+    _this._refComp = function (comp) {
+      return _this.componentTopic = comp;
+    };
+
     _this._onStore = _this._onStore.bind((0, _assertThisInitialized2["default"])(_this));
     _this.getComponentTopic = _this.getComponentTopic.bind((0, _assertThisInitialized2["default"])(_this));
     _this.state = {
-      topidId: undefined
+      topidId: void 0
     };
     return _this;
   }
@@ -64,15 +76,13 @@ function (_Component) {
   };
 
   _proto.render = function render() {
-    var _this2 = this;
-
     var topicId = this.state.topicId,
         _factoryTopic = (0, _factoryTopic2["default"])(topicId),
         Comp = _factoryTopic.Comp,
         compProps = _factoryTopic.props,
         _compProps$valuesForI = compProps.valuesForInit,
         valuesForInit = _compProps$valuesForI === void 0 ? {} : _compProps$valuesForI,
-        _valuesForInit = Object.assign({}, _dfValues["default"], valuesForInit);
+        _valuesForInit = (0, _extends2["default"])({}, _dfValues["default"], {}, valuesForInit);
 
     return _react["default"].createElement("div", {
       className: "container",
@@ -84,9 +94,7 @@ function (_Component) {
     }, _react["default"].createElement("div", {
       className: "row"
     }, _react["default"].createElement(Comp, (0, _extends2["default"])({
-      ref: function ref(comp) {
-        return _this2.componentTopic = comp;
-      }
+      ref: this._refComp
     }, compProps)), _react["default"].createElement(_PanelConfigGL["default"], {
       valuesForInit: _valuesForInit,
       onGetComp: this.getComponentTopic
@@ -96,11 +104,6 @@ function (_Component) {
   return TopicWrapper;
 }(_react.Component);
 
-TopicWrapper.propTypes = {
-  store: _react.PropTypes.shape({
-    listen: _react.PropTypes.func
-  })
-};
 var _default = TopicWrapper;
 exports["default"] = _default;
 //# sourceMappingURL=Main.js.map

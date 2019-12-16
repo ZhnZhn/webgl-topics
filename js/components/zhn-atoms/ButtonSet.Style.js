@@ -12,8 +12,7 @@ var STYLE = {
     borderRadius: '8px',
     padding: '4px 6px',
     marginLeft: '16px',
-    position: 'relative',
-    top: '4px'
+    height: "30px"
   },
   VALID_CHANGED: {
     border: '2px solid #673ab7'

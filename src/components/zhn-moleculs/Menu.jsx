@@ -3,30 +3,27 @@ import React from 'react';
 
 import MenuPart from './MenuPart';
 
-const Menu = React.createClass({
+const _renderMenuParts = (toogleStyle, menuModel, topicId) => {
+   return menuModel.map((menuPart, index) => (
+      <MenuPart
+         key={index}
+         toogleStyle={toogleStyle}
+         dataModel={menuPart}
+         topicId={topicId}
+       />
+   ));
+ }
 
- _renderMenuParts(toogleStyle, menuModel, topicId){
-    return menuModel.map((menuPart, index) => {
-      return (
-         <MenuPart
-            key={index}
-            toogleStyle={toogleStyle}
-            dataModel={menuPart}
-            topicId={topicId}
-          />
-      );
-    })
-  },
-
-  render(){
-    const { rootStyle, toogleStyle, menuModel, topicId } = this.props
-
-    return (
-      <div style={rootStyle}>
-        { this._renderMenuParts(toogleStyle, menuModel, topicId)}
-      </div>
-    );
-  }
-});
+const Menu = ({ 
+  rootStyle, toogleStyle,
+  menuModel,
+  topicId
+}) => {
+  return (
+    <div style={rootStyle}>
+      {_renderMenuParts(toogleStyle, menuModel, topicId)}
+    </div>
+  );
+}
 
 export default Menu

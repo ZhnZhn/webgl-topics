@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
 
 const Label = ({ style, title, id }) => (
   <label
@@ -10,10 +10,12 @@ const Label = ({ style, title, id }) => (
   </label>
 )
 
+/*
 Label.propTypes = {
   style: PropTypes.object,
   title: PropTypes.string,
   id: PropTypes.string
 }
+*/
 
 export default Label

@@ -7,6 +7,8 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 exports.__esModule = true;
 exports["default"] = void 0;
 
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
+
 var _assertThisInitialized2 = _interopRequireDefault(require("@babel/runtime/helpers/assertThisInitialized"));
 
 var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inheritsLoose"));
@@ -19,6 +21,11 @@ var _ButtonSet = _interopRequireDefault(require("../zhn-atoms/ButtonSet"));
 
 var _Row = _interopRequireDefault(require("./Row.Style"));
 
+var S = {
+  CAPTION: {
+    color: '#a487d4'
+  }
+};
 var _drawModeOptions = [{
   caption: "TRIANGLES",
   value: "TRIANGLES"
@@ -80,9 +87,7 @@ function (_Component) {
     return _react["default"].createElement("div", {
       style: _Row["default"].ROW
     }, _react["default"].createElement("span", {
-      style: Object.assign(_Row["default"].CAPTION, {
-        color: '#a487d4'
-      })
+      style: (0, _extends2["default"])({}, _Row["default"].CAPTION, {}, S.CAPTION)
     }, "DrawMode:"), _react["default"].createElement(_InputSelect["default"], {
       options: _drawModeOptions,
       onSelect: this._handleSelectDrawMode
@@ -95,9 +100,6 @@ function (_Component) {
   return RowDrawMode;
 }(_react.Component);
 
-RowDrawMode.propTypes = {
-  onGetComp: _react.PropTypes.func.isRequired
-};
 var _default = RowDrawMode;
 exports["default"] = _default;
 //# sourceMappingURL=RowDrawMode.js.map

@@ -22,10 +22,14 @@ var PanelTranslate =
 function (_Component) {
   (0, _inheritsLoose2["default"])(PanelTranslate, _Component);
 
-  function PanelTranslate(props) {
+  function PanelTranslate() {
     var _this;
 
-    _this = _Component.call(this, props) || this;
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _Component.call.apply(_Component, [this].concat(args)) || this;
 
     _this._fnAfterSet = function (comp) {
       comp.configMatrix(comp);
@@ -56,10 +60,6 @@ function (_Component) {
   return PanelTranslate;
 }(_react.Component);
 
-PanelTranslate.propTypes = {
-  zMatrixTranslate: _react.PropTypes.number.isRequired,
-  onGetComp: _react.PropTypes.func.isRequired
-};
 var _default = PanelTranslate;
 exports["default"] = _default;
 //# sourceMappingURL=PanelTranslate.js.map

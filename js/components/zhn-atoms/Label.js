@@ -1,11 +1,11 @@
 "use strict";
 
-var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
 exports.__esModule = true;
 exports["default"] = void 0;
 
-var _react = _interopRequireWildcard(require("react"));
+var _react = _interopRequireDefault(require("react"));
 
 var Label = function Label(_ref) {
   var style = _ref.style,
@@ -17,12 +17,15 @@ var Label = function Label(_ref) {
     htmlFor: id
   }, title);
 };
-
+/*
 Label.propTypes = {
-  style: _react.PropTypes.object,
-  title: _react.PropTypes.string,
-  id: _react.PropTypes.string
-};
+  style: PropTypes.object,
+  title: PropTypes.string,
+  id: PropTypes.string
+}
+*/
+
+
 var _default = Label;
 exports["default"] = _default;
 //# sourceMappingURL=Label.js.map

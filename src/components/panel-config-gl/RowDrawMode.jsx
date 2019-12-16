@@ -1,9 +1,15 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 
 import InputSelect from '../zhn-atoms/InputSelect';
 import ButtonSet from '../zhn-atoms/ButtonSet';
 
 import STYLE from './Row.Style';
+
+const S = {
+  CAPTION: {
+    color: '#a487d4'
+  }
+};
 
 const _drawModeOptions = [
   { caption: "TRIANGLES", value: "TRIANGLES" },
@@ -13,12 +19,14 @@ const _drawModeOptions = [
   { caption: "LINE_STRIP", value: "LINE_STRIP" },
   { caption: "LINE_LOOP", value: "LINE_LOOP" },
   { caption: "POINTS", value: "POINTS" },
-]
+];
 
 class RowDrawMode extends Component {
+  /*
   static propTypes = {
     onGetComp : PropTypes.func.isRequired
   }
+  */
 
   _handleSelectDrawMode = (item) => {
     this.drawMode = item
@@ -34,7 +42,7 @@ class RowDrawMode extends Component {
   render(){
     return(
       <div style={STYLE.ROW}>
-        <span style={Object.assign(STYLE.CAPTION, {color: '#a487d4'})}>
+        <span style={{ ...STYLE.CAPTION, ...S.CAPTION }}>
           DrawMode:
         </span>
         <InputSelect

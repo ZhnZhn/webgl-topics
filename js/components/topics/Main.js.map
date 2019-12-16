@@ -1,1 +1,37 @@
-{"version":3,"sources":["../../../src/components/topics/Main.jsx"],"names":["TopicWrapper","props","_onStore","bind","getComponentTopic","state","topidId","undefined","componentDidMount","store","unsubscribe","listen","actionType","RouterTopicActionTypes","VIEW_TOPIC","setState","topicId","componentWillUnmount","componentTopic","render","Comp","compProps","valuesForInit","_valuesForInit","Object","assign","dfValues","comp","Component","propTypes","PropTypes","shape","func"],"mappings":";;;;;;;;;;;;;;;AAAA;;AAEA;;AAEA;;AACA;;AAEA;;IAEMA,Y;;;;;AAOJ,wBAAYC,KAAZ,EAAkB;AAAA;;AAChB;AAEA,UAAKC,QAAL,GAAgB,MAAKA,QAAL,CAAcC,IAAd,gDAAhB;AACA,UAAKC,iBAAL,GAAyB,MAAKA,iBAAL,CAAuBD,IAAvB,gDAAzB;AACA,UAAKE,KAAL,GAAa;AACXC,MAAAA,OAAO,EAAGC;AADC,KAAb;AALgB;AAQjB;;;;SAEDC,iB,GAAA,6BAAmB;AAAA,QACRC,KADQ,GACE,KAAKR,KADP,CACRQ,KADQ;AAEhB,SAAKC,WAAL,GAAmBD,KAAK,CAACE,MAAN,CAAa,KAAKT,QAAlB,CAAnB;AACF,G;;SAEDA,Q,GAAA,kBAASU,UAAT,EAAqBP,KAArB,EAA2B;AACzB,QAAIO,UAAU,KAAKC,2CAAuBC,UAA1C,EAAqD;AACnD,WAAKC,QAAL,CAAc;AAAEC,QAAAA,OAAO,EAAGX,KAAK,CAACW;AAAlB,OAAd;AACD;AACF,G;;SAEDC,oB,GAAA,gCAAsB;AACnB,SAAKP,WAAL;AACF,G;;SAEDN,iB,GAAA,6BAAmB;AACjB,WAAO,KAAKc,cAAZ;AACD,G;;SAEDC,M,GAAA,kBAAQ;AAAA;;AACA,QAAEH,OAAF,GAAc,KAAKX,KAAnB,CAAEW,OAAF;AAAA,wBACwB,+BAAaA,OAAb,CADxB;AAAA,QACFI,IADE,iBACFA,IADE;AAAA,QACUC,SADV,iBACIpB,KADJ;AAAA,gCAEmBoB,SAFnB,CAEFC,aAFE;AAAA,QAEFA,aAFE,sCAEY,EAFZ;AAAA,QAGJC,cAHI,GAGaC,MAAM,CAACC,MAAP,CAAc,EAAd,EAAkBC,oBAAlB,EAA4BJ,aAA5B,CAHb;;AAMN,WACE;AAAK,MAAA,SAAS,EAAC,WAAf;AAA2B,MAAA,IAAI,EAAC;AAAhC,OACE;AAAM,MAAA,SAAS,EAAC,oBAAhB;AAAqC,MAAA,QAAQ,EAAC,GAA9C;AAAkD,MAAA,IAAI,EAAC;AAAvD,OACE;AAAK,MAAA,SAAS,EAAC;AAAf,OACE,gCAAC,IAAD;AACG,MAAA,GAAG,EAAG,aAAAK,IAAI;AAAA,eAAI,MAAI,CAACT,cAAL,GAAsBS,IAA1B;AAAA;AADb,OAEON,SAFP,EADF,EAKE,gCAAC,yBAAD;AACG,MAAA,aAAa,EAAEE,cADlB;AAEG,MAAA,SAAS,EAAE,KAAKnB;AAFnB,MALF,CADF,CADF,CADF;AAgBD,G;;;EA3DwBwB,gB;;AAArB5B,Y,CACG6B,S,GAAY;AACjBpB,EAAAA,KAAK,EAAGqB,iBAAUC,KAAV,CAAgB;AACtBpB,IAAAA,MAAM,EAAEmB,iBAAUE;AADI,GAAhB;AADS,C;eA6DNhC,Y","sourcesContent":["import React, { Component, PropTypes } from 'react';\r\n\r\nimport { RouterTopicActionTypes } from '../../flux/actions/RouterTopicActions'\r\n\r\nimport factoryTopic from './factoryTopic';\r\nimport PanelConfigGL from '../panel-config-gl/PanelConfigGL';\r\n\r\nimport dfValues from './gl-props/dfValues';\r\n\r\nclass TopicWrapper extends Component {\r\n  static propTypes = {\r\n    store : PropTypes.shape({\r\n      listen: PropTypes.func\r\n    })\r\n  }\r\n\r\n  constructor(props){\r\n    super()\r\n\r\n    this._onStore = this._onStore.bind(this)\r\n    this.getComponentTopic = this.getComponentTopic.bind(this);\r\n    this.state = {\r\n      topidId : undefined\r\n    }\r\n  }\r\n\r\n  componentDidMount(){\r\n     const { store } = this.props\r\n     this.unsubscribe = store.listen(this._onStore);\r\n  }\r\n\r\n  _onStore(actionType, state){\r\n    if (actionType === RouterTopicActionTypes.VIEW_TOPIC){\r\n      this.setState({ topicId : state.topicId })\r\n    }\r\n  }\r\n\r\n  componentWillUnmount(){\r\n     this.unsubscribe()\r\n  }\r\n\r\n  getComponentTopic(){\r\n    return this.componentTopic;\r\n  }\r\n\r\n  render(){\r\n    const { topicId } = this.state\r\n    , { Comp, props:compProps } = factoryTopic(topicId)\r\n    , { valuesForInit={} } = compProps\r\n    , _valuesForInit = Object.assign({}, dfValues, valuesForInit)\r\n\r\n\r\n    return (\r\n      <div className=\"container\" role=\"document\">\r\n        <main className=\"container__content\" tabIndex=\"1\" role=\"main\">\r\n          <div className=\"row\">\r\n            <Comp\r\n               ref={ comp => this.componentTopic = comp }\r\n               {...compProps}\r\n            />\r\n            <PanelConfigGL\r\n               valuesForInit={_valuesForInit}\r\n               onGetComp={this.getComponentTopic}\r\n            />\r\n          </div>\r\n        </main>\r\n      </div>\r\n    );\r\n  }\r\n}\r\n\r\nexport default TopicWrapper\r\n"],"file":"Main.js"}
+{
+ "version": 3,
+ "sources": [
+  "../../../src/components/topics/Main.js"
+ ],
+ "file": "../../../src/components/topics/Main.js",
+ "names": [
+  "TopicWrapper",
+  "props",
+  "_refComp",
+  "comp",
+  "componentTopic",
+  "_onStore",
+  "bind",
+  "getComponentTopic",
+  "state",
+  "topidId",
+  "componentDidMount",
+  "store",
+  "unsubscribe",
+  "listen",
+  "actionType",
+  "RouterTopicActionTypes",
+  "VIEW_TOPIC",
+  "setState",
+  "topicId",
+  "componentWillUnmount",
+  "render",
+  "Comp",
+  "compProps",
+  "valuesForInit",
+  "_valuesForInit",
+  "dfValues",
+  "Component"
+ ],
+ "mappings": ";;;;;;;;;;;;;;;AAAA;;AAEA;;AAEA;;AACA;;AAEA;;IAEMA,Y;;;;;AACJ;;;;;;;AAQA,wBAAYC,KAAZ,EAAkB;AAAA;;AAChB,kCAAMA,KAAN;;AADgB,UA6BlBC,QA7BkB,GA6BP,UAAAC,IAAI;AAAA,aAAI,MAAKC,cAAL,GAAsBD,IAA1B;AAAA,KA7BG;;AAGhB,UAAKE,QAAL,GAAgB,MAAKA,QAAL,CAAcC,IAAd,gDAAhB;AACA,UAAKC,iBAAL,GAAyB,MAAKA,iBAAL,CAAuBD,IAAvB,gDAAzB;AACA,UAAKE,KAAL,GAAa;AACXC,MAAAA,OAAO,EAAG,KAAK;AADJ,KAAb;AALgB;AAQjB;;;;SAEDC,iB,GAAA,6BAAmB;AAAA,QACRC,KADQ,GACE,KAAKV,KADP,CACRU,KADQ;AAEhB,SAAKC,WAAL,GAAmBD,KAAK,CAACE,MAAN,CAAa,KAAKR,QAAlB,CAAnB;AACF,G;;SAEDA,Q,GAAA,kBAASS,UAAT,EAAqBN,KAArB,EAA2B;AACzB,QAAIM,UAAU,KAAKC,2CAAuBC,UAA1C,EAAqD;AACnD,WAAKC,QAAL,CAAc;AAAEC,QAAAA,OAAO,EAAGV,KAAK,CAACU;AAAlB,OAAd;AACD;AACF,G;;SAEDC,oB,GAAA,gCAAsB;AACnB,SAAKP,WAAL;AACF,G;;SAEDL,iB,GAAA,6BAAmB;AACjB,WAAO,KAAKH,cAAZ;AACD,G;;SAIDgB,M,GAAA,kBAAQ;AACA,QAAEF,OAAF,GAAc,KAAKV,KAAnB,CAAEU,OAAF;AAAA,wBACwB,+BAAaA,OAAb,CADxB;AAAA,QACFG,IADE,iBACFA,IADE;AAAA,QACUC,SADV,iBACIrB,KADJ;AAAA,gCAEmBqB,SAFnB,CAEFC,aAFE;AAAA,QAEFA,aAFE,sCAEY,EAFZ;AAAA,QAGJC,cAHI,iCAGkBC,oBAHlB,MAG+BF,aAH/B;;AAMN,WACE;AAAK,MAAA,SAAS,EAAC,WAAf;AAA2B,MAAA,IAAI,EAAC;AAAhC,OACE;AAAM,MAAA,SAAS,EAAC,oBAAhB;AAAqC,MAAA,QAAQ,EAAC,GAA9C;AAAkD,MAAA,IAAI,EAAC;AAAvD,OACE;AAAK,MAAA,SAAS,EAAC;AAAf,OACE,gCAAC,IAAD;AACG,MAAA,GAAG,EAAE,KAAKrB;AADb,OAEOoB,SAFP,EADF,EAKE,gCAAC,yBAAD;AACG,MAAA,aAAa,EAAEE,cADlB;AAEG,MAAA,SAAS,EAAE,KAAKjB;AAFnB,MALF,CADF,CADF,CADF;AAgBD,G;;;EA/DwBmB,gB;;eAkEZ1B,Y"
+}

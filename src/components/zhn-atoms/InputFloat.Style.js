@@ -21,7 +21,7 @@ const STYLE = {
     width: '40px',
     fontSize: '16px',
     fontWeight: 'bold',
-    backgroundColor : '#E1E1CB',    
+    backgroundColor : '#E1E1CB',
     marginRight : '5px'
   },
   HR : {
@@ -59,10 +59,10 @@ const STYLE = {
     transform: 'rotateX(180deg)',
     marginLeft: '6px',
     marginRight: '6px',
-    top: '3px'
+    top: '-16px'
   },
   ARROW_MINUS : {
-    top: '8px',
+    top: '-12px',
     marginRight: '6px'
   }
 }

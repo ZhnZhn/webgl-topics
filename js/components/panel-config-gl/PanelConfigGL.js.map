@@ -1,1 +1,22 @@
-{"version":3,"sources":["../../../src/components/panel-config-gl/PanelConfigGL.jsx"],"names":["PanelConfigGL","render","props","onGetComp","valuesForInit","perspectiveNear","perspectiveFar","zMatrixTranslate","rX","rY","rZ","STYLE","ROOT","ROOT_CAPTION","Component","propTypes","PropTypes","shape","number","isRequired","func"],"mappings":";;;;;;;;;;;AAAA;;AAEA;;AACA;;AACA;;AACA;;AAEA;;IAEMA,a;;;;;;;;;;;SAaJC,M,GAAA,kBAAQ;AAAA,sBAC+B,KAAKC,KADpC;AAAA,QACEC,SADF,eACEA,SADF;AAAA,QACaC,aADb,eACaA,aADb;AAAA,QAGEC,eAHF,GAMID,aANJ,CAGEC,eAHF;AAAA,QAGmBC,cAHnB,GAMIF,aANJ,CAGmBE,cAHnB;AAAA,QAIEC,gBAJF,GAMIH,aANJ,CAIEG,gBAJF;AAAA,QAKEC,EALF,GAMIJ,aANJ,CAKEI,EALF;AAAA,QAKMC,EALN,GAMIL,aANJ,CAKMK,EALN;AAAA,QAKUC,EALV,GAMIN,aANJ,CAKUM,EALV;AAON,WACE;AAAK,MAAA,KAAK,EAAEC,kBAAMC;AAAlB,OACG;AAAM,MAAA,KAAK,EAAED,kBAAME;AAAnB,4BADH,EAIE,gCAAC,yBAAD,EACM;AAAEV,MAAAA,SAAS,EAATA;AAAF,KADN,CAJF,EAOE,gCAAC,4BAAD,EACM;AAAEE,MAAAA,eAAe,EAAfA,eAAF;AAAmBC,MAAAA,cAAc,EAAdA,cAAnB;AAAmCH,MAAAA,SAAS,EAATA;AAAnC,KADN,CAPF,EAUE,gCAAC,0BAAD,EACM;AAAEI,MAAAA,gBAAgB,EAAhBA,gBAAF;AAAoBJ,MAAAA,SAAS,EAATA;AAApB,KADN,CAVF,EAaG,gCAAC,uBAAD,EACM;AAAEK,MAAAA,EAAE,EAAFA,EAAF;AAAMC,MAAAA,EAAE,EAAFA,EAAN;AAAUC,MAAAA,EAAE,EAAFA,EAAV;AAAcP,MAAAA,SAAS,EAATA;AAAd,KADN,CAbH,CADF;AAmBD,G;;;EAvCyBW,gB;;AAAtBd,a,CACGe,S,GAAY;AACjBX,EAAAA,aAAa,EAAGY,iBAAUC,KAAV,CAAgB;AAC5BZ,IAAAA,eAAe,EAAEW,iBAAUE,MADC;AAE5BZ,IAAAA,cAAc,EAAEU,iBAAUE,MAFE;AAG5BX,IAAAA,gBAAgB,EAAES,iBAAUE,MAHA;AAI5BV,IAAAA,EAAE,EAAEQ,iBAAUE,MAJc;AAK5BT,IAAAA,EAAE,EAAEO,iBAAUE,MALc;AAM5BR,IAAAA,EAAE,EAAEM,iBAAUE;AANc,GAAhB,EAObC,UARc;AASjBhB,EAAAA,SAAS,EAAGa,iBAAUI,IAAV,CAAeD;AATV,C;eAyCNnB,a","sourcesContent":["import React, { Component, PropTypes } from 'react';\r\n\r\nimport PanelDrawMode from './PanelDrawMode';\r\nimport PanelPerspective from './PanelPerspective';\r\nimport PanelTranslate from './PanelTranslate';\r\nimport PanelRotate from './PanelRotate';\r\n\r\nimport STYLE from './Panel.Style';\r\n\r\nclass PanelConfigGL extends Component{\r\n  static propTypes = {\r\n    valuesForInit : PropTypes.shape({\r\n        perspectiveNear: PropTypes.number,\r\n        perspectiveFar: PropTypes.number,\r\n        zMatrixTranslate: PropTypes.number,\r\n        rX: PropTypes.number,\r\n        rY: PropTypes.number,\r\n        rZ: PropTypes.number\r\n    }).isRequired,\r\n    onGetComp : PropTypes.func.isRequired\r\n  }\r\n\r\n  render(){\r\n    const { onGetComp, valuesForInit } = this.props\r\n        , {\r\n            perspectiveNear, perspectiveFar,\r\n            zMatrixTranslate,\r\n            rX, rY, rZ\r\n          } = valuesForInit\r\n    return (\r\n      <div style={STYLE.ROOT}>\r\n         <span style={STYLE.ROOT_CAPTION}>\r\n           Config WebGL Topic\r\n         </span>\r\n        <PanelDrawMode\r\n          {...{ onGetComp }}\r\n        />\r\n        <PanelPerspective\r\n          {...{ perspectiveNear, perspectiveFar, onGetComp }}\r\n        />\r\n        <PanelTranslate\r\n          {...{ zMatrixTranslate, onGetComp }}\r\n        />\r\n         <PanelRotate\r\n           {...{ rX, rY, rZ, onGetComp }}\r\n         />\r\n      </div>\r\n    );\r\n  }\r\n}\r\n\r\nexport default PanelConfigGL\r\n"],"file":"PanelConfigGL.js"}
+{
+ "version": 3,
+ "sources": [
+  "../../../src/components/panel-config-gl/PanelConfigGL.js"
+ ],
+ "file": "../../../src/components/panel-config-gl/PanelConfigGL.js",
+ "names": [
+  "PanelConfigGL",
+  "onGetComp",
+  "valuesForInit",
+  "perspectiveNear",
+  "perspectiveFar",
+  "zMatrixTranslate",
+  "rX",
+  "rY",
+  "rZ",
+  "STYLE",
+  "ROOT",
+  "ROOT_CAPTION"
+ ],
+ "mappings": ";;;;;;;AAAA;;AAEA;;AACA;;AACA;;AACA;;AAEA;;AAEA,IAAMA,aAAa,GAAG,SAAhBA,aAAgB,OAGhB;AAAA,MAFJC,SAEI,QAFJA,SAEI;AAAA,MADJC,aACI,QADJA,aACI;AAAA,MAEAC,eAFA,GAKED,aALF,CAEAC,eAFA;AAAA,MAEiBC,cAFjB,GAKEF,aALF,CAEiBE,cAFjB;AAAA,MAGAC,gBAHA,GAKEH,aALF,CAGAG,gBAHA;AAAA,MAIAC,EAJA,GAKEJ,aALF,CAIAI,EAJA;AAAA,MAIIC,EAJJ,GAKEL,aALF,CAIIK,EAJJ;AAAA,MAIQC,EAJR,GAKEN,aALF,CAIQM,EAJR;AAMJ,SACE;AAAK,IAAA,KAAK,EAAEC,kBAAMC;AAAlB,KACG;AAAM,IAAA,KAAK,EAAED,kBAAME;AAAnB,0BADH,EAIE,gCAAC,yBAAD,EACM;AAAEV,IAAAA,SAAS,EAATA;AAAF,GADN,CAJF,EAOE,gCAAC,4BAAD,EACM;AAAEE,IAAAA,eAAe,EAAfA,eAAF;AAAmBC,IAAAA,cAAc,EAAdA,cAAnB;AAAmCH,IAAAA,SAAS,EAATA;AAAnC,GADN,CAPF,EAUE,gCAAC,0BAAD,EACM;AAAEI,IAAAA,gBAAgB,EAAhBA,gBAAF;AAAoBJ,IAAAA,SAAS,EAATA;AAApB,GADN,CAVF,EAaG,gCAAC,uBAAD,EACM;AAAEK,IAAAA,EAAE,EAAFA,EAAF;AAAMC,IAAAA,EAAE,EAAFA,EAAN;AAAUC,IAAAA,EAAE,EAAFA,EAAV;AAAcP,IAAAA,SAAS,EAATA;AAAd,GADN,CAbH,CADF;AAmBD,CA5BD;AA8BA;;;;;;;;;;;;;;;eAceD,a"
+}

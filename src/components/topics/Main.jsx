@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 
 import { RouterTopicActionTypes } from '../../flux/actions/RouterTopicActions'
 
@@ -8,19 +8,21 @@ import PanelConfigGL from '../panel-config-gl/PanelConfigGL';
 import dfValues from './gl-props/dfValues';
 
 class TopicWrapper extends Component {
+  /*
   static propTypes = {
     store : PropTypes.shape({
       listen: PropTypes.func
     })
   }
+  */
 
   constructor(props){
-    super()
+    super(props)
 
     this._onStore = this._onStore.bind(this)
     this.getComponentTopic = this.getComponentTopic.bind(this);
     this.state = {
-      topidId : undefined
+      topidId : void 0
     }
   }
 
@@ -43,11 +45,13 @@ class TopicWrapper extends Component {
     return this.componentTopic;
   }
 
+  _refComp = comp => this.componentTopic = comp
+
   render(){
     const { topicId } = this.state
     , { Comp, props:compProps } = factoryTopic(topicId)
     , { valuesForInit={} } = compProps
-    , _valuesForInit = Object.assign({}, dfValues, valuesForInit)
+    , _valuesForInit = { ...dfValues, ...valuesForInit };
 
 
     return (
@@ -55,7 +59,7 @@ class TopicWrapper extends Component {
         <main className="container__content" tabIndex="1" role="main">
           <div className="row">
             <Comp
-               ref={ comp => this.componentTopic = comp }
+               ref={this._refComp}
                {...compProps}
             />
             <PanelConfigGL

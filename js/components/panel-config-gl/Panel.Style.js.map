@@ -1,1 +1,31 @@
-{"version":3,"sources":["../../../src/components/panel-config-gl/Panel.Style.js"],"names":["STYLE","ROOT","marginLeft","marginTop","marginBottom","ROOT_CAPTION","color","fontSize","fontWeight","OPEN_CLOSE","lineHeight","paddingTop","paddingBottom","backgroundColor","INPUT_SELECT","LABEL_PERSPECTIVE","display","width","textAlign"],"mappings":";;;;AACA,IAAMA,KAAK,GAAG;AACZC,EAAAA,IAAI,EAAG;AACL,aAAQ,MADH;AAELC,IAAAA,UAAU,EAAG,MAFR;AAGLC,IAAAA,SAAS,EAAG,KAHP;AAILC,IAAAA,YAAY,EAAG;AAJV,GADK;AAOZC,EAAAA,YAAY,EAAG;AACbC,IAAAA,KAAK,EAAE,aADM;AAEbC,IAAAA,QAAQ,EAAE,MAFG;AAGbC,IAAAA,UAAU,EAAE;AAHC,GAPH;AAYZC,EAAAA,UAAU,EAAG;AACVC,IAAAA,UAAU,EAAE,CADF;AAEVC,IAAAA,UAAU,EAAG,KAFH;AAGVC,IAAAA,aAAa,EAAG,KAHN;AAIVC,IAAAA,eAAe,EAAE;AAJP,GAZD;AAkBZC,EAAAA,YAAY,EAAG;AACbX,IAAAA,SAAS,EAAE,KADE;AAEbC,IAAAA,YAAY,EAAE;AAFD,GAlBH;AAsBZW,EAAAA,iBAAiB,EAAG;AAClBC,IAAAA,OAAO,EAAG,cADQ;AAElBC,IAAAA,KAAK,EAAG,MAFU;AAGlBC,IAAAA,SAAS,EAAG;AAHM;AAtBR,CAAd;eA6BelB,K","sourcesContent":["\r\nconst STYLE = {\r\n  ROOT : {\r\n    float : 'left',\r\n    marginLeft : '20px',\r\n    marginTop : '8px',\r\n    marginBottom : '16px'\r\n  },\r\n  ROOT_CAPTION : {\r\n    color: 'forestgreen',\r\n    fontSize: '16px',\r\n    fontWeight: 'bold'\r\n  },\r\n  OPEN_CLOSE : {\r\n     lineHeight: 1,\r\n     paddingTop : '8px',\r\n     paddingBottom : '8px',\r\n     backgroundColor: '#33373A'\r\n  },\r\n  INPUT_SELECT : {\r\n    marginTop: '8px',\r\n    marginBottom: '16px'\r\n  },\r\n  LABEL_PERSPECTIVE : {\r\n    display : 'inline-block',\r\n    width : '65px',\r\n    textAlign : 'end'\r\n  }\r\n}\r\n\r\nexport default STYLE\r\n"],"file":"Panel.Style.js"}
+{
+ "version": 3,
+ "sources": [
+  "../../../src/components/panel-config-gl/Panel.Style.js"
+ ],
+ "file": "../../../src/components/panel-config-gl/Panel.Style.js",
+ "names": [
+  "STYLE",
+  "ROOT",
+  "marginLeft",
+  "marginTop",
+  "marginBottom",
+  "ROOT_CAPTION",
+  "color",
+  "fontSize",
+  "fontWeight",
+  "OPEN_CLOSE",
+  "lineHeight",
+  "paddingTop",
+  "paddingBottom",
+  "backgroundColor",
+  "OC_DIV",
+  "display",
+  "alignItems",
+  "INPUT_SELECT",
+  "LABEL_PERSPECTIVE",
+  "width",
+  "textAlign"
+ ],
+ "mappings": ";;;;AACA,IAAMA,KAAK,GAAG;AACZC,EAAAA,IAAI,EAAG;AACL,aAAQ,MADH;AAELC,IAAAA,UAAU,EAAG,MAFR;AAGLC,IAAAA,SAAS,EAAG,KAHP;AAILC,IAAAA,YAAY,EAAG;AAJV,GADK;AAOZC,EAAAA,YAAY,EAAG;AACbC,IAAAA,KAAK,EAAE,aADM;AAEbC,IAAAA,QAAQ,EAAE,MAFG;AAGbC,IAAAA,UAAU,EAAE;AAHC,GAPH;AAYZC,EAAAA,UAAU,EAAG;AACVC,IAAAA,UAAU,EAAE,CADF;AAEVC,IAAAA,UAAU,EAAG,KAFH;AAGVC,IAAAA,aAAa,EAAG,KAHN;AAIVC,IAAAA,eAAe,EAAE;AAJP,GAZD;AAkBZC,EAAAA,MAAM,EAAE;AACNC,IAAAA,OAAO,EAAE,MADH;AAENC,IAAAA,UAAU,EAAE;AAFN,GAlBI;AAsBZC,EAAAA,YAAY,EAAG;AACbd,IAAAA,SAAS,EAAE,KADE;AAEbC,IAAAA,YAAY,EAAE;AAFD,GAtBH;AA0BZc,EAAAA,iBAAiB,EAAG;AAClBH,IAAAA,OAAO,EAAG,cADQ;AAElBI,IAAAA,KAAK,EAAG,MAFU;AAGlBC,IAAAA,SAAS,EAAG;AAHM;AA1BR,CAAd;eAiCepB,K"
+}

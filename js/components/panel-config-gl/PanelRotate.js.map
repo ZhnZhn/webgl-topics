@@ -1,1 +1,17 @@
-{"version":3,"sources":["../../../src/components/panel-config-gl/PanelRotate.jsx"],"names":["PanelRotate","props","render","rX","rY","rZ","onGetComp","STYLE","OPEN_CLOSE","Component","propTypes","PropTypes","number","isRequired","func"],"mappings":";;;;;;;;;;;AACA;;AAEA;;AACA;;AAEA;;IAEMA,W;;;;;AAQJ,uBAAYC,KAAZ,EAAkB;AAAA,WAChB,sBAAMA,KAAN,CADgB;AAEjB;;;;SAEDC,M,GAAA,kBAAQ;AAAA,sBAC4B,KAAKD,KADjC;AAAA,QACEE,EADF,eACEA,EADF;AAAA,QACMC,EADN,eACMA,EADN;AAAA,QACUC,EADV,eACUA,EADV;AAAA,QACcC,SADd,eACcA,SADd;AAEN,WACE,gCAAC,qBAAD;AACG,MAAA,OAAO,EAAE,IADZ;AAEG,MAAA,OAAO,EAAC,QAFX;AAGG,MAAA,KAAK,EAAEC,kBAAMC;AAHhB,OAKE,gCAAC,mBAAD;AACG,MAAA,OAAO,EAAC,IADX;AAEG,MAAA,OAAO,EAAC,IAFX;AAGG,MAAA,KAAK,EAAEL,EAHV;AAIG,MAAA,OAAO,EAAC,IAJX;AAKG,MAAA,SAAS,EAAEG;AALd,MALF,EAYE,gCAAC,mBAAD;AACG,MAAA,OAAO,EAAC,IADX;AAEG,MAAA,OAAO,EAAC,IAFX;AAGG,MAAA,KAAK,EAAEF,EAHV;AAIG,MAAA,OAAO,EAAC,IAJX;AAKG,MAAA,SAAS,EAAEE;AALd,MAZF,EAmBE,gCAAC,mBAAD;AACG,MAAA,OAAO,EAAC,IADX;AAEG,MAAA,OAAO,EAAC,IAFX;AAGG,MAAA,KAAK,EAAED,EAHV;AAIG,MAAA,OAAO,EAAC,IAJX;AAKG,MAAA,SAAS,EAAEC;AALd,MAnBF,CADF;AA6BD,G;;;EA3CuBG,gB;;AAApBT,W,CACGU,S,GAAY;AACjBP,EAAAA,EAAE,EAAGQ,iBAAUC,MAAV,CAAiBC,UADL;AAEjBT,EAAAA,EAAE,EAAGO,iBAAUC,MAAV,CAAiBC,UAFL;AAGjBR,EAAAA,EAAE,EAAGM,iBAAUC,MAAV,CAAiBC,UAHL;AAIjBP,EAAAA,SAAS,EAAGK,iBAAUG,IAAV,CAAeD;AAJV,C;eA6CNb,W","sourcesContent":["\r\nimport React , { Component, PropTypes } from 'react';\r\n\r\nimport OpenClose from '../zhn-atoms/OpenClose';\r\nimport RowProp from './RowProp';\r\n\r\nimport STYLE from './Panel.Style'\r\n\r\nclass PanelRotate extends Component{\r\n  static propTypes = {\r\n    rX : PropTypes.number.isRequired,\r\n    rY : PropTypes.number.isRequired,\r\n    rZ : PropTypes.number.isRequired,\r\n    onGetComp : PropTypes.func.isRequired\r\n  }\r\n\r\n  constructor(props){\r\n    super(props)\r\n  }\r\n\r\n  render(){\r\n    const { rX, rY, rZ, onGetComp } = this.props\r\n    return (\r\n      <OpenClose\r\n         isClose={true}\r\n         caption=\"Rotate\"\r\n         style={STYLE.OPEN_CLOSE}\r\n      >\r\n        <RowProp\r\n           labelBy=\"X:\"\r\n           inputId=\"rX\"\r\n           value={rX}\r\n           propKey=\"rX\"\r\n           onGetComp={onGetComp}\r\n        />\r\n        <RowProp\r\n           labelBy=\"Y:\"\r\n           inputId=\"rY\"\r\n           value={rY}\r\n           propKey=\"rY\"\r\n           onGetComp={onGetComp}\r\n        />\r\n        <RowProp\r\n           labelBy=\"Z:\"\r\n           inputId=\"rZ\"\r\n           value={rZ}\r\n           propKey=\"rZ\"\r\n           onGetComp={onGetComp}\r\n        />\r\n      </OpenClose>\r\n    );\r\n  }\r\n}\r\n\r\nexport default PanelRotate\r\n"],"file":"PanelRotate.js"}
+{
+ "version": 3,
+ "sources": [
+  "../../../src/components/panel-config-gl/PanelRotate.js"
+ ],
+ "file": "../../../src/components/panel-config-gl/PanelRotate.js",
+ "names": [
+  "PanelRotate",
+  "rX",
+  "rY",
+  "rZ",
+  "onGetComp",
+  "STYLE",
+  "OPEN_CLOSE"
+ ],
+ "mappings": ";;;;;;;AACA;;AAEA;;AACA;;AAEA;;AAEA,IAAMA,WAAW,GAAG,SAAdA,WAAc;AAAA,MAAGC,EAAH,QAAGA,EAAH;AAAA,MAAOC,EAAP,QAAOA,EAAP;AAAA,MAAWC,EAAX,QAAWA,EAAX;AAAA,MAAeC,SAAf,QAAeA,SAAf;AAAA,SAClB,gCAAC,qBAAD;AACG,IAAA,OAAO,EAAE,IADZ;AAEG,IAAA,OAAO,EAAC,QAFX;AAGG,IAAA,KAAK,EAAEC,kBAAMC;AAHhB,KAKE,gCAAC,mBAAD;AACG,IAAA,OAAO,EAAC,IADX;AAEG,IAAA,OAAO,EAAC,IAFX;AAGG,IAAA,KAAK,EAAEL,EAHV;AAIG,IAAA,OAAO,EAAC,IAJX;AAKG,IAAA,SAAS,EAAEG;AALd,IALF,EAYE,gCAAC,mBAAD;AACG,IAAA,OAAO,EAAC,IADX;AAEG,IAAA,OAAO,EAAC,IAFX;AAGG,IAAA,KAAK,EAAEF,EAHV;AAIG,IAAA,OAAO,EAAC,IAJX;AAKG,IAAA,SAAS,EAAEE;AALd,IAZF,EAmBE,gCAAC,mBAAD;AACG,IAAA,OAAO,EAAC,IADX;AAEG,IAAA,OAAO,EAAC,IAFX;AAGG,IAAA,KAAK,EAAED,EAHV;AAIG,IAAA,OAAO,EAAC,IAJX;AAKG,IAAA,SAAS,EAAEC;AALd,IAnBF,CADkB;AAAA,CAApB;;eA8BeJ,W"
+}

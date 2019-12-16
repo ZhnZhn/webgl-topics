@@ -13,7 +13,7 @@ var _AppLabel = _interopRequireDefault(require("./AppLabel"));
 
 var _GitHubLink = _interopRequireDefault(require("./GitHubLink"));
 
-var TITLE = 'WebGL Topics v0.01.0';
+var TITLE = 'WebGL Topics v0.1.0';
 
 var Header = function Header() {
   return _react["default"].createElement("header", {
@@ -28,7 +28,7 @@ var Header = function Header() {
   }), _react["default"].createElement(_GitHubLink["default"], {
     className: "header__github-link",
     title: "GitHub Repository",
-    href: "https://github.com/zhnzhn/webgl-topics"
+    href: "https://github.com/zhnzhn/webgl-topics/"
   }));
 };
 

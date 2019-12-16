@@ -29,7 +29,7 @@ var _startAnimation = _interopRequireDefault(require("./gl-decorators/startAnima
 
 var _Button = _interopRequireDefault(require("../zhn-atoms/Button"));
 
-var _class, _class2, _temp;
+var _class, _temp;
 
 var WIDTH = 500,
     HEIGHT = 500,
@@ -45,15 +45,21 @@ var WIDTH = 500,
   }
 };
 
-var WebGLTopic = (0, _initGL["default"])(_class = (0, _createShaders["default"])(_class = (0, _createPerspective["default"])(_class = (0, _setPointSize["default"])(_class = (0, _configMatrix["default"])(_class = (0, _draw["default"])(_class = (0, _startAnimation["default"])(_class = (_temp = _class2 =
+var WebGLTopic = (0, _initGL["default"])(_class = (0, _createShaders["default"])(_class = (0, _createPerspective["default"])(_class = (0, _setPointSize["default"])(_class = (0, _configMatrix["default"])(_class = (0, _draw["default"])(_class = (0, _startAnimation["default"])(_class = (_temp =
 /*#__PURE__*/
 function (_Component) {
   (0, _inheritsLoose2["default"])(WebGLTopic, _Component);
 
-  function WebGLTopic(props) {
+  function WebGLTopic() {
     var _this;
 
-    _this = _Component.call(this) || this;
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _Component.call.apply(_Component, [this].concat(args)) || this;
+    _this.isAnimate = true;
+    _this.isStopDraw = false;
 
     _this._handleClickCanvas = function () {
       _this.isAnimate = !_this.isAnimate;
@@ -76,8 +82,6 @@ function (_Component) {
       }
     };
 
-    _this.isAnimate = true;
-    _this.isStopDraw = false;
     return _this;
   }
 
@@ -121,9 +125,7 @@ function (_Component) {
   };
 
   return WebGLTopic;
-}(_react.Component), _class2.propTypes = {
-  valuesForInit: _react.PropTypes.object
-}, _temp)) || _class) || _class) || _class) || _class) || _class) || _class) || _class;
+}(_react.Component), _temp)) || _class) || _class) || _class) || _class) || _class) || _class) || _class;
 
 var _default = WebGLTopic;
 exports["default"] = _default;

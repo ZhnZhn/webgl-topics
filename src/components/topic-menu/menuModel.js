@@ -22,11 +22,11 @@ const menuModel = [
         id : ID.CUBE,
         title: "Cube",
         onClick : () => Actions.viewTopic(ID.CUBE)
-      },{
+      },/*{
         id : ID.TEXTURE_IMAGE,
         title: "TextureImage",
         onClick : () => Actions.viewTopic(ID.TEXTURE_IMAGE)
-      },{
+      },*/{
         id : ID.CUBE_WITH_LIGHT,
         title: "CubeWithLight",
         onClick : () => Actions.viewTopic(ID.CUBE_WITH_LIGHT)

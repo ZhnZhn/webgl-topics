@@ -13,11 +13,7 @@ var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inh
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _OpenClose = _interopRequireDefault(require("../zhn-atoms/OpenClose"));
-
-var _InputSelect = _interopRequireDefault(require("../zhn-atoms/InputSelect"));
-
-var _ButtonSet = _interopRequireDefault(require("../zhn-atoms/ButtonSet"));
+var _Comp = _interopRequireDefault(require("../Comp"));
 
 var _Panel = _interopRequireDefault(require("./Panel.Style"));
 
@@ -43,16 +39,26 @@ var _drawModeOptions = [{
   caption: "POINTS",
   value: "POINTS"
 }];
+var S = {
+  BT_SET: {
+    position: 'relative',
+    top: '-6px'
+  }
+};
 
 var PanelDrawMode =
 /*#__PURE__*/
 function (_Component) {
   (0, _inheritsLoose2["default"])(PanelDrawMode, _Component);
 
-  function PanelDrawMode(props) {
+  function PanelDrawMode() {
     var _this;
 
-    _this = _Component.call(this, props) || this;
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _Component.call.apply(_Component, [this].concat(args)) || this;
 
     _this._handleSelectDrawMode = function (item) {
       _this.drawMode = item;
@@ -75,25 +81,31 @@ function (_Component) {
   var _proto = PanelDrawMode.prototype;
 
   _proto.render = function render() {
-    return _react["default"].createElement(_OpenClose["default"], {
+    return _react["default"].createElement(_Comp["default"].OpenClose, {
       caption: "DrawMode",
       style: _Panel["default"].OPEN_CLOSE
-    }, _react["default"].createElement(_InputSelect["default"], {
+    }, _react["default"].createElement("div", {
+      style: _Panel["default"].OC_DIV
+    }, _react["default"].createElement(_Comp["default"].InputSelect, {
       options: _drawModeOptions,
       styleRoot: _Panel["default"].INPUT_SELECT,
       onSelect: this._handleSelectDrawMode
-    }), _react["default"].createElement(_ButtonSet["default"], {
+    }), _react["default"].createElement(_Comp["default"].ButtonSet, {
+      style: S.BT_SET,
       mode: 1,
       onClick: this._handleSetDrawMode
-    }));
+    })));
   };
 
   return PanelDrawMode;
 }(_react.Component);
-
+/*
 PanelDrawMode.propTypes = {
-  onGetComp: _react.PropTypes.func.isRequired
-};
+  onGetComp : PropTypes.func.isRequired
+}
+*/
+
+
 var _default = PanelDrawMode;
 exports["default"] = _default;
 //# sourceMappingURL=PanelDrawMode.js.map

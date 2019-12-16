@@ -1,1 +1,12 @@
-{"version":3,"sources":["../../src/components/AppWebGLTopic.jsx"],"names":["AppWebGLTopic","store"],"mappings":";;;;;;;AAAA;;AAEA;;AACA;;AACA;;AACA;;AAEA,IAAMA,aAAa,GAAG,SAAhBA,aAAgB;AAAA,MAAGC,KAAH,QAAGA,KAAH;AAAA,SACpB;AAAK,IAAA,SAAS,EAAC,KAAf;AAAqB,IAAA,IAAI,EAAC;AAA1B,KACE,gCAAC,kBAAD,OADF,EAEE,gCAAC,qBAAD;AAAW,IAAA,KAAK,EAAEA;AAAlB,IAFF,EAGE,gCAAC,gBAAD;AAAc,IAAA,KAAK,EAAEA;AAArB,IAHF,EAIE,gCAAC,kBAAD,OAJF,CADoB;AAAA,CAAtB;;eAUeD,a","sourcesContent":["import React from 'react';\r\n\r\nimport Header from './header/Header';\r\nimport TopicMenu from './topic-menu/TopicMenu';\r\nimport TopicWrapper from './topics/Main';\r\nimport Footer from './footer/Footer';\r\n\r\nconst AppWebGLTopic = ({ store }) => (\r\n  <div className=\"app\" role=\"application\">\r\n    <Header />\r\n    <TopicMenu store={store} />\r\n    <TopicWrapper store={store} />\r\n    <Footer />\r\n  </div>\r\n);\r\n\r\n\r\nexport default AppWebGLTopic\r\n"],"file":"AppWebGLTopic.js"}
+{
+ "version": 3,
+ "sources": [
+  "../../src/components/AppWebGLTopic.js"
+ ],
+ "file": "../../src/components/AppWebGLTopic.js",
+ "names": [
+  "AppWebGLTopic",
+  "store"
+ ],
+ "mappings": ";;;;;;;AAAA;;AAEA;;AACA;;AACA;;AACA;;AAEA,IAAMA,aAAa,GAAG,SAAhBA,aAAgB;AAAA,MAAGC,KAAH,QAAGA,KAAH;AAAA,SACpB;AAAK,IAAA,SAAS,EAAC,KAAf;AAAqB,IAAA,IAAI,EAAC;AAA1B,KACE,gCAAC,kBAAD,OADF,EAEE,gCAAC,qBAAD;AAAW,IAAA,KAAK,EAAEA;AAAlB,IAFF,EAGE,gCAAC,gBAAD;AAAc,IAAA,KAAK,EAAEA;AAArB,IAHF,EAIE,gCAAC,kBAAD,OAJF,CADoB;AAAA,CAAtB;;eAUeD,a"
+}

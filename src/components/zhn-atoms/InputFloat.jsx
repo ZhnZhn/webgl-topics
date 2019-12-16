@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import Big from 'big.js'
 
 import { isFunction, isFloat } from '../../utils/is'
@@ -11,6 +11,7 @@ const _hmModeStyle = {
 }
 
 class InputFloat extends Component {
+  /*
    static propTypes = {
      inputKey: PropTypes.string,
      inputStyle: PropTypes.object,
@@ -22,6 +23,7 @@ class InputFloat extends Component {
      onChangeMode: PropTypes.func,
      onKeyDownEnter: PropTypes.func
    }
+   */
    static defaultProps = {
      inputKey: 'dfKey',
      value: '0',
@@ -52,7 +54,7 @@ class InputFloat extends Component {
     this.state = this._getInitedState(props);
   }
 
-  componentWillReceiveProps(nextProps){
+  UNSAFE_componentWillReceiveProps(nextProps){
     if (nextProps !== this.props){
       this.setState(this._getInitedState(nextProps))
     }
@@ -157,6 +159,8 @@ class InputFloat extends Component {
     })
   }
 
+  _refInput = input => this.input = input
+
   render(){
     const { inputStyle, id } = this.props
         , { value, mode } = this.state
@@ -167,24 +171,24 @@ class InputFloat extends Component {
          style={STYLE.ROOT}
          onClick={this._handleClickRoot}
       >
-        <span
-           style={Object.assign({}, STYLE.ARROW, STYLE.ARROW_PLUS)}
+        <button
+           style={{ ...STYLE.ARROW, ...STYLE.ARROW_PLUS}}
            onClick={this._increaseOnStep}
         />
         <div style={STYLE.DIV_INPUT}>
           <input
-            ref={input => this.input = input }
+            ref={this._refInput}
             id={id}
             type="text"
-            style={Object.assign({}, STYLE.INPUT, inputStyle)}
+            style={{ ...STYLE.INPUT, ...inputStyle}}
             value={value}
             onChange={this._handleInputChange}
             onKeyDown={this._handleInputKeyDown}
           />
-          <hr style={Object.assign({}, STYLE.HR, _hrStyle)}></hr>
+          <hr style={{...STYLE.HR, ..._hrStyle}} />
         </div>
-        <span
-           style={Object.assign({}, STYLE.ARROW, STYLE.ARROW_MINUS)}
+        <button
+           style={{ ...STYLE.ARROW, ...STYLE.ARROW_MINUS}}
            onClick={this._decreaseOnStep}
         />
       </div>

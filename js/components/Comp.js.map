@@ -1,0 +1,12 @@
+{
+ "version": 3,
+ "sources": [
+  "../../src/components/Comp.js"
+ ],
+ "file": "../../src/components/Comp.js",
+ "names": [
+  "Comp",
+  "A"
+ ],
+ "mappings": ";;;;;;;;;AAAA;;AAEA,IAAMA,IAAI,iCACLC,aADK,CAAV;eAIeD,I"
+}

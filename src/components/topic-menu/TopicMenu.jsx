@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 
 import { RouterTopicActionTypes } from '../../flux/actions/RouterTopicActions'
 
@@ -33,7 +33,7 @@ class TopicMenu  extends Component {
   render(){
     const { topicId } = this.state;
     return (
-      <section className="sidebar" tabindex="-1">
+      <section className="sidebar" tabIndex="-1">
         <div className="sidebar__menu" role="navigation">
            <Menu
               toogleStyle={{ paddingLeft: '6px' }}
@@ -42,7 +42,7 @@ class TopicMenu  extends Component {
             />
         </div>
         <div className="sidebar__footer">
-          <button className="sidebar__footer__link" type="button">
+          <button className="sidebar__footer__link">
             Footer Button
           </button>
         </div>
@@ -51,8 +51,10 @@ class TopicMenu  extends Component {
   }
 }
 
+/*
 TopicMenu.propTypes = {
   store : PropTypes.object.isRequired
 }
+*/
 
 export default TopicMenu

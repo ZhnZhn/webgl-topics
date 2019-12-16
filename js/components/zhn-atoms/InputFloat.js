@@ -7,6 +7,8 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 exports.__esModule = true;
 exports["default"] = void 0;
 
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
+
 var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inheritsLoose"));
 
 var _react = _interopRequireWildcard(require("react"));
@@ -28,6 +30,19 @@ var InputFloat =
 function (_Component) {
   (0, _inheritsLoose2["default"])(InputFloat, _Component);
 
+  /*
+   static propTypes = {
+     inputKey: PropTypes.string,
+     inputStyle: PropTypes.object,
+     value: PropTypes.oneOfType([
+       PropTypes.string,
+       PropTypes.number
+     ]),
+     step: PropTypes.number,
+     onChangeMode: PropTypes.func,
+     onKeyDownEnter: PropTypes.func
+   }
+   */
   function InputFloat(_props) {
     var _this;
 
@@ -193,21 +208,23 @@ function (_Component) {
       });
     };
 
+    _this._refInput = function (input) {
+      return _this.input = input;
+    };
+
     _this.state = _this._getInitedState(_props);
     return _this;
   }
 
   var _proto = InputFloat.prototype;
 
-  _proto.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
+  _proto.UNSAFE_componentWillReceiveProps = function UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps !== this.props) {
       this.setState(this._getInitedState(nextProps));
     }
   };
 
   _proto.render = function render() {
-    var _this2 = this;
-
     var _this$props2 = this.props,
         inputStyle = _this$props2.inputStyle,
         id = _this$props2.id,
@@ -218,25 +235,23 @@ function (_Component) {
     return _react["default"].createElement("div", {
       style: _InputFloat["default"].ROOT,
       onClick: this._handleClickRoot
-    }, _react["default"].createElement("span", {
-      style: Object.assign({}, _InputFloat["default"].ARROW, _InputFloat["default"].ARROW_PLUS),
+    }, _react["default"].createElement("button", {
+      style: (0, _extends2["default"])({}, _InputFloat["default"].ARROW, {}, _InputFloat["default"].ARROW_PLUS),
       onClick: this._increaseOnStep
     }), _react["default"].createElement("div", {
       style: _InputFloat["default"].DIV_INPUT
     }, _react["default"].createElement("input", {
-      ref: function ref(input) {
-        return _this2.input = input;
-      },
+      ref: this._refInput,
       id: id,
       type: "text",
-      style: Object.assign({}, _InputFloat["default"].INPUT, inputStyle),
+      style: (0, _extends2["default"])({}, _InputFloat["default"].INPUT, {}, inputStyle),
       value: value,
       onChange: this._handleInputChange,
       onKeyDown: this._handleInputKeyDown
     }), _react["default"].createElement("hr", {
-      style: Object.assign({}, _InputFloat["default"].HR, _hrStyle)
-    })), _react["default"].createElement("span", {
-      style: Object.assign({}, _InputFloat["default"].ARROW, _InputFloat["default"].ARROW_MINUS),
+      style: (0, _extends2["default"])({}, _InputFloat["default"].HR, {}, _hrStyle)
+    })), _react["default"].createElement("button", {
+      style: (0, _extends2["default"])({}, _InputFloat["default"].ARROW, {}, _InputFloat["default"].ARROW_MINUS),
       onClick: this._decreaseOnStep
     }));
   };
@@ -262,14 +277,6 @@ function (_Component) {
   return InputFloat;
 }(_react.Component);
 
-InputFloat.propTypes = {
-  inputKey: _react.PropTypes.string,
-  inputStyle: _react.PropTypes.object,
-  value: _react.PropTypes.oneOfType([_react.PropTypes.string, _react.PropTypes.number]),
-  step: _react.PropTypes.number,
-  onChangeMode: _react.PropTypes.func,
-  onKeyDownEnter: _react.PropTypes.func
-};
 InputFloat.defaultProps = {
   inputKey: 'dfKey',
   value: '0',

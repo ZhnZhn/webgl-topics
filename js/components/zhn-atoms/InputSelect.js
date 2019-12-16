@@ -7,9 +7,11 @@ exports["default"] = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
+var _createReactClass = _interopRequireDefault(require("create-react-class"));
+
 var _InputSelect = _interopRequireDefault(require("./InputSelect.Style"));
 
-var ZhSelect = _react["default"].createClass({
+var ZhSelect = (0, _createReactClass["default"])({
   displayName: "ZhSelect",
   getDefaultProps: function getDefaultProps() {
     return {
@@ -39,7 +41,7 @@ var ZhSelect = _react["default"].createClass({
       isLocalMode: false
     };
   },
-  componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps: function UNSAFE_componentWillReceiveProps(nextProps) {
     if (this.props !== nextProps) {
       if (this.props.options !== nextProps.options || nextProps.isUpdateOptions) {
         //New options come from Parent - Clear domCache, Init State
@@ -453,7 +455,6 @@ var ZhSelect = _react["default"].createClass({
     this.domInputText.focus();
   }
 });
-
 var _default = ZhSelect;
 exports["default"] = _default;
 //# sourceMappingURL=InputSelect.js.map

@@ -1,1 +1,26 @@
-{"version":3,"sources":["../../../src/components/panel-config-gl/Row.Style.js"],"names":["STYLE","ROW","marginTop","CAPTION","color","paddingRight","fontWeight","fontSize","LABEL","LABEL_ROW","paddingLeft","INPUT_FLOAT_2","width","INPUT_FLOAT_3"],"mappings":";;;;AACA,IAAMA,KAAK,GAAG;AACZC,EAAAA,GAAG,EAAG;AACHC,IAAAA,SAAS,EAAG;AADT,GADM;AAIZC,EAAAA,OAAO,EAAG;AACRC,IAAAA,KAAK,EAAG,MADA;AAERC,IAAAA,YAAY,EAAG,MAFP;AAGRC,IAAAA,UAAU,EAAG,MAHL;AAIRC,IAAAA,QAAQ,EAAG;AAJH,GAJE;AAUZC,EAAAA,KAAK,EAAG;AACNJ,IAAAA,KAAK,EAAG,MADF;AAENE,IAAAA,UAAU,EAAG,MAFP;AAGNC,IAAAA,QAAQ,EAAG;AAHL,GAVI;AAeZE,EAAAA,SAAS,EAAG;AACVC,IAAAA,WAAW,EAAG,MADJ;AAEVN,IAAAA,KAAK,EAAG,MAFE;AAGVE,IAAAA,UAAU,EAAG,MAHH;AAIVC,IAAAA,QAAQ,EAAG;AAJD,GAfA;AAqBZI,EAAAA,aAAa,EAAG;AACdC,IAAAA,KAAK,EAAE;AADO,GArBJ;AAwBZC,EAAAA,aAAa,EAAG;AACdD,IAAAA,KAAK,EAAE;AADO;AAxBJ,CAAd;eA6BeZ,K","sourcesContent":["\r\nconst STYLE = {  \r\n  ROW : {\r\n     marginTop : '12px'\r\n  },\r\n  CAPTION : {\r\n    color : 'gray',\r\n    paddingRight : '16px',\r\n    fontWeight : 'bold',\r\n    fontSize : '16px'\r\n  },\r\n  LABEL : {\r\n    color : 'gray',\r\n    fontWeight : 'bold',\r\n    fontSize : '16px'\r\n  },\r\n  LABEL_ROW : {\r\n    paddingLeft : '24px',\r\n    color : 'gray',\r\n    fontWeight : 'bold',\r\n    fontSize : '16px'\r\n  },\r\n  INPUT_FLOAT_2 : {\r\n    width: '35px'\r\n  },\r\n  INPUT_FLOAT_3 : {\r\n    width: '45px'\r\n  }\r\n}\r\n\r\nexport default STYLE\r\n"],"file":"Row.Style.js"}
+{
+ "version": 3,
+ "sources": [
+  "../../../src/components/panel-config-gl/Row.Style.js"
+ ],
+ "file": "../../../src/components/panel-config-gl/Row.Style.js",
+ "names": [
+  "STYLE",
+  "ROW",
+  "marginTop",
+  "display",
+  "alignItems",
+  "CAPTION",
+  "color",
+  "paddingRight",
+  "fontWeight",
+  "fontSize",
+  "LABEL",
+  "LABEL_ROW",
+  "paddingLeft",
+  "INPUT_FLOAT_2",
+  "width",
+  "INPUT_FLOAT_3"
+ ],
+ "mappings": ";;;;AACA,IAAMA,KAAK,GAAG;AACZC,EAAAA,GAAG,EAAG;AACHC,IAAAA,SAAS,EAAG,MADT;AAEHC,IAAAA,OAAO,EAAE,MAFN;AAGHC,IAAAA,UAAU,EAAE;AAHT,GADM;AAMZC,EAAAA,OAAO,EAAG;AACRC,IAAAA,KAAK,EAAG,MADA;AAERC,IAAAA,YAAY,EAAG,MAFP;AAGRC,IAAAA,UAAU,EAAG,MAHL;AAIRC,IAAAA,QAAQ,EAAG;AAJH,GANE;AAYZC,EAAAA,KAAK,EAAG;AACNJ,IAAAA,KAAK,EAAG,MADF;AAENE,IAAAA,UAAU,EAAG,MAFP;AAGNC,IAAAA,QAAQ,EAAG;AAHL,GAZI;AAiBZE,EAAAA,SAAS,EAAG;AACVC,IAAAA,WAAW,EAAG,MADJ;AAEVN,IAAAA,KAAK,EAAG,MAFE;AAGVE,IAAAA,UAAU,EAAG,MAHH;AAIVC,IAAAA,QAAQ,EAAG;AAJD,GAjBA;AAuBZI,EAAAA,aAAa,EAAG;AACdC,IAAAA,KAAK,EAAE;AADO,GAvBJ;AA0BZC,EAAAA,aAAa,EAAG;AACdD,IAAAA,KAAK,EAAE;AADO;AA1BJ,CAAd;eA+Bed,K"
+}

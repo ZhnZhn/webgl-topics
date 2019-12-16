@@ -25,7 +25,7 @@ var Plane = {
     drawMode: "TRIANGLE_FAN",
     topicLink: {
       type: 'EGGHEAD',
-      title: 'Egghead : Course : Build Complex 3D models with WebGL',
+      title: 'Egghead: Build Complex 3D models with WebGL',
       href: 'https://egghead.io/courses/build-complex-3d-models-with-webgl',
       isPro: true
     }

@@ -1,1 +1,28 @@
-{"version":3,"sources":["../../../src/components/topic-menu/TopicMenu.jsx"],"names":["TopicMenu","props","_onStore","actionType","state","RouterTopicActionTypes","VIEW_TOPIC","setState","topicId","store","componentDidMount","unsubscribe","listen","componentWillUnmount","render","paddingLeft","menuModel","Component","propTypes","PropTypes","object","isRequired"],"mappings":";;;;;;;;;;;AAAA;;AAEA;;AAEA;;AACA;;IAEMA,S;;;;;AACJ,qBAAYC,KAAZ,EAAkB;AAAA;;AAChB,kCAAMA,KAAN;;AADgB,UAclBC,QAdkB,GAcP,UAACC,UAAD,EAAaC,KAAb,EAAuB;AAChC,UAAID,UAAU,KAAKE,2CAAuBC,UAA1C,EAAqD;AACnD,cAAKC,QAAL,CAAc;AAAEC,UAAAA,OAAO,EAAGJ,KAAK,CAACI;AAAlB,SAAd;AACD;AACF,KAlBiB;;AAAA,QAGRC,KAHQ,GAGER,KAHF,CAGRQ,KAHQ;AAIhB,UAAKL,KAAL,GAAa;AACXI,MAAAA,OAAO,EAAGC,KAAK,CAACL,KAAN,CAAYI;AADX,KAAb;AAJgB;AAOjB;;;;SAEDE,iB,GAAA,6BAAmB;AAAA,QACRD,KADQ,GACE,KAAKR,KADP,CACRQ,KADQ;AAEhB,SAAKE,WAAL,GAAmBF,KAAK,CAACG,MAAN,CAAa,KAAKV,QAAlB,CAAnB;AACF,G;;SAQDW,oB,GAAA,gCAAsB;AACnB,SAAKF,WAAL;AACF,G;;SAEDG,M,GAAA,kBAAQ;AAAA,QACEN,OADF,GACc,KAAKJ,KADnB,CACEI,OADF;AAEN,WACE;AAAS,MAAA,SAAS,EAAC,SAAnB;AAA6B,MAAA,QAAQ,EAAC;AAAtC,OACE;AAAK,MAAA,SAAS,EAAC,eAAf;AAA+B,MAAA,IAAI,EAAC;AAApC,OACG,gCAAC,gBAAD;AACG,MAAA,WAAW,EAAE;AAAEO,QAAAA,WAAW,EAAE;AAAf,OADhB;AAEG,MAAA,SAAS,EAAEC,qBAFd;AAGG,MAAA,OAAO,EAAER;AAHZ,MADH,CADF,EAQE;AAAK,MAAA,SAAS,EAAC;AAAf,OACE;AAAQ,MAAA,SAAS,EAAC,uBAAlB;AAA0C,MAAA,IAAI,EAAC;AAA/C,uBADF,CARF,CADF;AAgBD,G;;;EA3CsBS,gB;;AA8CzBjB,SAAS,CAACkB,SAAV,GAAsB;AACpBT,EAAAA,KAAK,EAAGU,iBAAUC,MAAV,CAAiBC;AADL,CAAtB;eAIerB,S","sourcesContent":["import React, { Component, PropTypes } from 'react';\r\n\r\nimport { RouterTopicActionTypes } from '../../flux/actions/RouterTopicActions'\r\n\r\nimport Menu from '../zhn-moleculs/Menu';\r\nimport menuModel from './menuModel';\r\n\r\nclass TopicMenu  extends Component {\r\n  constructor(props){\r\n    super(props)\r\n\r\n    const { store } = props\r\n    this.state = {\r\n      topicId : store.state.topicId\r\n    }\r\n  }\r\n\r\n  componentDidMount(){\r\n     const { store } = this.props\r\n     this.unsubscribe = store.listen(this._onStore);\r\n  }\r\n\r\n  _onStore = (actionType, state) => {\r\n    if (actionType === RouterTopicActionTypes.VIEW_TOPIC){\r\n      this.setState({ topicId : state.topicId })\r\n    }\r\n  }\r\n\r\n  componentWillUnmount(){\r\n     this.unsubscribe()\r\n  }\r\n\r\n  render(){\r\n    const { topicId } = this.state;\r\n    return (\r\n      <section className=\"sidebar\" tabindex=\"-1\">\r\n        <div className=\"sidebar__menu\" role=\"navigation\">\r\n           <Menu\r\n              toogleStyle={{ paddingLeft: '6px' }}\r\n              menuModel={menuModel}\r\n              topicId={topicId}\r\n            />\r\n        </div>\r\n        <div className=\"sidebar__footer\">\r\n          <button className=\"sidebar__footer__link\" type=\"button\">\r\n            Footer Button\r\n          </button>\r\n        </div>\r\n      </section>\r\n    );\r\n  }\r\n}\r\n\r\nTopicMenu.propTypes = {\r\n  store : PropTypes.object.isRequired\r\n}\r\n\r\nexport default TopicMenu\r\n"],"file":"TopicMenu.js"}
+{
+ "version": 3,
+ "sources": [
+  "../../../src/components/topic-menu/TopicMenu.js"
+ ],
+ "file": "../../../src/components/topic-menu/TopicMenu.js",
+ "names": [
+  "TopicMenu",
+  "props",
+  "_onStore",
+  "actionType",
+  "state",
+  "RouterTopicActionTypes",
+  "VIEW_TOPIC",
+  "setState",
+  "topicId",
+  "store",
+  "componentDidMount",
+  "unsubscribe",
+  "listen",
+  "componentWillUnmount",
+  "render",
+  "paddingLeft",
+  "menuModel",
+  "Component"
+ ],
+ "mappings": ";;;;;;;;;;;AAAA;;AAEA;;AAEA;;AACA;;IAEMA,S;;;;;AACJ,qBAAYC,KAAZ,EAAkB;AAAA;;AAChB,kCAAMA,KAAN;;AADgB,UAclBC,QAdkB,GAcP,UAACC,UAAD,EAAaC,KAAb,EAAuB;AAChC,UAAID,UAAU,KAAKE,2CAAuBC,UAA1C,EAAqD;AACnD,cAAKC,QAAL,CAAc;AAAEC,UAAAA,OAAO,EAAGJ,KAAK,CAACI;AAAlB,SAAd;AACD;AACF,KAlBiB;;AAAA,QAGRC,KAHQ,GAGER,KAHF,CAGRQ,KAHQ;AAIhB,UAAKL,KAAL,GAAa;AACXI,MAAAA,OAAO,EAAGC,KAAK,CAACL,KAAN,CAAYI;AADX,KAAb;AAJgB;AAOjB;;;;SAEDE,iB,GAAA,6BAAmB;AAAA,QACRD,KADQ,GACE,KAAKR,KADP,CACRQ,KADQ;AAEhB,SAAKE,WAAL,GAAmBF,KAAK,CAACG,MAAN,CAAa,KAAKV,QAAlB,CAAnB;AACF,G;;SAQDW,oB,GAAA,gCAAsB;AACnB,SAAKF,WAAL;AACF,G;;SAEDG,M,GAAA,kBAAQ;AAAA,QACEN,OADF,GACc,KAAKJ,KADnB,CACEI,OADF;AAEN,WACE;AAAS,MAAA,SAAS,EAAC,SAAnB;AAA6B,MAAA,QAAQ,EAAC;AAAtC,OACE;AAAK,MAAA,SAAS,EAAC,eAAf;AAA+B,MAAA,IAAI,EAAC;AAApC,OACG,gCAAC,gBAAD;AACG,MAAA,WAAW,EAAE;AAAEO,QAAAA,WAAW,EAAE;AAAf,OADhB;AAEG,MAAA,SAAS,EAAEC,qBAFd;AAGG,MAAA,OAAO,EAAER;AAHZ,MADH,CADF,EAQE;AAAK,MAAA,SAAS,EAAC;AAAf,OACE;AAAQ,MAAA,SAAS,EAAC;AAAlB,uBADF,CARF,CADF;AAgBD,G;;;EA3CsBS,gB;AA8CzB;;;;;;;eAMejB,S"
+}

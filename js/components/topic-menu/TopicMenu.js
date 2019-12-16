@@ -57,7 +57,7 @@ function (_Component) {
     var topicId = this.state.topicId;
     return _react["default"].createElement("section", {
       className: "sidebar",
-      tabindex: "-1"
+      tabIndex: "-1"
     }, _react["default"].createElement("div", {
       className: "sidebar__menu",
       role: "navigation"
@@ -70,17 +70,19 @@ function (_Component) {
     })), _react["default"].createElement("div", {
       className: "sidebar__footer"
     }, _react["default"].createElement("button", {
-      className: "sidebar__footer__link",
-      type: "button"
+      className: "sidebar__footer__link"
     }, "Footer Button")));
   };
 
   return TopicMenu;
 }(_react.Component);
-
+/*
 TopicMenu.propTypes = {
-  store: _react.PropTypes.object.isRequired
-};
+  store : PropTypes.object.isRequired
+}
+*/
+
+
 var _default = TopicMenu;
 exports["default"] = _default;
 //# sourceMappingURL=TopicMenu.js.map

@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 
 import RouterLink from './links/RouterLink';
 
@@ -24,7 +24,7 @@ const WIDTH = 500
         top: '8px',
         right : '8px'
       }
-    }
+    };
 
 
 @initGL
@@ -35,16 +35,17 @@ const WIDTH = 500
 @draw
 @startAnimation
 class WebGLTopic extends Component {
+   /*
    static propTypes = {
      valuesForInit: PropTypes.object
    }
+   */
 
-  constructor(props){
-    super();
 
-    this.isAnimate = true;
-    this.isStopDraw = false;
-  }
+
+  isAnimate = true
+  isStopDraw = false
+
 
   componentDidMount(){
     const { startAnimation } = this.props
@@ -70,7 +71,7 @@ class WebGLTopic extends Component {
     } else {
       const { topicLink={} } = valuesForInit
           , { type } = topicLink
-          , Comp = RouterLink[type]
+          , Comp = RouterLink[type];
       if (typeof Comp === 'undefined'){
         return undefined;
       } else

@@ -9,7 +9,7 @@
 
 
 .row__topic__odd {
-  line-height: 2;
+  line-height: 2.2;
   background-color: #33373A;
   color: black;
   font-size: 16px;
@@ -17,18 +17,21 @@
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 18px;
+  border-bottom: 2px solid transparent;
   cursor: pointer;
 }
 .row__topic__even {
-  line-height: 2;
+  line-height: 2.2;
   color: black;
   font-size: 16px;
   font-weight: bold;
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 18px;
+  border-bottom: 2px solid transparent;
   cursor: pointer;
 }
-.row__topic__odd:hover, .row__topic__even:hover {
-  border-bottom: 1px solid #1B75BB;
+.row__topic__odd:hover, 
+.row__topic__even:hover {
+  border-bottom: 2px solid #1B75BB;
 }
