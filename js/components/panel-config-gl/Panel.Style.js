@@ -1,12 +1,10 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
+exports.__esModule = true;
+exports["default"] = void 0;
 var STYLE = {
   ROOT: {
-    float: 'left',
+    "float": 'left',
     marginLeft: '20px',
     marginTop: '8px',
     marginBottom: '16px'
@@ -32,6 +30,6 @@ var STYLE = {
     textAlign: 'end'
   }
 };
-
-exports.default = STYLE;
+var _default = STYLE;
+exports["default"] = _default;
 //# sourceMappingURL=Panel.Style.js.map

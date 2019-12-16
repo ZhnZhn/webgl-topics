@@ -1,10 +1,9 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+exports.__esModule = true;
+exports["default"] = void 0;
 
-var _RouterTopicActions = require('../actions/RouterTopicActions');
+var _RouterTopicActions = require("../actions/RouterTopicActions");
 
 var RouterTopicSlice = {
   _setTopicId: function _setTopicId(topicId) {
@@ -12,9 +11,10 @@ var RouterTopicSlice = {
   },
   onViewTopic: function onViewTopic(topicId) {
     this._setTopicId(topicId);
+
     this.trigger(_RouterTopicActions.RouterTopicActionTypes.VIEW_TOPIC, this.state);
   }
 };
-
-exports.default = RouterTopicSlice;
+var _default = RouterTopicSlice;
+exports["default"] = _default;
 //# sourceMappingURL=RouterTopicSlice.js.map

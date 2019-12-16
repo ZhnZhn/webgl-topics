@@ -1,18 +1,13 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-var _react = require('react');
+exports.__esModule = true;
+exports["default"] = void 0;
 
-var _react2 = _interopRequireDefault(_react);
+var _react = _interopRequireDefault(require("react"));
 
-var _OpenClose = require('../zhn-atoms/OpenClose');
-
-var _OpenClose2 = _interopRequireDefault(_OpenClose);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _OpenClose = _interopRequireDefault(require("../zhn-atoms/OpenClose"));
 
 var STYLE = {
   ROOT: {
@@ -35,16 +30,12 @@ var _renderMenuItems = function _renderMenuItems(items, topicId) {
         className = index % 2 ? 'row__topic__even not-selected' : 'row__topic__odd not-selected',
         _style = id === topicId ? STYLE.ITEM_CURRENT : undefined;
 
-    return _react2.default.createElement(
-      'div',
-      {
-        key: id,
-        className: className,
-        style: Object.assign({}, STYLE.ITEM, _style),
-        onClick: onClick
-      },
-      title
-    );
+    return _react["default"].createElement("div", {
+      key: id,
+      className: className,
+      style: Object.assign({}, STYLE.ITEM, _style),
+      onClick: onClick
+    }, title);
   });
 };
 
@@ -54,17 +45,13 @@ var MenuPart = function MenuPart(props) {
       toogleStyle = props.toogleStyle,
       caption = dataModel.caption,
       items = dataModel.items;
-
-  return _react2.default.createElement(
-    _OpenClose2.default,
-    {
-      caption: caption,
-      style: STYLE.ROOT,
-      toogleStyle: toogleStyle
-    },
-    _renderMenuItems(items, topicId)
-  );
+  return _react["default"].createElement(_OpenClose["default"], {
+    caption: caption,
+    style: STYLE.ROOT,
+    toogleStyle: toogleStyle
+  }, _renderMenuItems(items, topicId));
 };
 
-exports.default = MenuPart;
+var _default = MenuPart;
+exports["default"] = _default;
 //# sourceMappingURL=MenuPart.js.map

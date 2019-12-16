@@ -1,18 +1,15 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-var _EggHeadLink = require('./EggHeadLink');
+exports.__esModule = true;
+exports["default"] = void 0;
 
-var _EggHeadLink2 = _interopRequireDefault(_EggHeadLink);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _EggHeadLink = _interopRequireDefault(require("./EggHeadLink"));
 
 var RouterLink = {
-  EGGHEAD: _EggHeadLink2.default
+  EGGHEAD: _EggHeadLink["default"]
 };
-
-exports.default = RouterLink;
+var _default = RouterLink;
+exports["default"] = _default;
 //# sourceMappingURL=RouterLink.js.map

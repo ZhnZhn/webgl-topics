@@ -1,20 +1,21 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var _setPointSize = exports._setPointSize = function _setPointSize(target) {
+exports.__esModule = true;
+exports["default"] = exports._setPointSize = void 0;
+
+var _setPointSize = function _setPointSize(target) {
   var gl = target.gl,
       shaderProgram = target.shaderProgram;
-
-
   var pointSize = gl.getAttribLocation(shaderProgram, "pointSize");
   gl.vertexAttrib1f(pointSize, 20);
 };
+
+exports._setPointSize = _setPointSize;
 
 var setPointSize = function setPointSize(target) {
   target.prototype.setPointSize = _setPointSize;
 };
 
-exports.default = setPointSize;
+var _default = setPointSize;
+exports["default"] = _default;
 //# sourceMappingURL=setPointSize.js.map

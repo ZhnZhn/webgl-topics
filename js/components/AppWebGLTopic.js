@@ -1,42 +1,32 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-var _react = require('react');
+exports.__esModule = true;
+exports["default"] = void 0;
 
-var _react2 = _interopRequireDefault(_react);
+var _react = _interopRequireDefault(require("react"));
 
-var _Header = require('./header/Header');
+var _Header = _interopRequireDefault(require("./header/Header"));
 
-var _Header2 = _interopRequireDefault(_Header);
+var _TopicMenu = _interopRequireDefault(require("./topic-menu/TopicMenu"));
 
-var _TopicMenu = require('./topic-menu/TopicMenu');
+var _Main = _interopRequireDefault(require("./topics/Main"));
 
-var _TopicMenu2 = _interopRequireDefault(_TopicMenu);
-
-var _Main = require('./topics/Main');
-
-var _Main2 = _interopRequireDefault(_Main);
-
-var _Footer = require('./footer/Footer');
-
-var _Footer2 = _interopRequireDefault(_Footer);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _Footer = _interopRequireDefault(require("./footer/Footer"));
 
 var AppWebGLTopic = function AppWebGLTopic(_ref) {
   var store = _ref.store;
-  return _react2.default.createElement(
-    'div',
-    { className: 'app', role: 'application' },
-    _react2.default.createElement(_Header2.default, null),
-    _react2.default.createElement(_TopicMenu2.default, { store: store }),
-    _react2.default.createElement(_Main2.default, { store: store }),
-    _react2.default.createElement(_Footer2.default, null)
-  );
+  return _react["default"].createElement("div", {
+    className: "app",
+    role: "application"
+  }, _react["default"].createElement(_Header["default"], null), _react["default"].createElement(_TopicMenu["default"], {
+    store: store
+  }), _react["default"].createElement(_Main["default"], {
+    store: store
+  }), _react["default"].createElement(_Footer["default"], null));
 };
 
-exports.default = AppWebGLTopic;
+var _default = AppWebGLTopic;
+exports["default"] = _default;
 //# sourceMappingURL=AppWebGLTopic.js.map

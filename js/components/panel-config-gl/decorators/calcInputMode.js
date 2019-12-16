@@ -1,11 +1,10 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+exports.__esModule = true;
+exports["default"] = void 0;
+
 var _calcInputMode = function _calcInputMode() {
   var mode = this.mode;
-
 
   for (var key in mode) {
     if (key !== "bt" && mode[key] === 0) {
@@ -18,6 +17,7 @@ var _calcInputMode = function _calcInputMode() {
       return 1;
     }
   }
+
   return 2;
 };
 
@@ -25,5 +25,6 @@ var calcInputMode = function calcInputMode(target) {
   target.prototype._calcInputMode = _calcInputMode;
 };
 
-exports.default = calcInputMode;
+var _default = calcInputMode;
+exports["default"] = _default;
 //# sourceMappingURL=calcInputMode.js.map

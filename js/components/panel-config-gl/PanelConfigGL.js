@@ -1,91 +1,72 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
 
-var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+exports.__esModule = true;
+exports["default"] = void 0;
 
-var _createClass2 = require('babel-runtime/helpers/createClass');
+var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inheritsLoose"));
 
-var _createClass3 = _interopRequireDefault(_createClass2);
+var _react = _interopRequireWildcard(require("react"));
 
-var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
+var _PanelDrawMode = _interopRequireDefault(require("./PanelDrawMode"));
 
-var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+var _PanelPerspective = _interopRequireDefault(require("./PanelPerspective"));
 
-var _inherits2 = require('babel-runtime/helpers/inherits');
+var _PanelTranslate = _interopRequireDefault(require("./PanelTranslate"));
 
-var _inherits3 = _interopRequireDefault(_inherits2);
+var _PanelRotate = _interopRequireDefault(require("./PanelRotate"));
 
-var _react = require('react');
+var _Panel = _interopRequireDefault(require("./Panel.Style"));
 
-var _react2 = _interopRequireDefault(_react);
-
-var _PanelDrawMode = require('./PanelDrawMode');
-
-var _PanelDrawMode2 = _interopRequireDefault(_PanelDrawMode);
-
-var _PanelPerspective = require('./PanelPerspective');
-
-var _PanelPerspective2 = _interopRequireDefault(_PanelPerspective);
-
-var _PanelTranslate = require('./PanelTranslate');
-
-var _PanelTranslate2 = _interopRequireDefault(_PanelTranslate);
-
-var _PanelRotate = require('./PanelRotate');
-
-var _PanelRotate2 = _interopRequireDefault(_PanelRotate);
-
-var _Panel = require('./Panel.Style');
-
-var _Panel2 = _interopRequireDefault(_Panel);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var PanelConfigGL = function (_Component) {
-  (0, _inherits3.default)(PanelConfigGL, _Component);
+var PanelConfigGL =
+/*#__PURE__*/
+function (_Component) {
+  (0, _inheritsLoose2["default"])(PanelConfigGL, _Component);
 
   function PanelConfigGL() {
-    (0, _classCallCheck3.default)(this, PanelConfigGL);
-    return (0, _possibleConstructorReturn3.default)(this, (PanelConfigGL.__proto__ || Object.getPrototypeOf(PanelConfigGL)).apply(this, arguments));
+    return _Component.apply(this, arguments) || this;
   }
 
-  (0, _createClass3.default)(PanelConfigGL, [{
-    key: 'render',
-    value: function render() {
-      var _props = this.props,
-          onGetComp = _props.onGetComp,
-          valuesForInit = _props.valuesForInit,
-          perspectiveNear = valuesForInit.perspectiveNear,
-          perspectiveFar = valuesForInit.perspectiveFar,
-          zMatrixTranslate = valuesForInit.zMatrixTranslate,
-          rX = valuesForInit.rX,
-          rY = valuesForInit.rY,
-          rZ = valuesForInit.rZ;
+  var _proto = PanelConfigGL.prototype;
 
-      return _react2.default.createElement(
-        'div',
-        { style: _Panel2.default.ROOT },
-        _react2.default.createElement(
-          'span',
-          { style: _Panel2.default.ROOT_CAPTION },
-          'Config WebGL Topic'
-        ),
-        _react2.default.createElement(_PanelDrawMode2.default, { onGetComp: onGetComp }),
-        _react2.default.createElement(_PanelPerspective2.default, { perspectiveNear: perspectiveNear, perspectiveFar: perspectiveFar, onGetComp: onGetComp }),
-        _react2.default.createElement(_PanelTranslate2.default, { zMatrixTranslate: zMatrixTranslate, onGetComp: onGetComp }),
-        _react2.default.createElement(_PanelRotate2.default, { rX: rX, rY: rY, rZ: rZ, onGetComp: onGetComp })
-      );
-    }
-  }]);
+  _proto.render = function render() {
+    var _this$props = this.props,
+        onGetComp = _this$props.onGetComp,
+        valuesForInit = _this$props.valuesForInit,
+        perspectiveNear = valuesForInit.perspectiveNear,
+        perspectiveFar = valuesForInit.perspectiveFar,
+        zMatrixTranslate = valuesForInit.zMatrixTranslate,
+        rX = valuesForInit.rX,
+        rY = valuesForInit.rY,
+        rZ = valuesForInit.rZ;
+    return _react["default"].createElement("div", {
+      style: _Panel["default"].ROOT
+    }, _react["default"].createElement("span", {
+      style: _Panel["default"].ROOT_CAPTION
+    }, "Config WebGL Topic"), _react["default"].createElement(_PanelDrawMode["default"], {
+      onGetComp: onGetComp
+    }), _react["default"].createElement(_PanelPerspective["default"], {
+      perspectiveNear: perspectiveNear,
+      perspectiveFar: perspectiveFar,
+      onGetComp: onGetComp
+    }), _react["default"].createElement(_PanelTranslate["default"], {
+      zMatrixTranslate: zMatrixTranslate,
+      onGetComp: onGetComp
+    }), _react["default"].createElement(_PanelRotate["default"], {
+      rX: rX,
+      rY: rY,
+      rZ: rZ,
+      onGetComp: onGetComp
+    }));
+  };
+
   return PanelConfigGL;
 }(_react.Component);
 
-process.env.NODE_ENV !== "production" ? PanelConfigGL.propTypes = {
+PanelConfigGL.propTypes = {
   valuesForInit: _react.PropTypes.shape({
     perspectiveNear: _react.PropTypes.number,
     perspectiveFar: _react.PropTypes.number,
@@ -95,6 +76,7 @@ process.env.NODE_ENV !== "production" ? PanelConfigGL.propTypes = {
     rZ: _react.PropTypes.number
   }).isRequired,
   onGetComp: _react.PropTypes.func.isRequired
-} : void 0;
-exports.default = PanelConfigGL;
+};
+var _default = PanelConfigGL;
+exports["default"] = _default;
 //# sourceMappingURL=PanelConfigGL.js.map

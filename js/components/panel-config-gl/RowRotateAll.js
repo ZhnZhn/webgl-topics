@@ -1,71 +1,45 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
 
-var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+exports.__esModule = true;
+exports["default"] = void 0;
 
-var _createClass2 = require('babel-runtime/helpers/createClass');
+var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inheritsLoose"));
 
-var _createClass3 = _interopRequireDefault(_createClass2);
+var _react = _interopRequireWildcard(require("react"));
 
-var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
+var _setModeToAll = _interopRequireDefault(require("./decorators/setModeToAll"));
 
-var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+var _onChangeMode = _interopRequireDefault(require("./decorators/onChangeMode"));
 
-var _inherits2 = require('babel-runtime/helpers/inherits');
+var _calcInputMode = _interopRequireDefault(require("./decorators/calcInputMode"));
 
-var _inherits3 = _interopRequireDefault(_inherits2);
+var _Label = _interopRequireDefault(require("../zhn-atoms/Label"));
 
-var _class;
+var _InputFloat = _interopRequireDefault(require("../zhn-atoms/InputFloat"));
 
-var _react = require('react');
+var _ButtonSet = _interopRequireDefault(require("../zhn-atoms/ButtonSet"));
 
-var _react2 = _interopRequireDefault(_react);
+var _Row = _interopRequireDefault(require("./Row.Style"));
 
-var _setModeToAll = require('./decorators/setModeToAll');
+var _class, _class2, _temp;
 
-var _setModeToAll2 = _interopRequireDefault(_setModeToAll);
-
-var _onChangeMode = require('./decorators/onChangeMode');
-
-var _onChangeMode2 = _interopRequireDefault(_onChangeMode);
-
-var _calcInputMode = require('./decorators/calcInputMode');
-
-var _calcInputMode2 = _interopRequireDefault(_calcInputMode);
-
-var _Label = require('../zhn-atoms/Label');
-
-var _Label2 = _interopRequireDefault(_Label);
-
-var _InputFloat = require('../zhn-atoms/InputFloat');
-
-var _InputFloat2 = _interopRequireDefault(_InputFloat);
-
-var _ButtonSet = require('../zhn-atoms/ButtonSet');
-
-var _ButtonSet2 = _interopRequireDefault(_ButtonSet);
-
-var _Row = require('./Row.Style');
-
-var _Row2 = _interopRequireDefault(_Row);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var RowRotateAll = (0, _setModeToAll2.default)(_class = (0, _onChangeMode2.default)(_class = (0, _calcInputMode2.default)(_class = function (_Component) {
-  (0, _inherits3.default)(RowRotateAll, _Component);
+var RowRotateAll = (0, _setModeToAll["default"])(_class = (0, _onChangeMode["default"])(_class = (0, _calcInputMode["default"])(_class = (_temp = _class2 =
+/*#__PURE__*/
+function (_Component) {
+  (0, _inheritsLoose2["default"])(RowRotateAll, _Component);
 
   function RowRotateAll(props) {
-    (0, _classCallCheck3.default)(this, RowRotateAll);
+    var _this;
 
-    var _this = (0, _possibleConstructorReturn3.default)(this, (RowRotateAll.__proto__ || Object.getPrototypeOf(RowRotateAll)).call(this));
+    _this = _Component.call(this) || this;
 
     _this._handleSetRotation = function () {
       var comp = _this.props.onGetComp();
+
       comp.rX = _this.rotateX.getValue();
       comp.rY = _this.rotateY.getValue();
       comp.rZ = _this.rotateZ.getValue();
@@ -82,86 +56,77 @@ var RowRotateAll = (0, _setModeToAll2.default)(_class = (0, _onChangeMode2.defau
     return _this;
   }
 
-  (0, _createClass3.default)(RowRotateAll, [{
-    key: 'render',
-    value: function render() {
-      var _this2 = this;
+  var _proto = RowRotateAll.prototype;
 
-      var _props = this.props,
-          rX = _props.rX,
-          rY = _props.rY,
-          rZ = _props.rZ,
-          onChangeMode = this._onChangeMode.bind(this);
+  _proto.render = function render() {
+    var _this2 = this;
 
-      return _react2.default.createElement(
-        'div',
-        { style: _Row2.default.ROW },
-        _react2.default.createElement(_Label2.default, {
-          style: _Row2.default.CAPTION,
-          title: 'rotate:'
-        }),
-        _react2.default.createElement(_Label2.default, {
-          style: _Row2.default.LABEL,
-          title: 'X:'
-        }),
-        _react2.default.createElement(_InputFloat2.default, {
-          ref: function ref(comp) {
-            return _this2.rotateX = comp;
-          },
-          inputKey: 'rotateX',
-          inputStyle: _Row2.default.INPUT_FLOAT_3,
-          value: rX,
-          step: 0.001,
-          onChangeMode: onChangeMode,
-          onKeyDownEnter: this._handleSetRotation
-        }),
-        _react2.default.createElement(_Label2.default, {
-          style: _Row2.default.LABEL,
-          title: 'Y:'
-        }),
-        _react2.default.createElement(_InputFloat2.default, {
-          ref: function ref(comp) {
-            return _this2.rotateY = comp;
-          },
-          inputKey: 'rotateY',
-          inputStyle: _Row2.default.INPUT_FLOAT_3,
-          value: rY,
-          step: 0.001,
-          onChangeMode: onChangeMode,
-          onKeyDownEnter: this._handleSetRotation
-        }),
-        _react2.default.createElement(_Label2.default, {
-          style: _Row2.default.LABEL,
-          title: 'Z:'
-        }),
-        _react2.default.createElement(_InputFloat2.default, {
-          ref: function ref(comp) {
-            return _this2.rotateZ = comp;
-          },
-          inputKey: 'rotateZ',
-          inputStyle: _Row2.default.INPUT_FLOAT_3,
-          value: rZ,
-          step: 0.001,
-          onChangeMode: onChangeMode,
-          onKeyDownEnter: this._handleSetRotation
-        }),
-        _react2.default.createElement(_ButtonSet2.default, {
-          ref: function ref(bt) {
-            return _this2.bt = bt;
-          },
-          onClick: this._handleSetRotation
-        })
-      );
-    }
-  }]);
+    var _this$props = this.props,
+        rX = _this$props.rX,
+        rY = _this$props.rY,
+        rZ = _this$props.rZ,
+        onChangeMode = this._onChangeMode.bind(this);
+
+    return _react["default"].createElement("div", {
+      style: _Row["default"].ROW
+    }, _react["default"].createElement(_Label["default"], {
+      style: _Row["default"].CAPTION,
+      title: "rotate:"
+    }), _react["default"].createElement(_Label["default"], {
+      style: _Row["default"].LABEL,
+      title: "X:"
+    }), _react["default"].createElement(_InputFloat["default"], {
+      ref: function ref(comp) {
+        return _this2.rotateX = comp;
+      },
+      inputKey: "rotateX",
+      inputStyle: _Row["default"].INPUT_FLOAT_3,
+      value: rX,
+      step: 0.001,
+      onChangeMode: onChangeMode,
+      onKeyDownEnter: this._handleSetRotation
+    }), _react["default"].createElement(_Label["default"], {
+      style: _Row["default"].LABEL,
+      title: "Y:"
+    }), _react["default"].createElement(_InputFloat["default"], {
+      ref: function ref(comp) {
+        return _this2.rotateY = comp;
+      },
+      inputKey: "rotateY",
+      inputStyle: _Row["default"].INPUT_FLOAT_3,
+      value: rY,
+      step: 0.001,
+      onChangeMode: onChangeMode,
+      onKeyDownEnter: this._handleSetRotation
+    }), _react["default"].createElement(_Label["default"], {
+      style: _Row["default"].LABEL,
+      title: "Z:"
+    }), _react["default"].createElement(_InputFloat["default"], {
+      ref: function ref(comp) {
+        return _this2.rotateZ = comp;
+      },
+      inputKey: "rotateZ",
+      inputStyle: _Row["default"].INPUT_FLOAT_3,
+      value: rZ,
+      step: 0.001,
+      onChangeMode: onChangeMode,
+      onKeyDownEnter: this._handleSetRotation
+    }), _react["default"].createElement(_ButtonSet["default"], {
+      ref: function ref(bt) {
+        return _this2.bt = bt;
+      },
+      onClick: this._handleSetRotation
+    }));
+  };
+
   return RowRotateAll;
-}(_react.Component)) || _class) || _class) || _class;
-
-process.env.NODE_ENV !== "production" ? RowRotateAll.propTypes = {
+}(_react.Component), _class2.propTypes = {
   rX: _react.PropTypes.number.isRequired,
   rY: _react.PropTypes.number.isRequired,
   rZ: _react.PropTypes.number.isRequired,
   onGetComp: _react.PropTypes.func.isRequired
-} : void 0;
-exports.default = RowRotateAll;
+}, _temp)) || _class) || _class) || _class;
+
+var _default = RowRotateAll;
+exports["default"] = _default;
 //# sourceMappingURL=RowRotateAll.js.map

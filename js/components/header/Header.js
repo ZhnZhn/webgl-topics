@@ -1,48 +1,37 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-var _react = require('react');
+exports.__esModule = true;
+exports["default"] = void 0;
 
-var _react2 = _interopRequireDefault(_react);
+var _react = _interopRequireDefault(require("react"));
 
-var _IconAppLogo = require('./IconAppLogo');
+var _IconAppLogo = _interopRequireDefault(require("./IconAppLogo"));
 
-var _IconAppLogo2 = _interopRequireDefault(_IconAppLogo);
+var _AppLabel = _interopRequireDefault(require("./AppLabel"));
 
-var _AppLabel = require('./AppLabel');
-
-var _AppLabel2 = _interopRequireDefault(_AppLabel);
-
-var _GitHubLink = require('./GitHubLink');
-
-var _GitHubLink2 = _interopRequireDefault(_GitHubLink);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _GitHubLink = _interopRequireDefault(require("./GitHubLink"));
 
 var TITLE = 'WebGL Topics v0.01.0';
 
 var Header = function Header() {
-  return _react2.default.createElement(
-    'header',
-    { className: 'header', role: 'banner' },
-    _react2.default.createElement(_IconAppLogo2.default, {
-      className: 'header__icon-app',
-      title: TITLE
-    }),
-    _react2.default.createElement(_AppLabel2.default, {
-      className: 'header__label-app',
-      caption: TITLE
-    }),
-    _react2.default.createElement(_GitHubLink2.default, {
-      className: 'header__github-link',
-      title: 'GitHub Repository',
-      href: 'https://github.com/zhnzhn/webgl-topics'
-    })
-  );
+  return _react["default"].createElement("header", {
+    className: "header",
+    role: "banner"
+  }, _react["default"].createElement(_IconAppLogo["default"], {
+    className: "header__icon-app",
+    title: TITLE
+  }), _react["default"].createElement(_AppLabel["default"], {
+    className: "header__label-app",
+    caption: TITLE
+  }), _react["default"].createElement(_GitHubLink["default"], {
+    className: "header__github-link",
+    title: "GitHub Repository",
+    href: "https://github.com/zhnzhn/webgl-topics"
+  }));
 };
 
-exports.default = Header;
+var _default = Header;
+exports["default"] = _default;
 //# sourceMappingURL=Header.js.map

@@ -1,74 +1,49 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
 
-var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+exports.__esModule = true;
+exports["default"] = void 0;
 
-var _createClass2 = require('babel-runtime/helpers/createClass');
+var _assertThisInitialized2 = _interopRequireDefault(require("@babel/runtime/helpers/assertThisInitialized"));
 
-var _createClass3 = _interopRequireDefault(_createClass2);
+var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inheritsLoose"));
 
-var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
+var _react = _interopRequireWildcard(require("react"));
 
-var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+var _setModeToAll = _interopRequireDefault(require("./decorators/setModeToAll"));
 
-var _inherits2 = require('babel-runtime/helpers/inherits');
+var _onChangeMode = _interopRequireDefault(require("./decorators/onChangeMode"));
 
-var _inherits3 = _interopRequireDefault(_inherits2);
+var _calcInputMode = _interopRequireDefault(require("./decorators/calcInputMode"));
 
-var _class;
+var _Label = _interopRequireDefault(require("../zhn-atoms/Label"));
 
-var _react = require('react');
+var _InputFloat = _interopRequireDefault(require("../zhn-atoms/InputFloat"));
 
-var _react2 = _interopRequireDefault(_react);
+var _ButtonSet = _interopRequireDefault(require("../zhn-atoms/ButtonSet"));
 
-var _setModeToAll = require('./decorators/setModeToAll');
+var _Row = _interopRequireDefault(require("./Row.Style"));
 
-var _setModeToAll2 = _interopRequireDefault(_setModeToAll);
+var _class, _class2, _temp;
 
-var _onChangeMode = require('./decorators/onChangeMode');
-
-var _onChangeMode2 = _interopRequireDefault(_onChangeMode);
-
-var _calcInputMode = require('./decorators/calcInputMode');
-
-var _calcInputMode2 = _interopRequireDefault(_calcInputMode);
-
-var _Label = require('../zhn-atoms/Label');
-
-var _Label2 = _interopRequireDefault(_Label);
-
-var _InputFloat = require('../zhn-atoms/InputFloat');
-
-var _InputFloat2 = _interopRequireDefault(_InputFloat);
-
-var _ButtonSet = require('../zhn-atoms/ButtonSet');
-
-var _ButtonSet2 = _interopRequireDefault(_ButtonSet);
-
-var _Row = require('./Row.Style');
-
-var _Row2 = _interopRequireDefault(_Row);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var RowPerspective = (0, _setModeToAll2.default)(_class = (0, _onChangeMode2.default)(_class = (0, _calcInputMode2.default)(_class = function (_Component) {
-  (0, _inherits3.default)(RowPerspective, _Component);
+var RowPerspective = (0, _setModeToAll["default"])(_class = (0, _onChangeMode["default"])(_class = (0, _calcInputMode["default"])(_class = (_temp = _class2 =
+/*#__PURE__*/
+function (_Component) {
+  (0, _inheritsLoose2["default"])(RowPerspective, _Component);
 
   function RowPerspective(props) {
-    (0, _classCallCheck3.default)(this, RowPerspective);
+    var _this;
 
-    var _this = (0, _possibleConstructorReturn3.default)(this, (RowPerspective.__proto__ || Object.getPrototypeOf(RowPerspective)).call(this));
+    _this = _Component.call(this) || this;
 
     _this._handleSetPerspective = function () {
       var comp = _this.props.onGetComp(),
-          near = _this.near,
-          far = _this.far;
-
+          _assertThisInitialize = (0, _assertThisInitialized2["default"])(_this),
+          near = _assertThisInitialize.near,
+          far = _assertThisInitialize.far;
 
       comp.perspectiveNear = near.getValue();
       comp.perspectiveFar = far.getValue();
@@ -85,67 +60,60 @@ var RowPerspective = (0, _setModeToAll2.default)(_class = (0, _onChangeMode2.def
     return _this;
   }
 
-  (0, _createClass3.default)(RowPerspective, [{
-    key: 'render',
-    value: function render() {
-      var _this2 = this;
+  var _proto = RowPerspective.prototype;
 
-      var _props = this.props,
-          perspectiveNear = _props.perspectiveNear,
-          perspectiveFar = _props.perspectiveFar,
-          onChangeMode = this._onChangeMode.bind(this);
+  _proto.render = function render() {
+    var _this2 = this;
 
-      return _react2.default.createElement(
-        'div',
-        { style: _Row2.default.ROW },
-        _react2.default.createElement(_Label2.default, {
-          style: _Row2.default.CAPTION,
-          title: 'perspective:'
-        }),
-        _react2.default.createElement(_Label2.default, {
-          style: _Row2.default.LABEL,
-          title: 'near:'
-        }),
-        _react2.default.createElement(_InputFloat2.default, {
-          ref: function ref(comp) {
-            return _this2.near = comp;
-          },
-          inputKey: 'near',
-          inputStyle: _Row2.default.INPUT_FLOAT_2,
-          value: perspectiveNear,
-          onChangeMode: onChangeMode,
-          onKeyDownEnter: this._handleSetPerspective
-        }),
-        _react2.default.createElement(_Label2.default, {
-          style: _Row2.default.LABEL,
-          title: 'far:'
-        }),
-        _react2.default.createElement(_InputFloat2.default, {
-          ref: function ref(comp) {
-            return _this2.far = comp;
-          },
-          inputKey: 'far',
-          value: perspectiveFar,
-          inputStyle: _Row2.default.INPUT_FLOAT_2,
-          onChangeMode: onChangeMode,
-          onKeyDownEnter: this._handleSetPerspective
-        }),
-        _react2.default.createElement(_ButtonSet2.default, {
-          ref: function ref(bt) {
-            return _this2.bt = bt;
-          },
-          onClick: this._handleSetPerspective
-        })
-      );
-    }
-  }]);
+    var _this$props = this.props,
+        perspectiveNear = _this$props.perspectiveNear,
+        perspectiveFar = _this$props.perspectiveFar,
+        onChangeMode = this._onChangeMode.bind(this);
+
+    return _react["default"].createElement("div", {
+      style: _Row["default"].ROW
+    }, _react["default"].createElement(_Label["default"], {
+      style: _Row["default"].CAPTION,
+      title: "perspective:"
+    }), _react["default"].createElement(_Label["default"], {
+      style: _Row["default"].LABEL,
+      title: "near:"
+    }), _react["default"].createElement(_InputFloat["default"], {
+      ref: function ref(comp) {
+        return _this2.near = comp;
+      },
+      inputKey: "near",
+      inputStyle: _Row["default"].INPUT_FLOAT_2,
+      value: perspectiveNear,
+      onChangeMode: onChangeMode,
+      onKeyDownEnter: this._handleSetPerspective
+    }), _react["default"].createElement(_Label["default"], {
+      style: _Row["default"].LABEL,
+      title: "far:"
+    }), _react["default"].createElement(_InputFloat["default"], {
+      ref: function ref(comp) {
+        return _this2.far = comp;
+      },
+      inputKey: "far",
+      value: perspectiveFar,
+      inputStyle: _Row["default"].INPUT_FLOAT_2,
+      onChangeMode: onChangeMode,
+      onKeyDownEnter: this._handleSetPerspective
+    }), _react["default"].createElement(_ButtonSet["default"], {
+      ref: function ref(bt) {
+        return _this2.bt = bt;
+      },
+      onClick: this._handleSetPerspective
+    }));
+  };
+
   return RowPerspective;
-}(_react.Component)) || _class) || _class) || _class;
-
-process.env.NODE_ENV !== "production" ? RowPerspective.propTypes = {
+}(_react.Component), _class2.propTypes = {
   perspectiveNear: _react.PropTypes.number.isRequire,
   perspectiveFar: _react.PropTypes.number.isRequired,
   onGetComp: _react.PropTypes.func.isRequired
-} : void 0;
-exports.default = RowPerspective;
+}, _temp)) || _class) || _class) || _class;
+
+var _default = RowPerspective;
+exports["default"] = _default;
 //# sourceMappingURL=RowPerspective.js.map

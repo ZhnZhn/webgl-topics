@@ -1,65 +1,60 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-var _ID = require('../topics/ID');
+exports.__esModule = true;
+exports["default"] = void 0;
 
-var _ID2 = _interopRequireDefault(_ID);
+var _ID = _interopRequireDefault(require("../topics/ID"));
 
-var _RouterTopicActions = require('../../flux/actions/RouterTopicActions');
-
-var _RouterTopicActions2 = _interopRequireDefault(_RouterTopicActions);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _RouterTopicActions = _interopRequireDefault(require("../../flux/actions/RouterTopicActions"));
 
 var menuModel = [{
   caption: 'WebGL with gl-matrix',
   items: [{
-    id: _ID2.default.RANDOM_TRIANGLES,
+    id: _ID["default"].RANDOM_TRIANGLES,
     title: "Random Triangles",
     onClick: function onClick() {
-      return _RouterTopicActions2.default.viewTopic(_ID2.default.RANDOM_TRIANGLES);
+      return _RouterTopicActions["default"].viewTopic(_ID["default"].RANDOM_TRIANGLES);
     }
   }, {
-    id: _ID2.default.CROWN,
+    id: _ID["default"].CROWN,
     title: "Crown Sample",
     onClick: function onClick() {
-      return _RouterTopicActions2.default.viewTopic(_ID2.default.CROWN);
+      return _RouterTopicActions["default"].viewTopic(_ID["default"].CROWN);
     }
   }, {
-    id: _ID2.default.PLANE,
+    id: _ID["default"].PLANE,
     title: "Plane",
     onClick: function onClick() {
-      return _RouterTopicActions2.default.viewTopic(_ID2.default.PLANE);
+      return _RouterTopicActions["default"].viewTopic(_ID["default"].PLANE);
     }
   }, {
-    id: _ID2.default.CUBE,
+    id: _ID["default"].CUBE,
     title: "Cube",
     onClick: function onClick() {
-      return _RouterTopicActions2.default.viewTopic(_ID2.default.CUBE);
+      return _RouterTopicActions["default"].viewTopic(_ID["default"].CUBE);
     }
   }, {
-    id: _ID2.default.TEXTURE_IMAGE,
+    id: _ID["default"].TEXTURE_IMAGE,
     title: "TextureImage",
     onClick: function onClick() {
-      return _RouterTopicActions2.default.viewTopic(_ID2.default.TEXTURE_IMAGE);
+      return _RouterTopicActions["default"].viewTopic(_ID["default"].TEXTURE_IMAGE);
     }
   }, {
-    id: _ID2.default.CUBE_WITH_LIGHT,
+    id: _ID["default"].CUBE_WITH_LIGHT,
     title: "CubeWithLight",
     onClick: function onClick() {
-      return _RouterTopicActions2.default.viewTopic(_ID2.default.CUBE_WITH_LIGHT);
+      return _RouterTopicActions["default"].viewTopic(_ID["default"].CUBE_WITH_LIGHT);
     }
   }, {
-    id: _ID2.default.CUBE_TRANSPARENT,
+    id: _ID["default"].CUBE_TRANSPARENT,
     title: "CubeTransparent",
     onClick: function onClick() {
-      return _RouterTopicActions2.default.viewTopic(_ID2.default.CUBE_TRANSPARENT);
+      return _RouterTopicActions["default"].viewTopic(_ID["default"].CUBE_TRANSPARENT);
     }
   }]
 }];
-
-exports.default = menuModel;
+var _default = menuModel;
+exports["default"] = _default;
 //# sourceMappingURL=menuModel.js.map

@@ -1,10 +1,7 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-
+exports.__esModule = true;
+exports["default"] = void 0;
 var ID = {
   RANDOM_TRIANGLES: 'RANDOM_TRIANGLES',
   CROWN: 'CROWN',
@@ -14,6 +11,6 @@ var ID = {
   CUBE_WITH_LIGHT: 'CUBE_WITH_LIGHT',
   CUBE_TRANSPARENT: 'CUBE_TRANSPARENT'
 };
-
-exports.default = ID;
+var _default = ID;
+exports["default"] = _default;
 //# sourceMappingURL=ID.js.map

@@ -1,25 +1,21 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.RouterTopicActionTypes = undefined;
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-var _defineProperty2 = require('babel-runtime/helpers/defineProperty');
+exports.__esModule = true;
+exports["default"] = exports.RouterTopicActionTypes = void 0;
 
-var _defineProperty3 = _interopRequireDefault(_defineProperty2);
+var _reflux = _interopRequireDefault(require("reflux"));
 
-var _reflux = require('reflux');
+var _Reflux$createActions;
 
-var _reflux2 = _interopRequireDefault(_reflux);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var RouterTopicActionTypes = exports.RouterTopicActionTypes = {
+var RouterTopicActionTypes = {
   VIEW_TOPIC: 'viewTopic'
 };
+exports.RouterTopicActionTypes = RouterTopicActionTypes;
 
-var RouterTopicActions = _reflux2.default.createActions((0, _defineProperty3.default)({}, RouterTopicActionTypes.VIEW_TOPIC, {}));
+var RouterTopicActions = _reflux["default"].createActions((_Reflux$createActions = {}, _Reflux$createActions[RouterTopicActionTypes.VIEW_TOPIC] = {}, _Reflux$createActions));
 
-exports.default = RouterTopicActions;
+var _default = RouterTopicActions;
+exports["default"] = _default;
 //# sourceMappingURL=RouterTopicActions.js.map

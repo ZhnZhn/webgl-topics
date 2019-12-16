@@ -1,9 +1,7 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
+exports.__esModule = true;
+exports["default"] = void 0;
 var STYLE = {
   rootDiv: {
     position: 'relative',
@@ -68,7 +66,6 @@ var STYLE = {
     width: '35px',
     paddingRight: '5px',
     marginLeft: '10px'
-
   },
   arrow: {
     borderColor: '#999 transparent transparent',
@@ -88,14 +85,13 @@ var STYLE = {
     marginLeft: '10px',
     marginBottom: '5px',
     width: '150px'
-
   },
   itemDiv: {
     cursor: 'pointer',
     paddingTop: '4px',
     paddingLeft: '5px',
-    paddingBottom: '4px'
-    //lineHeight: '14px'
+    paddingBottom: '4px' //lineHeight: '14px'
+
   },
   itemOdd: {
     backgroundColor: '#C3C3AC'
@@ -118,6 +114,6 @@ var STYLE = {
     paddingBottom: '4px'
   }
 };
-
-exports.default = STYLE;
+var _default = STYLE;
+exports["default"] = _default;
 //# sourceMappingURL=InputSelect.Style.js.map

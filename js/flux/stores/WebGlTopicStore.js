@@ -1,38 +1,27 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-var _extends2 = require('babel-runtime/helpers/extends');
+exports.__esModule = true;
+exports["default"] = void 0;
 
-var _extends3 = _interopRequireDefault(_extends2);
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
 
-var _reflux = require('reflux');
+var _reflux = _interopRequireDefault(require("reflux"));
 
-var _reflux2 = _interopRequireDefault(_reflux);
+var _ID = _interopRequireDefault(require("../../components/topics/ID"));
 
-var _ID = require('../../components/topics/ID');
+var _RouterTopicActions = _interopRequireDefault(require("../actions/RouterTopicActions"));
 
-var _ID2 = _interopRequireDefault(_ID);
+var _RouterTopicSlice = _interopRequireDefault(require("./RouterTopicSlice"));
 
-var _RouterTopicActions = require('../actions/RouterTopicActions');
-
-var _RouterTopicActions2 = _interopRequireDefault(_RouterTopicActions);
-
-var _RouterTopicSlice = require('./RouterTopicSlice');
-
-var _RouterTopicSlice2 = _interopRequireDefault(_RouterTopicSlice);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var WebGlStore = _reflux2.default.createStore((0, _extends3.default)({
-  listenables: [_RouterTopicActions2.default],
+var WebGlStore = _reflux["default"].createStore((0, _extends2["default"])({
+  listenables: [_RouterTopicActions["default"]],
   state: {
-    topicId: _ID2.default.RANDOM_TRIANGLES
+    topicId: _ID["default"].RANDOM_TRIANGLES
   }
+}, _RouterTopicSlice["default"]));
 
-}, _RouterTopicSlice2.default));
-
-exports.default = WebGlStore;
+var _default = WebGlStore;
+exports["default"] = _default;
 //# sourceMappingURL=WebGlTopicStore.js.map

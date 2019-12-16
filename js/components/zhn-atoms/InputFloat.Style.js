@@ -1,9 +1,7 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
+exports.__esModule = true;
+exports["default"] = void 0;
 var STYLE = {
   ROOT: {
     position: 'relative',
@@ -37,8 +35,8 @@ var STYLE = {
     margin: 0,
     //marginLeft: '5px',
     marginBottom: '5px',
-    width: '100%'
-    //width: '75%'
+    width: '100%' //width: '75%'
+
   },
   VALID_CHANGED: {
     borderColor: '#673ab7'
@@ -49,7 +47,6 @@ var STYLE = {
   NOT_VALID: {
     borderColor: '#F44336'
   },
-
   ARROW: {
     display: 'inline-block',
     position: 'relative',
@@ -71,6 +68,6 @@ var STYLE = {
     marginRight: '6px'
   }
 };
-
-exports.default = STYLE;
+var _default = STYLE;
+exports["default"] = _default;
 //# sourceMappingURL=InputFloat.Style.js.map

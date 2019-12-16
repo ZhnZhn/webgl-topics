@@ -1,99 +1,73 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
 
-var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+exports.__esModule = true;
+exports["default"] = void 0;
 
-var _createClass2 = require('babel-runtime/helpers/createClass');
+var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inheritsLoose"));
 
-var _createClass3 = _interopRequireDefault(_createClass2);
+var _react = _interopRequireWildcard(require("react"));
 
-var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
+var _OpenClose = _interopRequireDefault(require("../zhn-atoms/OpenClose"));
 
-var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+var _RowProp = _interopRequireDefault(require("./RowProp"));
 
-var _inherits2 = require('babel-runtime/helpers/inherits');
+var _Panel = _interopRequireDefault(require("./Panel.Style"));
 
-var _inherits3 = _interopRequireDefault(_inherits2);
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _OpenClose = require('../zhn-atoms/OpenClose');
-
-var _OpenClose2 = _interopRequireDefault(_OpenClose);
-
-var _RowProp = require('./RowProp');
-
-var _RowProp2 = _interopRequireDefault(_RowProp);
-
-var _Panel = require('./Panel.Style');
-
-var _Panel2 = _interopRequireDefault(_Panel);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var PanelRotate = function (_Component) {
-  (0, _inherits3.default)(PanelRotate, _Component);
+var PanelRotate =
+/*#__PURE__*/
+function (_Component) {
+  (0, _inheritsLoose2["default"])(PanelRotate, _Component);
 
   function PanelRotate(props) {
-    (0, _classCallCheck3.default)(this, PanelRotate);
-    return (0, _possibleConstructorReturn3.default)(this, (PanelRotate.__proto__ || Object.getPrototypeOf(PanelRotate)).call(this, props));
+    return _Component.call(this, props) || this;
   }
 
-  (0, _createClass3.default)(PanelRotate, [{
-    key: 'render',
-    value: function render() {
-      var _props = this.props,
-          rX = _props.rX,
-          rY = _props.rY,
-          rZ = _props.rZ,
-          onGetComp = _props.onGetComp;
+  var _proto = PanelRotate.prototype;
 
-      return _react2.default.createElement(
-        _OpenClose2.default,
-        {
-          isClose: true,
-          caption: 'Rotate',
-          style: _Panel2.default.OPEN_CLOSE
-        },
-        _react2.default.createElement(_RowProp2.default, {
-          labelBy: 'X:',
-          inputId: 'rX',
-          value: rX,
-          propKey: 'rX',
-          onGetComp: onGetComp
-        }),
-        _react2.default.createElement(_RowProp2.default, {
-          labelBy: 'Y:',
-          inputId: 'rY',
-          value: rY,
-          propKey: 'rY',
-          onGetComp: onGetComp
-        }),
-        _react2.default.createElement(_RowProp2.default, {
-          labelBy: 'Z:',
-          inputId: 'rZ',
-          value: rZ,
-          propKey: 'rZ',
-          onGetComp: onGetComp
-        })
-      );
-    }
-  }]);
+  _proto.render = function render() {
+    var _this$props = this.props,
+        rX = _this$props.rX,
+        rY = _this$props.rY,
+        rZ = _this$props.rZ,
+        onGetComp = _this$props.onGetComp;
+    return _react["default"].createElement(_OpenClose["default"], {
+      isClose: true,
+      caption: "Rotate",
+      style: _Panel["default"].OPEN_CLOSE
+    }, _react["default"].createElement(_RowProp["default"], {
+      labelBy: "X:",
+      inputId: "rX",
+      value: rX,
+      propKey: "rX",
+      onGetComp: onGetComp
+    }), _react["default"].createElement(_RowProp["default"], {
+      labelBy: "Y:",
+      inputId: "rY",
+      value: rY,
+      propKey: "rY",
+      onGetComp: onGetComp
+    }), _react["default"].createElement(_RowProp["default"], {
+      labelBy: "Z:",
+      inputId: "rZ",
+      value: rZ,
+      propKey: "rZ",
+      onGetComp: onGetComp
+    }));
+  };
+
   return PanelRotate;
 }(_react.Component);
 
-process.env.NODE_ENV !== "production" ? PanelRotate.propTypes = {
+PanelRotate.propTypes = {
   rX: _react.PropTypes.number.isRequired,
   rY: _react.PropTypes.number.isRequired,
   rZ: _react.PropTypes.number.isRequired,
   onGetComp: _react.PropTypes.func.isRequired
-} : void 0;
-exports.default = PanelRotate;
+};
+var _default = PanelRotate;
+exports["default"] = _default;
 //# sourceMappingURL=PanelRotate.js.map

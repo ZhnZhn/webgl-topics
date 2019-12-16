@@ -1,24 +1,19 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-var _react = require('react');
+exports.__esModule = true;
+exports["default"] = void 0;
 
-var _react2 = _interopRequireDefault(_react);
+var _react = _interopRequireDefault(require("react"));
 
-var _MenuPart = require('./MenuPart');
+var _MenuPart = _interopRequireDefault(require("./MenuPart"));
 
-var _MenuPart2 = _interopRequireDefault(_MenuPart);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var Menu = _react2.default.createClass({
-  displayName: 'Menu',
+var Menu = _react["default"].createClass({
+  displayName: "Menu",
   _renderMenuParts: function _renderMenuParts(toogleStyle, menuModel, topicId) {
     return menuModel.map(function (menuPart, index) {
-      return _react2.default.createElement(_MenuPart2.default, {
+      return _react["default"].createElement(_MenuPart["default"], {
         key: index,
         toogleStyle: toogleStyle,
         dataModel: menuPart,
@@ -27,20 +22,17 @@ var Menu = _react2.default.createClass({
     });
   },
   render: function render() {
-    var _props = this.props,
-        rootStyle = _props.rootStyle,
-        toogleStyle = _props.toogleStyle,
-        menuModel = _props.menuModel,
-        topicId = _props.topicId;
-
-
-    return _react2.default.createElement(
-      'div',
-      { style: rootStyle },
-      this._renderMenuParts(toogleStyle, menuModel, topicId)
-    );
+    var _this$props = this.props,
+        rootStyle = _this$props.rootStyle,
+        toogleStyle = _this$props.toogleStyle,
+        menuModel = _this$props.menuModel,
+        topicId = _this$props.topicId;
+    return _react["default"].createElement("div", {
+      style: rootStyle
+    }, this._renderMenuParts(toogleStyle, menuModel, topicId));
   }
 });
 
-exports.default = Menu;
+var _default = Menu;
+exports["default"] = _default;
 //# sourceMappingURL=Menu.js.map

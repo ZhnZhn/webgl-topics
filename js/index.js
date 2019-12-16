@@ -1,20 +1,16 @@
-'use strict';
+"use strict";
 
-var _react = require('react');
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-var _react2 = _interopRequireDefault(_react);
+var _react = _interopRequireDefault(require("react"));
 
-var _reactDom = require('react-dom');
+var _reactDom = require("react-dom");
 
-var _AppWebGLTopic = require('./components/AppWebGLTopic');
+var _AppWebGLTopic = _interopRequireDefault(require("./components/AppWebGLTopic"));
 
-var _AppWebGLTopic2 = _interopRequireDefault(_AppWebGLTopic);
+var _WebGlTopicStore = _interopRequireDefault(require("./flux/stores/WebGlTopicStore"));
 
-var _WebGlTopicStore = require('./flux/stores/WebGlTopicStore');
-
-var _WebGlTopicStore2 = _interopRequireDefault(_WebGlTopicStore);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-(0, _reactDom.render)(_react2.default.createElement(_AppWebGLTopic2.default, { store: _WebGlTopicStore2.default }), document.getElementById("app"));
+(0, _reactDom.render)(_react["default"].createElement(_AppWebGLTopic["default"], {
+  store: _WebGlTopicStore["default"]
+}), document.getElementById("app"));
 //# sourceMappingURL=index.js.map

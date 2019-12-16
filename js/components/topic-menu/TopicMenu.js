@@ -1,110 +1,86 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
 
-var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+exports.__esModule = true;
+exports["default"] = void 0;
 
-var _createClass2 = require('babel-runtime/helpers/createClass');
+var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inheritsLoose"));
 
-var _createClass3 = _interopRequireDefault(_createClass2);
+var _react = _interopRequireWildcard(require("react"));
 
-var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
+var _RouterTopicActions = require("../../flux/actions/RouterTopicActions");
 
-var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+var _Menu = _interopRequireDefault(require("../zhn-moleculs/Menu"));
 
-var _inherits2 = require('babel-runtime/helpers/inherits');
+var _menuModel = _interopRequireDefault(require("./menuModel"));
 
-var _inherits3 = _interopRequireDefault(_inherits2);
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _RouterTopicActions = require('../../flux/actions/RouterTopicActions');
-
-var _Menu = require('../zhn-moleculs/Menu');
-
-var _Menu2 = _interopRequireDefault(_Menu);
-
-var _menuModel = require('./menuModel');
-
-var _menuModel2 = _interopRequireDefault(_menuModel);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var TopicMenu = function (_Component) {
-  (0, _inherits3.default)(TopicMenu, _Component);
+var TopicMenu =
+/*#__PURE__*/
+function (_Component) {
+  (0, _inheritsLoose2["default"])(TopicMenu, _Component);
 
   function TopicMenu(props) {
-    (0, _classCallCheck3.default)(this, TopicMenu);
+    var _this;
 
-    var _this = (0, _possibleConstructorReturn3.default)(this, (TopicMenu.__proto__ || Object.getPrototypeOf(TopicMenu)).call(this, props));
+    _this = _Component.call(this, props) || this;
 
     _this._onStore = function (actionType, state) {
       if (actionType === _RouterTopicActions.RouterTopicActionTypes.VIEW_TOPIC) {
-        _this.setState({ topicId: state.topicId });
+        _this.setState({
+          topicId: state.topicId
+        });
       }
     };
 
     var store = props.store;
-
     _this.state = {
       topicId: store.state.topicId
     };
     return _this;
   }
 
-  (0, _createClass3.default)(TopicMenu, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      var store = this.props.store;
+  var _proto = TopicMenu.prototype;
 
-      this.unsubscribe = store.listen(this._onStore);
-    }
-  }, {
-    key: 'componentWillUnmount',
-    value: function componentWillUnmount() {
-      this.unsubscribe();
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      var topicId = this.state.topicId;
+  _proto.componentDidMount = function componentDidMount() {
+    var store = this.props.store;
+    this.unsubscribe = store.listen(this._onStore);
+  };
 
-      return _react2.default.createElement(
-        'section',
-        { className: 'sidebar', tabindex: '-1' },
-        _react2.default.createElement(
-          'div',
-          { className: 'sidebar__menu', role: 'navigation' },
-          _react2.default.createElement(_Menu2.default, {
-            toogleStyle: { paddingLeft: '6px' },
-            menuModel: _menuModel2.default,
-            topicId: topicId
-          })
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: 'sidebar__footer' },
-          _react2.default.createElement(
-            'button',
-            { className: 'sidebar__footer__link', type: 'button' },
-            'Footer Button'
-          )
-        )
-      );
-    }
-  }]);
+  _proto.componentWillUnmount = function componentWillUnmount() {
+    this.unsubscribe();
+  };
+
+  _proto.render = function render() {
+    var topicId = this.state.topicId;
+    return _react["default"].createElement("section", {
+      className: "sidebar",
+      tabindex: "-1"
+    }, _react["default"].createElement("div", {
+      className: "sidebar__menu",
+      role: "navigation"
+    }, _react["default"].createElement(_Menu["default"], {
+      toogleStyle: {
+        paddingLeft: '6px'
+      },
+      menuModel: _menuModel["default"],
+      topicId: topicId
+    })), _react["default"].createElement("div", {
+      className: "sidebar__footer"
+    }, _react["default"].createElement("button", {
+      className: "sidebar__footer__link",
+      type: "button"
+    }, "Footer Button")));
+  };
+
   return TopicMenu;
 }(_react.Component);
 
-process.env.NODE_ENV !== "production" ? TopicMenu.propTypes = {
+TopicMenu.propTypes = {
   store: _react.PropTypes.object.isRequired
-} : void 0;
-
-exports.default = TopicMenu;
+};
+var _default = TopicMenu;
+exports["default"] = _default;
 //# sourceMappingURL=TopicMenu.js.map

@@ -1,36 +1,31 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports._draw = undefined;
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-var _fnGL = require("../gl-fn/fnGL");
+exports.__esModule = true;
+exports["default"] = exports._draw = void 0;
 
-var _fnGL2 = _interopRequireDefault(_fnGL);
+var _fnGL = _interopRequireDefault(require("../gl-fn/fnGL"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var _draw = exports._draw = function _draw(target) {
+var _draw = function _draw(target) {
   var gl = target.gl,
       isAnimate = target.isAnimate,
       vertexCount = target.vertexCount,
       isStopDraw = target.isStopDraw,
       draw = target.draw,
       _target$drawMode = target.drawMode,
-      drawMode = _target$drawMode === undefined ? "TRIANGLES" : _target$drawMode,
+      drawMode = _target$drawMode === void 0 ? "TRIANGLES" : _target$drawMode,
       isDrawElemnts = target.isDrawElemnts,
       indexCount = target.indexCount,
       isDynamicTranslate = target.isDynamicTranslate,
       matrixLocation = target.matrixLocation,
       matrix = target.matrix;
 
-
   if (isAnimate) {
+    _fnGL["default"].rotateMatrix(target);
 
-    _fnGL2.default.rotateMatrix(target);
     if (isDynamicTranslate) {
-      _fnGL2.default.translateMatrix(target);
+      _fnGL["default"].translateMatrix(target);
     }
 
     gl.uniformMatrix4fv(matrixLocation, false, matrix);
@@ -50,9 +45,12 @@ var _draw = exports._draw = function _draw(target) {
   }
 };
 
+exports._draw = _draw;
+
 var draw = function draw(target) {
   target.prototype.draw = _draw;
 };
 
-exports.default = draw;
+var _default = draw;
+exports["default"] = _default;
 //# sourceMappingURL=draw.js.map

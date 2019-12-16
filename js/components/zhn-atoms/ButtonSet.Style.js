@@ -1,9 +1,7 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
+exports.__esModule = true;
+exports["default"] = void 0;
 var STYLE = {
   BT: {
     color: '#fefcff',
@@ -29,8 +27,7 @@ var STYLE = {
     backgroundColor: '#9e9e9e',
     border: '2px solid #9e9e9e'
   }
-
 };
-
-exports.default = STYLE;
+var _default = STYLE;
+exports["default"] = _default;
 //# sourceMappingURL=ButtonSet.Style.js.map

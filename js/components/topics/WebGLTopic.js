@@ -1,75 +1,42 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
 
-var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+exports.__esModule = true;
+exports["default"] = void 0;
 
-var _createClass2 = require('babel-runtime/helpers/createClass');
+var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inheritsLoose"));
 
-var _createClass3 = _interopRequireDefault(_createClass2);
+var _react = _interopRequireWildcard(require("react"));
 
-var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
+var _RouterLink = _interopRequireDefault(require("./links/RouterLink"));
 
-var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+var _initGL = _interopRequireDefault(require("./gl-decorators/initGL"));
 
-var _inherits2 = require('babel-runtime/helpers/inherits');
+var _createShaders = _interopRequireDefault(require("./gl-decorators/createShaders"));
 
-var _inherits3 = _interopRequireDefault(_inherits2);
+var _createPerspective = _interopRequireDefault(require("./gl-decorators/createPerspective"));
 
-var _class;
+var _setPointSize = _interopRequireDefault(require("./gl-decorators/setPointSize"));
 
-var _react = require('react');
+var _configMatrix = _interopRequireDefault(require("./gl-decorators/configMatrix"));
 
-var _react2 = _interopRequireDefault(_react);
+var _draw = _interopRequireDefault(require("./gl-decorators/draw"));
 
-var _RouterLink = require('./links/RouterLink');
+var _startAnimation = _interopRequireDefault(require("./gl-decorators/startAnimation"));
 
-var _RouterLink2 = _interopRequireDefault(_RouterLink);
+var _Button = _interopRequireDefault(require("../zhn-atoms/Button"));
 
-var _initGL = require('./gl-decorators/initGL');
-
-var _initGL2 = _interopRequireDefault(_initGL);
-
-var _createShaders = require('./gl-decorators/createShaders');
-
-var _createShaders2 = _interopRequireDefault(_createShaders);
-
-var _createPerspective = require('./gl-decorators/createPerspective');
-
-var _createPerspective2 = _interopRequireDefault(_createPerspective);
-
-var _setPointSize = require('./gl-decorators/setPointSize');
-
-var _setPointSize2 = _interopRequireDefault(_setPointSize);
-
-var _configMatrix = require('./gl-decorators/configMatrix');
-
-var _configMatrix2 = _interopRequireDefault(_configMatrix);
-
-var _draw = require('./gl-decorators/draw');
-
-var _draw2 = _interopRequireDefault(_draw);
-
-var _startAnimation = require('./gl-decorators/startAnimation');
-
-var _startAnimation2 = _interopRequireDefault(_startAnimation);
-
-var _Button = require('../zhn-atoms/Button');
-
-var _Button2 = _interopRequireDefault(_Button);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _class, _class2, _temp;
 
 var WIDTH = 500,
     HEIGHT = 500,
     STYLE = {
   ROOT: {
     position: 'relative',
-    float: 'left'
+    "float": 'left'
   },
   BT_RUN: {
     position: 'absolute',
@@ -78,16 +45,19 @@ var WIDTH = 500,
   }
 };
 
-var WebGLTopic = (0, _initGL2.default)(_class = (0, _createShaders2.default)(_class = (0, _createPerspective2.default)(_class = (0, _setPointSize2.default)(_class = (0, _configMatrix2.default)(_class = (0, _draw2.default)(_class = (0, _startAnimation2.default)(_class = function (_Component) {
-  (0, _inherits3.default)(WebGLTopic, _Component);
+var WebGLTopic = (0, _initGL["default"])(_class = (0, _createShaders["default"])(_class = (0, _createPerspective["default"])(_class = (0, _setPointSize["default"])(_class = (0, _configMatrix["default"])(_class = (0, _draw["default"])(_class = (0, _startAnimation["default"])(_class = (_temp = _class2 =
+/*#__PURE__*/
+function (_Component) {
+  (0, _inheritsLoose2["default"])(WebGLTopic, _Component);
 
   function WebGLTopic(props) {
-    (0, _classCallCheck3.default)(this, WebGLTopic);
+    var _this;
 
-    var _this = (0, _possibleConstructorReturn3.default)(this, (WebGLTopic.__proto__ || Object.getPrototypeOf(WebGLTopic)).call(this));
+    _this = _Component.call(this) || this;
 
     _this._handleClickCanvas = function () {
       _this.isAnimate = !_this.isAnimate;
+
       _this.forceUpdate();
     };
 
@@ -96,13 +66,13 @@ var WebGLTopic = (0, _initGL2.default)(_class = (0, _createShaders2.default)(_cl
         return undefined;
       } else {
         var _valuesForInit$topicL = valuesForInit.topicLink,
-            topicLink = _valuesForInit$topicL === undefined ? {} : _valuesForInit$topicL,
+            topicLink = _valuesForInit$topicL === void 0 ? {} : _valuesForInit$topicL,
             type = topicLink.type,
-            Comp = _RouterLink2.default[type];
+            Comp = _RouterLink["default"][type];
 
         if (typeof Comp === 'undefined') {
           return undefined;
-        } else return _react2.default.createElement(Comp, topicLink);
+        } else return _react["default"].createElement(Comp, topicLink);
       }
     };
 
@@ -111,65 +81,50 @@ var WebGLTopic = (0, _initGL2.default)(_class = (0, _createShaders2.default)(_cl
     return _this;
   }
 
-  (0, _createClass3.default)(WebGLTopic, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      var startAnimation = this.props.startAnimation;
+  var _proto = WebGLTopic.prototype;
 
-      if (typeof startAnimation === "function") {
-        startAnimation(this);
-      } else {
-        this.startAnimation(this);
-      }
-    }
-  }, {
-    key: 'componentWillUnmount',
-    value: function componentWillUnmount() {
-      this.isStopDraw = true;
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      var _this2 = this;
+  _proto.componentDidMount = function componentDidMount() {
+    var startAnimation = this.props.startAnimation;
 
-      var valuesForInit = this.props.valuesForInit;
-
-      return _react2.default.createElement(
-        'div',
-        { style: STYLE.ROOT },
-        _react2.default.createElement(
-          'canvas',
-          {
-            ref: function ref(el) {
-              return _this2.canvas = el;
-            },
-            width: WIDTH,
-            height: HEIGHT,
-            style: { borderRadius: '2px' },
-            onClick: this._handleClickCanvas
-          },
-          'Your browser doesn\'t appear to support the',
-          _react2.default.createElement(
-            'code',
-            null,
-            '<canvas>'
-          ),
-          ' element.'
-        ),
-        this.isAnimate === false && _react2.default.createElement(_Button2.default, {
-          caption: 'Run Animation',
-          style: STYLE.BT_RUN,
-          onClick: this._handleClickCanvas
-        }),
-        this._renderTopicLink(valuesForInit)
-      );
+    if (typeof startAnimation === "function") {
+      startAnimation(this);
+    } else {
+      this.startAnimation(this);
     }
-  }]);
+  };
+
+  _proto.componentWillUnmount = function componentWillUnmount() {
+    this.isStopDraw = true;
+  };
+
+  _proto.render = function render() {
+    var _this2 = this;
+
+    var valuesForInit = this.props.valuesForInit;
+    return _react["default"].createElement("div", {
+      style: STYLE.ROOT
+    }, _react["default"].createElement("canvas", {
+      ref: function ref(el) {
+        return _this2.canvas = el;
+      },
+      width: WIDTH,
+      height: HEIGHT,
+      style: {
+        borderRadius: '2px'
+      },
+      onClick: this._handleClickCanvas
+    }, "Your browser doesn't appear to support the", _react["default"].createElement("code", null, "<canvas>"), " element."), this.isAnimate === false && _react["default"].createElement(_Button["default"], {
+      caption: "Run Animation",
+      style: STYLE.BT_RUN,
+      onClick: this._handleClickCanvas
+    }), this._renderTopicLink(valuesForInit));
+  };
+
   return WebGLTopic;
-}(_react.Component)) || _class) || _class) || _class) || _class) || _class) || _class) || _class;
-
-process.env.NODE_ENV !== "production" ? WebGLTopic.propTypes = {
+}(_react.Component), _class2.propTypes = {
   valuesForInit: _react.PropTypes.object
-} : void 0;
-exports.default = WebGLTopic;
+}, _temp)) || _class) || _class) || _class) || _class) || _class) || _class) || _class;
+
+var _default = WebGLTopic;
+exports["default"] = _default;
 //# sourceMappingURL=WebGLTopic.js.map

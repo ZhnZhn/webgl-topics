@@ -1,68 +1,41 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
 
-var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+exports.__esModule = true;
+exports["default"] = void 0;
 
-var _createClass2 = require('babel-runtime/helpers/createClass');
+var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inheritsLoose"));
 
-var _createClass3 = _interopRequireDefault(_createClass2);
+var _react = _interopRequireWildcard(require("react"));
 
-var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
+var _setModeToAll = _interopRequireDefault(require("./decorators/setModeToAll"));
 
-var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+var _onChangeMode = _interopRequireDefault(require("./decorators/onChangeMode"));
 
-var _inherits2 = require('babel-runtime/helpers/inherits');
+var _calcInputMode = _interopRequireDefault(require("./decorators/calcInputMode"));
 
-var _inherits3 = _interopRequireDefault(_inherits2);
+var _Label = _interopRequireDefault(require("../zhn-atoms/Label"));
 
-var _class;
+var _InputFloat = _interopRequireDefault(require("../zhn-atoms/InputFloat"));
 
-var _react = require('react');
+var _ButtonSet = _interopRequireDefault(require("../zhn-atoms/ButtonSet"));
 
-var _react2 = _interopRequireDefault(_react);
+var _Row = _interopRequireDefault(require("./Row.Style"));
 
-var _setModeToAll = require('./decorators/setModeToAll');
+var _class, _class2, _temp;
 
-var _setModeToAll2 = _interopRequireDefault(_setModeToAll);
-
-var _onChangeMode = require('./decorators/onChangeMode');
-
-var _onChangeMode2 = _interopRequireDefault(_onChangeMode);
-
-var _calcInputMode = require('./decorators/calcInputMode');
-
-var _calcInputMode2 = _interopRequireDefault(_calcInputMode);
-
-var _Label = require('../zhn-atoms/Label');
-
-var _Label2 = _interopRequireDefault(_Label);
-
-var _InputFloat = require('../zhn-atoms/InputFloat');
-
-var _InputFloat2 = _interopRequireDefault(_InputFloat);
-
-var _ButtonSet = require('../zhn-atoms/ButtonSet');
-
-var _ButtonSet2 = _interopRequireDefault(_ButtonSet);
-
-var _Row = require('./Row.Style');
-
-var _Row2 = _interopRequireDefault(_Row);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var RowProp = (0, _setModeToAll2.default)(_class = (0, _onChangeMode2.default)(_class = (0, _calcInputMode2.default)(_class = function (_Component) {
-  (0, _inherits3.default)(RowProp, _Component);
+var RowProp = (0, _setModeToAll["default"])(_class = (0, _onChangeMode["default"])(_class = (0, _calcInputMode["default"])(_class = (_temp = _class2 =
+/*#__PURE__*/
+function (_Component) {
+  (0, _inheritsLoose2["default"])(RowProp, _Component);
 
   function RowProp(props) {
-    (0, _classCallCheck3.default)(this, RowProp);
+    var _this;
 
-    var _this = (0, _possibleConstructorReturn3.default)(this, (RowProp.__proto__ || Object.getPrototypeOf(RowProp)).call(this, props));
+    _this = _Component.call(this, props) || this;
 
     _this._handleSetValue = function () {
       var _this$props = _this.props,
@@ -70,12 +43,12 @@ var RowProp = (0, _setModeToAll2.default)(_class = (0, _onChangeMode2.default)(_
           propKey = _this$props.propKey,
           fnAfterSet = _this$props.fnAfterSet,
           comp = onGetComp();
-
       comp[propKey] = _this.inputFloat.getValue();
 
       if (typeof fnAfterSet === 'function') {
         fnAfterSet(comp);
       }
+
       _this._setModeToAll(2);
     };
 
@@ -86,56 +59,51 @@ var RowProp = (0, _setModeToAll2.default)(_class = (0, _onChangeMode2.default)(_
     return _this;
   }
 
-  (0, _createClass3.default)(RowProp, [{
-    key: 'render',
-    value: function render() {
-      var _this2 = this;
+  var _proto = RowProp.prototype;
 
-      var _props = this.props,
-          labelBy = _props.labelBy,
-          inputId = _props.inputId,
-          value = _props.value,
-          styleLabel = _props.styleLabel;
+  _proto.render = function render() {
+    var _this2 = this;
 
-      return _react2.default.createElement(
-        'div',
-        { style: _Row2.default.ROW },
-        _react2.default.createElement(_Label2.default, {
-          style: Object.assign({}, _Row2.default.LABEL_ROW, styleLabel),
-          title: labelBy,
-          id: inputId
-        }),
-        _react2.default.createElement(_InputFloat2.default, {
-          ref: function ref(comp) {
-            return _this2.inputFloat = comp;
-          },
-          id: inputId,
-          inputKey: 'inputFloat',
-          inputStyle: _Row2.default.INPUT_FLOAT_3,
-          value: value,
-          step: 0.001,
-          onChangeMode: this._onChangeMode.bind(this),
-          onKeyDownEnter: this._handleSetValue
-        }),
-        _react2.default.createElement(_ButtonSet2.default, {
-          ref: function ref(bt) {
-            return _this2.bt = bt;
-          },
-          onClick: this._handleSetValue
-        })
-      );
-    }
-  }]);
+    var _this$props2 = this.props,
+        labelBy = _this$props2.labelBy,
+        inputId = _this$props2.inputId,
+        value = _this$props2.value,
+        styleLabel = _this$props2.styleLabel;
+    return _react["default"].createElement("div", {
+      style: _Row["default"].ROW
+    }, _react["default"].createElement(_Label["default"], {
+      style: Object.assign({}, _Row["default"].LABEL_ROW, styleLabel),
+      title: labelBy,
+      id: inputId
+    }), _react["default"].createElement(_InputFloat["default"], {
+      ref: function ref(comp) {
+        return _this2.inputFloat = comp;
+      },
+      id: inputId,
+      inputKey: "inputFloat",
+      inputStyle: _Row["default"].INPUT_FLOAT_3,
+      value: value,
+      step: 0.001,
+      onChangeMode: this._onChangeMode.bind(this),
+      onKeyDownEnter: this._handleSetValue
+    }), _react["default"].createElement(_ButtonSet["default"], {
+      ref: function ref(bt) {
+        return _this2.bt = bt;
+      },
+      onClick: this._handleSetValue
+    }));
+  };
+
   return RowProp;
-}(_react.Component)) || _class) || _class) || _class;
-
-process.env.NODE_ENV !== "production" ? RowProp.propTypes = {
+}(_react.Component), _class2.propTypes = {
   labelBy: _react.PropTypes.string.isRequired,
   value: _react.PropTypes.number.isRequired,
   propKey: _react.PropTypes.string.isRequired,
   styleLabel: _react.PropTypes.object,
   onGetComp: _react.PropTypes.func.isRequired,
   fnAfterSet: _react.PropTypes.func
-} : void 0;
-exports.default = RowProp;
+}, _temp)) || _class) || _class) || _class;
+
+var _default = RowProp;
+exports["default"] = _default;
 //# sourceMappingURL=RowProp.js.map
