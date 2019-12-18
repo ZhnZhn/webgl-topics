@@ -15,9 +15,7 @@ var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inh
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _InputSelect = _interopRequireDefault(require("../zhn-atoms/InputSelect"));
-
-var _ButtonSet = _interopRequireDefault(require("../zhn-atoms/ButtonSet"));
+var _Comp = _interopRequireDefault(require("../Comp"));
 
 var _Row = _interopRequireDefault(require("./Row.Style"));
 
@@ -88,10 +86,10 @@ function (_Component) {
       style: _Row["default"].ROW
     }, _react["default"].createElement("span", {
       style: (0, _extends2["default"])({}, _Row["default"].CAPTION, {}, S.CAPTION)
-    }, "DrawMode:"), _react["default"].createElement(_InputSelect["default"], {
+    }, "DrawMode:"), _react["default"].createElement(_Comp["default"].InputSelect, {
       options: _drawModeOptions,
       onSelect: this._handleSelectDrawMode
-    }), _react["default"].createElement(_ButtonSet["default"], {
+    }), _react["default"].createElement(_Comp["default"].ButtonSet, {
       mode: 1,
       onClick: this._handleSetDrawMode
     }));

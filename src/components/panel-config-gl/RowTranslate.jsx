@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 
 import setModeToAll from './decorators/setModeToAll';
 import onChangeMode from './decorators/onChangeMode';
@@ -14,18 +14,21 @@ import STYLE from './Row.Style';
 @onChangeMode
 @calcInputMode
 class RowTranslate extends Component{
+  /*
   static propTypes = {
     zMatrixTranslate : PropTypes.number.isRequired,
     onGetComp : PropTypes.func.isRequired
   }
+  */
 
   constructor(props){
-    super()
+    super(props)
 
     this.mode = {
       translateZ : 2,
       bt : 2
     }
+    this._onChangeMode = this._onChangeMode.bind(this)
   }
 
   _handleSetTranslate = () => {
@@ -35,6 +38,9 @@ class RowTranslate extends Component{
 
     this._setModeToAll(2);
   }
+
+  _refTranslateZ = comp => this.translateZ = comp
+  _refBt = bt => this.bt = bt
 
   render(){
     const { zMatrixTranslate } = this.props
@@ -50,15 +56,15 @@ class RowTranslate extends Component{
           title="Z:"
         />
         <InputFloat
-          ref={ comp => this.translateZ = comp }
+          ref={this._refTranslateZ}
           inputKey="translateZ"
           inputStyle={STYLE.INPUT_FLOAT_2}
           value={zMatrixTranslate}
-          onChangeMode={this._onChangeMode.bind(this)}
+          onChangeMode={this._onChangeMode}
           onKeyDownEnter={this._handleSetTranslate}
         />
         <ButtonSet
-            ref={ bt => this.bt = bt }
+            ref={this._refBt}
             onClick={this._handleSetTranslate}
         />
       </div>

@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 
 import setModeToAll from './decorators/setModeToAll';
 import onChangeMode from './decorators/onChangeMode';
@@ -14,16 +14,17 @@ import STYLE from './Row.Style'
 @onChangeMode
 @calcInputMode
 class RowRotateAll extends Component {
+  /*
   static propTypes = {
     rX : PropTypes.number.isRequired,
     rY : PropTypes.number.isRequired,
     rZ : PropTypes.number.isRequired,
     onGetComp : PropTypes.func.isRequired
   }
-
+  */
 
   constructor(props){
-    super()
+    super(props)
 
     this.mode = {
       rotateX : 2,
@@ -31,6 +32,7 @@ class RowRotateAll extends Component {
       rotateZ : 2,
       bt : 2
     }
+    this._onChangeMode = this._onChangeMode.bind(this)
   }
 
   _handleSetRotation = () => {
@@ -42,9 +44,14 @@ class RowRotateAll extends Component {
     this._setModeToAll(2)
   }
 
+  _refRotateX = comp => this.rotateX = comp
+  _refRotateY = comp => this.rotateY = comp
+  _refRotateZ = comp => this.rotateZ = comp
+  _refBt = comp => this.bt = comp
+
   render(){
-    const { rX, rY, rZ } = this.props
-        , onChangeMode = this._onChangeMode.bind(this)
+    const { rX, rY, rZ } = this.props;
+
     return(
       <div style={STYLE.ROW}>
         <Label
@@ -56,12 +63,12 @@ class RowRotateAll extends Component {
           title="X:"
         />
         <InputFloat
-          ref={ comp => this.rotateX = comp }
+          ref={this._refRotateX}
           inputKey="rotateX"
           inputStyle={STYLE.INPUT_FLOAT_3}
           value={rX}
           step={0.001}
-          onChangeMode={onChangeMode}
+          onChangeMode={this._onChangeMode}
           onKeyDownEnter={this._handleSetRotation}
         />
         <Label
@@ -69,12 +76,12 @@ class RowRotateAll extends Component {
           title="Y:"
         />
         <InputFloat
-          ref={ comp => this.rotateY = comp }
+          ref={this._refRotateY}
           inputKey="rotateY"
           inputStyle={STYLE.INPUT_FLOAT_3}
           value={rY}
           step={0.001}
-          onChangeMode={onChangeMode}
+          onChangeMode={this._onChangeMode}
           onKeyDownEnter={this._handleSetRotation}
         />
         <Label
@@ -82,16 +89,16 @@ class RowRotateAll extends Component {
           title="Z:"
         />
         <InputFloat
-          ref={ comp => this.rotateZ = comp }
+          ref={this._refRotateZ}
           inputKey="rotateZ"
           inputStyle={STYLE.INPUT_FLOAT_3}
           value={rZ}
           step={0.001}
-          onChangeMode={onChangeMode}
+          onChangeMode={this._onChangeMode}
           onKeyDownEnter={this._handleSetRotation}
         />
         <ButtonSet
-           ref={ bt => this.bt = bt }
+           ref={this._refBt}
            onClick={this._handleSetRotation}
         />
       </div>

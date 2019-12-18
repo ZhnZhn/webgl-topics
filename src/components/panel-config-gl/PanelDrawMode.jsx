@@ -15,17 +15,26 @@ const _drawModeOptions = [
 import STYLE from './Panel.Style';
 
 const S = {
+  OC_DIV: {
+    paddingTop: 6
+  },
   BT_SET: {
     position: 'relative',
-    top: '-6px'
+    top: -6
   }
 };
 
 class PanelDrawMode extends Component {
-  _handleSelectDrawMode = (item) => {
+  /*
+  static propTypes = {
+    onGetComp : PropTypes.func.isRequired
+  }
+  */
+
+  _hSelectDrawMode = (item) => {
     this.drawMode = item
   }
-  _handleSetDrawMode = () => {
+  _hSetDrawMode = () => {
     const { drawMode } = this
     if (drawMode){
       const comp = this.props.onGetComp();
@@ -39,28 +48,22 @@ class PanelDrawMode extends Component {
         caption="DrawMode"
         style={STYLE.OPEN_CLOSE}
       >
-        <div style={STYLE.OC_DIV}>
+        <div style={{ ...STYLE.OC_DIV, ...S.OC_DIV}}>
           <A.InputSelect
+            width="170"
             options={_drawModeOptions}
             styleRoot={STYLE.INPUT_SELECT}
-            onSelect={this._handleSelectDrawMode}
+            onSelect={this._hSelectDrawMode}
           />
           <A.ButtonSet
              style={S.BT_SET}
              mode={1}
-             onClick={this._handleSetDrawMode}
+             onClick={this._hSetDrawMode}
           />
         </div>
       </A.OpenClose>
     );
   }
 }
-
-/*
-PanelDrawMode.propTypes = {
-  onGetComp : PropTypes.func.isRequired
-}
-*/
-
 
 export default PanelDrawMode

@@ -100,7 +100,7 @@
   </style>
 
   <!-- inject:css -->
-  <link rel="stylesheet" href="/css/app-40386f8aa7.min.css">
+  <link rel="stylesheet" href="/css/app-3288ce7506.min.css">
   <!-- endinject  -->
 
 
@@ -153,11 +153,9 @@
  <%
  for (var index in htmlWebpackPlugin.files.js ) {
     var fileName = htmlWebpackPlugin.files.js[index];
-    if (fileName.indexOf('lib_') !== -1) { %>
+    if (fileName.indexOf('app_') !== -1) { %>
       <script src="<%=fileName %>" defer></script>
-    <% } else if (fileName.indexOf('app_') !== -1) { %>
-      <script src="<%=fileName %>" defer></script>
-    <% }
+    <% } 
  } %>
 
 

@@ -11,26 +11,26 @@ class PanelTranslate extends Component {
     zMatrixTranslate : PropTypes.number.isRequired,
     onGetComp : PropTypes.func.isRequired
   }
-  */  
+  */
 
   _fnAfterSet = (comp) => {
      comp.configMatrix(comp);
   }
 
   render(){
-    const { zMatrixTranslate, onGetComp } = this.props
+    const { zMatrixTranslate, onGetComp } = this.props;
     return (
       <OpenClose
         caption="Translate"
         style={STYLE.OPEN_CLOSE}
       >
         <RowProp
-        labelBy="Z:"
-        inputId="tZ"
-        value={zMatrixTranslate}
-        propKey="zMatrixTranslate"
-        onGetComp={onGetComp}
-        fnAfterSet={this._fnAfterSet}
+          labelBy="Z:"
+          inputId="tZ"
+          value={zMatrixTranslate}
+          propKey="zMatrixTranslate"
+          onGetComp={onGetComp}
+          fnAfterSet={this._fnAfterSet}
         />
       </OpenClose>
     )

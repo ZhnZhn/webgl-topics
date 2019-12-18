@@ -9,7 +9,7 @@ module.exports = {
   mode: "production",
   entry: {
      lib: [
-            "react", "react-dom", "create-react-class",
+            "react", "react-dom",
             "reflux",
             "gl-matrix", "big.js"
           ]

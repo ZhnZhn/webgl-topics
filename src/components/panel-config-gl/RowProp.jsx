@@ -29,9 +29,13 @@ class RowProp extends Component{
   }
   */
 
-  mode = {
-    inputFloat : 2,
-    bt : 2
+  constructor(props){
+    super(props)
+    this.mode = {
+      inputFloat : 2,
+      bt : 2
+    }
+    this._onChangeMode = this._onChangeMode.bind(this)
   }
 
   _handleSetValue = () => {
@@ -49,7 +53,7 @@ class RowProp extends Component{
   _refBt = bt => this.bt = bt
 
   render(){
-    const { labelBy, inputId, value, styleLabel } = this.props
+    const { labelBy, inputId, value, styleLabel } = this.props;
     return (
       <div style={STYLE.ROW}>
         <A.Label
@@ -64,7 +68,7 @@ class RowProp extends Component{
           inputStyle={STYLE.INPUT_FLOAT_3}
           value={value}
           step={0.001}
-          onChangeMode={this._onChangeMode.bind(this)}
+          onChangeMode={this._onChangeMode}
           onKeyDownEnter={this._handleSetValue}
         />
         <A.ButtonSet

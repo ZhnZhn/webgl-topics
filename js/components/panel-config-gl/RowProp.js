@@ -9,6 +9,8 @@ exports["default"] = void 0;
 
 var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
 
+var _assertThisInitialized2 = _interopRequireDefault(require("@babel/runtime/helpers/assertThisInitialized"));
+
 var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inheritsLoose"));
 
 var _react = _interopRequireWildcard(require("react"));
@@ -34,18 +36,20 @@ var RowProp = (0, _setModeToAll["default"])(_class = (0, _onChangeMode["default"
 function (_Component) {
   (0, _inheritsLoose2["default"])(RowProp, _Component);
 
-  function RowProp() {
+  /*
+  static propTypes = {
+    labelBy: PropTypes.string.isRequired,
+    value: PropTypes.number.isRequired,
+    propKey: PropTypes.string.isRequired,
+    styleLabel: PropTypes.object,
+    onGetComp: PropTypes.func.isRequired,
+    fnAfterSet: PropTypes.func
+  }
+  */
+  function RowProp(props) {
     var _this;
 
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = _Component.call.apply(_Component, [this].concat(args)) || this;
-    _this.mode = {
-      inputFloat: 2,
-      bt: 2
-    };
+    _this = _Component.call(this, props) || this;
 
     _this._handleSetValue = function () {
       var _this$props = _this.props,
@@ -70,6 +74,11 @@ function (_Component) {
       return _this.bt = bt;
     };
 
+    _this.mode = {
+      inputFloat: 2,
+      bt: 2
+    };
+    _this._onChangeMode = _this._onChangeMode.bind((0, _assertThisInitialized2["default"])(_this));
     return _this;
   }
 
@@ -94,7 +103,7 @@ function (_Component) {
       inputStyle: _Row["default"].INPUT_FLOAT_3,
       value: value,
       step: 0.001,
-      onChangeMode: this._onChangeMode.bind(this),
+      onChangeMode: this._onChangeMode,
       onKeyDownEnter: this._handleSetValue
     }), _react["default"].createElement(_Comp["default"].ButtonSet, {
       ref: this._refBt,

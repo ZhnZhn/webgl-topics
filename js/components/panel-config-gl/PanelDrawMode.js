@@ -7,6 +7,8 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 exports.__esModule = true;
 exports["default"] = void 0;
 
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
+
 var _assertThisInitialized2 = _interopRequireDefault(require("@babel/runtime/helpers/assertThisInitialized"));
 
 var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inheritsLoose"));
@@ -40,9 +42,12 @@ var _drawModeOptions = [{
   value: "POINTS"
 }];
 var S = {
+  OC_DIV: {
+    paddingTop: 6
+  },
   BT_SET: {
     position: 'relative',
-    top: '-6px'
+    top: -6
   }
 };
 
@@ -60,11 +65,11 @@ function (_Component) {
 
     _this = _Component.call.apply(_Component, [this].concat(args)) || this;
 
-    _this._handleSelectDrawMode = function (item) {
+    _this._hSelectDrawMode = function (item) {
       _this.drawMode = item;
     };
 
-    _this._handleSetDrawMode = function () {
+    _this._hSetDrawMode = function () {
       var _assertThisInitialize = (0, _assertThisInitialized2["default"])(_this),
           drawMode = _assertThisInitialize.drawMode;
 
@@ -85,26 +90,21 @@ function (_Component) {
       caption: "DrawMode",
       style: _Panel["default"].OPEN_CLOSE
     }, _react["default"].createElement("div", {
-      style: _Panel["default"].OC_DIV
+      style: (0, _extends2["default"])({}, _Panel["default"].OC_DIV, {}, S.OC_DIV)
     }, _react["default"].createElement(_Comp["default"].InputSelect, {
+      width: "170",
       options: _drawModeOptions,
       styleRoot: _Panel["default"].INPUT_SELECT,
-      onSelect: this._handleSelectDrawMode
+      onSelect: this._hSelectDrawMode
     }), _react["default"].createElement(_Comp["default"].ButtonSet, {
       style: S.BT_SET,
       mode: 1,
-      onClick: this._handleSetDrawMode
+      onClick: this._hSetDrawMode
     })));
   };
 
   return PanelDrawMode;
 }(_react.Component);
-/*
-PanelDrawMode.propTypes = {
-  onGetComp : PropTypes.func.isRequired
-}
-*/
-
 
 var _default = PanelDrawMode;
 exports["default"] = _default;

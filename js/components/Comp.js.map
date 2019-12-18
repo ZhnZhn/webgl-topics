@@ -6,7 +6,8 @@
  "file": "../../src/components/Comp.js",
  "names": [
   "Comp",
-  "A"
+  "A",
+  "InputSelect"
  ],
- "mappings": ";;;;;;;;;AAAA;;AAEA,IAAMA,IAAI,iCACLC,aADK,CAAV;eAIeD,I"
+ "mappings": ";;;;;;;;;AAAA;;AACA;;AAEA,IAAMA,IAAI,iCACLC,aADK;AAERC,EAAAA,WAAW,EAAXA;AAFQ,EAAV;eAKeF,I"
 }

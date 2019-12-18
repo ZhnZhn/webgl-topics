@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 
 import setModeToAll from './decorators/setModeToAll';
 import onChangeMode from './decorators/onChangeMode';
@@ -14,24 +14,27 @@ import  STYLE from './Row.Style';
 @onChangeMode
 @calcInputMode
 class RowPerspective extends Component {
+  /*
   static propTypes = {
     perspectiveNear : PropTypes.number.isRequire,
     perspectiveFar : PropTypes.number.isRequired,
     onGetComp : PropTypes.func.isRequired
   }
+  */
 
   constructor(props){
-    super()
+    super(props)
     this.mode = {
       near : 2,
       far : 2,
       bt : 2
     }
+    this._onChangeMode = this._onChangeMode.bind(this)
   }
 
   _handleSetPerspective = () => {
     const comp = this.props.onGetComp()
-        , { near, far } = this
+    , { near, far } = this;
 
     comp.perspectiveNear = near.getValue()
     comp.perspectiveFar = far.getValue();
@@ -40,10 +43,12 @@ class RowPerspective extends Component {
     this._setModeToAll(2);
   }
 
+  _refNear = comp => this.near = comp
+  _refFar = comp => this.far = comp
+  _refBt = bt => this.bt = bt
 
   render(){
-    const { perspectiveNear, perspectiveFar } = this.props
-        , onChangeMode = this._onChangeMode.bind(this)
+    const { perspectiveNear, perspectiveFar } = this.props;
     return(
       <div style={STYLE.ROW}>
         <Label
@@ -55,11 +60,11 @@ class RowPerspective extends Component {
           title="near:"
         />
         <InputFloat
-          ref={ comp => this.near = comp }
+          ref={this._refNear}
           inputKey="near"
           inputStyle={STYLE.INPUT_FLOAT_2}
           value={perspectiveNear}
-          onChangeMode={onChangeMode}
+          onChangeMode={this._onChangeMode}
           onKeyDownEnter={this._handleSetPerspective}
         />
         <Label
@@ -67,7 +72,7 @@ class RowPerspective extends Component {
           title="far:"
         />
         <InputFloat
-          ref={ comp => this.far = comp }
+          ref={this._refFar}
           inputKey="far"
           value={perspectiveFar}
           inputStyle={STYLE.INPUT_FLOAT_2}
@@ -75,7 +80,7 @@ class RowPerspective extends Component {
           onKeyDownEnter={this._handleSetPerspective}
         />
         <ButtonSet
-           ref={ bt => this.bt = bt }
+           ref={this._refBt}
            onClick={this._handleSetPerspective}
         />
       </div>

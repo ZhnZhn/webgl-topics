@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
-import InputSelect from '../zhn-atoms/InputSelect';
-import ButtonSet from '../zhn-atoms/ButtonSet';
+import A from '../Comp'
 
 import STYLE from './Row.Style';
 
@@ -45,11 +44,11 @@ class RowDrawMode extends Component {
         <span style={{ ...STYLE.CAPTION, ...S.CAPTION }}>
           DrawMode:
         </span>
-        <InputSelect
+        <A.InputSelect
           options={_drawModeOptions}
           onSelect={this._handleSelectDrawMode}
         />
-        <ButtonSet
+        <A.ButtonSet
            mode={1}
            onClick={this._handleSetDrawMode}
         />
