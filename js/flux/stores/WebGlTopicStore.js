@@ -7,7 +7,7 @@ exports["default"] = void 0;
 
 var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
 
-var _reflux = _interopRequireDefault(require("reflux"));
+var _refluxCore = _interopRequireDefault(require("reflux-core"));
 
 var _ID = _interopRequireDefault(require("../../components/topics/ID"));
 
@@ -15,7 +15,7 @@ var _RouterTopicActions = _interopRequireDefault(require("../actions/RouterTopic
 
 var _RouterTopicSlice = _interopRequireDefault(require("./RouterTopicSlice"));
 
-var WebGlStore = _reflux["default"].createStore((0, _extends2["default"])({
+var WebGlStore = _refluxCore["default"].createStore((0, _extends2["default"])({
   listenables: [_RouterTopicActions["default"]],
   state: {
     topicId: _ID["default"].RANDOM_TRIANGLES

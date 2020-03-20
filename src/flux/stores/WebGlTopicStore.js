@@ -1,4 +1,4 @@
-import Reflux from 'reflux';
+import Reflux from 'reflux-core';
 
 import TopicID from '../../components/topics/ID';
 import RouterTopicActions from '../actions/RouterTopicActions'

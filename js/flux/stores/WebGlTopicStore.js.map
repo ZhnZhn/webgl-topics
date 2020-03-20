@@ -1,1 +1,20 @@
-{"version":3,"sources":["../../../src/flux/stores/WebGlTopicStore.js"],"names":["WebGlStore","Reflux","createStore","listenables","RouterTopicActions","state","topicId","TopicID","RANDOM_TRIANGLES","RouterTopicSlice"],"mappings":";;;;;;;;;AAAA;;AAEA;;AACA;;AAEA;;AAEA,IAAMA,UAAU,GAAGC,mBAAOC,WAAP;AACjBC,EAAAA,WAAW,EAAG,CAAEC,8BAAF,CADG;AAEjBC,EAAAA,KAAK,EAAG;AACNC,IAAAA,OAAO,EAAGC,eAAQC;AADZ;AAFS,GAMdC,4BANc,EAAnB;;eASeT,U","sourcesContent":["import Reflux from 'reflux';\r\n\r\nimport TopicID from '../../components/topics/ID';\r\nimport RouterTopicActions from '../actions/RouterTopicActions'\r\n\r\nimport RouterTopicSlice from './RouterTopicSlice';\r\n\r\nconst WebGlStore = Reflux.createStore({\r\n  listenables : [ RouterTopicActions ],\r\n  state : {\r\n    topicId : TopicID.RANDOM_TRIANGLES\r\n  },\r\n\r\n  ...RouterTopicSlice\r\n});\r\n\r\nexport default WebGlStore\r\n"],"file":"WebGlTopicStore.js"}
+{
+ "version": 3,
+ "sources": [
+  "../../../src/flux/stores/WebGlTopicStore.js"
+ ],
+ "file": "../../../src/flux/stores/WebGlTopicStore.js",
+ "names": [
+  "WebGlStore",
+  "Reflux",
+  "createStore",
+  "listenables",
+  "RouterTopicActions",
+  "state",
+  "topicId",
+  "TopicID",
+  "RANDOM_TRIANGLES",
+  "RouterTopicSlice"
+ ],
+ "mappings": ";;;;;;;;;AAAA;;AAEA;;AACA;;AAEA;;AAEA,IAAMA,UAAU,GAAGC,uBAAOC,WAAP;AACjBC,EAAAA,WAAW,EAAG,CAAEC,8BAAF,CADG;AAEjBC,EAAAA,KAAK,EAAG;AACNC,IAAAA,OAAO,EAAGC,eAAQC;AADZ;AAFS,GAMdC,4BANc,EAAnB;;eASeT,U"
+}

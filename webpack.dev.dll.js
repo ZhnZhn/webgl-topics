@@ -9,7 +9,7 @@ module.exports = {
   entry: {
      lib: [
             "react", "react-dom",
-            "reflux",
+            "reflux-core",
             "gl-matrix", "big.js"
           ]
   },
