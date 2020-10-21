@@ -2,8 +2,6 @@
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
-
 exports.__esModule = true;
 exports["default"] = void 0;
 
@@ -13,7 +11,9 @@ var _assertThisInitialized2 = _interopRequireDefault(require("@babel/runtime/hel
 
 var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inheritsLoose"));
 
-var _react = _interopRequireWildcard(require("react"));
+var _jsxRuntime = require("react/jsx-runtime");
+
+var _react = require("react");
 
 var _setModeToAll = _interopRequireDefault(require("./decorators/setModeToAll"));
 
@@ -31,9 +31,7 @@ var _isFn = function _isFn(fn) {
   return typeof fn === 'function';
 };
 
-var RowProp = (0, _setModeToAll["default"])(_class = (0, _onChangeMode["default"])(_class = (0, _calcInputMode["default"])(_class = (_temp =
-/*#__PURE__*/
-function (_Component) {
+var RowProp = (0, _setModeToAll["default"])(_class = (0, _onChangeMode["default"])(_class = (0, _calcInputMode["default"])(_class = (_temp = /*#__PURE__*/function (_Component) {
   (0, _inheritsLoose2["default"])(RowProp, _Component);
 
   /*
@@ -90,25 +88,26 @@ function (_Component) {
         inputId = _this$props2.inputId,
         value = _this$props2.value,
         styleLabel = _this$props2.styleLabel;
-    return _react["default"].createElement("div", {
-      style: _Row["default"].ROW
-    }, _react["default"].createElement(_Comp["default"].Label, {
-      style: (0, _extends2["default"])({}, _Row["default"].LABEL_ROW, {}, styleLabel),
-      title: labelBy,
-      id: inputId
-    }), _react["default"].createElement(_Comp["default"].InputFloat, {
-      ref: this._refInputFloat,
-      id: inputId,
-      inputKey: "inputFloat",
-      inputStyle: _Row["default"].INPUT_FLOAT_3,
-      value: value,
-      step: 0.001,
-      onChangeMode: this._onChangeMode,
-      onKeyDownEnter: this._handleSetValue
-    }), _react["default"].createElement(_Comp["default"].ButtonSet, {
-      ref: this._refBt,
-      onClick: this._handleSetValue
-    }));
+    return /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
+      style: _Row["default"].ROW,
+      children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_Comp["default"].Label, {
+        style: (0, _extends2["default"])({}, _Row["default"].LABEL_ROW, styleLabel),
+        title: labelBy,
+        id: inputId
+      }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_Comp["default"].InputFloat, {
+        ref: this._refInputFloat,
+        id: inputId,
+        inputKey: "inputFloat",
+        inputStyle: _Row["default"].INPUT_FLOAT_3,
+        value: value,
+        step: 0.001,
+        onChangeMode: this._onChangeMode,
+        onKeyDownEnter: this._handleSetValue
+      }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_Comp["default"].ButtonSet, {
+        ref: this._refBt,
+        onClick: this._handleSetValue
+      })]
+    });
   };
 
   return RowProp;

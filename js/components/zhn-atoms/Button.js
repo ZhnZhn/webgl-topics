@@ -7,7 +7,7 @@ exports["default"] = void 0;
 
 var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
 
-var _react = _interopRequireDefault(require("react"));
+var _jsxRuntime = require("react/jsx-runtime");
 
 var _Button = _interopRequireDefault(require("./Button.Style"));
 
@@ -16,11 +16,12 @@ var Button = function Button(_ref) {
       style = _ref.style,
       _ref$onClick = _ref.onClick,
       onClick = _ref$onClick === void 0 ? function () {} : _ref$onClick;
-  return _react["default"].createElement("button", {
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)("button", {
     className: "bt",
-    style: (0, _extends2["default"])({}, _Button["default"].BT, {}, style),
-    onClick: onClick
-  }, caption);
+    style: (0, _extends2["default"])({}, _Button["default"].BT, style),
+    onClick: onClick,
+    children: caption
+  });
 };
 /*
 Button.propTypes = {

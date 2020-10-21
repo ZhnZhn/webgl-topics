@@ -2,8 +2,6 @@
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
-
 exports.__esModule = true;
 exports["default"] = void 0;
 
@@ -11,7 +9,9 @@ var _assertThisInitialized2 = _interopRequireDefault(require("@babel/runtime/hel
 
 var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inheritsLoose"));
 
-var _react = _interopRequireWildcard(require("react"));
+var _jsxRuntime = require("react/jsx-runtime");
+
+var _react = require("react");
 
 var _setModeToAll = _interopRequireDefault(require("./decorators/setModeToAll"));
 
@@ -29,9 +29,7 @@ var _Row = _interopRequireDefault(require("./Row.Style"));
 
 var _class, _temp;
 
-var RowRotateAll = (0, _setModeToAll["default"])(_class = (0, _onChangeMode["default"])(_class = (0, _calcInputMode["default"])(_class = (_temp =
-/*#__PURE__*/
-function (_Component) {
+var RowRotateAll = (0, _setModeToAll["default"])(_class = (0, _onChangeMode["default"])(_class = (0, _calcInputMode["default"])(_class = (_temp = /*#__PURE__*/function (_Component) {
   (0, _inheritsLoose2["default"])(RowRotateAll, _Component);
 
   /*
@@ -90,48 +88,49 @@ function (_Component) {
         rX = _this$props.rX,
         rY = _this$props.rY,
         rZ = _this$props.rZ;
-    return _react["default"].createElement("div", {
-      style: _Row["default"].ROW
-    }, _react["default"].createElement(_Label["default"], {
-      style: _Row["default"].CAPTION,
-      title: "rotate:"
-    }), _react["default"].createElement(_Label["default"], {
-      style: _Row["default"].LABEL,
-      title: "X:"
-    }), _react["default"].createElement(_InputFloat["default"], {
-      ref: this._refRotateX,
-      inputKey: "rotateX",
-      inputStyle: _Row["default"].INPUT_FLOAT_3,
-      value: rX,
-      step: 0.001,
-      onChangeMode: this._onChangeMode,
-      onKeyDownEnter: this._handleSetRotation
-    }), _react["default"].createElement(_Label["default"], {
-      style: _Row["default"].LABEL,
-      title: "Y:"
-    }), _react["default"].createElement(_InputFloat["default"], {
-      ref: this._refRotateY,
-      inputKey: "rotateY",
-      inputStyle: _Row["default"].INPUT_FLOAT_3,
-      value: rY,
-      step: 0.001,
-      onChangeMode: this._onChangeMode,
-      onKeyDownEnter: this._handleSetRotation
-    }), _react["default"].createElement(_Label["default"], {
-      style: _Row["default"].LABEL,
-      title: "Z:"
-    }), _react["default"].createElement(_InputFloat["default"], {
-      ref: this._refRotateZ,
-      inputKey: "rotateZ",
-      inputStyle: _Row["default"].INPUT_FLOAT_3,
-      value: rZ,
-      step: 0.001,
-      onChangeMode: this._onChangeMode,
-      onKeyDownEnter: this._handleSetRotation
-    }), _react["default"].createElement(_ButtonSet["default"], {
-      ref: this._refBt,
-      onClick: this._handleSetRotation
-    }));
+    return /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
+      style: _Row["default"].ROW,
+      children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_Label["default"], {
+        style: _Row["default"].CAPTION,
+        title: "rotate:"
+      }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_Label["default"], {
+        style: _Row["default"].LABEL,
+        title: "X:"
+      }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_InputFloat["default"], {
+        ref: this._refRotateX,
+        inputKey: "rotateX",
+        inputStyle: _Row["default"].INPUT_FLOAT_3,
+        value: rX,
+        step: 0.001,
+        onChangeMode: this._onChangeMode,
+        onKeyDownEnter: this._handleSetRotation
+      }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_Label["default"], {
+        style: _Row["default"].LABEL,
+        title: "Y:"
+      }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_InputFloat["default"], {
+        ref: this._refRotateY,
+        inputKey: "rotateY",
+        inputStyle: _Row["default"].INPUT_FLOAT_3,
+        value: rY,
+        step: 0.001,
+        onChangeMode: this._onChangeMode,
+        onKeyDownEnter: this._handleSetRotation
+      }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_Label["default"], {
+        style: _Row["default"].LABEL,
+        title: "Z:"
+      }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_InputFloat["default"], {
+        ref: this._refRotateZ,
+        inputKey: "rotateZ",
+        inputStyle: _Row["default"].INPUT_FLOAT_3,
+        value: rZ,
+        step: 0.001,
+        onChangeMode: this._onChangeMode,
+        onKeyDownEnter: this._handleSetRotation
+      }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_ButtonSet["default"], {
+        ref: this._refBt,
+        onClick: this._handleSetRotation
+      })]
+    });
   };
 
   return RowRotateAll;

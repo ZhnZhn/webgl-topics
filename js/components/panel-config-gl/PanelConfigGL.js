@@ -5,7 +5,9 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 exports.__esModule = true;
 exports["default"] = void 0;
 
-var _react = _interopRequireDefault(require("react"));
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
+
+var _jsxRuntime = require("react/jsx-runtime");
 
 var _PanelDrawMode = _interopRequireDefault(require("./PanelDrawMode"));
 
@@ -26,25 +28,27 @@ var PanelConfigGL = function PanelConfigGL(_ref) {
       rX = valuesForInit.rX,
       rY = valuesForInit.rY,
       rZ = valuesForInit.rZ;
-  return _react["default"].createElement("div", {
-    style: _Panel["default"].ROOT
-  }, _react["default"].createElement("span", {
-    style: _Panel["default"].ROOT_CAPTION
-  }, "Config WebGL Topic"), _react["default"].createElement(_PanelDrawMode["default"], {
-    onGetComp: onGetComp
-  }), _react["default"].createElement(_PanelPerspective["default"], {
-    perspectiveNear: perspectiveNear,
-    perspectiveFar: perspectiveFar,
-    onGetComp: onGetComp
-  }), _react["default"].createElement(_PanelTranslate["default"], {
-    zMatrixTranslate: zMatrixTranslate,
-    onGetComp: onGetComp
-  }), _react["default"].createElement(_PanelRotate["default"], {
-    rX: rX,
-    rY: rY,
-    rZ: rZ,
-    onGetComp: onGetComp
-  }));
+  return /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
+    style: _Panel["default"].ROOT,
+    children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("span", {
+      style: _Panel["default"].ROOT_CAPTION,
+      children: "Config WebGL Topic"
+    }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_PanelDrawMode["default"], (0, _extends2["default"])({}, {
+      onGetComp: onGetComp
+    })), /*#__PURE__*/(0, _jsxRuntime.jsx)(_PanelPerspective["default"], (0, _extends2["default"])({}, {
+      perspectiveNear: perspectiveNear,
+      perspectiveFar: perspectiveFar,
+      onGetComp: onGetComp
+    })), /*#__PURE__*/(0, _jsxRuntime.jsx)(_PanelTranslate["default"], (0, _extends2["default"])({}, {
+      zMatrixTranslate: zMatrixTranslate,
+      onGetComp: onGetComp
+    })), /*#__PURE__*/(0, _jsxRuntime.jsx)(_PanelRotate["default"], (0, _extends2["default"])({}, {
+      rX: rX,
+      rY: rY,
+      rZ: rZ,
+      onGetComp: onGetComp
+    }))]
+  });
 };
 /*
 PanelConfigGL. propTypes = {

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 
 import OpenClose from '../zhn-atoms/OpenClose';
 import RowProp from './RowProp';

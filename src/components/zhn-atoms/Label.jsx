@@ -1,5 +1,3 @@
-import React from 'react'
-
 const Label = ({ style, title, id }) => (
   <label
      className="not-selected"

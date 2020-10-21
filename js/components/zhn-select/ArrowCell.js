@@ -1,7 +1,5 @@
 "use strict";
 
-var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
-
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
 exports.__esModule = true;
@@ -11,7 +9,9 @@ var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends")
 
 var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inheritsLoose"));
 
-var _react = _interopRequireWildcard(require("react"));
+var _jsxRuntime = require("react/jsx-runtime");
+
+var _react = require("react");
 
 var S = {
   ARROW_CELL: {
@@ -40,9 +40,7 @@ var C = {
   BORDER_COLOR: "#1b75bb transparent transparent"
 };
 
-var ArrowCell =
-/*#__PURE__*/
-function (_Component) {
+var ArrowCell = /*#__PURE__*/function (_Component) {
   (0, _inheritsLoose2["default"])(ArrowCell, _Component);
 
   function ArrowCell() {
@@ -80,15 +78,16 @@ function (_Component) {
     var _this$props = this.props,
         arrowStyle = _this$props.arrowStyle,
         onClick = _this$props.onClick;
-    return _react["default"].createElement("button", {
+    return /*#__PURE__*/(0, _jsxRuntime.jsx)("button", {
       ref: this._refArrowCell,
       style: S.ARROW_CELL,
       tabIndex: "-1",
-      onClick: onClick
-    }, _react["default"].createElement("span", {
-      ref: this._refArrow,
-      style: (0, _extends2["default"])({}, S.ARROW, {}, arrowStyle)
-    }));
+      onClick: onClick,
+      children: /*#__PURE__*/(0, _jsxRuntime.jsx)("span", {
+        ref: this._refArrow,
+        style: (0, _extends2["default"])({}, S.ARROW, arrowStyle)
+      })
+    });
   };
 
   return ArrowCell;

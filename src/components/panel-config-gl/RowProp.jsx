@@ -1,15 +1,10 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 
 import setModeToAll from './decorators/setModeToAll';
 import onChangeMode from './decorators/onChangeMode';
 import calcInputMode from './decorators/calcInputMode';
 
 import A from '../Comp'
-
-//import Label from '../zhn-atoms/Label';
-//import InputFloat from '../zhn-atoms/InputFloat';
-//import ButtonSet from '../zhn-atoms/ButtonSet';
-
 import STYLE from './Row.Style'
 
 const _isFn = fn => typeof fn === 'function';

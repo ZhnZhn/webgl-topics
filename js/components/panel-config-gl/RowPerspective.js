@@ -2,8 +2,6 @@
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
-
 exports.__esModule = true;
 exports["default"] = void 0;
 
@@ -11,7 +9,9 @@ var _assertThisInitialized2 = _interopRequireDefault(require("@babel/runtime/hel
 
 var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inheritsLoose"));
 
-var _react = _interopRequireWildcard(require("react"));
+var _jsxRuntime = require("react/jsx-runtime");
+
+var _react = require("react");
 
 var _setModeToAll = _interopRequireDefault(require("./decorators/setModeToAll"));
 
@@ -29,9 +29,7 @@ var _Row = _interopRequireDefault(require("./Row.Style"));
 
 var _class, _temp;
 
-var RowPerspective = (0, _setModeToAll["default"])(_class = (0, _onChangeMode["default"])(_class = (0, _calcInputMode["default"])(_class = (_temp =
-/*#__PURE__*/
-function (_Component) {
+var RowPerspective = (0, _setModeToAll["default"])(_class = (0, _onChangeMode["default"])(_class = (0, _calcInputMode["default"])(_class = (_temp = /*#__PURE__*/function (_Component) {
   (0, _inheritsLoose2["default"])(RowPerspective, _Component);
 
   /*
@@ -86,35 +84,36 @@ function (_Component) {
     var _this$props = this.props,
         perspectiveNear = _this$props.perspectiveNear,
         perspectiveFar = _this$props.perspectiveFar;
-    return _react["default"].createElement("div", {
-      style: _Row["default"].ROW
-    }, _react["default"].createElement(_Label["default"], {
-      style: _Row["default"].CAPTION,
-      title: "perspective:"
-    }), _react["default"].createElement(_Label["default"], {
-      style: _Row["default"].LABEL,
-      title: "near:"
-    }), _react["default"].createElement(_InputFloat["default"], {
-      ref: this._refNear,
-      inputKey: "near",
-      inputStyle: _Row["default"].INPUT_FLOAT_2,
-      value: perspectiveNear,
-      onChangeMode: this._onChangeMode,
-      onKeyDownEnter: this._handleSetPerspective
-    }), _react["default"].createElement(_Label["default"], {
-      style: _Row["default"].LABEL,
-      title: "far:"
-    }), _react["default"].createElement(_InputFloat["default"], {
-      ref: this._refFar,
-      inputKey: "far",
-      value: perspectiveFar,
-      inputStyle: _Row["default"].INPUT_FLOAT_2,
-      onChangeMode: _onChangeMode["default"],
-      onKeyDownEnter: this._handleSetPerspective
-    }), _react["default"].createElement(_ButtonSet["default"], {
-      ref: this._refBt,
-      onClick: this._handleSetPerspective
-    }));
+    return /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
+      style: _Row["default"].ROW,
+      children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_Label["default"], {
+        style: _Row["default"].CAPTION,
+        title: "perspective:"
+      }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_Label["default"], {
+        style: _Row["default"].LABEL,
+        title: "near:"
+      }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_InputFloat["default"], {
+        ref: this._refNear,
+        inputKey: "near",
+        inputStyle: _Row["default"].INPUT_FLOAT_2,
+        value: perspectiveNear,
+        onChangeMode: this._onChangeMode,
+        onKeyDownEnter: this._handleSetPerspective
+      }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_Label["default"], {
+        style: _Row["default"].LABEL,
+        title: "far:"
+      }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_InputFloat["default"], {
+        ref: this._refFar,
+        inputKey: "far",
+        value: perspectiveFar,
+        inputStyle: _Row["default"].INPUT_FLOAT_2,
+        onChangeMode: _onChangeMode["default"],
+        onKeyDownEnter: this._handleSetPerspective
+      }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_ButtonSet["default"], {
+        ref: this._refBt,
+        onClick: this._handleSetPerspective
+      })]
+    });
   };
 
   return RowPerspective;

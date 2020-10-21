@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import { Component } from 'react'
 
 
 const S = {
@@ -7,7 +7,7 @@ const S = {
     backgroundColor: '#4D4D4D'
   },
   CAPTION: {
-    paddingLeft: '4px',
+    paddingLeft: 4,
     verticalAlign: 'top',
     color: 'rgba(164, 135, 212, 1)',
     fontFamily: 'Roboto, Arial Unicode MS, Arial, sans-serif',

@@ -1,5 +1,3 @@
-import React from 'react'
-
 const CL = 'zhn-bt-circle2';
 
 const ButtonCircle2 = ({

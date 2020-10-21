@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 
 import { RouterTopicActionTypes } from '../../flux/actions/RouterTopicActions'
 
@@ -56,7 +56,7 @@ class TopicWrapper extends Component {
 
     return (
       <div className="container" role="document">
-        <main className="container__content" tabIndex="1" role="main">
+        <main className="container__content" role="main">
           <div className="row">
             <Comp
                ref={this._refComp}

@@ -1,21 +1,19 @@
 "use strict";
 
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
-
 exports.__esModule = true;
 exports["default"] = void 0;
 
-var _react = _interopRequireDefault(require("react"));
+var _jsxRuntime = require("react/jsx-runtime");
 
 var STYLE = {
   LINK: {
     display: 'table-cell'
   },
   PRO: {
-    marginLeft: '4px',
+    marginLeft: 4,
     padding: '3px 7px',
     display: 'inline-block',
-    borderRadius: '3px',
+    borderRadius: 3,
     color: '#ffffff',
     textDecoration: 'none',
     background: '#ef494f',
@@ -29,15 +27,19 @@ var EggHeadLink = function EggHeadLink(_ref) {
       href = _ref.href,
       isPro = _ref.isPro;
 
-  var _proEl = isPro ? _react["default"].createElement("span", {
-    style: STYLE.PRO
-  }, "P") : undefined;
+  var _proEl = isPro ? /*#__PURE__*/(0, _jsxRuntime.jsx)("span", {
+    style: STYLE.PRO,
+    children: "P"
+  }) : undefined;
 
-  return _react["default"].createElement("a", {
+  return /*#__PURE__*/(0, _jsxRuntime.jsxs)("a", {
     className: "native-link",
     style: Object.assign({}, STYLE.LINK, style),
-    href: href
-  }, _react["default"].createElement("span", null, title), _proEl);
+    href: href,
+    children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("span", {
+      children: title
+    }), _proEl]
+  });
 };
 
 var _default = EggHeadLink;

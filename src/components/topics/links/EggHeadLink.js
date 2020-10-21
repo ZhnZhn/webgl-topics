@@ -1,18 +1,16 @@
-import React from 'react';
-
 const STYLE = {
   LINK : {
     display: 'table-cell'
   },
   PRO : {
-    marginLeft : '4px',
+    marginLeft: 4,
     padding: '3px 7px',
     display: 'inline-block',
-    borderRadius: '3px',
+    borderRadius: 3,
     color: '#ffffff',
     textDecoration: 'none',
     background: '#ef494f',
-    fontWeight : '700'
+    fontWeight: '700'
   }
 }
 

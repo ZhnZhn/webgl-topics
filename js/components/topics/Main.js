@@ -1,7 +1,5 @@
 "use strict";
 
-var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
-
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
 exports.__esModule = true;
@@ -13,7 +11,9 @@ var _assertThisInitialized2 = _interopRequireDefault(require("@babel/runtime/hel
 
 var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inheritsLoose"));
 
-var _react = _interopRequireWildcard(require("react"));
+var _jsxRuntime = require("react/jsx-runtime");
+
+var _react = require("react");
 
 var _RouterTopicActions = require("../../flux/actions/RouterTopicActions");
 
@@ -23,9 +23,7 @@ var _PanelConfigGL = _interopRequireDefault(require("../panel-config-gl/PanelCon
 
 var _dfValues = _interopRequireDefault(require("./gl-props/dfValues"));
 
-var TopicWrapper =
-/*#__PURE__*/
-function (_Component) {
+var TopicWrapper = /*#__PURE__*/function (_Component) {
   (0, _inheritsLoose2["default"])(TopicWrapper, _Component);
 
   /*
@@ -82,23 +80,25 @@ function (_Component) {
         compProps = _factoryTopic.props,
         _compProps$valuesForI = compProps.valuesForInit,
         valuesForInit = _compProps$valuesForI === void 0 ? {} : _compProps$valuesForI,
-        _valuesForInit = (0, _extends2["default"])({}, _dfValues["default"], {}, valuesForInit);
+        _valuesForInit = (0, _extends2["default"])({}, _dfValues["default"], valuesForInit);
 
-    return _react["default"].createElement("div", {
+    return /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
       className: "container",
-      role: "document"
-    }, _react["default"].createElement("main", {
-      className: "container__content",
-      tabIndex: "1",
-      role: "main"
-    }, _react["default"].createElement("div", {
-      className: "row"
-    }, _react["default"].createElement(Comp, (0, _extends2["default"])({
-      ref: this._refComp
-    }, compProps)), _react["default"].createElement(_PanelConfigGL["default"], {
-      valuesForInit: _valuesForInit,
-      onGetComp: this.getComponentTopic
-    }))));
+      role: "document",
+      children: /*#__PURE__*/(0, _jsxRuntime.jsx)("main", {
+        className: "container__content",
+        role: "main",
+        children: /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
+          className: "row",
+          children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(Comp, (0, _extends2["default"])({
+            ref: this._refComp
+          }, compProps)), /*#__PURE__*/(0, _jsxRuntime.jsx)(_PanelConfigGL["default"], {
+            valuesForInit: _valuesForInit,
+            onGetComp: this.getComponentTopic
+          })]
+        })
+      })
+    });
   };
 
   return TopicWrapper;

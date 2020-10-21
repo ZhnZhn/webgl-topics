@@ -1,5 +1,3 @@
-import React from 'react';
-
 import IconAppLogo from './IconAppLogo'
 import AppLabel from './AppLabel'
 import GitHubLink from './GitHubLink';

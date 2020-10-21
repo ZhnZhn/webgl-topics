@@ -1,17 +1,15 @@
-import React from 'react';
-
 import OpenClose from '../zhn-atoms/OpenClose';
 
 const STYLE = {
-  ROOT : {
+  ROOT: {
     lineHeight: 2.5,
     backgroundColor: '#24282A'
   },
-  ITEM : {
-    color : 'gray'
+  ITEM: {
+    color: 'gray'
   },
-  ITEM_CURRENT : {
-     borderRight : '8px solid #80c040'
+  ITEM_CURRENT: {
+     borderRight: '8px solid #80c040'
   }
 }
 

@@ -1,7 +1,5 @@
 "use strict";
 
-var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
-
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
 exports.__esModule = true;
@@ -11,19 +9,19 @@ var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inh
 
 var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
 
-var _react = _interopRequireWildcard(require("react"));
+var _jsxRuntime = require("react/jsx-runtime");
+
+var _react = require("react");
 
 var _ButtonSet = _interopRequireDefault(require("./ButtonSet.Style"));
 
 var _hmModeStyle = {
-  0: (0, _extends2["default"])({}, _ButtonSet["default"].BT, {}, _ButtonSet["default"].NOT_VALID),
-  1: (0, _extends2["default"])({}, _ButtonSet["default"].BT, {}, _ButtonSet["default"].VALID_CHANGED),
-  2: (0, _extends2["default"])({}, _ButtonSet["default"].BT, {}, _ButtonSet["default"].VALID_NOT_CHANGED)
+  0: (0, _extends2["default"])({}, _ButtonSet["default"].BT, _ButtonSet["default"].NOT_VALID),
+  1: (0, _extends2["default"])({}, _ButtonSet["default"].BT, _ButtonSet["default"].VALID_CHANGED),
+  2: (0, _extends2["default"])({}, _ButtonSet["default"].BT, _ButtonSet["default"].VALID_NOT_CHANGED)
 };
 
-var ButtonSet =
-/*#__PURE__*/
-function (_Component) {
+var ButtonSet = /*#__PURE__*/function (_Component) {
   (0, _inheritsLoose2["default"])(ButtonSet, _Component);
 
   /*
@@ -59,11 +57,12 @@ function (_Component) {
         _style = _hmModeStyle[mode],
         _onClick = mode === 1 ? onClick : void 0;
 
-    return _react["default"].createElement("button", {
+    return /*#__PURE__*/(0, _jsxRuntime.jsx)("button", {
       className: "bt",
-      style: (0, _extends2["default"])({}, style, {}, _style),
-      onClick: _onClick
-    }, "Set");
+      style: (0, _extends2["default"])({}, style, _style),
+      onClick: _onClick,
+      children: "Set"
+    });
   };
 
   return ButtonSet;

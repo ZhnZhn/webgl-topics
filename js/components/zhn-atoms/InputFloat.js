@@ -1,7 +1,5 @@
 "use strict";
 
-var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
-
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
 exports.__esModule = true;
@@ -11,7 +9,9 @@ var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends")
 
 var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inheritsLoose"));
 
-var _react = _interopRequireWildcard(require("react"));
+var _jsxRuntime = require("react/jsx-runtime");
+
+var _react = require("react");
 
 var _big = _interopRequireDefault(require("big.js"));
 
@@ -25,9 +25,7 @@ var _hmModeStyle = {
   2: _InputFloat["default"].VALID_NOT_CHANGED
 };
 
-var InputFloat =
-/*#__PURE__*/
-function (_Component) {
+var InputFloat = /*#__PURE__*/function (_Component) {
   (0, _inheritsLoose2["default"])(InputFloat, _Component);
 
   /*
@@ -232,28 +230,30 @@ function (_Component) {
         value = _this$state4.value,
         mode = _this$state4.mode,
         _hrStyle = _hmModeStyle[mode];
-    return _react["default"].createElement("div", {
+    return /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
       style: _InputFloat["default"].ROOT,
-      onClick: this._handleClickRoot
-    }, _react["default"].createElement("button", {
-      style: (0, _extends2["default"])({}, _InputFloat["default"].ARROW, {}, _InputFloat["default"].ARROW_PLUS),
-      onClick: this._increaseOnStep
-    }), _react["default"].createElement("div", {
-      style: _InputFloat["default"].DIV_INPUT
-    }, _react["default"].createElement("input", {
-      ref: this._refInput,
-      id: id,
-      type: "text",
-      style: (0, _extends2["default"])({}, _InputFloat["default"].INPUT, {}, inputStyle),
-      value: value,
-      onChange: this._handleInputChange,
-      onKeyDown: this._handleInputKeyDown
-    }), _react["default"].createElement("hr", {
-      style: (0, _extends2["default"])({}, _InputFloat["default"].HR, {}, _hrStyle)
-    })), _react["default"].createElement("button", {
-      style: (0, _extends2["default"])({}, _InputFloat["default"].ARROW, {}, _InputFloat["default"].ARROW_MINUS),
-      onClick: this._decreaseOnStep
-    }));
+      onClick: this._handleClickRoot,
+      children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("button", {
+        style: (0, _extends2["default"])({}, _InputFloat["default"].ARROW, _InputFloat["default"].ARROW_PLUS),
+        onClick: this._increaseOnStep
+      }), /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
+        style: _InputFloat["default"].DIV_INPUT,
+        children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("input", {
+          ref: this._refInput,
+          id: id,
+          type: "text",
+          style: (0, _extends2["default"])({}, _InputFloat["default"].INPUT, inputStyle),
+          value: value,
+          onChange: this._handleInputChange,
+          onKeyDown: this._handleInputKeyDown
+        }), /*#__PURE__*/(0, _jsxRuntime.jsx)("hr", {
+          style: (0, _extends2["default"])({}, _InputFloat["default"].HR, _hrStyle)
+        })]
+      }), /*#__PURE__*/(0, _jsxRuntime.jsx)("button", {
+        style: (0, _extends2["default"])({}, _InputFloat["default"].ARROW, _InputFloat["default"].ARROW_MINUS),
+        onClick: this._decreaseOnStep
+      })]
+    });
   };
 
   _proto.getValue = function getValue() {

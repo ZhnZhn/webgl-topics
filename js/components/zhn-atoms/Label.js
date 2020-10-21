@@ -1,21 +1,20 @@
 "use strict";
 
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
-
 exports.__esModule = true;
 exports["default"] = void 0;
 
-var _react = _interopRequireDefault(require("react"));
+var _jsxRuntime = require("react/jsx-runtime");
 
 var Label = function Label(_ref) {
   var style = _ref.style,
       title = _ref.title,
       id = _ref.id;
-  return _react["default"].createElement("label", {
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)("label", {
     className: "not-selected",
     style: style,
-    htmlFor: id
-  }, title);
+    htmlFor: id,
+    children: title
+  });
 };
 /*
 Label.propTypes = {

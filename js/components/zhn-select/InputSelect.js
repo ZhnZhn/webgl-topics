@@ -1,7 +1,5 @@
 "use strict";
 
-var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
-
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
 exports.__esModule = true;
@@ -11,7 +9,9 @@ var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inh
 
 var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
 
-var _react = _interopRequireWildcard(require("react"));
+var _jsxRuntime = require("react/jsx-runtime");
+
+var _react = require("react");
 
 var _ArrowCell = _interopRequireDefault(require("./ArrowCell"));
 
@@ -86,9 +86,7 @@ var _crInitialStateFromProps = function _crInitialStateFromProps(_ref4) {
   };
 };
 
-var InputSelect =
-/*#__PURE__*/
-function (_Component) {
+var InputSelect = /*#__PURE__*/function (_Component) {
   (0, _inheritsLoose2["default"])(InputSelect, _Component);
 
   /*
@@ -413,20 +411,20 @@ function (_Component) {
         if (!isValidDomOptionsCache) {
           /*eslint-disable jsx-a11y/click-events-have-key-events*/
           _domOptions = options.map(function (item, index) {
-            return _react["default"].createElement("div", {
+            return /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
               role: "option",
               "aria-selected": _this.indexActiveOption === index,
               tabIndex: "0",
-              key: index,
               className: _CL["default"].OPTIONS_ROW,
               ref: function ref(c) {
                 return _this["v" + index] = c;
               },
-              onClick: _this._hClickItem.bind(null, item, index)
-            }, _react["default"].createElement(ItemOptionComp, {
-              item: item,
-              propCaption: _propCaption
-            }));
+              onClick: _this._hClickItem.bind(null, item, index),
+              children: /*#__PURE__*/(0, _jsxRuntime.jsx)(ItemOptionComp, {
+                item: item,
+                propCaption: _propCaption
+              })
+            }, index);
           });
           /*eslint-enable jsx-a11y/click-events-have-key-events*/
 
@@ -451,23 +449,25 @@ function (_Component) {
           _nFiltered = _crFooterIndex2._nFiltered,
           _nAll = _crFooterIndex2._nAll;
 
-      return _react["default"].createElement("div", {
+      return /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
         className: _CL["default"].OPTIONS,
         style: _rootWidthStyle,
-        "data-scrollable": true
-      }, _react["default"].createElement("div", {
-        ref: _this._refOptionsComp,
-        className: _CL["default"].OPTIONS_DIV,
-        style: (0, _extends2["default"])({}, rootOptionsStyle, {}, _rootWidthStyle)
-      }, _domOptions), _react["default"].createElement(_OptionsFooter["default"], {
-        ref: _this._refIndexNode,
-        indexActiveOption: _this.indexActiveOption,
-        nAll: _nAll,
-        nFiltered: _nFiltered,
-        onStepUp: _this._stepUpOption,
-        onStepDown: _this._stepDownOption,
-        onClear: _this.clearInput
-      }));
+        "data-scrollable": true,
+        children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
+          ref: _this._refOptionsComp,
+          className: _CL["default"].OPTIONS_DIV,
+          style: (0, _extends2["default"])({}, rootOptionsStyle, _rootWidthStyle),
+          children: _domOptions
+        }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_OptionsFooter["default"], {
+          ref: _this._refIndexNode,
+          indexActiveOption: _this.indexActiveOption,
+          nAll: _nAll,
+          nFiltered: _nFiltered,
+          onStepUp: _this._stepUpOption,
+          onStepDown: _this._stepDownOption,
+          onClear: _this.clearInput
+        })]
+      });
     };
 
     _this._refArrowCell = function (c) {
@@ -489,20 +489,20 @@ function (_Component) {
 
       if (!isLoading && !isLoadingFailed) {
         _placeholder = placeholder || "Select " + optionName + "...";
-        _afterInputEl = _react["default"].createElement(_ArrowCell["default"], {
+        _afterInputEl = /*#__PURE__*/(0, _jsxRuntime.jsx)(_ArrowCell["default"], {
           ref: _this._refArrowCell,
           arrowStyle: isShowOption ? S.ARROW_SHOW : void 0,
           onClick: _this._hToggleOptions
         });
       } else if (isLoading) {
         _placeholder = "Loading " + optionNames + "...";
-        _afterInputEl = _react["default"].createElement("span", {
+        _afterInputEl = /*#__PURE__*/(0, _jsxRuntime.jsx)("span", {
           className: _CL["default"].SPINNER,
           "data-loader": "circle"
         });
       } else if (isLoadingFailed) {
         _placeholder = "Loading " + optionNames + " Failed";
-        _afterInputEl = _react["default"].createElement(_ButtonCircle["default"], {
+        _afterInputEl = /*#__PURE__*/(0, _jsxRuntime.jsx)(_ButtonCircle["default"], {
           className: _CL["default"].SPINNER_FAILED,
           "data-loader": "circle-failed",
           onClick: onLoadOption
@@ -575,25 +575,26 @@ function (_Component) {
         afterInputEl = _this$_crAfterInputEl.afterInputEl,
         placeholder = _this$_crAfterInputEl.placeholder;
 
-    return _react["default"].createElement("div", {
+    return /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
       className: _CL["default"].ROOT,
-      style: _rootWidthStyle
-    }, _react["default"].createElement("input", {
-      ref: this._refDomInputText,
-      className: _CL["default"].INPUT,
-      type: "text",
-      name: "select",
-      autoComplete: "off",
-      autoCorrect: "off",
-      autoCapitalize: "off",
-      spellCheck: false,
-      value: value,
-      placeholder: placeholder,
-      onChange: this._hInputChange,
-      onKeyDown: this._hInputKeyDown
-    }), afterInputEl, _react["default"].createElement("hr", {
-      className: _CL["default"].INPUT_HR
-    }), (isLocalMode || isShowOption) && this.renderOptions());
+      style: _rootWidthStyle,
+      children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("input", {
+        ref: this._refDomInputText,
+        className: _CL["default"].INPUT,
+        type: "text",
+        name: "select",
+        autoComplete: "off",
+        autoCorrect: "off",
+        autoCapitalize: "off",
+        spellCheck: false,
+        value: value,
+        placeholder: placeholder,
+        onChange: this._hInputChange,
+        onKeyDown: this._hInputKeyDown
+      }), afterInputEl, /*#__PURE__*/(0, _jsxRuntime.jsx)("hr", {
+        className: _CL["default"].INPUT_HR
+      }), (isLocalMode || isShowOption) && this.renderOptions()]
+    });
   };
 
   _proto.focusInput = function focusInput() {

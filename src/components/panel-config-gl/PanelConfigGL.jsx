@@ -1,5 +1,3 @@
-import React from 'react';
-
 import PanelDrawMode from './PanelDrawMode';
 import PanelPerspective from './PanelPerspective';
 import PanelTranslate from './PanelTranslate';

@@ -2,14 +2,16 @@
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
-
 exports.__esModule = true;
 exports["default"] = void 0;
 
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
+
 var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inheritsLoose"));
 
-var _react = _interopRequireWildcard(require("react"));
+var _jsxRuntime = require("react/jsx-runtime");
+
+var _react = require("react");
 
 var _RouterLink = _interopRequireDefault(require("./links/RouterLink"));
 
@@ -45,9 +47,7 @@ var WIDTH = 500,
   }
 };
 
-var WebGLTopic = (0, _initGL["default"])(_class = (0, _createShaders["default"])(_class = (0, _createPerspective["default"])(_class = (0, _setPointSize["default"])(_class = (0, _configMatrix["default"])(_class = (0, _draw["default"])(_class = (0, _startAnimation["default"])(_class = (_temp =
-/*#__PURE__*/
-function (_Component) {
+var WebGLTopic = (0, _initGL["default"])(_class = (0, _createShaders["default"])(_class = (0, _createPerspective["default"])(_class = (0, _setPointSize["default"])(_class = (0, _configMatrix["default"])(_class = (0, _draw["default"])(_class = (0, _startAnimation["default"])(_class = (_temp = /*#__PURE__*/function (_Component) {
   (0, _inheritsLoose2["default"])(WebGLTopic, _Component);
 
   function WebGLTopic() {
@@ -78,7 +78,7 @@ function (_Component) {
 
         if (typeof Comp === 'undefined') {
           return undefined;
-        } else return _react["default"].createElement(Comp, topicLink);
+        } else return /*#__PURE__*/(0, _jsxRuntime.jsx)(Comp, (0, _extends2["default"])({}, topicLink));
       }
     };
 
@@ -105,23 +105,27 @@ function (_Component) {
     var _this2 = this;
 
     var valuesForInit = this.props.valuesForInit;
-    return _react["default"].createElement("div", {
-      style: STYLE.ROOT
-    }, _react["default"].createElement("canvas", {
-      ref: function ref(el) {
-        return _this2.canvas = el;
-      },
-      width: WIDTH,
-      height: HEIGHT,
-      style: {
-        borderRadius: '2px'
-      },
-      onClick: this._handleClickCanvas
-    }, "Your browser doesn't appear to support the", _react["default"].createElement("code", null, "<canvas>"), " element."), this.isAnimate === false && _react["default"].createElement(_Button["default"], {
-      caption: "Run Animation",
-      style: STYLE.BT_RUN,
-      onClick: this._handleClickCanvas
-    }), this._renderTopicLink(valuesForInit));
+    return /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
+      style: STYLE.ROOT,
+      children: [/*#__PURE__*/(0, _jsxRuntime.jsxs)("canvas", {
+        ref: function ref(el) {
+          return _this2.canvas = el;
+        },
+        width: WIDTH,
+        height: HEIGHT,
+        style: {
+          borderRadius: '2px'
+        },
+        onClick: this._handleClickCanvas,
+        children: ["Your browser doesn't appear to support the", /*#__PURE__*/(0, _jsxRuntime.jsx)("code", {
+          children: "<canvas>"
+        }), " element."]
+      }), this.isAnimate === false && /*#__PURE__*/(0, _jsxRuntime.jsx)(_Button["default"], {
+        caption: "Run Animation",
+        style: STYLE.BT_RUN,
+        onClick: this._handleClickCanvas
+      }), this._renderTopicLink(valuesForInit)]
+    });
   };
 
   return WebGLTopic;

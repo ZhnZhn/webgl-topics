@@ -1,7 +1,5 @@
 "use strict";
 
-var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
-
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
 exports.__esModule = true;
@@ -9,7 +7,9 @@ exports["default"] = void 0;
 
 var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inheritsLoose"));
 
-var _react = _interopRequireWildcard(require("react"));
+var _jsxRuntime = require("react/jsx-runtime");
+
+var _react = require("react");
 
 var _RouterTopicActions = require("../../flux/actions/RouterTopicActions");
 
@@ -17,9 +17,7 @@ var _Menu = _interopRequireDefault(require("../zhn-moleculs/Menu"));
 
 var _menuModel = _interopRequireDefault(require("./menuModel"));
 
-var TopicMenu =
-/*#__PURE__*/
-function (_Component) {
+var TopicMenu = /*#__PURE__*/function (_Component) {
   (0, _inheritsLoose2["default"])(TopicMenu, _Component);
 
   function TopicMenu(props) {
@@ -55,23 +53,27 @@ function (_Component) {
 
   _proto.render = function render() {
     var topicId = this.state.topicId;
-    return _react["default"].createElement("section", {
+    return /*#__PURE__*/(0, _jsxRuntime.jsxs)("section", {
       className: "sidebar",
-      tabIndex: "-1"
-    }, _react["default"].createElement("div", {
-      className: "sidebar__menu",
-      role: "navigation"
-    }, _react["default"].createElement(_Menu["default"], {
-      toogleStyle: {
-        paddingLeft: '6px'
-      },
-      menuModel: _menuModel["default"],
-      topicId: topicId
-    })), _react["default"].createElement("div", {
-      className: "sidebar__footer"
-    }, _react["default"].createElement("button", {
-      className: "sidebar__footer__link"
-    }, "Footer Button")));
+      tabIndex: "-1",
+      children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
+        className: "sidebar__menu",
+        role: "navigation",
+        children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_Menu["default"], {
+          toogleStyle: {
+            paddingLeft: '6px'
+          },
+          menuModel: _menuModel["default"],
+          topicId: topicId
+        })
+      }), /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
+        className: "sidebar__footer",
+        children: /*#__PURE__*/(0, _jsxRuntime.jsx)("button", {
+          className: "sidebar__footer__link",
+          children: "Footer Button"
+        })
+      })]
+    });
   };
 
   return TopicMenu;

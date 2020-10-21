@@ -1,13 +1,1 @@
-{
- "version": 3,
- "sources": [
-  "../../src/components/Comp.js"
- ],
- "file": "../../src/components/Comp.js",
- "names": [
-  "Comp",
-  "A",
-  "InputSelect"
- ],
- "mappings": ";;;;;;;;;AAAA;;AACA;;AAEA,IAAMA,IAAI,iCACLC,aADK;AAERC,EAAAA,WAAW,EAAXA;AAFQ,EAAV;eAKeF,I"
-}
+{"version":3,"sources":["../../src/components/Comp.js"],"names":["Comp","A","InputSelect"],"mappings":";;;;;;;;;AAAA;;AACA;;AAEA,IAAMA,IAAI,iCACLC,aADK;AAERC,EAAAA,WAAW,EAAXA;AAFQ,EAAV;eAKeF,I","sourcesContent":["import A from './zhn-atoms/A'\r\nimport InputSelect from './zhn-select/InputSelect'\r\n\r\nconst Comp = {\r\n  ...A,\r\n  InputSelect\r\n};\r\n\r\nexport default Comp\r\n"],"file":"Comp.js"}

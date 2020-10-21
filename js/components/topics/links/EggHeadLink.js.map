@@ -1,1 +1,30 @@
-{"version":3,"sources":["../../../../src/components/topics/links/EggHeadLink.js"],"names":["STYLE","LINK","display","PRO","marginLeft","padding","borderRadius","color","textDecoration","background","fontWeight","EggHeadLink","style","title","href","isPro","_proEl","undefined","Object","assign"],"mappings":";;;;;;;AAAA;;AAEA,IAAMA,KAAK,GAAG;AACZC,EAAAA,IAAI,EAAG;AACLC,IAAAA,OAAO,EAAE;AADJ,GADK;AAIZC,EAAAA,GAAG,EAAG;AACJC,IAAAA,UAAU,EAAG,KADT;AAEJC,IAAAA,OAAO,EAAE,SAFL;AAGJH,IAAAA,OAAO,EAAE,cAHL;AAIJI,IAAAA,YAAY,EAAE,KAJV;AAKJC,IAAAA,KAAK,EAAE,SALH;AAMJC,IAAAA,cAAc,EAAE,MANZ;AAOJC,IAAAA,UAAU,EAAE,SAPR;AAQJC,IAAAA,UAAU,EAAG;AART;AAJM,CAAd;;AAgBA,IAAMC,WAAW,GAAG,SAAdA,WAAc,OAAmC;AAAA,MAAhCC,KAAgC,QAAhCA,KAAgC;AAAA,MAAzBC,KAAyB,QAAzBA,KAAyB;AAAA,MAAlBC,IAAkB,QAAlBA,IAAkB;AAAA,MAAZC,KAAY,QAAZA,KAAY;;AACrD,MAAMC,MAAM,GAAID,KAAD,GACJ;AAAM,IAAA,KAAK,EAAEf,KAAK,CAACG;AAAnB,SADI,GAELc,SAFV;;AAGA,SACE;AACG,IAAA,SAAS,EAAC,aADb;AAEG,IAAA,KAAK,EAAEC,MAAM,CAACC,MAAP,CAAc,EAAd,EAAkBnB,KAAK,CAACC,IAAxB,EAA8BW,KAA9B,CAFV;AAGG,IAAA,IAAI,EAAEE;AAHT,KAKE,8CAAOD,KAAP,CALF,EAMGG,MANH,CADF;AAUD,CAdD;;eAgBeL,W","sourcesContent":["import React from 'react';\r\n\r\nconst STYLE = {\r\n  LINK : {\r\n    display: 'table-cell'\r\n  },\r\n  PRO : {\r\n    marginLeft : '4px',\r\n    padding: '3px 7px',\r\n    display: 'inline-block',\r\n    borderRadius: '3px',\r\n    color: '#ffffff',\r\n    textDecoration: 'none',\r\n    background: '#ef494f',\r\n    fontWeight : '700'\r\n  }\r\n}\r\n\r\nconst EggHeadLink = ({ style, title, href, isPro }) => {\r\n  const _proEl = (isPro)\r\n          ? (<span style={STYLE.PRO}>P</span>)\r\n          : undefined;\r\n  return (\r\n    <a\r\n       className=\"native-link\"\r\n       style={Object.assign({}, STYLE.LINK, style)}\r\n       href={href}\r\n    >\r\n      <span>{title}</span>\r\n      {_proEl}\r\n    </a>\r\n  );\r\n}\r\n\r\nexport default EggHeadLink\r\n"],"file":"EggHeadLink.js"}
+{
+ "version": 3,
+ "sources": [
+  "../../../../src/components/topics/links/EggHeadLink.js"
+ ],
+ "file": "../../../../src/components/topics/links/EggHeadLink.js",
+ "names": [
+  "STYLE",
+  "LINK",
+  "display",
+  "PRO",
+  "marginLeft",
+  "padding",
+  "borderRadius",
+  "color",
+  "textDecoration",
+  "background",
+  "fontWeight",
+  "EggHeadLink",
+  "style",
+  "title",
+  "href",
+  "isPro",
+  "_proEl",
+  "undefined",
+  "Object",
+  "assign"
+ ],
+ "mappings": ";;;;;;;AAAA,IAAMA,KAAK,GAAG;AACZC,EAAAA,IAAI,EAAG;AACLC,IAAAA,OAAO,EAAE;AADJ,GADK;AAIZC,EAAAA,GAAG,EAAG;AACJC,IAAAA,UAAU,EAAE,CADR;AAEJC,IAAAA,OAAO,EAAE,SAFL;AAGJH,IAAAA,OAAO,EAAE,cAHL;AAIJI,IAAAA,YAAY,EAAE,CAJV;AAKJC,IAAAA,KAAK,EAAE,SALH;AAMJC,IAAAA,cAAc,EAAE,MANZ;AAOJC,IAAAA,UAAU,EAAE,SAPR;AAQJC,IAAAA,UAAU,EAAE;AARR;AAJM,CAAd;;AAgBA,IAAMC,WAAW,GAAG,SAAdA,WAAc,OAAmC;AAAA,MAAhCC,KAAgC,QAAhCA,KAAgC;AAAA,MAAzBC,KAAyB,QAAzBA,KAAyB;AAAA,MAAlBC,IAAkB,QAAlBA,IAAkB;AAAA,MAAZC,KAAY,QAAZA,KAAY;;AACrD,MAAMC,MAAM,GAAID,KAAD,gBACJ;AAAM,IAAA,KAAK,EAAEf,KAAK,CAACG,GAAnB;AAAA;AAAA,IADI,GAELc,SAFV;;AAGA,sBACE;AACG,IAAA,SAAS,EAAC,aADb;AAEG,IAAA,KAAK,EAAEC,MAAM,CAACC,MAAP,CAAc,EAAd,EAAkBnB,KAAK,CAACC,IAAxB,EAA8BW,KAA9B,CAFV;AAGG,IAAA,IAAI,EAAEE,IAHT;AAAA,4BAKE;AAAA,gBAAOD;AAAP,MALF,EAMGG,MANH;AAAA,IADF;AAUD,CAdD;;eAgBeL,W"
+}

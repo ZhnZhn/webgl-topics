@@ -1,7 +1,5 @@
 "use strict";
 
-var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
-
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
 exports.__esModule = true;
@@ -11,7 +9,9 @@ var _assertThisInitialized2 = _interopRequireDefault(require("@babel/runtime/hel
 
 var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inheritsLoose"));
 
-var _react = _interopRequireWildcard(require("react"));
+var _jsxRuntime = require("react/jsx-runtime");
+
+var _react = require("react");
 
 var STYLE = {
   INPUT_TEXT: {
@@ -31,15 +31,13 @@ var STYLE = {
   }
 };
 
-var InputText =
-/*#__PURE__*/
-function (_Component) {
+var InputText = /*#__PURE__*/function (_Component) {
   (0, _inheritsLoose2["default"])(InputText, _Component);
 
   function InputText(props) {
     var _this;
 
-    _this = _Component.call(this) || this;
+    _this = _Component.call(this, props) || this;
     _this.state = {
       value: props.initValue //value : ''
 
@@ -67,7 +65,7 @@ function (_Component) {
   _proto.render = function render() {
     var style = this.props.style,
         value = this.state.value;
-    return _react["default"].createElement("input", {
+    return /*#__PURE__*/(0, _jsxRuntime.jsx)("input", {
       type: "text",
       style: Object.assign({}, STYLE.INPUT_TEXT, style),
       value: value,
@@ -87,13 +85,16 @@ function (_Component) {
 
   return InputText;
 }(_react.Component);
+/*
+InputText.propTypes = {
+  initValue : PropTypes.string,
+  style : PropTypes.object
+}
+*/
+
 
 InputText.defaultProps = {
   initValue: ''
-};
-InputText.propTypes = {
-  initValue: _react.PropTypes.string,
-  style: _react.PropTypes.object
 };
 var _default = InputText;
 exports["default"] = _default;

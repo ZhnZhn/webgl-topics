@@ -5,7 +5,7 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 exports.__esModule = true;
 exports["default"] = void 0;
 
-var _react = _interopRequireDefault(require("react"));
+var _jsxRuntime = require("react/jsx-runtime");
 
 var _OpenClose = _interopRequireDefault(require("../zhn-atoms/OpenClose"));
 
@@ -18,29 +18,30 @@ var PanelRotate = function PanelRotate(_ref) {
       rY = _ref.rY,
       rZ = _ref.rZ,
       onGetComp = _ref.onGetComp;
-  return _react["default"].createElement(_OpenClose["default"], {
+  return /*#__PURE__*/(0, _jsxRuntime.jsxs)(_OpenClose["default"], {
     isClose: true,
     caption: "Rotate",
-    style: _Panel["default"].OPEN_CLOSE
-  }, _react["default"].createElement(_RowProp["default"], {
-    labelBy: "X:",
-    inputId: "rX",
-    value: rX,
-    propKey: "rX",
-    onGetComp: onGetComp
-  }), _react["default"].createElement(_RowProp["default"], {
-    labelBy: "Y:",
-    inputId: "rY",
-    value: rY,
-    propKey: "rY",
-    onGetComp: onGetComp
-  }), _react["default"].createElement(_RowProp["default"], {
-    labelBy: "Z:",
-    inputId: "rZ",
-    value: rZ,
-    propKey: "rZ",
-    onGetComp: onGetComp
-  }));
+    style: _Panel["default"].OPEN_CLOSE,
+    children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_RowProp["default"], {
+      labelBy: "X:",
+      inputId: "rX",
+      value: rX,
+      propKey: "rX",
+      onGetComp: onGetComp
+    }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_RowProp["default"], {
+      labelBy: "Y:",
+      inputId: "rY",
+      value: rY,
+      propKey: "rY",
+      onGetComp: onGetComp
+    }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_RowProp["default"], {
+      labelBy: "Z:",
+      inputId: "rZ",
+      value: rZ,
+      propKey: "rZ",
+      onGetComp: onGetComp
+    })]
+  });
 };
 
 var _default = PanelRotate;

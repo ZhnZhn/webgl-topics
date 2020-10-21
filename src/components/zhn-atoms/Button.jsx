@@ -1,5 +1,3 @@
-import React from 'react'
-
 import STYLE from './Button.Style'
 
 const Button = ({
@@ -9,7 +7,7 @@ const Button = ({
 }) => (
   <button
     className="bt"
-    style={{ ...STYLE.BT, ...style }}    
+    style={{ ...STYLE.BT, ...style }}
     onClick={onClick}
   >
    {caption}

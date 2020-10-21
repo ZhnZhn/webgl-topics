@@ -1,7 +1,5 @@
-import React from 'react';
-
 const Footer = () => (
-  <div className="container__footer" role="complementary"></div>
-)
+  <div className="container__footer" role="complementary" />
+);
 
 export default Footer

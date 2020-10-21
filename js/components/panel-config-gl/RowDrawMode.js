@@ -1,7 +1,5 @@
 "use strict";
 
-var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
-
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
 exports.__esModule = true;
@@ -13,7 +11,9 @@ var _assertThisInitialized2 = _interopRequireDefault(require("@babel/runtime/hel
 
 var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inheritsLoose"));
 
-var _react = _interopRequireWildcard(require("react"));
+var _jsxRuntime = require("react/jsx-runtime");
+
+var _react = require("react");
 
 var _Comp = _interopRequireDefault(require("../Comp"));
 
@@ -47,9 +47,7 @@ var _drawModeOptions = [{
   value: "POINTS"
 }];
 
-var RowDrawMode =
-/*#__PURE__*/
-function (_Component) {
+var RowDrawMode = /*#__PURE__*/function (_Component) {
   (0, _inheritsLoose2["default"])(RowDrawMode, _Component);
 
   function RowDrawMode() {
@@ -82,17 +80,19 @@ function (_Component) {
   var _proto = RowDrawMode.prototype;
 
   _proto.render = function render() {
-    return _react["default"].createElement("div", {
-      style: _Row["default"].ROW
-    }, _react["default"].createElement("span", {
-      style: (0, _extends2["default"])({}, _Row["default"].CAPTION, {}, S.CAPTION)
-    }, "DrawMode:"), _react["default"].createElement(_Comp["default"].InputSelect, {
-      options: _drawModeOptions,
-      onSelect: this._handleSelectDrawMode
-    }), _react["default"].createElement(_Comp["default"].ButtonSet, {
-      mode: 1,
-      onClick: this._handleSetDrawMode
-    }));
+    return /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
+      style: _Row["default"].ROW,
+      children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("span", {
+        style: (0, _extends2["default"])({}, _Row["default"].CAPTION, S.CAPTION),
+        children: "DrawMode:"
+      }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_Comp["default"].InputSelect, {
+        options: _drawModeOptions,
+        onSelect: this._handleSelectDrawMode
+      }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_Comp["default"].ButtonSet, {
+        mode: 1,
+        onClick: this._handleSetDrawMode
+      })]
+    });
   };
 
   return RowDrawMode;

@@ -1,1 +1,11 @@
-{"version":3,"sources":["../../../src/components/footer/Footer.jsx"],"names":["Footer"],"mappings":";;;;;;;AAAA;;AAEA,IAAMA,MAAM,GAAG,SAATA,MAAS;AAAA,SACb;AAAK,IAAA,SAAS,EAAC,mBAAf;AAAmC,IAAA,IAAI,EAAC;AAAxC,IADa;AAAA,CAAf;;eAIeA,M","sourcesContent":["import React from 'react';\r\n\r\nconst Footer = () => (\r\n  <div className=\"container__footer\" role=\"complementary\"></div>\r\n)\r\n\r\nexport default Footer\r\n"],"file":"Footer.js"}
+{
+ "version": 3,
+ "sources": [
+  "../../../src/components/footer/Footer.js"
+ ],
+ "file": "../../../src/components/footer/Footer.js",
+ "names": [
+  "Footer"
+ ],
+ "mappings": ";;;;;;;AAAA,IAAMA,MAAM,GAAG,SAATA,MAAS;AAAA,sBACb;AAAK,IAAA,SAAS,EAAC,mBAAf;AAAmC,IAAA,IAAI,EAAC;AAAxC,IADa;AAAA,CAAf;;eAIeA,M"
+}

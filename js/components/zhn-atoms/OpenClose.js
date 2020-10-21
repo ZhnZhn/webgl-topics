@@ -1,7 +1,5 @@
 "use strict";
 
-var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
-
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
 exports.__esModule = true;
@@ -11,7 +9,9 @@ var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends")
 
 var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inheritsLoose"));
 
-var _react = _interopRequireWildcard(require("react"));
+var _jsxRuntime = require("react/jsx-runtime");
+
+var _react = require("react");
 
 var S = {
   ROOT_DIV: {
@@ -19,7 +19,7 @@ var S = {
     backgroundColor: '#4D4D4D'
   },
   CAPTION: {
-    paddingLeft: '4px',
+    paddingLeft: 4,
     verticalAlign: 'top',
     color: 'rgba(164, 135, 212, 1)',
     fontFamily: 'Roboto, Arial Unicode MS, Arial, sans-serif',
@@ -32,9 +32,7 @@ var S = {
   }
 };
 
-var OpenClose =
-/*#__PURE__*/
-function (_Component) {
+var OpenClose = /*#__PURE__*/function (_Component) {
   (0, _inheritsLoose2["default"])(OpenClose, _Component);
 
   function OpenClose(props) {
@@ -88,40 +86,46 @@ function (_Component) {
       classShow = null;
     }
 
-    return _react["default"].createElement("div", {
-      style: (0, _extends2["default"])({}, S.ROOT_DIV, {}, style)
-    }, _react["default"].createElement("div", {
-      className: "not-selected",
-      style: toogleStyle,
-      onClick: this._hClickOpenClose
-    }, _react["default"].createElement("div", {
-      style: {
-        width: '16px',
-        height: '16px',
-        display: 'inline-block'
-      }
-    }, _react["default"].createElement("svg", {
-      viewBox: "0 0 16 16",
-      width: "100%",
-      height: "100%",
-      preserveAspectRatio: "none",
-      xmlns: "http://www.w3.org/2000/svg",
-      style: {
-        display: 'inline-block'
-      }
-    }, _react["default"].createElement("path", {
-      d: pathV,
-      fill: fillV,
-      strokeWidth: "1",
-      stroke: "yellow"
-    }))), _react["default"].createElement("span", {
-      style: S.CAPTION
-    }, caption)), _react["default"].createElement("div", {
-      className: classShow,
-      style: {
-        display: displayDivStyle
-      }
-    }, children));
+    return /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
+      style: (0, _extends2["default"])({}, S.ROOT_DIV, style),
+      children: [/*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
+        className: "not-selected",
+        style: toogleStyle,
+        onClick: this._hClickOpenClose,
+        children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
+          style: {
+            width: '16px',
+            height: '16px',
+            display: 'inline-block'
+          },
+          children: /*#__PURE__*/(0, _jsxRuntime.jsx)("svg", {
+            viewBox: "0 0 16 16",
+            width: "100%",
+            height: "100%",
+            preserveAspectRatio: "none",
+            xmlns: "http://www.w3.org/2000/svg",
+            style: {
+              display: 'inline-block'
+            },
+            children: /*#__PURE__*/(0, _jsxRuntime.jsx)("path", {
+              d: pathV,
+              fill: fillV,
+              strokeWidth: "1",
+              stroke: "yellow"
+            })
+          })
+        }), /*#__PURE__*/(0, _jsxRuntime.jsx)("span", {
+          style: S.CAPTION,
+          children: caption
+        })]
+      }), /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
+        className: classShow,
+        style: {
+          display: displayDivStyle
+        },
+        children: children
+      })]
+    });
   };
 
   return OpenClose;

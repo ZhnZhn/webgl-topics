@@ -5,7 +5,7 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 exports.__esModule = true;
 exports["default"] = void 0;
 
-var _react = _interopRequireDefault(require("react"));
+var _jsxRuntime = require("react/jsx-runtime");
 
 var _OpenClose = _interopRequireDefault(require("../zhn-atoms/OpenClose"));
 
@@ -30,12 +30,12 @@ var _renderMenuItems = function _renderMenuItems(items, topicId) {
         className = index % 2 ? 'row__topic__even not-selected' : 'row__topic__odd not-selected',
         _style = id === topicId ? STYLE.ITEM_CURRENT : undefined;
 
-    return _react["default"].createElement("div", {
-      key: id,
+    return /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
       className: className,
       style: Object.assign({}, STYLE.ITEM, _style),
-      onClick: onClick
-    }, title);
+      onClick: onClick,
+      children: title
+    }, id);
   });
 };
 
@@ -45,11 +45,12 @@ var MenuPart = function MenuPart(props) {
       toogleStyle = props.toogleStyle,
       caption = dataModel.caption,
       items = dataModel.items;
-  return _react["default"].createElement(_OpenClose["default"], {
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)(_OpenClose["default"], {
     caption: caption,
     style: STYLE.ROOT,
-    toogleStyle: toogleStyle
-  }, _renderMenuItems(items, topicId));
+    toogleStyle: toogleStyle,
+    children: _renderMenuItems(items, topicId)
+  });
 };
 
 var _default = MenuPart;

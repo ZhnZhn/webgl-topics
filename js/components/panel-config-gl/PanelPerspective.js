@@ -1,7 +1,5 @@
 "use strict";
 
-var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
-
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
 exports.__esModule = true;
@@ -9,7 +7,9 @@ exports["default"] = void 0;
 
 var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inheritsLoose"));
 
-var _react = _interopRequireWildcard(require("react"));
+var _jsxRuntime = require("react/jsx-runtime");
+
+var _react = require("react");
 
 var _OpenClose = _interopRequireDefault(require("../zhn-atoms/OpenClose"));
 
@@ -17,9 +17,7 @@ var _RowProp = _interopRequireDefault(require("./RowProp"));
 
 var _Panel = _interopRequireDefault(require("./Panel.Style"));
 
-var PanelPerspective =
-/*#__PURE__*/
-function (_Component) {
+var PanelPerspective = /*#__PURE__*/function (_Component) {
   (0, _inheritsLoose2["default"])(PanelPerspective, _Component);
 
   function PanelPerspective() {
@@ -45,26 +43,27 @@ function (_Component) {
         perspectiveNear = _this$props.perspectiveNear,
         perspectiveFar = _this$props.perspectiveFar,
         onGetComp = _this$props.onGetComp;
-    return _react["default"].createElement(_OpenClose["default"], {
+    return /*#__PURE__*/(0, _jsxRuntime.jsxs)(_OpenClose["default"], {
       caption: "Perspective",
-      style: _Panel["default"].OPEN_CLOSE
-    }, _react["default"].createElement(_RowProp["default"], {
-      labelBy: "Near:",
-      inputId: "pNear",
-      value: perspectiveNear,
-      propKey: "perspectiveNear",
-      styleLabel: _Panel["default"].LABEL_PERSPECTIVE,
-      onGetComp: onGetComp,
-      fnAfterSet: this._fnAfterSet
-    }), _react["default"].createElement(_RowProp["default"], {
-      labelBy: "Far:",
-      inputId: "pFar",
-      value: perspectiveFar,
-      styleLabel: _Panel["default"].LABEL_PERSPECTIVE,
-      propKey: "perspectiveFar",
-      onGetComp: onGetComp,
-      fnAfterSet: this._fnAfterSet
-    }));
+      style: _Panel["default"].OPEN_CLOSE,
+      children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_RowProp["default"], {
+        labelBy: "Near:",
+        inputId: "pNear",
+        value: perspectiveNear,
+        propKey: "perspectiveNear",
+        styleLabel: _Panel["default"].LABEL_PERSPECTIVE,
+        onGetComp: onGetComp,
+        fnAfterSet: this._fnAfterSet
+      }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_RowProp["default"], {
+        labelBy: "Far:",
+        inputId: "pFar",
+        value: perspectiveFar,
+        styleLabel: _Panel["default"].LABEL_PERSPECTIVE,
+        propKey: "perspectiveFar",
+        onGetComp: onGetComp,
+        fnAfterSet: this._fnAfterSet
+      })]
+    });
   };
 
   return PanelPerspective;

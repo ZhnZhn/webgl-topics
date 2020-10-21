@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import { Component } from 'react';
 
 const STYLE = {
   INPUT_TEXT : {
@@ -20,8 +20,12 @@ const STYLE = {
 
 class InputText extends Component {
 
+  static defaultProps = {
+    initValue : ''
+  }
+
   constructor(props){
-    super();
+    super(props);
 
     this.state = {
       value : props.initValue
@@ -63,12 +67,11 @@ class InputText extends Component {
   }
 }
 
-InputText.defaultProps = {
-  initValue : ''
-}
+/*
 InputText.propTypes = {
   initValue : PropTypes.string,
   style : PropTypes.object
 }
+*/
 
 export default InputText

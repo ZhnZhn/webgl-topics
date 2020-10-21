@@ -5,18 +5,17 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 exports.__esModule = true;
 exports["default"] = void 0;
 
-var _react = _interopRequireDefault(require("react"));
+var _jsxRuntime = require("react/jsx-runtime");
 
 var _MenuPart = _interopRequireDefault(require("./MenuPart"));
 
 var _renderMenuParts = function _renderMenuParts(toogleStyle, menuModel, topicId) {
   return menuModel.map(function (menuPart, index) {
-    return _react["default"].createElement(_MenuPart["default"], {
-      key: index,
+    return /*#__PURE__*/(0, _jsxRuntime.jsx)(_MenuPart["default"], {
       toogleStyle: toogleStyle,
       dataModel: menuPart,
       topicId: topicId
-    });
+    }, index);
   });
 };
 
@@ -25,9 +24,10 @@ var Menu = function Menu(_ref) {
       toogleStyle = _ref.toogleStyle,
       menuModel = _ref.menuModel,
       topicId = _ref.topicId;
-  return _react["default"].createElement("div", {
-    style: rootStyle
-  }, _renderMenuParts(toogleStyle, menuModel, topicId));
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
+    style: rootStyle,
+    children: _renderMenuParts(toogleStyle, menuModel, topicId)
+  });
 };
 
 var _default = Menu;

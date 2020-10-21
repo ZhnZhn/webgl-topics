@@ -1,6 +1,4 @@
 
-import React from 'react';
-
 import MenuPart from './MenuPart';
 
 const _renderMenuParts = (toogleStyle, menuModel, topicId) => {
@@ -14,7 +12,7 @@ const _renderMenuParts = (toogleStyle, menuModel, topicId) => {
    ));
  }
 
-const Menu = ({ 
+const Menu = ({
   rootStyle, toogleStyle,
   menuModel,
   topicId

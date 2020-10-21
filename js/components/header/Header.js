@@ -5,7 +5,7 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 exports.__esModule = true;
 exports["default"] = void 0;
 
-var _react = _interopRequireDefault(require("react"));
+var _jsxRuntime = require("react/jsx-runtime");
 
 var _IconAppLogo = _interopRequireDefault(require("./IconAppLogo"));
 
@@ -16,20 +16,21 @@ var _GitHubLink = _interopRequireDefault(require("./GitHubLink"));
 var TITLE = 'WebGL Topics v0.1.0';
 
 var Header = function Header() {
-  return _react["default"].createElement("header", {
+  return /*#__PURE__*/(0, _jsxRuntime.jsxs)("header", {
     className: "header",
-    role: "banner"
-  }, _react["default"].createElement(_IconAppLogo["default"], {
-    className: "header__icon-app",
-    title: TITLE
-  }), _react["default"].createElement(_AppLabel["default"], {
-    className: "header__label-app",
-    caption: TITLE
-  }), _react["default"].createElement(_GitHubLink["default"], {
-    className: "header__github-link",
-    title: "GitHub Repository",
-    href: "https://github.com/zhnzhn/webgl-topics/"
-  }));
+    role: "banner",
+    children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_IconAppLogo["default"], {
+      className: "header__icon-app",
+      title: TITLE
+    }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_AppLabel["default"], {
+      className: "header__label-app",
+      caption: TITLE
+    }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_GitHubLink["default"], {
+      className: "header__github-link",
+      title: "GitHub Repository",
+      href: "https://github.com/zhnzhn/webgl-topics/"
+    })]
+  });
 };
 
 var _default = Header;

@@ -1,6 +1,4 @@
 
-import React from 'react';
-
 import OpenClose from '../zhn-atoms/OpenClose';
 import RowProp from './RowProp';
 

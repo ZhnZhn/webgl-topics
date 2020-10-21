@@ -5,7 +5,7 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 exports.__esModule = true;
 exports["default"] = void 0;
 
-var _react = _interopRequireDefault(require("react"));
+var _jsxRuntime = require("react/jsx-runtime");
 
 var _Header = _interopRequireDefault(require("./header/Header"));
 
@@ -17,14 +17,15 @@ var _Footer = _interopRequireDefault(require("./footer/Footer"));
 
 var AppWebGLTopic = function AppWebGLTopic(_ref) {
   var store = _ref.store;
-  return _react["default"].createElement("div", {
+  return /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
     className: "app",
-    role: "application"
-  }, _react["default"].createElement(_Header["default"], null), _react["default"].createElement(_TopicMenu["default"], {
-    store: store
-  }), _react["default"].createElement(_Main["default"], {
-    store: store
-  }), _react["default"].createElement(_Footer["default"], null));
+    role: "application",
+    children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_Header["default"], {}), /*#__PURE__*/(0, _jsxRuntime.jsx)(_TopicMenu["default"], {
+      store: store
+    }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_Main["default"], {
+      store: store
+    }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_Footer["default"], {})]
+  });
 };
 
 var _default = AppWebGLTopic;

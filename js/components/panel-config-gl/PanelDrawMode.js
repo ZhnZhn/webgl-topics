@@ -1,7 +1,5 @@
 "use strict";
 
-var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
-
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
 exports.__esModule = true;
@@ -13,7 +11,9 @@ var _assertThisInitialized2 = _interopRequireDefault(require("@babel/runtime/hel
 
 var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inheritsLoose"));
 
-var _react = _interopRequireWildcard(require("react"));
+var _jsxRuntime = require("react/jsx-runtime");
+
+var _react = require("react");
 
 var _Comp = _interopRequireDefault(require("../Comp"));
 
@@ -51,9 +51,7 @@ var S = {
   }
 };
 
-var PanelDrawMode =
-/*#__PURE__*/
-function (_Component) {
+var PanelDrawMode = /*#__PURE__*/function (_Component) {
   (0, _inheritsLoose2["default"])(PanelDrawMode, _Component);
 
   function PanelDrawMode() {
@@ -86,21 +84,23 @@ function (_Component) {
   var _proto = PanelDrawMode.prototype;
 
   _proto.render = function render() {
-    return _react["default"].createElement(_Comp["default"].OpenClose, {
+    return /*#__PURE__*/(0, _jsxRuntime.jsx)(_Comp["default"].OpenClose, {
       caption: "DrawMode",
-      style: _Panel["default"].OPEN_CLOSE
-    }, _react["default"].createElement("div", {
-      style: (0, _extends2["default"])({}, _Panel["default"].OC_DIV, {}, S.OC_DIV)
-    }, _react["default"].createElement(_Comp["default"].InputSelect, {
-      width: "170",
-      options: _drawModeOptions,
-      styleRoot: _Panel["default"].INPUT_SELECT,
-      onSelect: this._hSelectDrawMode
-    }), _react["default"].createElement(_Comp["default"].ButtonSet, {
-      style: S.BT_SET,
-      mode: 1,
-      onClick: this._hSetDrawMode
-    })));
+      style: _Panel["default"].OPEN_CLOSE,
+      children: /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
+        style: (0, _extends2["default"])({}, _Panel["default"].OC_DIV, S.OC_DIV),
+        children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_Comp["default"].InputSelect, {
+          width: "170",
+          options: _drawModeOptions,
+          styleRoot: _Panel["default"].INPUT_SELECT,
+          onSelect: this._hSelectDrawMode
+        }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_Comp["default"].ButtonSet, {
+          style: S.BT_SET,
+          mode: 1,
+          onClick: this._hSetDrawMode
+        })]
+      })
+    });
   };
 
   return PanelDrawMode;
