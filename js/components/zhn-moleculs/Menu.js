@@ -20,12 +20,12 @@ var _renderMenuParts = function _renderMenuParts(toogleStyle, menuModel, topicId
 };
 
 var Menu = function Menu(_ref) {
-  var rootStyle = _ref.rootStyle,
+  var style = _ref.style,
       toogleStyle = _ref.toogleStyle,
       menuModel = _ref.menuModel,
       topicId = _ref.topicId;
   return /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
-    style: rootStyle,
+    style: style,
     children: _renderMenuParts(toogleStyle, menuModel, topicId)
   });
 };
