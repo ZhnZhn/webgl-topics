@@ -5,6 +5,8 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 exports.__esModule = true;
 exports["default"] = void 0;
 
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
+
 var _jsxRuntime = require("react/jsx-runtime");
 
 var _OpenClose = _interopRequireDefault(require("../zhn-atoms/OpenClose"));
@@ -18,7 +20,8 @@ var STYLE = {
     color: 'gray'
   },
   ITEM_CURRENT: {
-    borderRight: '8px solid #80c040'
+    //borderRight: '8px solid #80c040'
+    borderRight: '8px solid #1b75bb'
   }
 };
 
@@ -28,11 +31,11 @@ var _renderMenuItems = function _renderMenuItems(items, topicId) {
         title = item.title,
         onClick = item.onClick,
         className = index % 2 ? 'row__topic__even not-selected' : 'row__topic__odd not-selected',
-        _style = id === topicId ? STYLE.ITEM_CURRENT : undefined;
+        _style = id === topicId ? STYLE.ITEM_CURRENT : void 0;
 
     return /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
       className: className,
-      style: Object.assign({}, STYLE.ITEM, _style),
+      style: (0, _extends2["default"])({}, STYLE.ITEM, _style),
       onClick: onClick,
       children: title
     }, id);

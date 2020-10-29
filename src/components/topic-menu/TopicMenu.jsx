@@ -27,7 +27,7 @@ const TopicMenu = ({ store }) => {
   })
 
   return (
-    <section className="sidebar">
+    <section className="sidebar with-scroll">
       <div className="sidebar__menu" role="navigation">
          <Menu
             style={S.MENU}

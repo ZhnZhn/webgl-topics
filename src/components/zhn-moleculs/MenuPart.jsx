@@ -9,7 +9,8 @@ const STYLE = {
     color: 'gray'
   },
   ITEM_CURRENT: {
-     borderRight: '8px solid #80c040'
+     //borderRight: '8px solid #80c040'
+     borderRight: '8px solid #1b75bb'
   }
 }
 
@@ -22,12 +23,12 @@ const _renderMenuItems = function(items, topicId){
              : 'row__topic__odd not-selected'
         , _style = (id === topicId)
              ? STYLE.ITEM_CURRENT
-             : undefined;
+             : void 0;
     return (
        <div
            key={id}
            className={className}
-           style={Object.assign({}, STYLE.ITEM, _style)}
+           style={{...STYLE.ITEM, ..._style}}
            onClick={onClick}
         >
           {title}

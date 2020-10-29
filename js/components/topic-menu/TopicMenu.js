@@ -39,7 +39,7 @@ var TopicMenu = function TopicMenu(_ref) {
     }
   });
   return /*#__PURE__*/(0, _jsxRuntime.jsxs)("section", {
-    className: "sidebar",
+    className: "sidebar with-scroll",
     children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
       className: "sidebar__menu",
       role: "navigation",
