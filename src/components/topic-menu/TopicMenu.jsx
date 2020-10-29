@@ -1,54 +1,48 @@
-import { Component } from 'react';
+import { useState } from 'react';
+
+import useListen from '../hooks/useListen'
 
 import { RouterTopicActionTypes } from '../../flux/actions/RouterTopicActions'
 
 import Menu from '../zhn-moleculs/Menu';
 import menuModel from './menuModel';
 
-class TopicMenu  extends Component {
-  constructor(props){
-    super(props)
-
-    const { store } = props
-    this.state = {
-      topicId : store.state.topicId
-    }
+const S = {
+  MENU: {
+    borderRight: '1px solid black'
+  },
+  MENU_TOGGLE: {
+    paddingLeft: 6
   }
+};
 
-  componentDidMount(){
-     const { store } = this.props
-     this.unsubscribe = store.listen(this._onStore);
-  }
 
-  _onStore = (actionType, state) => {
+const TopicMenu = ({ store }) => {
+  const [topicId, setTopicId ] = useState(store.state.topicId)
+
+  useListen(store, (actionType, state) => {
     if (actionType === RouterTopicActionTypes.VIEW_TOPIC){
-      this.setState({ topicId : state.topicId })
+      setTopicId(state.topicId)
     }
-  }
+  })
 
-  componentWillUnmount(){
-     this.unsubscribe()
-  }
-
-  render(){
-    const { topicId } = this.state;
-    return (
-      <section className="sidebar" tabIndex="-1">
-        <div className="sidebar__menu" role="navigation">
-           <Menu
-              toogleStyle={{ paddingLeft: '6px' }}
-              menuModel={menuModel}
-              topicId={topicId}
-            />
-        </div>
-        <div className="sidebar__footer">
-          <button className="sidebar__footer__link">
-            Footer Button
-          </button>
-        </div>
-      </section>
-    );
-  }
+  return (
+    <section className="sidebar">
+      <div className="sidebar__menu" role="navigation">
+         <Menu
+            style={S.MENU}
+            toogleStyle={S.MENU_TOGGLE}
+            menuModel={menuModel}
+            topicId={topicId}
+          />
+      </div>
+      <div className="sidebar__footer">
+        <button className="sidebar__footer__link">
+          Footer Button
+        </button>
+      </div>
+    </section>
+  );
 }
 
 /*
