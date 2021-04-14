@@ -27,8 +27,8 @@
     "@babel/runtime": "^7.13.10",
     "big.js": "^6.0.3",
     "gl-matrix": "^2.3.2",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "reflux-core": "^1.0.0"
   },
   "jspm": {
@@ -36,8 +36,8 @@
       "@babel/runtime": "npm:@babel/runtime@^7.13.10",
       "big.js": "npm:big.js@^6.0.3",
       "gl-matrix": "npm:gl-matrix@^2.3.2",
-      "react": "npm:react@^17.0.1",
-      "react-dom": "npm:react-dom@^17.0.1",
+      "react": "npm:react@^17.0.2",
+      "react-dom": "npm:react-dom@^17.0.2",
       "reflux-core": "npm:reflux-core@^1.0.0"
     },
     "devDependencies": {}
