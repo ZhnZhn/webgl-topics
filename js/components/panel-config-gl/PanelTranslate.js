@@ -7,8 +7,6 @@ exports["default"] = void 0;
 
 var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inheritsLoose"));
 
-var _jsxRuntime = require("react/jsx-runtime");
-
 var _react = require("react");
 
 var _OpenClose = _interopRequireDefault(require("../zhn-atoms/OpenClose"));
@@ -16,6 +14,8 @@ var _OpenClose = _interopRequireDefault(require("../zhn-atoms/OpenClose"));
 var _RowProp = _interopRequireDefault(require("./RowProp"));
 
 var _Panel = _interopRequireDefault(require("./Panel.Style"));
+
+var _jsxRuntime = require("react/jsx-runtime");
 
 var PanelTranslate = /*#__PURE__*/function (_Component) {
   (0, _inheritsLoose2["default"])(PanelTranslate, _Component);

@@ -1,14 +1,1 @@
-{
- "version": 3,
- "sources": [
-  "../../../src/components/zhn-atoms/Label.js"
- ],
- "file": "../../../src/components/zhn-atoms/Label.js",
- "names": [
-  "Label",
-  "style",
-  "title",
-  "id"
- ],
- "mappings": ";;;;;;;AAAA,IAAMA,KAAK,GAAG,SAARA,KAAQ;AAAA,MAAGC,KAAH,QAAGA,KAAH;AAAA,MAAUC,KAAV,QAAUA,KAAV;AAAA,MAAiBC,EAAjB,QAAiBA,EAAjB;AAAA,sBACZ;AACG,IAAA,SAAS,EAAC,cADb;AAEG,IAAA,KAAK,EAAEF,KAFV;AAGG,IAAA,OAAO,EAAEE,EAHZ;AAAA,cAKGD;AALH,IADY;AAAA,CAAd;AAUA;AACA;AACA;AACA;AACA;AACA;AACA;;;eAEeF,K"
-}
+{"version":3,"sources":["../../../src/components/zhn-atoms/Label.jsx"],"names":["Label","style","title","id"],"mappings":";;;;;;;AAAA,IAAMA,KAAK,GAAG,SAARA,KAAQ;AAAA,MAAGC,KAAH,QAAGA,KAAH;AAAA,MAAUC,KAAV,QAAUA,KAAV;AAAA,MAAiBC,EAAjB,QAAiBA,EAAjB;AAAA,sBACZ;AACG,IAAA,SAAS,EAAC,cADb;AAEG,IAAA,KAAK,EAAEF,KAFV;AAGG,IAAA,OAAO,EAAEE,EAHZ;AAAA,cAKGD;AALH,IADY;AAAA,CAAd;AAUA;AACA;AACA;AACA;AACA;AACA;AACA;;;eAEeF,K","sourcesContent":["const Label = ({ style, title, id }) => (\r\n  <label\r\n     className=\"not-selected\"\r\n     style={style}\r\n     htmlFor={id}\r\n  >\r\n    {title}\r\n  </label>\r\n)\r\n\r\n/*\r\nLabel.propTypes = {\r\n  style: PropTypes.object,\r\n  title: PropTypes.string,\r\n  id: PropTypes.string\r\n}\r\n*/\r\n\r\nexport default Label\r\n"],"file":"Label.js"}

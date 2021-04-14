@@ -1,12 +1,1 @@
-{
- "version": 3,
- "sources": [
-  "../../../src/components/header/Header.js"
- ],
- "file": "../../../src/components/header/Header.js",
- "names": [
-  "TITLE",
-  "Header"
- ],
- "mappings": ";;;;;;;;;AAAA;;AACA;;AACA;;AAEA,IAAMA,KAAK,GAAG,qBAAd;;AAEA,IAAMC,MAAM,GAAG,SAATA,MAAS;AAAA,sBACb;AAAQ,IAAA,SAAS,EAAC,QAAlB;AAA2B,IAAA,IAAI,EAAC,QAAhC;AAAA,4BACE,qBAAC,uBAAD;AACE,MAAA,SAAS,EAAC,kBADZ;AAEE,MAAA,KAAK,EAAED;AAFT,MADF,eAKE,qBAAC,oBAAD;AACE,MAAA,SAAS,EAAC,mBADZ;AAEE,MAAA,OAAO,EAAEA;AAFX,MALF,eASE,qBAAC,sBAAD;AACG,MAAA,SAAS,EAAC,qBADb;AAEG,MAAA,KAAK,EAAC,mBAFT;AAGG,MAAA,IAAI,EAAC;AAHR,MATF;AAAA,IADa;AAAA,CAAf;;eAkBeC,M"
-}
+{"version":3,"sources":["../../../src/components/header/Header.jsx"],"names":["TITLE","Header"],"mappings":";;;;;;;AAAA;;AACA;;AACA;;;;AAEA,IAAMA,KAAK,GAAG,qBAAd;;AAEA,IAAMC,MAAM,GAAG,SAATA,MAAS;AAAA,sBACb;AAAQ,IAAA,SAAS,EAAC,QAAlB;AAA2B,IAAA,IAAI,EAAC,QAAhC;AAAA,4BACE,qBAAC,uBAAD;AACE,MAAA,SAAS,EAAC,kBADZ;AAEE,MAAA,KAAK,EAAED;AAFT,MADF,eAKE,qBAAC,oBAAD;AACE,MAAA,SAAS,EAAC,mBADZ;AAEE,MAAA,OAAO,EAAEA;AAFX,MALF,eASE,qBAAC,sBAAD;AACG,MAAA,SAAS,EAAC,qBADb;AAEG,MAAA,KAAK,EAAC,mBAFT;AAGG,MAAA,IAAI,EAAC;AAHR,MATF;AAAA,IADa;AAAA,CAAf;;eAkBeC,M","sourcesContent":["import IconAppLogo from './IconAppLogo'\r\nimport AppLabel from './AppLabel'\r\nimport GitHubLink from './GitHubLink';\r\n\r\nconst TITLE = 'WebGL Topics v0.1.0'\r\n\r\nconst Header = () => (\r\n  <header className=\"header\" role=\"banner\">\r\n    <IconAppLogo\r\n      className=\"header__icon-app\"\r\n      title={TITLE}\r\n    />\r\n    <AppLabel\r\n      className=\"header__label-app\"\r\n      caption={TITLE}\r\n    />\r\n    <GitHubLink\r\n       className=\"header__github-link\"\r\n       title=\"GitHub Repository\"\r\n       href=\"https://github.com/zhnzhn/webgl-topics/\"\r\n    />\r\n  </header>\r\n)\r\n\r\nexport default Header\r\n"],"file":"Header.js"}

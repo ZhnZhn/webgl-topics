@@ -11,8 +11,6 @@ var _assertThisInitialized2 = _interopRequireDefault(require("@babel/runtime/hel
 
 var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inheritsLoose"));
 
-var _jsxRuntime = require("react/jsx-runtime");
-
 var _react = require("react");
 
 var _setModeToAll = _interopRequireDefault(require("./decorators/setModeToAll"));
@@ -25,13 +23,15 @@ var _Comp = _interopRequireDefault(require("../Comp"));
 
 var _Row = _interopRequireDefault(require("./Row.Style"));
 
-var _class, _temp;
+var _jsxRuntime = require("react/jsx-runtime");
+
+var _class;
 
 var _isFn = function _isFn(fn) {
   return typeof fn === 'function';
 };
 
-var RowProp = (0, _setModeToAll["default"])(_class = (0, _onChangeMode["default"])(_class = (0, _calcInputMode["default"])(_class = (_temp = /*#__PURE__*/function (_Component) {
+var RowProp = (0, _setModeToAll["default"])(_class = (0, _onChangeMode["default"])(_class = (0, _calcInputMode["default"])(_class = /*#__PURE__*/function (_Component) {
   (0, _inheritsLoose2["default"])(RowProp, _Component);
 
   /*
@@ -111,7 +111,7 @@ var RowProp = (0, _setModeToAll["default"])(_class = (0, _onChangeMode["default"
   };
 
   return RowProp;
-}(_react.Component), _temp)) || _class) || _class) || _class;
+}(_react.Component)) || _class) || _class) || _class;
 
 var _default = RowProp;
 exports["default"] = _default;

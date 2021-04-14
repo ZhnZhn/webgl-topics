@@ -9,8 +9,6 @@ var _assertThisInitialized2 = _interopRequireDefault(require("@babel/runtime/hel
 
 var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inheritsLoose"));
 
-var _jsxRuntime = require("react/jsx-runtime");
-
 var _react = require("react");
 
 var _setModeToAll = _interopRequireDefault(require("./decorators/setModeToAll"));
@@ -27,9 +25,11 @@ var _ButtonSet = _interopRequireDefault(require("../zhn-atoms/ButtonSet"));
 
 var _Row = _interopRequireDefault(require("./Row.Style"));
 
-var _class, _temp;
+var _jsxRuntime = require("react/jsx-runtime");
 
-var RowTranslate = (0, _setModeToAll["default"])(_class = (0, _onChangeMode["default"])(_class = (0, _calcInputMode["default"])(_class = (_temp = /*#__PURE__*/function (_Component) {
+var _class;
+
+var RowTranslate = (0, _setModeToAll["default"])(_class = (0, _onChangeMode["default"])(_class = (0, _calcInputMode["default"])(_class = /*#__PURE__*/function (_Component) {
   (0, _inheritsLoose2["default"])(RowTranslate, _Component);
 
   /*
@@ -95,7 +95,7 @@ var RowTranslate = (0, _setModeToAll["default"])(_class = (0, _onChangeMode["def
   };
 
   return RowTranslate;
-}(_react.Component), _temp)) || _class) || _class) || _class;
+}(_react.Component)) || _class) || _class) || _class;
 
 var _default = RowTranslate;
 exports["default"] = _default;

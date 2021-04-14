@@ -7,9 +7,9 @@ exports["default"] = void 0;
 
 var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
 
-var _jsxRuntime = require("react/jsx-runtime");
-
 var _Button = _interopRequireDefault(require("./Button.Style"));
+
+var _jsxRuntime = require("react/jsx-runtime");
 
 var Button = function Button(_ref) {
   var caption = _ref.caption,

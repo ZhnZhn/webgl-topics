@@ -9,8 +9,6 @@ var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends")
 
 var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inheritsLoose"));
 
-var _jsxRuntime = require("react/jsx-runtime");
-
 var _react = require("react");
 
 var _RouterLink = _interopRequireDefault(require("./links/RouterLink"));
@@ -31,7 +29,9 @@ var _startAnimation = _interopRequireDefault(require("./gl-decorators/startAnima
 
 var _Button = _interopRequireDefault(require("../zhn-atoms/Button"));
 
-var _class, _temp;
+var _jsxRuntime = require("react/jsx-runtime");
+
+var _class;
 
 var WIDTH = 500,
     HEIGHT = 500,
@@ -47,7 +47,7 @@ var WIDTH = 500,
   }
 };
 
-var WebGLTopic = (0, _initGL["default"])(_class = (0, _createShaders["default"])(_class = (0, _createPerspective["default"])(_class = (0, _setPointSize["default"])(_class = (0, _configMatrix["default"])(_class = (0, _draw["default"])(_class = (0, _startAnimation["default"])(_class = (_temp = /*#__PURE__*/function (_Component) {
+var WebGLTopic = (0, _initGL["default"])(_class = (0, _createShaders["default"])(_class = (0, _createPerspective["default"])(_class = (0, _setPointSize["default"])(_class = (0, _configMatrix["default"])(_class = (0, _draw["default"])(_class = (0, _startAnimation["default"])(_class = /*#__PURE__*/function (_Component) {
   (0, _inheritsLoose2["default"])(WebGLTopic, _Component);
 
   function WebGLTopic() {
@@ -129,7 +129,7 @@ var WebGLTopic = (0, _initGL["default"])(_class = (0, _createShaders["default"])
   };
 
   return WebGLTopic;
-}(_react.Component), _temp)) || _class) || _class) || _class) || _class) || _class) || _class) || _class;
+}(_react.Component)) || _class) || _class) || _class) || _class) || _class) || _class) || _class;
 
 var _default = WebGLTopic;
 exports["default"] = _default;

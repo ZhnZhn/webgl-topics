@@ -7,8 +7,6 @@ exports["default"] = void 0;
 
 var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
 
-var _jsxRuntime = require("react/jsx-runtime");
-
 var _react = require("react");
 
 var _useListen = _interopRequireDefault(require("../hooks/useListen"));
@@ -20,6 +18,8 @@ var _factoryTopic2 = _interopRequireDefault(require("./factoryTopic"));
 var _PanelConfigGL = _interopRequireDefault(require("../panel-config-gl/PanelConfigGL"));
 
 var _dfValues = _interopRequireDefault(require("./gl-props/dfValues"));
+
+var _jsxRuntime = require("react/jsx-runtime");
 
 var TopicWrapper = function TopicWrapper(_ref) {
   var store = _ref.store;

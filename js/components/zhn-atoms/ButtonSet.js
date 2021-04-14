@@ -9,11 +9,11 @@ var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inh
 
 var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
 
-var _jsxRuntime = require("react/jsx-runtime");
-
 var _react = require("react");
 
 var _ButtonSet = _interopRequireDefault(require("./ButtonSet.Style"));
+
+var _jsxRuntime = require("react/jsx-runtime");
 
 var _hmModeStyle = {
   0: (0, _extends2["default"])({}, _ButtonSet["default"].BT, _ButtonSet["default"].NOT_VALID),

@@ -1,11 +1,1 @@
-{
- "version": 3,
- "sources": [
-  "../../../src/components/footer/Footer.js"
- ],
- "file": "../../../src/components/footer/Footer.js",
- "names": [
-  "Footer"
- ],
- "mappings": ";;;;;;;AAAA,IAAMA,MAAM,GAAG,SAATA,MAAS;AAAA,sBACb;AAAK,IAAA,SAAS,EAAC,mBAAf;AAAmC,IAAA,IAAI,EAAC;AAAxC,IADa;AAAA,CAAf;;eAIeA,M"
-}
+{"version":3,"sources":["../../../src/components/footer/Footer.jsx"],"names":["Footer"],"mappings":";;;;;;;AAAA,IAAMA,MAAM,GAAG,SAATA,MAAS;AAAA,sBACb;AAAK,IAAA,SAAS,EAAC,mBAAf;AAAmC,IAAA,IAAI,EAAC;AAAxC,IADa;AAAA,CAAf;;eAIeA,M","sourcesContent":["const Footer = () => (\r\n  <div className=\"container__footer\" role=\"complementary\" />\r\n);\r\n\r\nexport default Footer\r\n"],"file":"Footer.js"}

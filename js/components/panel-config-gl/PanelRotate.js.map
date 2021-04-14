@@ -1,17 +1,1 @@
-{
- "version": 3,
- "sources": [
-  "../../../src/components/panel-config-gl/PanelRotate.js"
- ],
- "file": "../../../src/components/panel-config-gl/PanelRotate.js",
- "names": [
-  "PanelRotate",
-  "rX",
-  "rY",
-  "rZ",
-  "onGetComp",
-  "STYLE",
-  "OPEN_CLOSE"
- ],
- "mappings": ";;;;;;;;;AACA;;AACA;;AAEA;;AAEA,IAAMA,WAAW,GAAG,SAAdA,WAAc;AAAA,MAAGC,EAAH,QAAGA,EAAH;AAAA,MAAOC,EAAP,QAAOA,EAAP;AAAA,MAAWC,EAAX,QAAWA,EAAX;AAAA,MAAeC,SAAf,QAAeA,SAAf;AAAA,sBAClB,sBAAC,qBAAD;AACG,IAAA,OAAO,EAAE,IADZ;AAEG,IAAA,OAAO,EAAC,QAFX;AAGG,IAAA,KAAK,EAAEC,kBAAMC,UAHhB;AAAA,4BAKE,qBAAC,mBAAD;AACG,MAAA,OAAO,EAAC,IADX;AAEG,MAAA,OAAO,EAAC,IAFX;AAGG,MAAA,KAAK,EAAEL,EAHV;AAIG,MAAA,OAAO,EAAC,IAJX;AAKG,MAAA,SAAS,EAAEG;AALd,MALF,eAYE,qBAAC,mBAAD;AACG,MAAA,OAAO,EAAC,IADX;AAEG,MAAA,OAAO,EAAC,IAFX;AAGG,MAAA,KAAK,EAAEF,EAHV;AAIG,MAAA,OAAO,EAAC,IAJX;AAKG,MAAA,SAAS,EAAEE;AALd,MAZF,eAmBE,qBAAC,mBAAD;AACG,MAAA,OAAO,EAAC,IADX;AAEG,MAAA,OAAO,EAAC,IAFX;AAGG,MAAA,KAAK,EAAED,EAHV;AAIG,MAAA,OAAO,EAAC,IAJX;AAKG,MAAA,SAAS,EAAEC;AALd,MAnBF;AAAA,IADkB;AAAA,CAApB;;eA8BeJ,W"
-}
+{"version":3,"sources":["../../../src/components/panel-config-gl/PanelRotate.jsx"],"names":["PanelRotate","rX","rY","rZ","onGetComp","STYLE","OPEN_CLOSE"],"mappings":";;;;;;;AACA;;AACA;;AAEA;;;;AAEA,IAAMA,WAAW,GAAG,SAAdA,WAAc;AAAA,MAAGC,EAAH,QAAGA,EAAH;AAAA,MAAOC,EAAP,QAAOA,EAAP;AAAA,MAAWC,EAAX,QAAWA,EAAX;AAAA,MAAeC,SAAf,QAAeA,SAAf;AAAA,sBAClB,sBAAC,qBAAD;AACG,IAAA,OAAO,EAAE,IADZ;AAEG,IAAA,OAAO,EAAC,QAFX;AAGG,IAAA,KAAK,EAAEC,kBAAMC,UAHhB;AAAA,4BAKE,qBAAC,mBAAD;AACG,MAAA,OAAO,EAAC,IADX;AAEG,MAAA,OAAO,EAAC,IAFX;AAGG,MAAA,KAAK,EAAEL,EAHV;AAIG,MAAA,OAAO,EAAC,IAJX;AAKG,MAAA,SAAS,EAAEG;AALd,MALF,eAYE,qBAAC,mBAAD;AACG,MAAA,OAAO,EAAC,IADX;AAEG,MAAA,OAAO,EAAC,IAFX;AAGG,MAAA,KAAK,EAAEF,EAHV;AAIG,MAAA,OAAO,EAAC,IAJX;AAKG,MAAA,SAAS,EAAEE;AALd,MAZF,eAmBE,qBAAC,mBAAD;AACG,MAAA,OAAO,EAAC,IADX;AAEG,MAAA,OAAO,EAAC,IAFX;AAGG,MAAA,KAAK,EAAED,EAHV;AAIG,MAAA,OAAO,EAAC,IAJX;AAKG,MAAA,SAAS,EAAEC;AALd,MAnBF;AAAA,IADkB;AAAA,CAApB;;eA8BeJ,W","sourcesContent":["\r\nimport OpenClose from '../zhn-atoms/OpenClose';\r\nimport RowProp from './RowProp';\r\n\r\nimport STYLE from './Panel.Style'\r\n\r\nconst PanelRotate = ({ rX, rY, rZ, onGetComp }) => (\r\n  <OpenClose\r\n     isClose={true}\r\n     caption=\"Rotate\"\r\n     style={STYLE.OPEN_CLOSE}\r\n  >\r\n    <RowProp\r\n       labelBy=\"X:\"\r\n       inputId=\"rX\"\r\n       value={rX}\r\n       propKey=\"rX\"\r\n       onGetComp={onGetComp}\r\n    />\r\n    <RowProp\r\n       labelBy=\"Y:\"\r\n       inputId=\"rY\"\r\n       value={rY}\r\n       propKey=\"rY\"\r\n       onGetComp={onGetComp}\r\n    />\r\n    <RowProp\r\n       labelBy=\"Z:\"\r\n       inputId=\"rZ\"\r\n       value={rZ}\r\n       propKey=\"rZ\"\r\n       onGetComp={onGetComp}\r\n    />\r\n  </OpenClose>\r\n);\r\n\r\nexport default PanelRotate\r\n"],"file":"PanelRotate.js"}

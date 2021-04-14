@@ -5,9 +5,9 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 exports.__esModule = true;
 exports["default"] = void 0;
 
-var _jsxRuntime = require("react/jsx-runtime");
-
 var _MenuPart = _interopRequireDefault(require("./MenuPart"));
+
+var _jsxRuntime = require("react/jsx-runtime");
 
 var _renderMenuParts = function _renderMenuParts(toogleStyle, menuModel, topicId) {
   return menuModel.map(function (menuPart, index) {

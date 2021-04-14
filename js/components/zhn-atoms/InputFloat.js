@@ -9,8 +9,6 @@ var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends")
 
 var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inheritsLoose"));
 
-var _jsxRuntime = require("react/jsx-runtime");
-
 var _react = require("react");
 
 var _big = _interopRequireDefault(require("big.js"));
@@ -18,6 +16,8 @@ var _big = _interopRequireDefault(require("big.js"));
 var _is = require("../../utils/is");
 
 var _InputFloat = _interopRequireDefault(require("./InputFloat.Style"));
+
+var _jsxRuntime = require("react/jsx-runtime");
 
 var _hmModeStyle = {
   0: _InputFloat["default"].NOT_VALID,

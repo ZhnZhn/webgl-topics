@@ -9,8 +9,6 @@ var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inh
 
 var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
 
-var _jsxRuntime = require("react/jsx-runtime");
-
 var _react = require("react");
 
 var _ArrowCell = _interopRequireDefault(require("./ArrowCell"));
@@ -22,6 +20,8 @@ var _ItemOptionDf = _interopRequireDefault(require("./ItemOptionDf"));
 var _OptionsFooter = _interopRequireDefault(require("./OptionsFooter"));
 
 var _CL = _interopRequireDefault(require("./CL"));
+
+var _jsxRuntime = require("react/jsx-runtime");
 
 //import PropTypes from 'prop-types'
 var MAX_WITHOUT_ANIMATION = 800;

@@ -24,7 +24,7 @@
     "url": "https://github.com/ZhnZhn/webgl-topics.git"
   },
   "dependencies": {
-    "@babel/runtime": "^7.12.1",
+    "@babel/runtime": "^7.13.10",
     "big.js": "^6.0.1",
     "gl-matrix": "^2.3.2",
     "react": "^17.0.1",
@@ -33,7 +33,7 @@
   },
   "jspm": {
     "dependencies": {
-      "@babel/runtime": "npm:@babel/runtime@^7.12.1",
+      "@babel/runtime": "npm:@babel/runtime@^7.13.10",
       "big.js": "npm:big.js@^6.0.1",
       "gl-matrix": "npm:gl-matrix@^2.3.2",
       "react": "npm:react@^17.0.1",
@@ -43,13 +43,13 @@
     "devDependencies": {}
   },
   "devDependencies": {
-    "@babel/cli": "^7.12.10",
-    "@babel/core": "^7.12.3",
-    "@babel/plugin-proposal-class-properties": "^7.12.1",
-    "@babel/plugin-proposal-decorators": "^7.12.1",
-    "@babel/plugin-transform-runtime": "^7.12.1",
-    "@babel/preset-env": "^7.12.1",
-    "@babel/preset-react": "^7.12.1",
+    "@babel/cli": "^7.13.14",
+    "@babel/core": "^7.13.15",
+    "@babel/plugin-proposal-class-properties": "^7.13.0",
+    "@babel/plugin-proposal-decorators": "^7.13.15",
+    "@babel/plugin-transform-runtime": "^7.13.15",
+    "@babel/preset-env": "^7.13.15",
+    "@babel/preset-react": "^7.13.13",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.2.2",
     "del": "^5.1.0",

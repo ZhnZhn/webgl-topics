@@ -5,8 +5,6 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 exports.__esModule = true;
 exports["default"] = void 0;
 
-var _jsxRuntime = require("react/jsx-runtime");
-
 var _react = require("react");
 
 var _useListen = _interopRequireDefault(require("../hooks/useListen"));
@@ -16,6 +14,8 @@ var _RouterTopicActions = require("../../flux/actions/RouterTopicActions");
 var _Menu = _interopRequireDefault(require("../zhn-moleculs/Menu"));
 
 var _menuModel = _interopRequireDefault(require("./menuModel"));
+
+var _jsxRuntime = require("react/jsx-runtime");
 
 var S = {
   MENU: {
