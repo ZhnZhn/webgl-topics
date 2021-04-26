@@ -1,12 +1,11 @@
 'use strict'
 
 const path = require('path')
-    , webpack = require('webpack')
-    , babelConfig = require('./babel.config')
-    , HtmlWebpackPlugin = require('html-webpack-plugin')
-    , HtmlProcessingWebpackPlugin = require('./plugins/html-processing-webpack-plugin') 
-    , postProcessing = require('./plugins/post-processing');
-
+, webpack = require('webpack')
+, babelDevConfig = require('./babel.dev.config')
+, ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
+, HtmlWebpackPlugin = require('html-webpack-plugin')
+, HtmlProcessingWebpackPlugin = require('./plugins/html-processing-webpack-plugin');
 
 module.exports = {
   mode: "development",
@@ -14,11 +13,15 @@ module.exports = {
   entry: {
     app: path.resolve('src', 'index.jsx')
   },
+  devtool: 'inline-source-map',
+  devServer: {
+    port: 8082
+  },
+
   output: {
-      path: path.resolve('app'),
-      filename: "[name]_dev_[chunkhash].js",
-      chunkFilename: "[name]_dev_[chunkhash].js",
-      publicPath: 'app/'
+      path: path.resolve('dev'),
+      filename: "[name]_dev_[contenthash].js",
+      chunkFilename: "[name]_dev_[contenthash].js"
   },
   module: {
     rules: [
@@ -29,7 +32,7 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             cacheDirectory: true,
-            ...babelConfig
+            ...babelDevConfig
           }
         },
         include: [
@@ -43,17 +46,13 @@ module.exports = {
     modules: ['local_modules','node_modules'],
     extensions: ['.js', '.jsx']
   },
-  plugins : [    
-    new webpack.DllReferencePlugin({
-      context: __dirname,
-      manifest: require('./dll/lib-manifest.json')
-    }),                
+  plugins : [
+    new webpack.HotModuleReplacementPlugin(),
+    new ReactRefreshWebpackPlugin(),
     new HtmlWebpackPlugin({
-        minify: false,,
-        filename: path.resolve('index.html'),
+        filename: path.resolve('dev', 'index.html'),
         template: path.resolve('template', 'index.ejs'),
-        inject: false,
-        postProcessing: postProcessing
+        inject: false
     }),
     new HtmlProcessingWebpackPlugin()
   ]
