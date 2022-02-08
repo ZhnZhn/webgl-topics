@@ -1,8 +1,8 @@
-import { 
+import {
   forwardRef,
   useState,
   useImperativeHandle
-} from 'react';
+} from '../uiApi';
 
 const CL_BT = "bt"
 , S_BT = {

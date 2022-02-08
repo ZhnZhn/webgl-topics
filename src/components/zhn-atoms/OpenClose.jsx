@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { Component } from '../uiApi';
 
 const CL_NOT_SELECTED = "not-selected"
 , CL_SHOW_POPUP = 'show-popup'

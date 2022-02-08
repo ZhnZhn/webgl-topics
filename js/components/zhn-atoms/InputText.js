@@ -9,7 +9,7 @@ var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends")
 
 var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inheritsLoose"));
 
-var _react = require("react");
+var _uiApi = require("../uiApi");
 
 var _jsxRuntime = require("react/jsx-runtime");
 
@@ -80,7 +80,7 @@ var InputText = /*#__PURE__*/function (_Component) {
   };
 
   return InputText;
-}(_react.Component);
+}(_uiApi.Component);
 /*
 InputText.propTypes = {
   initValue : PropTypes.string,

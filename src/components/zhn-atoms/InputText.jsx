@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { Component } from '../uiApi';
 
 const S_INPUT_TEXT = {
   display : 'inline',

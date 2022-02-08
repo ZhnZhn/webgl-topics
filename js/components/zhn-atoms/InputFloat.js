@@ -9,7 +9,7 @@ var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends")
 
 var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inheritsLoose"));
 
-var _react = require("react");
+var _uiApi = require("../uiApi");
 
 var _big = _interopRequireDefault(require("big.js"));
 
@@ -330,7 +330,7 @@ var InputFloat = /*#__PURE__*/function (_Component) {
   };
 
   return InputFloat;
-}(_react.Component);
+}(_uiApi.Component);
 
 InputFloat.defaultProps = {
   inputKey: 'dfKey',

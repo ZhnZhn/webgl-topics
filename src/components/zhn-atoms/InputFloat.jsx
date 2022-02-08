@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { Component } from '../uiApi';
 import Big from 'big.js'
 
 import { isFunction, isFloat } from '../../utils/is'

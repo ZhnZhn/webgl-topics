@@ -9,7 +9,7 @@ var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends")
 
 var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inheritsLoose"));
 
-var _react = require("react");
+var _uiApi = require("../uiApi");
 
 var _jsxRuntime = require("react/jsx-runtime");
 
@@ -132,7 +132,7 @@ var OpenClose = /*#__PURE__*/function (_Component) {
   };
 
   return OpenClose;
-}(_react.Component);
+}(_uiApi.Component);
 
 var _default = OpenClose;
 exports["default"] = _default;

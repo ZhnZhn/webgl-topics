@@ -7,7 +7,7 @@ exports["default"] = void 0;
 
 var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
 
-var _react = require("react");
+var _uiApi = require("../uiApi");
 
 var _jsxRuntime = require("react/jsx-runtime");
 
@@ -40,17 +40,17 @@ var HM_MODE_STYLE = {
   1: (0, _extends2["default"])({}, S_BT, S_VALID_CHANGED),
   2: (0, _extends2["default"])({}, S_BT, S_VALID_NOT_CHANGED)
 };
-var ButtonSet = /*#__PURE__*/(0, _react.forwardRef)(function (_ref, ref) {
+var ButtonSet = (0, _uiApi.forwardRef)(function (_ref, ref) {
   var _ref$mode = _ref.mode,
       mode = _ref$mode === void 0 ? 2 : _ref$mode,
       style = _ref.style,
       onClick = _ref.onClick;
 
-  var _useState = (0, _react.useState)(mode),
+  var _useState = (0, _uiApi.useState)(mode),
       btMode = _useState[0],
       setBtMode = _useState[1];
 
-  (0, _react.useImperativeHandle)(ref, function () {
+  (0, _uiApi.useImperativeHandle)(ref, function () {
     return {
       setMode: setBtMode
     };
