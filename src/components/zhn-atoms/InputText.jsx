@@ -1,38 +1,28 @@
 import { Component } from 'react';
 
-const STYLE = {
-  INPUT_TEXT : {
-    background: 'transparent none repeat scroll 0 0',
-    border: 'medium none',
-    outline: 'medium none',
-    height: '26px',
-    paddingLeft: '5px',
-    color: 'green',
-    width: '40px',
-    fontSize: '16px',
-    fontWeight: 'bold',
-    backgroundColor : '#E1E1CB',
-    marginLeft : '5px',
-    marginRight : '5px',
-    display : 'inline'
-  }
-}
+const S_INPUT_TEXT = {
+  display : 'inline',
+  color: 'green',
+  width: 40,
+  height: 26,
+  paddingLeft: 5,
+  margin: '0 5px',
+  fontSize: '16px',
+  fontWeight: 'bold',
+  backgroundColor : '#e1e1cb',
+  background: 'transparent none repeat scroll 0 0',
+  border: 'medium none',
+  outline: 'medium none',
+};
 
 class InputText extends Component {
-
-  static defaultProps = {
-    initValue : ''
-  }
 
   constructor(props){
     super(props);
 
     this.state = {
-      value : props.initValue
-      //value : ''
+      value: props.initValue || ''
     }
-
-    this._handleInputChange = this._handleInputChange.bind(this)
   }
 
   componentWillReceiveProps(nextProps){
@@ -41,17 +31,17 @@ class InputText extends Component {
     }
   }
 
-  _handleInputChange(event){
-    this.setState({ value : event.target.value })
+  _handleInputChange = (event) => {
+    this.setState({ value: event.target.value })
   }
 
   render(){
-    const {style} = this.props
-        , {value} = this.state;
+    const { style } = this.props
+    , { value } = this.state;
     return (
       <input
         type="text"
-        style={Object.assign({}, STYLE.INPUT_TEXT, style)}
+        style={{...S_INPUT_TEXT, ...style}}
         value={value}
         onChange={this._handleInputChange}
       />
