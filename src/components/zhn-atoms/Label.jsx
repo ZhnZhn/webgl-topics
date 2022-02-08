@@ -1,19 +1,17 @@
-const Label = ({ style, title, id }) => (
+const CL_NOT_SELECTED = "not-selected";
+
+const Label = ({
+  id,
+  style,
+  title
+}) => (
   <label
-     className="not-selected"
+     className={CL_NOT_SELECTED}
      style={style}
      htmlFor={id}
   >
     {title}
   </label>
-)
-
-/*
-Label.propTypes = {
-  style: PropTypes.object,
-  title: PropTypes.string,
-  id: PropTypes.string
-}
-*/
+);
 
 export default Label
