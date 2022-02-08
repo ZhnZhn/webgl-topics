@@ -13,23 +13,34 @@ var _react = require("react");
 
 var _jsxRuntime = require("react/jsx-runtime");
 
-var S = {
-  ROOT_DIV: {
-    lineHeight: 1.5,
-    backgroundColor: '#4D4D4D'
-  },
-  CAPTION: {
-    paddingLeft: 4,
-    verticalAlign: 'top',
-    color: 'rgba(164, 135, 212, 1)',
-    fontFamily: 'Roboto, Arial Unicode MS, Arial, sans-serif',
-    fontWeight: 'bold',
-    fontSize: '16px',
-    cursor: 'pointer'
-  },
-  itemRow: {
-    backgroundColor: '#404040'
-  }
+var CL_NOT_SELECTED = "not-selected",
+    CL_SHOW_POPUP = 'show-popup',
+    S_ROOT_DIV = {
+  lineHeight: 1.5,
+  backgroundColor: '#4d4d4d'
+},
+    S_CAPTION = {
+  paddingLeft: 4,
+  verticalAlign: 'top',
+  color: 'rgba(164, 135, 212, 1)',
+  fontFamily: 'Roboto, Arial Unicode MS, Arial, sans-serif',
+  fontWeight: 'bold',
+  fontSize: '16px',
+  cursor: 'pointer'
+},
+    S_DIV_SVG = {
+  display: 'inline-block',
+  width: 16,
+  height: 16
+},
+    S_SVG = {
+  display: 'inline-block'
+},
+    S_BLOCK = {
+  display: 'block'
+},
+    S_NONE = {
+  display: 'none'
 };
 
 var OpenClose = /*#__PURE__*/function (_Component) {
@@ -72,41 +83,35 @@ var OpenClose = /*#__PURE__*/function (_Component) {
         fillOpen = _this$state.fillOpen,
         pathClose = _this$state.pathClose,
         fillClose = _this$state.fillClose;
-    var pathV, fillV, displayDivStyle, classShow;
+    var pathV, fillV, divStyle, classShow;
 
     if (isOpen) {
       pathV = pathOpen;
       fillV = fillOpen;
-      displayDivStyle = 'block';
-      classShow = 'show-popup';
+      divStyle = S_BLOCK;
+      classShow = CL_SHOW_POPUP;
     } else {
       pathV = pathClose;
       fillV = fillClose;
-      displayDivStyle = 'none';
+      divStyle = S_NONE;
       classShow = null;
     }
 
     return /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
-      style: (0, _extends2["default"])({}, S.ROOT_DIV, style),
+      style: (0, _extends2["default"])({}, S_ROOT_DIV, style),
       children: [/*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
-        className: "not-selected",
+        className: CL_NOT_SELECTED,
         style: toogleStyle,
         onClick: this._hClickOpenClose,
         children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
-          style: {
-            width: '16px',
-            height: '16px',
-            display: 'inline-block'
-          },
+          style: S_DIV_SVG,
           children: /*#__PURE__*/(0, _jsxRuntime.jsx)("svg", {
             viewBox: "0 0 16 16",
             width: "100%",
             height: "100%",
             preserveAspectRatio: "none",
             xmlns: "http://www.w3.org/2000/svg",
-            style: {
-              display: 'inline-block'
-            },
+            style: S_SVG,
             children: /*#__PURE__*/(0, _jsxRuntime.jsx)("path", {
               d: pathV,
               fill: fillV,
@@ -115,14 +120,12 @@ var OpenClose = /*#__PURE__*/function (_Component) {
             })
           })
         }), /*#__PURE__*/(0, _jsxRuntime.jsx)("span", {
-          style: S.CAPTION,
+          style: S_CAPTION,
           children: caption
         })]
       }), /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
         className: classShow,
-        style: {
-          display: displayDivStyle
-        },
+        style: divStyle,
         children: children
       })]
     });
