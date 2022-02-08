@@ -1,26 +1,19 @@
-import STYLE from './Button.Style'
+import STYLE from './Button.Style';
+
+const CL_BT = "bt";
 
 const Button = ({
   caption,
   style,
-  onClick=() => {}
+  onClick
 }) => (
   <button
-    className="bt"
-    style={{ ...STYLE.BT, ...style }}
+    className={CL_BT}
+    style={{...STYLE.BT, ...style}}
     onClick={onClick}
   >
    {caption}
   </button>
-)
-
-/*
-Button.propTypes = {
-  caption: PropTypes.string,
-  style: PropTypes.object,
-  onClick: PropTypes.func
-}
-*/
-
+);
 
 export default Button

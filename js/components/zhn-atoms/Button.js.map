@@ -1,1 +1,17 @@
-{"version":3,"sources":["../../../src/components/zhn-atoms/Button.jsx"],"names":["Button","caption","style","onClick","STYLE","BT"],"mappings":";;;;;;;;;AAAA;;;;AAEA,IAAMA,MAAM,GAAG,SAATA,MAAS;AAAA,MACbC,OADa,QACbA,OADa;AAAA,MAEbC,KAFa,QAEbA,KAFa;AAAA,0BAGbC,OAHa;AAAA,MAGbA,OAHa,6BAGL,YAAM,CAAE,CAHH;AAAA,sBAKb;AACE,IAAA,SAAS,EAAC,IADZ;AAEE,IAAA,KAAK,gCAAOC,mBAAMC,EAAb,EAAoBH,KAApB,CAFP;AAGE,IAAA,OAAO,EAAEC,OAHX;AAAA,cAKEF;AALF,IALa;AAAA,CAAf;AAcA;AACA;AACA;AACA;AACA;AACA;AACA;;;eAGeD,M","sourcesContent":["import STYLE from './Button.Style'\r\n\r\nconst Button = ({\r\n  caption,\r\n  style,\r\n  onClick=() => {}\r\n}) => (\r\n  <button\r\n    className=\"bt\"\r\n    style={{ ...STYLE.BT, ...style }}\r\n    onClick={onClick}\r\n  >\r\n   {caption}\r\n  </button>\r\n)\r\n\r\n/*\r\nButton.propTypes = {\r\n  caption: PropTypes.string,\r\n  style: PropTypes.object,\r\n  onClick: PropTypes.func\r\n}\r\n*/\r\n\r\n\r\nexport default Button\r\n"],"file":"Button.js"}
+{
+ "version": 3,
+ "sources": [
+  "../../../src/components/zhn-atoms/Button.js"
+ ],
+ "file": "../../../src/components/zhn-atoms/Button.js",
+ "names": [
+  "CL_BT",
+  "Button",
+  "caption",
+  "style",
+  "onClick",
+  "STYLE",
+  "BT"
+ ],
+ "mappings": ";;;;;;;;;AAAA;;;;AAEA,IAAMA,KAAK,GAAG,IAAd;;AAEA,IAAMC,MAAM,GAAG,SAATA,MAAS;AAAA,MACbC,OADa,QACbA,OADa;AAAA,MAEbC,KAFa,QAEbA,KAFa;AAAA,MAGbC,OAHa,QAGbA,OAHa;AAAA,sBAKb;AACE,IAAA,SAAS,EAAEJ,KADb;AAEE,IAAA,KAAK,gCAAMK,mBAAMC,EAAZ,EAAmBH,KAAnB,CAFP;AAGE,IAAA,OAAO,EAAEC,OAHX;AAAA,cAKEF;AALF,IALa;AAAA,CAAf;;eAceD,M"
+}
