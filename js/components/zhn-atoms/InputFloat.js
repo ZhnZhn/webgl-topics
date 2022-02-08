@@ -15,14 +15,69 @@ var _big = _interopRequireDefault(require("big.js"));
 
 var _is = require("../../utils/is");
 
-var _InputFloat = _interopRequireDefault(require("./InputFloat.Style"));
-
 var _jsxRuntime = require("react/jsx-runtime");
 
+var S_ROOT = {
+  position: 'relative',
+  display: 'inline-block',
+  backgroundColor: 'rgb(225, 225, 203)',
+  margin: '0 5px',
+  boxShadow: '0 2px 2px 0 rgba(0,0,0,0.3), 0 0 0 1px rgba(0,0,0,0.1)'
+},
+    S_DIV_INPUT = {
+  display: 'inline-block'
+},
+    S_INPUT = {
+  display: 'inline',
+  color: 'green',
+  width: 40,
+  height: 26,
+  marginRight: 5,
+  fontSize: '16px',
+  fontWeight: 'bold',
+  backgroundColor: '#e1e1cb',
+  background: 'transparent none repeat scroll 0 0',
+  border: 'medium none',
+  outline: 'medium none'
+},
+    S_HR = {
+  width: '100%',
+  margin: '0 0 5px 0',
+  borderWidth: 'medium medium 2px',
+  borderStyle: 'none none solid',
+  borderColor: 'red',
+  borderImage: 'none'
+},
+    S_VALID_CHANGED = {
+  borderColor: '#673ab7'
+},
+    S_VALID_NOT_CHANGED = {
+  borderColor: '#9e9e9e'
+},
+    S_NOT_VALID = {
+  borderColor: '#f44336'
+},
+    S_ARROW = {
+  display: 'inline-block',
+  position: 'relative',
+  borderColor: 'rgb(103, 58, 183) transparent transparent',
+  borderStyle: 'solid',
+  borderWidth: '12px 6px 4px',
+  cursor: 'pointer'
+},
+    S_ARROW_PLUS = {
+  transform: 'rotateX(180deg)',
+  margin: '0 6px',
+  top: -16
+},
+    S_ARROW_MINUS = {
+  top: -12,
+  marginRight: 6
+};
 var _hmModeStyle = {
-  0: _InputFloat["default"].NOT_VALID,
-  1: _InputFloat["default"].VALID_CHANGED,
-  2: _InputFloat["default"].VALID_NOT_CHANGED
+  0: S_NOT_VALID,
+  1: S_VALID_CHANGED,
+  2: S_VALID_NOT_CHANGED
 };
 
 var InputFloat = /*#__PURE__*/function (_Component) {
@@ -231,26 +286,26 @@ var InputFloat = /*#__PURE__*/function (_Component) {
         mode = _this$state4.mode,
         _hrStyle = _hmModeStyle[mode];
     return /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
-      style: _InputFloat["default"].ROOT,
+      style: S_ROOT,
       onClick: this._handleClickRoot,
       children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("button", {
-        style: (0, _extends2["default"])({}, _InputFloat["default"].ARROW, _InputFloat["default"].ARROW_PLUS),
+        style: (0, _extends2["default"])({}, S_ARROW, S_ARROW_PLUS),
         onClick: this._increaseOnStep
       }), /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
-        style: _InputFloat["default"].DIV_INPUT,
+        style: S_DIV_INPUT,
         children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("input", {
           ref: this._refInput,
           id: id,
           type: "text",
-          style: (0, _extends2["default"])({}, _InputFloat["default"].INPUT, inputStyle),
+          style: (0, _extends2["default"])({}, S_INPUT, inputStyle),
           value: value,
           onChange: this._handleInputChange,
           onKeyDown: this._handleInputKeyDown
         }), /*#__PURE__*/(0, _jsxRuntime.jsx)("hr", {
-          style: (0, _extends2["default"])({}, _InputFloat["default"].HR, _hrStyle)
+          style: (0, _extends2["default"])({}, S_HR, _hrStyle)
         })]
       }), /*#__PURE__*/(0, _jsxRuntime.jsx)("button", {
-        style: (0, _extends2["default"])({}, _InputFloat["default"].ARROW, _InputFloat["default"].ARROW_MINUS),
+        style: (0, _extends2["default"])({}, S_ARROW, S_ARROW_MINUS),
         onClick: this._decreaseOnStep
       })]
     });

@@ -2,12 +2,61 @@ import { Component } from 'react';
 import Big from 'big.js'
 
 import { isFunction, isFloat } from '../../utils/is'
-import STYLE from './InputFloat.Style';
+
+const S_ROOT = {
+  position: 'relative',
+  display: 'inline-block',
+  backgroundColor: 'rgb(225, 225, 203)',
+  margin: '0 5px',
+  boxShadow: '0 2px 2px 0 rgba(0,0,0,0.3), 0 0 0 1px rgba(0,0,0,0.1)'
+}
+, S_DIV_INPUT = { display: 'inline-block' }
+, S_INPUT = {
+  display : 'inline',
+  color: 'green',
+  width: 40,
+  height: 26,
+  marginRight: 5,
+  fontSize: '16px',
+  fontWeight: 'bold',
+  backgroundColor : '#e1e1cb',
+  background: 'transparent none repeat scroll 0 0',
+  border: 'medium none',
+  outline: 'medium none',
+}
+, S_HR = {
+  width: '100%',
+  margin: '0 0 5px 0',
+  borderWidth: 'medium medium 2px',
+  borderStyle: 'none none solid',
+  borderColor: 'red',
+  borderImage: 'none',
+}
+, S_VALID_CHANGED = { borderColor: '#673ab7' }
+, S_VALID_NOT_CHANGED = { borderColor: '#9e9e9e' }
+, S_NOT_VALID = { borderColor: '#f44336' }
+, S_ARROW = {
+  display: 'inline-block',
+  position: 'relative',
+  borderColor: 'rgb(103, 58, 183) transparent transparent',
+  borderStyle: 'solid',
+  borderWidth: '12px 6px 4px',
+  cursor: 'pointer'
+}
+, S_ARROW_PLUS = {
+  transform: 'rotateX(180deg)',
+  margin: '0 6px',
+  top: -16
+}
+, S_ARROW_MINUS = {
+  top: -12,
+  marginRight: 6
+};
 
 const _hmModeStyle = {
-  0 : STYLE.NOT_VALID,
-  1 : STYLE.VALID_CHANGED,
-  2 : STYLE.VALID_NOT_CHANGED
+  0 : S_NOT_VALID,
+  1 : S_VALID_CHANGED,
+  2 : S_VALID_NOT_CHANGED
 }
 
 class InputFloat extends Component {
@@ -31,8 +80,6 @@ class InputFloat extends Component {
      onChangeMode: () => {},
      onKeyDownEnter: () => {}
    }
-
-
 
   _getInitedState = (props) => {
      const { value, step, onChangeMode, onKeyDownEnter } = props
@@ -168,27 +215,27 @@ class InputFloat extends Component {
 
     return (
       <div
-         style={STYLE.ROOT}
+         style={S_ROOT}
          onClick={this._handleClickRoot}
       >
         <button
-           style={{ ...STYLE.ARROW, ...STYLE.ARROW_PLUS}}
+           style={{...S_ARROW, ...S_ARROW_PLUS}}
            onClick={this._increaseOnStep}
         />
-        <div style={STYLE.DIV_INPUT}>
+        <div style={S_DIV_INPUT}>
           <input
             ref={this._refInput}
             id={id}
             type="text"
-            style={{ ...STYLE.INPUT, ...inputStyle}}
+            style={{...S_INPUT, ...inputStyle}}
             value={value}
             onChange={this._handleInputChange}
             onKeyDown={this._handleInputKeyDown}
           />
-          <hr style={{...STYLE.HR, ..._hrStyle}} />
+          <hr style={{...S_HR, ..._hrStyle}} />
         </div>
         <button
-           style={{ ...STYLE.ARROW, ...STYLE.ARROW_MINUS}}
+           style={{...S_ARROW, ...S_ARROW_MINUS}}
            onClick={this._decreaseOnStep}
         />
       </div>
