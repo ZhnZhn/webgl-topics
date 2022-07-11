@@ -17,13 +17,16 @@ var _menuModel = _interopRequireDefault(require("./menuModel"));
 
 var _jsxRuntime = require("react/jsx-runtime");
 
-var S = {
-  MENU: {
-    borderRight: '1px solid black'
-  },
-  MENU_TOGGLE: {
-    paddingLeft: 6
-  }
+var SIDEBAR = "sidebar",
+    CL_SIDEBAR = SIDEBAR + " with-scroll",
+    CL_SIDEBAR_MENU = SIDEBAR + "__menu",
+    CL_SIDEBAR_FOOTER = SIDEBAR + "__footer",
+    CL_SIDEBAR_FOOTER_LINK = CL_SIDEBAR_FOOTER + "__link",
+    S_MENU = {
+  borderRight: '1px solid black'
+},
+    S_MENU_TOGGLE = {
+  paddingLeft: 6
 };
 
 var TopicMenu = function TopicMenu(_ref) {
@@ -39,20 +42,20 @@ var TopicMenu = function TopicMenu(_ref) {
     }
   });
   return /*#__PURE__*/(0, _jsxRuntime.jsxs)("section", {
-    className: "sidebar with-scroll",
+    className: CL_SIDEBAR,
     children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
-      className: "sidebar__menu",
+      className: CL_SIDEBAR_MENU,
       role: "navigation",
       children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_Menu["default"], {
-        style: S.MENU,
-        toogleStyle: S.MENU_TOGGLE,
+        style: S_MENU,
+        toogleStyle: S_MENU_TOGGLE,
         menuModel: _menuModel["default"],
         topicId: topicId
       })
     }), /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
-      className: "sidebar__footer",
+      className: CL_SIDEBAR_FOOTER,
       children: /*#__PURE__*/(0, _jsxRuntime.jsx)("button", {
-        className: "sidebar__footer__link",
+        className: CL_SIDEBAR_FOOTER_LINK,
         children: "Footer Button"
       })
     })]
@@ -60,7 +63,7 @@ var TopicMenu = function TopicMenu(_ref) {
 };
 /*
 TopicMenu.propTypes = {
-  store : PropTypes.object.isRequired
+  store: PropTypes.object.isRequired
 }
 */
 
