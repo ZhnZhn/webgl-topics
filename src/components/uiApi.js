@@ -4,5 +4,6 @@ export {
   useRef,
   useState,
   useMemo,
+  useCallback,
   useImperativeHandle
 } from 'react';

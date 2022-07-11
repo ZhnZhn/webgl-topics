@@ -1,22 +1,23 @@
-import { Component } from 'react';
+import { useCallback } from '../uiApi';
+import useProperty from '../hooks/useProperty';
 
-import A from '../Comp'
-
-const _drawModeOptions = [
-  { caption: "TRIANGLES", value: "TRIANGLES" },
-  { caption: "TRIANGLE_STRIP", value: "TRIANGLE_STRIP" },
-  { caption: "TRIANGLE_FAN", value: "TRIANGLE_FAN" },
-  { caption: "LINES", value: "LINES" },
-  { caption: "LINE_STRIP", value: "LINE_STRIP" },
-  { caption: "LINE_LOOP", value: "LINE_LOOP" },
-  { caption: "POINTS", value: "POINTS" },
-];
+import A from '../Comp';
 
 import {
   OC_DIV,
   INPUT_SELECT,
   OPEN_CLOSE
 } from './Panel.Style';
+
+const DRAW_MODE_OPTIONS = [
+  { caption: "TRIANGLES", value: "TRIANGLES" },
+  { caption: "TRIANGLE_STRIP", value: "TRIANGLE_STRIP" },
+  { caption: "TRIANGLE_FAN", value: "TRIANGLE_FAN" },
+  { caption: "LINES", value: "LINES" },
+  { caption: "LINE_STRIP", value: "LINE_STRIP" },
+  { caption: "LINE_LOOP", value: "LINE_LOOP" },
+  { caption: "POINTS", value: "POINTS" }
+];
 
 const S_OC_DIV = {
   ...OC_DIV,
@@ -27,47 +28,41 @@ const S_OC_DIV = {
   top: -6
 };
 
-
-class PanelDrawMode extends Component {
-  /*
-  static propTypes = {
-    onGetComp : PropTypes.func.isRequired
-  }
-  */
-
-  _hSelectDrawMode = (item) => {
-    this.drawMode = item
-  }
-  _hSetDrawMode = () => {
-    const { drawMode } = this
-    if (drawMode){
-      const comp = this.props.onGetComp();
+const PanelDrawMode = ({
+  onGetComp
+}) => {
+  const [
+    setDrawMode,
+    getDrawMode
+  ] = useProperty()
+  , _hSetDrawMode = useCallback(() => {
+    const drawMode = getDrawMode()
+    if (drawMode) {
+      const comp = onGetComp();
       comp.drawMode = drawMode.value;
     }
-  }
+  }, [onGetComp, getDrawMode]);
 
-  render(){
-    return (
-      <A.OpenClose
-        caption="DrawMode"
-        style={OPEN_CLOSE}
-      >
-        <div style={S_OC_DIV}>
-          <A.InputSelect
-            width="170"
-            options={_drawModeOptions}
-            styleRoot={INPUT_SELECT}
-            onSelect={this._hSelectDrawMode}
-          />
-          <A.ButtonSet
-             style={S_BT_SET}
-             mode={1}
-             onClick={this._hSetDrawMode}
-          />
-        </div>
-      </A.OpenClose>
-    );
-  }
+  return (
+    <A.OpenClose
+      caption="DrawMode"
+      style={OPEN_CLOSE}
+    >
+      <div style={S_OC_DIV}>
+        <A.InputSelect
+          width="170"
+          options={DRAW_MODE_OPTIONS}
+          styleRoot={INPUT_SELECT}
+          onSelect={setDrawMode}
+        />
+        <A.ButtonSet
+           style={S_BT_SET}
+           mode={1}
+           onClick={_hSetDrawMode}
+        />
+      </div>
+    </A.OpenClose>
+  );
 }
 
 export default PanelDrawMode
