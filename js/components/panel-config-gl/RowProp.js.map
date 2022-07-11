@@ -1,1 +1,40 @@
-{"version":3,"sources":["../../../src/components/panel-config-gl/RowProp.jsx"],"names":["_isFn","fn","RowProp","setModeToAll","onChangeMode","calcInputMode","props","_handleSetValue","onGetComp","propKey","fnAfterSet","comp","inputFloat","getValue","_setModeToAll","_refInputFloat","_refBt","bt","mode","_onChangeMode","bind","render","labelBy","inputId","value","styleLabel","STYLE","ROW","LABEL_ROW","INPUT_FLOAT_3","Component"],"mappings":";;;;;;;;;;;;;AAAA;;AAEA;;AACA;;AACA;;AAEA;;AACA;;;;;;AAEA,IAAMA,KAAK,GAAG,SAARA,KAAQ,CAAAC,EAAE;AAAA,SAAI,OAAOA,EAAP,KAAc,UAAlB;AAAA,CAAhB;;IAKMC,O,OAHLC,wB,eACAC,wB,eACAC,yB;;;AAEC;AACF;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AAEE,mBAAYC,KAAZ,EAAkB;AAAA;;AAChB,kCAAMA,KAAN;;AADgB,UASlBC,eATkB,GASA,YAAM;AAAA,wBACqB,MAAKD,KAD1B;AAAA,UACdE,SADc,eACdA,SADc;AAAA,UACHC,OADG,eACHA,OADG;AAAA,UACMC,UADN,eACMA,UADN;AAAA,UAEhBC,IAFgB,GAETH,SAAS,EAFA;AAGtBG,MAAAA,IAAI,CAACF,OAAD,CAAJ,GAAgB,MAAKG,UAAL,CAAgBC,QAAhB,EAAhB;;AAEA,UAAIb,KAAK,CAACU,UAAD,CAAT,EAAsB;AACpBA,QAAAA,UAAU,CAACC,IAAD,CAAV;AACD;;AACD,YAAKG,aAAL,CAAmB,CAAnB;AACD,KAlBiB;;AAAA,UAoBlBC,cApBkB,GAoBD,UAAAJ,IAAI;AAAA,aAAI,MAAKC,UAAL,GAAkBD,IAAtB;AAAA,KApBH;;AAAA,UAqBlBK,MArBkB,GAqBT,UAAAC,EAAE;AAAA,aAAI,MAAKA,EAAL,GAAUA,EAAd;AAAA,KArBO;;AAEhB,UAAKC,IAAL,GAAY;AACVN,MAAAA,UAAU,EAAG,CADH;AAEVK,MAAAA,EAAE,EAAG;AAFK,KAAZ;AAIA,UAAKE,aAAL,GAAqB,MAAKA,aAAL,CAAmBC,IAAnB,gDAArB;AANgB;AAOjB;;;;SAgBDC,M,GAAA,kBAAQ;AAAA,uBAC0C,KAAKf,KAD/C;AAAA,QACEgB,OADF,gBACEA,OADF;AAAA,QACWC,OADX,gBACWA,OADX;AAAA,QACoBC,KADpB,gBACoBA,KADpB;AAAA,QAC2BC,UAD3B,gBAC2BA,UAD3B;AAEN,wBACE;AAAK,MAAA,KAAK,EAAEC,gBAAMC,GAAlB;AAAA,8BACE,qBAAC,gBAAD,CAAG,KAAH;AACE,QAAA,KAAK,gCAAOD,gBAAME,SAAb,EAA2BH,UAA3B,CADP;AAEE,QAAA,KAAK,EAAEH,OAFT;AAGE,QAAA,EAAE,EAAEC;AAHN,QADF,eAME,qBAAC,gBAAD,CAAG,UAAH;AACE,QAAA,GAAG,EAAE,KAAKR,cADZ;AAEE,QAAA,EAAE,EAAEQ,OAFN;AAGE,QAAA,QAAQ,EAAC,YAHX;AAIE,QAAA,UAAU,EAAEG,gBAAMG,aAJpB;AAKE,QAAA,KAAK,EAAEL,KALT;AAME,QAAA,IAAI,EAAE,KANR;AAOE,QAAA,YAAY,EAAE,KAAKL,aAPrB;AAQE,QAAA,cAAc,EAAE,KAAKZ;AARvB,QANF,eAgBE,qBAAC,gBAAD,CAAG,SAAH;AACI,QAAA,GAAG,EAAE,KAAKS,MADd;AAEI,QAAA,OAAO,EAAE,KAAKT;AAFlB,QAhBF;AAAA,MADF;AAuBD,G;;;EA5DmBuB,gB;;eA+DP5B,O","sourcesContent":["import { Component } from 'react';\r\n\r\nimport setModeToAll from './decorators/setModeToAll';\r\nimport onChangeMode from './decorators/onChangeMode';\r\nimport calcInputMode from './decorators/calcInputMode';\r\n\r\nimport A from '../Comp'\r\nimport STYLE from './Row.Style'\r\n\r\nconst _isFn = fn => typeof fn === 'function';\r\n\r\n@setModeToAll\r\n@onChangeMode\r\n@calcInputMode\r\nclass RowProp extends Component{\r\n  /*\r\n  static propTypes = {\r\n    labelBy: PropTypes.string.isRequired,\r\n    value: PropTypes.number.isRequired,\r\n    propKey: PropTypes.string.isRequired,\r\n    styleLabel: PropTypes.object,\r\n    onGetComp: PropTypes.func.isRequired,\r\n    fnAfterSet: PropTypes.func\r\n  }\r\n  */\r\n\r\n  constructor(props){\r\n    super(props)\r\n    this.mode = {\r\n      inputFloat : 2,\r\n      bt : 2\r\n    }\r\n    this._onChangeMode = this._onChangeMode.bind(this)\r\n  }\r\n\r\n  _handleSetValue = () => {\r\n    const { onGetComp, propKey, fnAfterSet } = this.props\r\n        , comp = onGetComp();\r\n    comp[propKey] = this.inputFloat.getValue();\r\n\r\n    if (_isFn(fnAfterSet)){\r\n      fnAfterSet(comp);\r\n    }\r\n    this._setModeToAll(2);\r\n  }\r\n\r\n  _refInputFloat = comp => this.inputFloat = comp\r\n  _refBt = bt => this.bt = bt\r\n\r\n  render(){\r\n    const { labelBy, inputId, value, styleLabel } = this.props;\r\n    return (\r\n      <div style={STYLE.ROW}>\r\n        <A.Label\r\n          style={{ ...STYLE.LABEL_ROW, ...styleLabel }}\r\n          title={labelBy}\r\n          id={inputId}\r\n        />\r\n        <A.InputFloat\r\n          ref={this._refInputFloat}\r\n          id={inputId}\r\n          inputKey=\"inputFloat\"\r\n          inputStyle={STYLE.INPUT_FLOAT_3}\r\n          value={value}\r\n          step={0.001}\r\n          onChangeMode={this._onChangeMode}\r\n          onKeyDownEnter={this._handleSetValue}\r\n        />\r\n        <A.ButtonSet\r\n            ref={this._refBt}\r\n            onClick={this._handleSetValue}\r\n        />\r\n      </div>\r\n    );\r\n  }\r\n}\r\n\r\nexport default RowProp\r\n"],"file":"RowProp.js"}
+{
+ "version": 3,
+ "sources": [
+  "../../../src/components/panel-config-gl/RowProp.js"
+ ],
+ "file": "../../../src/components/panel-config-gl/RowProp.js",
+ "names": [
+  "_isFn",
+  "fn",
+  "RowProp",
+  "setModeToAll",
+  "onChangeMode",
+  "calcInputMode",
+  "props",
+  "_handleSetValue",
+  "onGetComp",
+  "propKey",
+  "fnAfterSet",
+  "comp",
+  "inputFloat",
+  "getValue",
+  "_setModeToAll",
+  "_refInputFloat",
+  "_refBt",
+  "bt",
+  "mode",
+  "_onChangeMode",
+  "bind",
+  "render",
+  "labelBy",
+  "inputId",
+  "value",
+  "styleLabel",
+  "ROW",
+  "LABEL_ROW",
+  "INPUT_FLOAT_3",
+  "Component"
+ ],
+ "mappings": ";;;;;;;;;;;;;AAAA;;AAEA;;AACA;;AACA;;AAEA;;AACA;;;;;;AAMA,IAAMA,KAAK,GAAG,SAARA,KAAQ,CAAAC,EAAE;AAAA,SAAI,OAAOA,EAAP,KAAc,UAAlB;AAAA,CAAhB;;IAKMC,O,OAHLC,wB,eACAC,wB,eACAC,yB;;;AAEC;AACF;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AAEE,mBAAYC,KAAZ,EAAkB;AAAA;;AAChB,kCAAMA,KAAN;;AADgB,UASlBC,eATkB,GASA,YAAM;AACtB,wBAA2C,MAAKD,KAAhD;AAAA,UAAQE,SAAR,eAAQA,SAAR;AAAA,UAAmBC,OAAnB,eAAmBA,OAAnB;AAAA,UAA4BC,UAA5B,eAA4BA,UAA5B;AAAA,UACMC,IADN,GACaH,SAAS,EADtB;AAEAG,MAAAA,IAAI,CAACF,OAAD,CAAJ,GAAgB,MAAKG,UAAL,CAAgBC,QAAhB,EAAhB;;AAEA,UAAIb,KAAK,CAACU,UAAD,CAAT,EAAsB;AACpBA,QAAAA,UAAU,CAACC,IAAD,CAAV;AACD;;AACD,YAAKG,aAAL,CAAmB,CAAnB;AACD,KAlBiB;;AAAA,UAoBlBC,cApBkB,GAoBD,UAAAJ,IAAI;AAAA,aAAI,MAAKC,UAAL,GAAkBD,IAAtB;AAAA,KApBH;;AAAA,UAqBlBK,MArBkB,GAqBT,UAAAC,EAAE;AAAA,aAAI,MAAKA,EAAL,GAAUA,EAAd;AAAA,KArBO;;AAEhB,UAAKC,IAAL,GAAY;AACVN,MAAAA,UAAU,EAAG,CADH;AAEVK,MAAAA,EAAE,EAAG;AAFK,KAAZ;AAIA,UAAKE,aAAL,GAAqB,MAAKA,aAAL,CAAmBC,IAAnB,gDAArB;AANgB;AAOjB;;;;SAgBDC,M,GAAA,kBAAQ;AACN,uBAAgD,KAAKf,KAArD;AAAA,QAAQgB,OAAR,gBAAQA,OAAR;AAAA,QAAiBC,OAAjB,gBAAiBA,OAAjB;AAAA,QAA0BC,KAA1B,gBAA0BA,KAA1B;AAAA,QAAiCC,UAAjC,gBAAiCA,UAAjC;AACA,wBACE;AAAK,MAAA,KAAK,EAAEC,QAAZ;AAAA,8BACE,qBAAC,gBAAD,CAAG,KAAH;AACE,QAAA,KAAK,gCAAMC,cAAN,EAAoBF,UAApB,CADP;AAEE,QAAA,KAAK,EAAEH,OAFT;AAGE,QAAA,EAAE,EAAEC;AAHN,QADF,eAME,qBAAC,gBAAD,CAAG,UAAH;AACE,QAAA,GAAG,EAAE,KAAKR,cADZ;AAEE,QAAA,EAAE,EAAEQ,OAFN;AAGE,QAAA,QAAQ,EAAC,YAHX;AAIE,QAAA,UAAU,EAAEK,kBAJd;AAKE,QAAA,KAAK,EAAEJ,KALT;AAME,QAAA,IAAI,EAAE,KANR;AAOE,QAAA,YAAY,EAAE,KAAKL,aAPrB;AAQE,QAAA,cAAc,EAAE,KAAKZ;AARvB,QANF,eAgBE,qBAAC,gBAAD,CAAG,SAAH;AACI,QAAA,GAAG,EAAE,KAAKS,MADd;AAEI,QAAA,OAAO,EAAE,KAAKT;AAFlB,QAhBF;AAAA,MADF;AAuBD,G;;;EA5DmBsB,gB;;eA+DP3B,O"
+}

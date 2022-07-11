@@ -2,12 +2,14 @@ import { Component } from 'react';
 
 import A from '../Comp'
 
-import STYLE from './Row.Style';
+import {
+  ROW,
+  CAPTION
+} from './Row.Style';
 
-const S = {
-  CAPTION: {
-    color: '#a487d4'
-  }
+const S_CAPTION = {
+  ...CAPTION,
+  color: '#a487d4'
 };
 
 const _drawModeOptions = [
@@ -40,8 +42,8 @@ class RowDrawMode extends Component {
 
   render(){
     return(
-      <div style={STYLE.ROW}>
-        <span style={{ ...STYLE.CAPTION, ...S.CAPTION }}>
+      <div style={ROW}>
+        <span style={S_CAPTION}>
           DrawMode:
         </span>
         <A.InputSelect

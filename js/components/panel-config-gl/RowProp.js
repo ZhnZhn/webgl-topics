@@ -21,7 +21,7 @@ var _calcInputMode = _interopRequireDefault(require("./decorators/calcInputMode"
 
 var _Comp = _interopRequireDefault(require("../Comp"));
 
-var _Row = _interopRequireDefault(require("./Row.Style"));
+var _Row = require("./Row.Style");
 
 var _jsxRuntime = require("react/jsx-runtime");
 
@@ -89,16 +89,16 @@ var RowProp = (0, _setModeToAll["default"])(_class = (0, _onChangeMode["default"
         value = _this$props2.value,
         styleLabel = _this$props2.styleLabel;
     return /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
-      style: _Row["default"].ROW,
+      style: _Row.ROW,
       children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_Comp["default"].Label, {
-        style: (0, _extends2["default"])({}, _Row["default"].LABEL_ROW, styleLabel),
+        style: (0, _extends2["default"])({}, _Row.LABEL_ROW, styleLabel),
         title: labelBy,
         id: inputId
       }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_Comp["default"].InputFloat, {
         ref: this._refInputFloat,
         id: inputId,
         inputKey: "inputFloat",
-        inputStyle: _Row["default"].INPUT_FLOAT_3,
+        inputStyle: _Row.INPUT_FLOAT_3,
         value: value,
         step: 0.001,
         onChangeMode: this._onChangeMode,

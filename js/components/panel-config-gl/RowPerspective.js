@@ -23,7 +23,7 @@ var _InputFloat = _interopRequireDefault(require("../zhn-atoms/InputFloat"));
 
 var _ButtonSet = _interopRequireDefault(require("../zhn-atoms/ButtonSet"));
 
-var _Row = _interopRequireDefault(require("./Row.Style"));
+var _Row = require("./Row.Style");
 
 var _jsxRuntime = require("react/jsx-runtime");
 
@@ -85,28 +85,28 @@ var RowPerspective = (0, _setModeToAll["default"])(_class = (0, _onChangeMode["d
         perspectiveNear = _this$props.perspectiveNear,
         perspectiveFar = _this$props.perspectiveFar;
     return /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
-      style: _Row["default"].ROW,
+      style: _Row.ROW,
       children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_Label["default"], {
-        style: _Row["default"].CAPTION,
+        style: _Row.CAPTION,
         title: "perspective:"
       }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_Label["default"], {
-        style: _Row["default"].LABEL,
+        style: _Row.LABEL,
         title: "near:"
       }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_InputFloat["default"], {
         ref: this._refNear,
         inputKey: "near",
-        inputStyle: _Row["default"].INPUT_FLOAT_2,
+        inputStyle: _Row.INPUT_FLOAT_2,
         value: perspectiveNear,
         onChangeMode: this._onChangeMode,
         onKeyDownEnter: this._handleSetPerspective
       }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_Label["default"], {
-        style: _Row["default"].LABEL,
+        style: _Row.LABEL,
         title: "far:"
       }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_InputFloat["default"], {
         ref: this._refFar,
         inputKey: "far",
         value: perspectiveFar,
-        inputStyle: _Row["default"].INPUT_FLOAT_2,
+        inputStyle: _Row.INPUT_FLOAT_2,
         onChangeMode: _onChangeMode["default"],
         onKeyDownEnter: this._handleSetPerspective
       }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_ButtonSet["default"], {

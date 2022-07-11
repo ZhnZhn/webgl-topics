@@ -8,7 +8,12 @@ import Label from '../zhn-atoms/Label';
 import InputFloat from '../zhn-atoms/InputFloat';
 import ButtonSet from '../zhn-atoms/ButtonSet';
 
-import  STYLE from './Row.Style';
+import {
+  CAPTION,
+  ROW,
+  LABEL,
+  INPUT_FLOAT_2
+} from './Row.Style';
 
 @setModeToAll
 @onChangeMode
@@ -50,32 +55,32 @@ class RowPerspective extends Component {
   render(){
     const { perspectiveNear, perspectiveFar } = this.props;
     return(
-      <div style={STYLE.ROW}>
+      <div style={ROW}>
         <Label
-          style={STYLE.CAPTION}
+          style={CAPTION}
           title="perspective:"
         />
         <Label
-          style={STYLE.LABEL}
+          style={LABEL}
           title="near:"
         />
         <InputFloat
           ref={this._refNear}
           inputKey="near"
-          inputStyle={STYLE.INPUT_FLOAT_2}
+          inputStyle={INPUT_FLOAT_2}
           value={perspectiveNear}
           onChangeMode={this._onChangeMode}
           onKeyDownEnter={this._handleSetPerspective}
         />
         <Label
-          style={STYLE.LABEL}
+          style={LABEL}
           title="far:"
         />
         <InputFloat
           ref={this._refFar}
           inputKey="far"
           value={perspectiveFar}
-          inputStyle={STYLE.INPUT_FLOAT_2}
+          inputStyle={INPUT_FLOAT_2}
           onChangeMode={onChangeMode}
           onKeyDownEnter={this._handleSetPerspective}
         />

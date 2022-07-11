@@ -5,25 +5,23 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 exports.__esModule = true;
 exports["default"] = void 0;
 
-var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
-
 var _assertThisInitialized2 = _interopRequireDefault(require("@babel/runtime/helpers/assertThisInitialized"));
 
 var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inheritsLoose"));
+
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
 
 var _react = require("react");
 
 var _Comp = _interopRequireDefault(require("../Comp"));
 
-var _Row = _interopRequireDefault(require("./Row.Style"));
+var _Row = require("./Row.Style");
 
 var _jsxRuntime = require("react/jsx-runtime");
 
-var S = {
-  CAPTION: {
-    color: '#a487d4'
-  }
-};
+var S_CAPTION = (0, _extends2["default"])({}, _Row.CAPTION, {
+  color: '#a487d4'
+});
 var _drawModeOptions = [{
   caption: "TRIANGLES",
   value: "TRIANGLES"
@@ -81,9 +79,9 @@ var RowDrawMode = /*#__PURE__*/function (_Component) {
 
   _proto.render = function render() {
     return /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
-      style: _Row["default"].ROW,
+      style: _Row.ROW,
       children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("span", {
-        style: (0, _extends2["default"])({}, _Row["default"].CAPTION, S.CAPTION),
+        style: S_CAPTION,
         children: "DrawMode:"
       }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_Comp["default"].InputSelect, {
         options: _drawModeOptions,

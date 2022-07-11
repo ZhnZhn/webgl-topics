@@ -5,7 +5,11 @@ import onChangeMode from './decorators/onChangeMode';
 import calcInputMode from './decorators/calcInputMode';
 
 import A from '../Comp'
-import STYLE from './Row.Style'
+import {
+  ROW,
+  LABEL_ROW,
+  INPUT_FLOAT_3
+} from './Row.Style'
 
 const _isFn = fn => typeof fn === 'function';
 
@@ -50,9 +54,9 @@ class RowProp extends Component{
   render(){
     const { labelBy, inputId, value, styleLabel } = this.props;
     return (
-      <div style={STYLE.ROW}>
+      <div style={ROW}>
         <A.Label
-          style={{ ...STYLE.LABEL_ROW, ...styleLabel }}
+          style={{...LABEL_ROW, ...styleLabel}}
           title={labelBy}
           id={inputId}
         />
@@ -60,7 +64,7 @@ class RowProp extends Component{
           ref={this._refInputFloat}
           id={inputId}
           inputKey="inputFloat"
-          inputStyle={STYLE.INPUT_FLOAT_3}
+          inputStyle={INPUT_FLOAT_3}
           value={value}
           step={0.001}
           onChangeMode={this._onChangeMode}

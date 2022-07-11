@@ -8,7 +8,12 @@ import Label from '../zhn-atoms/Label';
 import InputFloat from '../zhn-atoms/InputFloat';
 import ButtonSet from '../zhn-atoms/ButtonSet';
 
-import STYLE from './Row.Style'
+import {
+  CAPTION,
+  ROW,
+  LABEL,
+  INPUT_FLOAT_3
+} from './Row.Style'
 
 @setModeToAll
 @onChangeMode
@@ -53,45 +58,45 @@ class RowRotateAll extends Component {
     const { rX, rY, rZ } = this.props;
 
     return(
-      <div style={STYLE.ROW}>
+      <div style={ROW}>
         <Label
-          style={STYLE.CAPTION}
+          style={CAPTION}
           title="rotate:"
         />
         <Label
-          style={STYLE.LABEL}
+          style={LABEL}
           title="X:"
         />
         <InputFloat
           ref={this._refRotateX}
           inputKey="rotateX"
-          inputStyle={STYLE.INPUT_FLOAT_3}
+          inputStyle={INPUT_FLOAT_3}
           value={rX}
           step={0.001}
           onChangeMode={this._onChangeMode}
           onKeyDownEnter={this._handleSetRotation}
         />
         <Label
-          style={STYLE.LABEL}
+          style={LABEL}
           title="Y:"
         />
         <InputFloat
           ref={this._refRotateY}
           inputKey="rotateY"
-          inputStyle={STYLE.INPUT_FLOAT_3}
+          inputStyle={INPUT_FLOAT_3}
           value={rY}
           step={0.001}
           onChangeMode={this._onChangeMode}
           onKeyDownEnter={this._handleSetRotation}
         />
         <Label
-          style={STYLE.LABEL}
+          style={LABEL}
           title="Z:"
         />
         <InputFloat
           ref={this._refRotateZ}
           inputKey="rotateZ"
-          inputStyle={STYLE.INPUT_FLOAT_3}
+          inputStyle={INPUT_FLOAT_3}
           value={rZ}
           step={0.001}
           onChangeMode={this._onChangeMode}

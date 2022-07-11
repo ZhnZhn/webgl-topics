@@ -1,1 +1,35 @@
-{"version":3,"sources":["../../../src/components/panel-config-gl/RowTranslate.jsx"],"names":["RowTranslate","setModeToAll","onChangeMode","calcInputMode","props","_handleSetTranslate","comp","onGetComp","zMatrixTranslate","translateZ","getValue","configMatrix","_setModeToAll","_refTranslateZ","_refBt","bt","mode","_onChangeMode","bind","render","STYLE","ROW","CAPTION","LABEL","INPUT_FLOAT_2","Component"],"mappings":";;;;;;;;;;;AAAA;;AAEA;;AACA;;AACA;;AAEA;;AACA;;AACA;;AAEA;;;;;;IAKMA,Y,OAHLC,wB,eACAC,wB,eACAC,yB;;;AAEC;AACF;AACA;AACA;AACA;AACA;AAEE,wBAAYC,KAAZ,EAAkB;AAAA;;AAChB,kCAAMA,KAAN;;AADgB,UAUlBC,mBAVkB,GAUI,YAAM;AAC1B,UAAMC,IAAI,GAAG,MAAKF,KAAL,CAAWG,SAAX,EAAb;;AACAD,MAAAA,IAAI,CAACE,gBAAL,GAAwB,MAAKC,UAAL,CAAgBC,QAAhB,EAAxB;AACAJ,MAAAA,IAAI,CAACK,YAAL,CAAkBL,IAAlB;;AAEA,YAAKM,aAAL,CAAmB,CAAnB;AACD,KAhBiB;;AAAA,UAkBlBC,cAlBkB,GAkBD,UAAAP,IAAI;AAAA,aAAI,MAAKG,UAAL,GAAkBH,IAAtB;AAAA,KAlBH;;AAAA,UAmBlBQ,MAnBkB,GAmBT,UAAAC,EAAE;AAAA,aAAI,MAAKA,EAAL,GAAUA,EAAd;AAAA,KAnBO;;AAGhB,UAAKC,IAAL,GAAY;AACVP,MAAAA,UAAU,EAAG,CADH;AAEVM,MAAAA,EAAE,EAAG;AAFK,KAAZ;AAIA,UAAKE,aAAL,GAAqB,MAAKA,aAAL,CAAmBC,IAAnB,gDAArB;AAPgB;AAQjB;;;;SAaDC,M,GAAA,kBAAQ;AAAA,QACEX,gBADF,GACuB,KAAKJ,KAD5B,CACEI,gBADF;AAGN,wBACE;AAAK,MAAA,KAAK,EAAEY,gBAAMC,GAAlB;AAAA,8BACE,qBAAC,iBAAD;AACE,QAAA,KAAK,EAAED,gBAAME,OADf;AAEE,QAAA,KAAK,EAAC;AAFR,QADF,eAKE,qBAAC,iBAAD;AACE,QAAA,KAAK,EAAEF,gBAAMG,KADf;AAEE,QAAA,KAAK,EAAC;AAFR,QALF,eASE,qBAAC,sBAAD;AACE,QAAA,GAAG,EAAE,KAAKV,cADZ;AAEE,QAAA,QAAQ,EAAC,YAFX;AAGE,QAAA,UAAU,EAAEO,gBAAMI,aAHpB;AAIE,QAAA,KAAK,EAAEhB,gBAJT;AAKE,QAAA,YAAY,EAAE,KAAKS,aALrB;AAME,QAAA,cAAc,EAAE,KAAKZ;AANvB,QATF,eAiBE,qBAAC,qBAAD;AACI,QAAA,GAAG,EAAE,KAAKS,MADd;AAEI,QAAA,OAAO,EAAE,KAAKT;AAFlB,QAjBF;AAAA,MADF;AAwBD,G;;;EAxDwBoB,gB;;eA2DZzB,Y","sourcesContent":["import { Component } from 'react';\r\n\r\nimport setModeToAll from './decorators/setModeToAll';\r\nimport onChangeMode from './decorators/onChangeMode';\r\nimport calcInputMode from './decorators/calcInputMode';\r\n\r\nimport Label from '../zhn-atoms/Label';\r\nimport InputFloat from '../zhn-atoms/InputFloat';\r\nimport ButtonSet from '../zhn-atoms/ButtonSet';\r\n\r\nimport STYLE from './Row.Style';\r\n\r\n@setModeToAll\r\n@onChangeMode\r\n@calcInputMode\r\nclass RowTranslate extends Component{\r\n  /*\r\n  static propTypes = {\r\n    zMatrixTranslate : PropTypes.number.isRequired,\r\n    onGetComp : PropTypes.func.isRequired\r\n  }\r\n  */\r\n\r\n  constructor(props){\r\n    super(props)\r\n\r\n    this.mode = {\r\n      translateZ : 2,\r\n      bt : 2\r\n    }\r\n    this._onChangeMode = this._onChangeMode.bind(this)\r\n  }\r\n\r\n  _handleSetTranslate = () => {\r\n    const comp = this.props.onGetComp();\r\n    comp.zMatrixTranslate = this.translateZ.getValue();\r\n    comp.configMatrix(comp);\r\n\r\n    this._setModeToAll(2);\r\n  }\r\n\r\n  _refTranslateZ = comp => this.translateZ = comp\r\n  _refBt = bt => this.bt = bt\r\n\r\n  render(){\r\n    const { zMatrixTranslate } = this.props\r\n\r\n    return(\r\n      <div style={STYLE.ROW}>\r\n        <Label\r\n          style={STYLE.CAPTION}\r\n          title=\"translate:\"\r\n        />\r\n        <Label\r\n          style={STYLE.LABEL}\r\n          title=\"Z:\"\r\n        />\r\n        <InputFloat\r\n          ref={this._refTranslateZ}\r\n          inputKey=\"translateZ\"\r\n          inputStyle={STYLE.INPUT_FLOAT_2}\r\n          value={zMatrixTranslate}\r\n          onChangeMode={this._onChangeMode}\r\n          onKeyDownEnter={this._handleSetTranslate}\r\n        />\r\n        <ButtonSet\r\n            ref={this._refBt}\r\n            onClick={this._handleSetTranslate}\r\n        />\r\n      </div>\r\n    );\r\n  }\r\n}\r\n\r\nexport default RowTranslate\r\n"],"file":"RowTranslate.js"}
+{
+ "version": 3,
+ "sources": [
+  "../../../src/components/panel-config-gl/RowTranslate.js"
+ ],
+ "file": "../../../src/components/panel-config-gl/RowTranslate.js",
+ "names": [
+  "RowTranslate",
+  "setModeToAll",
+  "onChangeMode",
+  "calcInputMode",
+  "props",
+  "_handleSetTranslate",
+  "comp",
+  "onGetComp",
+  "zMatrixTranslate",
+  "translateZ",
+  "getValue",
+  "configMatrix",
+  "_setModeToAll",
+  "_refTranslateZ",
+  "_refBt",
+  "bt",
+  "mode",
+  "_onChangeMode",
+  "bind",
+  "render",
+  "ROW",
+  "CAPTION",
+  "LABEL",
+  "INPUT_FLOAT_2",
+  "Component"
+ ],
+ "mappings": ";;;;;;;;;;;AAAA;;AAEA;;AACA;;AACA;;AAEA;;AACA;;AACA;;AAEA;;;;;;IAUMA,Y,OAHLC,wB,eACAC,wB,eACAC,yB;;;AAEC;AACF;AACA;AACA;AACA;AACA;AAEE,wBAAYC,KAAZ,EAAkB;AAAA;;AAChB,kCAAMA,KAAN;;AADgB,UAUlBC,mBAVkB,GAUI,YAAM;AAC1B,UAAMC,IAAI,GAAG,MAAKF,KAAL,CAAWG,SAAX,EAAb;;AACAD,MAAAA,IAAI,CAACE,gBAAL,GAAwB,MAAKC,UAAL,CAAgBC,QAAhB,EAAxB;AACAJ,MAAAA,IAAI,CAACK,YAAL,CAAkBL,IAAlB;;AAEA,YAAKM,aAAL,CAAmB,CAAnB;AACD,KAhBiB;;AAAA,UAkBlBC,cAlBkB,GAkBD,UAAAP,IAAI;AAAA,aAAI,MAAKG,UAAL,GAAkBH,IAAtB;AAAA,KAlBH;;AAAA,UAmBlBQ,MAnBkB,GAmBT,UAAAC,EAAE;AAAA,aAAI,MAAKA,EAAL,GAAUA,EAAd;AAAA,KAnBO;;AAGhB,UAAKC,IAAL,GAAY;AACVP,MAAAA,UAAU,EAAG,CADH;AAEVM,MAAAA,EAAE,EAAG;AAFK,KAAZ;AAIA,UAAKE,aAAL,GAAqB,MAAKA,aAAL,CAAmBC,IAAnB,gDAArB;AAPgB;AAQjB;;;;SAaDC,M,GAAA,kBAAQ;AACN,QAAQX,gBAAR,GAA6B,KAAKJ,KAAlC,CAAQI,gBAAR;AAEA,wBACE;AAAK,MAAA,KAAK,EAAEY,QAAZ;AAAA,8BACE,qBAAC,iBAAD;AACE,QAAA,KAAK,EAAEC,YADT;AAEE,QAAA,KAAK,EAAC;AAFR,QADF,eAKE,qBAAC,iBAAD;AACE,QAAA,KAAK,EAAEC,UADT;AAEE,QAAA,KAAK,EAAC;AAFR,QALF,eASE,qBAAC,sBAAD;AACE,QAAA,GAAG,EAAE,KAAKT,cADZ;AAEE,QAAA,QAAQ,EAAC,YAFX;AAGE,QAAA,UAAU,EAAEU,kBAHd;AAIE,QAAA,KAAK,EAAEf,gBAJT;AAKE,QAAA,YAAY,EAAE,KAAKS,aALrB;AAME,QAAA,cAAc,EAAE,KAAKZ;AANvB,QATF,eAiBE,qBAAC,qBAAD;AACI,QAAA,GAAG,EAAE,KAAKS,MADd;AAEI,QAAA,OAAO,EAAE,KAAKT;AAFlB,QAjBF;AAAA,MADF;AAwBD,G;;;EAxDwBmB,gB;;eA2DZxB,Y"
+}

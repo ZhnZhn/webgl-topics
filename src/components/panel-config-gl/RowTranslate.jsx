@@ -8,7 +8,12 @@ import Label from '../zhn-atoms/Label';
 import InputFloat from '../zhn-atoms/InputFloat';
 import ButtonSet from '../zhn-atoms/ButtonSet';
 
-import STYLE from './Row.Style';
+import {
+  ROW,
+  CAPTION,
+  LABEL,
+  INPUT_FLOAT_2
+} from './Row.Style';
 
 @setModeToAll
 @onChangeMode
@@ -46,19 +51,19 @@ class RowTranslate extends Component{
     const { zMatrixTranslate } = this.props
 
     return(
-      <div style={STYLE.ROW}>
+      <div style={ROW}>
         <Label
-          style={STYLE.CAPTION}
+          style={CAPTION}
           title="translate:"
         />
         <Label
-          style={STYLE.LABEL}
+          style={LABEL}
           title="Z:"
         />
         <InputFloat
           ref={this._refTranslateZ}
           inputKey="translateZ"
-          inputStyle={STYLE.INPUT_FLOAT_2}
+          inputStyle={INPUT_FLOAT_2}
           value={zMatrixTranslate}
           onChangeMode={this._onChangeMode}
           onKeyDownEnter={this._handleSetTranslate}
