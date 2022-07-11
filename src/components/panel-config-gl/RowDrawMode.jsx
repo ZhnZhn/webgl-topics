@@ -1,4 +1,5 @@
-import { Component } from 'react';
+import { useCallback } from '../uiApi';
+import useProperty from '../hooks/useProperty'
 
 import A from '../Comp'
 
@@ -12,51 +13,46 @@ const S_CAPTION = {
   color: '#a487d4'
 };
 
-const _drawModeOptions = [
+const DRAW_MODE_OPTIONS = [
   { caption: "TRIANGLES", value: "TRIANGLES" },
   { caption: "TRIANGLE_STRIP", value: "TRIANGLE_STRIP" },
   { caption: "TRIANGLE_FAN", value: "TRIANGLE_FAN" },
   { caption: "LINES", value: "LINES" },
   { caption: "LINE_STRIP", value: "LINE_STRIP" },
   { caption: "LINE_LOOP", value: "LINE_LOOP" },
-  { caption: "POINTS", value: "POINTS" },
+  { caption: "POINTS", value: "POINTS" }
 ];
 
-class RowDrawMode extends Component {
-  /*
-  static propTypes = {
-    onGetComp : PropTypes.func.isRequired
-  }
-  */
-
-  _handleSelectDrawMode = (item) => {
-    this.drawMode = item
-  }
-  _handleSetDrawMode = () => {
-    const { drawMode } = this
+const RowDrawMode = ({
+  onGetComp
+}) => {
+  const [
+    setDrawMode,
+    getDrawMode
+  ] = useProperty()
+  , _hSetDrawMode = useCallback(() => {
+    const drawMode  = getDrawMode()
     if (drawMode){
-      const comp = this.props.onGetComp();
+      const comp = onGetComp();
       comp.drawMode = drawMode.value;
     }
-  }
+  }, [onGetComp, getDrawMode]);
 
-  render(){
-    return(
-      <div style={ROW}>
-        <span style={S_CAPTION}>
-          DrawMode:
-        </span>
-        <A.InputSelect
-          options={_drawModeOptions}
-          onSelect={this._handleSelectDrawMode}
-        />
-        <A.ButtonSet
-           mode={1}
-           onClick={this._handleSetDrawMode}
-        />
-      </div>
-    );
-  }
+  return (
+    <div style={ROW}>
+      <span style={S_CAPTION}>
+        DrawMode:
+      </span>
+      <A.InputSelect
+        options={DRAW_MODE_OPTIONS}
+        onSelect={setDrawMode}
+      />
+      <A.ButtonSet
+         mode={1}
+         onClick={_hSetDrawMode}
+      />
+    </div>
+  );
 }
 
 export default RowDrawMode
