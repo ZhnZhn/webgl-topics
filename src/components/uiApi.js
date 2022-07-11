@@ -7,3 +7,5 @@ export {
   useCallback,
   useImperativeHandle
 } from 'react';
+
+export const getRefValue = ref => (ref || {}).current
