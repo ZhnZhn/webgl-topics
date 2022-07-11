@@ -13,7 +13,7 @@ var _OpenClose = _interopRequireDefault(require("../zhn-atoms/OpenClose"));
 
 var _RowProp = _interopRequireDefault(require("./RowProp"));
 
-var _Panel = _interopRequireDefault(require("./Panel.Style"));
+var _Panel = require("./Panel.Style");
 
 var _jsxRuntime = require("react/jsx-runtime");
 
@@ -44,7 +44,7 @@ var PanelTranslate = /*#__PURE__*/function (_Component) {
         onGetComp = _this$props.onGetComp;
     return /*#__PURE__*/(0, _jsxRuntime.jsx)(_OpenClose["default"], {
       caption: "Translate",
-      style: _Panel["default"].OPEN_CLOSE,
+      style: _Panel.OPEN_CLOSE,
       children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_RowProp["default"], {
         labelBy: "Z:",
         inputId: "tZ",

@@ -1,35 +1,26 @@
-
-const STYLE = {
-  ROOT : {
-    float : 'left',
-    marginLeft : '20px',
-    marginTop : '8px',
-    marginBottom : '16px'
-  },
-  ROOT_CAPTION : {
-    color: 'forestgreen',
-    fontSize: '16px',
-    fontWeight: 'bold'
-  },
-  OPEN_CLOSE : {
-     lineHeight: 1,
-     paddingTop : '8px',
-     paddingBottom : '8px',
-     backgroundColor: '#33373A'
-  },
-  OC_DIV: {
-    display: 'flex',
-    alignItems: 'center'
-  },
-  INPUT_SELECT : {
-    marginTop: '8px',
-    marginBottom: '16px'
-  },
-  LABEL_PERSPECTIVE : {
-    display : 'inline-block',
-    width : '65px',
-    textAlign : 'end'
-  }
+export const ROOT = {
+  float: 'left',
+  margin: '8px 0 16px 20px'
 }
-
-export default STYLE
+export const ROOT_CAPTION = {
+  color: 'forestgreen',
+  fontSize: '16px',
+  fontWeight: 'bold'
+}
+export const OPEN_CLOSE = {
+  padding: '8px 0',
+  lineHeight: 1,
+  backgroundColor: '#33373a'
+}
+export const OC_DIV = {
+  display: 'flex',
+  alignItems: 'center'
+}
+export const INPUT_SELECT = {
+  margin: '8px 0 16px 0'
+}
+export const LABEL_PERSPECTIVE = {
+  display: 'inline-block',
+  width: 65,
+  textAlign: 'end'
+}

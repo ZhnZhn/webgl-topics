@@ -3,7 +3,10 @@ import { Component } from 'react';
 import OpenClose from '../zhn-atoms/OpenClose';
 import RowProp from './RowProp';
 
-import STYLE from './Panel.Style';
+import {
+  OPEN_CLOSE,
+  LABEL_PERSPECTIVE
+} from './Panel.Style';
 
 class PanelPerspective extends Component {
   /*
@@ -24,14 +27,14 @@ class PanelPerspective extends Component {
     return (
       <OpenClose
          caption="Perspective"
-         style={STYLE.OPEN_CLOSE}
+         style={OPEN_CLOSE}
       >
         <RowProp
            labelBy="Near:"
            inputId="pNear"
            value={perspectiveNear}
            propKey="perspectiveNear"
-           styleLabel={STYLE.LABEL_PERSPECTIVE}
+           styleLabel={LABEL_PERSPECTIVE}
            onGetComp={onGetComp}
            fnAfterSet={this._fnAfterSet}
         />
@@ -39,7 +42,7 @@ class PanelPerspective extends Component {
            labelBy="Far:"
            inputId="pFar"
            value={perspectiveFar}
-           styleLabel={STYLE.LABEL_PERSPECTIVE}
+           styleLabel={LABEL_PERSPECTIVE}
            propKey="perspectiveFar"
            onGetComp={onGetComp}
            fnAfterSet={this._fnAfterSet}

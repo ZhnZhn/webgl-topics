@@ -13,7 +13,7 @@ var _OpenClose = _interopRequireDefault(require("../zhn-atoms/OpenClose"));
 
 var _RowProp = _interopRequireDefault(require("./RowProp"));
 
-var _Panel = _interopRequireDefault(require("./Panel.Style"));
+var _Panel = require("./Panel.Style");
 
 var _jsxRuntime = require("react/jsx-runtime");
 
@@ -45,20 +45,20 @@ var PanelPerspective = /*#__PURE__*/function (_Component) {
         onGetComp = _this$props.onGetComp;
     return /*#__PURE__*/(0, _jsxRuntime.jsxs)(_OpenClose["default"], {
       caption: "Perspective",
-      style: _Panel["default"].OPEN_CLOSE,
+      style: _Panel.OPEN_CLOSE,
       children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_RowProp["default"], {
         labelBy: "Near:",
         inputId: "pNear",
         value: perspectiveNear,
         propKey: "perspectiveNear",
-        styleLabel: _Panel["default"].LABEL_PERSPECTIVE,
+        styleLabel: _Panel.LABEL_PERSPECTIVE,
         onGetComp: onGetComp,
         fnAfterSet: this._fnAfterSet
       }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_RowProp["default"], {
         labelBy: "Far:",
         inputId: "pFar",
         value: perspectiveFar,
-        styleLabel: _Panel["default"].LABEL_PERSPECTIVE,
+        styleLabel: _Panel.LABEL_PERSPECTIVE,
         propKey: "perspectiveFar",
         onGetComp: onGetComp,
         fnAfterSet: this._fnAfterSet

@@ -3,7 +3,9 @@ import { Component } from 'react';
 import OpenClose from '../zhn-atoms/OpenClose';
 import RowProp from './RowProp';
 
-import STYLE from './Panel.Style';
+import {
+  OPEN_CLOSE
+} from './Panel.Style';
 
 class PanelTranslate extends Component {
   /*
@@ -22,7 +24,7 @@ class PanelTranslate extends Component {
     return (
       <OpenClose
         caption="Translate"
-        style={STYLE.OPEN_CLOSE}
+        style={OPEN_CLOSE}
       >
         <RowProp
           labelBy="Z:"

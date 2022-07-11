@@ -13,7 +13,7 @@ var _PanelTranslate = _interopRequireDefault(require("./PanelTranslate"));
 
 var _PanelRotate = _interopRequireDefault(require("./PanelRotate"));
 
-var _Panel = _interopRequireDefault(require("./Panel.Style"));
+var _Panel = require("./Panel.Style");
 
 var _jsxRuntime = require("react/jsx-runtime");
 
@@ -27,9 +27,9 @@ var PanelConfigGL = function PanelConfigGL(_ref) {
       rY = valuesForInit.rY,
       rZ = valuesForInit.rZ;
   return /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
-    style: _Panel["default"].ROOT,
+    style: _Panel.ROOT,
     children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("span", {
-      style: _Panel["default"].ROOT_CAPTION,
+      style: _Panel.ROOT_CAPTION,
       children: "Config WebGL Topic"
     }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_PanelDrawMode["default"], {
       onGetComp: onGetComp

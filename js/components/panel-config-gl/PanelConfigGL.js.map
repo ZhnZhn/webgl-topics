@@ -1,1 +1,21 @@
-{"version":3,"sources":["../../../src/components/panel-config-gl/PanelConfigGL.jsx"],"names":["PanelConfigGL","onGetComp","valuesForInit","perspectiveNear","perspectiveFar","zMatrixTranslate","rX","rY","rZ","STYLE","ROOT","ROOT_CAPTION"],"mappings":";;;;;;;AAAA;;AACA;;AACA;;AACA;;AAEA;;;;AAEA,IAAMA,aAAa,GAAG,SAAhBA,aAAgB,OAGhB;AAAA,MAFJC,SAEI,QAFJA,SAEI;AAAA,MADJC,aACI,QADJA,aACI;AAAA,MAEAC,eAFA,GAKED,aALF,CAEAC,eAFA;AAAA,MAEiBC,cAFjB,GAKEF,aALF,CAEiBE,cAFjB;AAAA,MAGAC,gBAHA,GAKEH,aALF,CAGAG,gBAHA;AAAA,MAIAC,EAJA,GAKEJ,aALF,CAIAI,EAJA;AAAA,MAIIC,EAJJ,GAKEL,aALF,CAIIK,EAJJ;AAAA,MAIQC,EAJR,GAKEN,aALF,CAIQM,EAJR;AAMJ,sBACE;AAAK,IAAA,KAAK,EAAEC,kBAAMC,IAAlB;AAAA,4BACG;AAAM,MAAA,KAAK,EAAED,kBAAME,YAAnB;AAAA;AAAA,MADH,eAIE,qBAAC,yBAAD;AACQV,MAAAA,SAAS,EAATA;AADR,MAJF,eAOE,qBAAC,4BAAD;AACQE,MAAAA,eAAe,EAAfA,eADR;AACyBC,MAAAA,cAAc,EAAdA,cADzB;AACyCH,MAAAA,SAAS,EAATA;AADzC,MAPF,eAUE,qBAAC,0BAAD;AACQI,MAAAA,gBAAgB,EAAhBA,gBADR;AAC0BJ,MAAAA,SAAS,EAATA;AAD1B,MAVF,eAaG,qBAAC,uBAAD;AACQK,MAAAA,EAAE,EAAFA,EADR;AACYC,MAAAA,EAAE,EAAFA,EADZ;AACgBC,MAAAA,EAAE,EAAFA,EADhB;AACoBP,MAAAA,SAAS,EAATA;AADpB,MAbH;AAAA,IADF;AAmBD,CA5BD;AA8BA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;;;eAEeD,a","sourcesContent":["import PanelDrawMode from './PanelDrawMode';\r\nimport PanelPerspective from './PanelPerspective';\r\nimport PanelTranslate from './PanelTranslate';\r\nimport PanelRotate from './PanelRotate';\r\n\r\nimport STYLE from './Panel.Style';\r\n\r\nconst PanelConfigGL = ({\r\n  onGetComp,\r\n  valuesForInit\r\n}) => {\r\n  const {\r\n      perspectiveNear, perspectiveFar,\r\n      zMatrixTranslate,\r\n      rX, rY, rZ\r\n    } = valuesForInit;\r\n  return (\r\n    <div style={STYLE.ROOT}>\r\n       <span style={STYLE.ROOT_CAPTION}>\r\n         Config WebGL Topic\r\n       </span>\r\n      <PanelDrawMode\r\n        {...{ onGetComp }}\r\n      />\r\n      <PanelPerspective\r\n        {...{ perspectiveNear, perspectiveFar, onGetComp }}\r\n      />\r\n      <PanelTranslate\r\n        {...{ zMatrixTranslate, onGetComp }}\r\n      />\r\n       <PanelRotate\r\n         {...{ rX, rY, rZ, onGetComp }}\r\n       />\r\n    </div>\r\n  );\r\n}\r\n\r\n/*\r\nPanelConfigGL. propTypes = {\r\n  valuesForInit : PropTypes.shape({\r\n      perspectiveNear: PropTypes.number,\r\n      perspectiveFar: PropTypes.number,\r\n      zMatrixTranslate: PropTypes.number,\r\n      rX: PropTypes.number,\r\n      rY: PropTypes.number,\r\n      rZ: PropTypes.number\r\n  }).isRequired,\r\n  onGetComp : PropTypes.func.isRequired\r\n}\r\n*/\r\n\r\nexport default PanelConfigGL\r\n"],"file":"PanelConfigGL.js"}
+{
+ "version": 3,
+ "sources": [
+  "../../../src/components/panel-config-gl/PanelConfigGL.js"
+ ],
+ "file": "../../../src/components/panel-config-gl/PanelConfigGL.js",
+ "names": [
+  "PanelConfigGL",
+  "onGetComp",
+  "valuesForInit",
+  "perspectiveNear",
+  "perspectiveFar",
+  "zMatrixTranslate",
+  "rX",
+  "rY",
+  "rZ",
+  "ROOT",
+  "ROOT_CAPTION"
+ ],
+ "mappings": ";;;;;;;AAAA;;AACA;;AACA;;AACA;;AAEA;;;;AAKA,IAAMA,aAAa,GAAG,SAAhBA,aAAgB,OAGhB;AAAA,MAFJC,SAEI,QAFJA,SAEI;AAAA,MADJC,aACI,QADJA,aACI;AACJ,MACIC,eADJ,GAOMD,aAPN,CACIC,eADJ;AAAA,MAEIC,cAFJ,GAOMF,aAPN,CAEIE,cAFJ;AAAA,MAGIC,gBAHJ,GAOMH,aAPN,CAGIG,gBAHJ;AAAA,MAIIC,EAJJ,GAOMJ,aAPN,CAIII,EAJJ;AAAA,MAKIC,EALJ,GAOML,aAPN,CAKIK,EALJ;AAAA,MAMIC,EANJ,GAOMN,aAPN,CAMIM,EANJ;AAQA,sBACE;AAAK,IAAA,KAAK,EAAEC,WAAZ;AAAA,4BACG;AAAM,MAAA,KAAK,EAAEC,mBAAb;AAAA;AAAA,MADH,eAIE,qBAAC,yBAAD;AACQT,MAAAA,SAAS,EAATA;AADR,MAJF,eAOE,qBAAC,4BAAD;AACQE,MAAAA,eAAe,EAAfA,eADR;AACyBC,MAAAA,cAAc,EAAdA,cADzB;AACyCH,MAAAA,SAAS,EAATA;AADzC,MAPF,eAUE,qBAAC,0BAAD;AACQI,MAAAA,gBAAgB,EAAhBA,gBADR;AAC0BJ,MAAAA,SAAS,EAATA;AAD1B,MAVF,eAaG,qBAAC,uBAAD;AACQK,MAAAA,EAAE,EAAFA,EADR;AACYC,MAAAA,EAAE,EAAFA,EADZ;AACgBC,MAAAA,EAAE,EAAFA,EADhB;AACoBP,MAAAA,SAAS,EAATA;AADpB,MAbH;AAAA,IADF;AAmBD,CA/BD;AAiCA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;;;eAEeD,a"
+}

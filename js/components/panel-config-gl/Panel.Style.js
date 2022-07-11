@@ -1,39 +1,37 @@
 "use strict";
 
 exports.__esModule = true;
-exports["default"] = void 0;
-var STYLE = {
-  ROOT: {
-    "float": 'left',
-    marginLeft: '20px',
-    marginTop: '8px',
-    marginBottom: '16px'
-  },
-  ROOT_CAPTION: {
-    color: 'forestgreen',
-    fontSize: '16px',
-    fontWeight: 'bold'
-  },
-  OPEN_CLOSE: {
-    lineHeight: 1,
-    paddingTop: '8px',
-    paddingBottom: '8px',
-    backgroundColor: '#33373A'
-  },
-  OC_DIV: {
-    display: 'flex',
-    alignItems: 'center'
-  },
-  INPUT_SELECT: {
-    marginTop: '8px',
-    marginBottom: '16px'
-  },
-  LABEL_PERSPECTIVE: {
-    display: 'inline-block',
-    width: '65px',
-    textAlign: 'end'
-  }
+exports.ROOT_CAPTION = exports.ROOT = exports.OPEN_CLOSE = exports.OC_DIV = exports.LABEL_PERSPECTIVE = exports.INPUT_SELECT = void 0;
+var ROOT = {
+  "float": 'left',
+  margin: '8px 0 16px 20px'
 };
-var _default = STYLE;
-exports["default"] = _default;
+exports.ROOT = ROOT;
+var ROOT_CAPTION = {
+  color: 'forestgreen',
+  fontSize: '16px',
+  fontWeight: 'bold'
+};
+exports.ROOT_CAPTION = ROOT_CAPTION;
+var OPEN_CLOSE = {
+  padding: '8px 0',
+  lineHeight: 1,
+  backgroundColor: '#33373a'
+};
+exports.OPEN_CLOSE = OPEN_CLOSE;
+var OC_DIV = {
+  display: 'flex',
+  alignItems: 'center'
+};
+exports.OC_DIV = OC_DIV;
+var INPUT_SELECT = {
+  margin: '8px 0 16px 0'
+};
+exports.INPUT_SELECT = INPUT_SELECT;
+var LABEL_PERSPECTIVE = {
+  display: 'inline-block',
+  width: 65,
+  textAlign: 'end'
+};
+exports.LABEL_PERSPECTIVE = LABEL_PERSPECTIVE;
 //# sourceMappingURL=Panel.Style.js.map

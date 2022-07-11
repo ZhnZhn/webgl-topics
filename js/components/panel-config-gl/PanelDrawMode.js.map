@@ -1,1 +1,31 @@
-{"version":3,"sources":["../../../src/components/panel-config-gl/PanelDrawMode.jsx"],"names":["_drawModeOptions","caption","value","S","OC_DIV","paddingTop","BT_SET","position","top","PanelDrawMode","_hSelectDrawMode","item","drawMode","_hSetDrawMode","comp","props","onGetComp","render","STYLE","OPEN_CLOSE","INPUT_SELECT","Component"],"mappings":";;;;;;;;;;;;;AAAA;;AAEA;;AAYA;;;;AAVA,IAAMA,gBAAgB,GAAG,CACvB;AAAEC,EAAAA,OAAO,EAAE,WAAX;AAAwBC,EAAAA,KAAK,EAAE;AAA/B,CADuB,EAEvB;AAAED,EAAAA,OAAO,EAAE,gBAAX;AAA6BC,EAAAA,KAAK,EAAE;AAApC,CAFuB,EAGvB;AAAED,EAAAA,OAAO,EAAE,cAAX;AAA2BC,EAAAA,KAAK,EAAE;AAAlC,CAHuB,EAIvB;AAAED,EAAAA,OAAO,EAAE,OAAX;AAAoBC,EAAAA,KAAK,EAAE;AAA3B,CAJuB,EAKvB;AAAED,EAAAA,OAAO,EAAE,YAAX;AAAyBC,EAAAA,KAAK,EAAE;AAAhC,CALuB,EAMvB;AAAED,EAAAA,OAAO,EAAE,WAAX;AAAwBC,EAAAA,KAAK,EAAE;AAA/B,CANuB,EAOvB;AAAED,EAAAA,OAAO,EAAE,QAAX;AAAqBC,EAAAA,KAAK,EAAE;AAA5B,CAPuB,CAAzB;AAYA,IAAMC,CAAC,GAAG;AACRC,EAAAA,MAAM,EAAE;AACNC,IAAAA,UAAU,EAAE;AADN,GADA;AAIRC,EAAAA,MAAM,EAAE;AACNC,IAAAA,QAAQ,EAAE,UADJ;AAENC,IAAAA,GAAG,EAAE,CAAC;AAFA;AAJA,CAAV;;IAUMC,a;;;;;;;;;;;;UAOJC,gB,GAAmB,UAACC,IAAD,EAAU;AAC3B,YAAKC,QAAL,GAAgBD,IAAhB;AACD,K;;UACDE,a,GAAgB,YAAM;AAAA;AAAA,UACZD,QADY,yBACZA,QADY;;AAEpB,UAAIA,QAAJ,EAAa;AACX,YAAME,IAAI,GAAG,MAAKC,KAAL,CAAWC,SAAX,EAAb;;AACAF,QAAAA,IAAI,CAACF,QAAL,GAAgBA,QAAQ,CAACV,KAAzB;AACD;AACF,K;;;;;;;SAEDe,M,GAAA,kBAAQ;AACN,wBACE,qBAAC,gBAAD,CAAG,SAAH;AACE,MAAA,OAAO,EAAC,UADV;AAEE,MAAA,KAAK,EAAEC,kBAAMC,UAFf;AAAA,6BAIE;AAAK,QAAA,KAAK,gCAAOD,kBAAMd,MAAb,EAAwBD,CAAC,CAACC,MAA1B,CAAV;AAAA,gCACE,qBAAC,gBAAD,CAAG,WAAH;AACE,UAAA,KAAK,EAAC,KADR;AAEE,UAAA,OAAO,EAAEJ,gBAFX;AAGE,UAAA,SAAS,EAAEkB,kBAAME,YAHnB;AAIE,UAAA,QAAQ,EAAE,KAAKV;AAJjB,UADF,eAOE,qBAAC,gBAAD,CAAG,SAAH;AACG,UAAA,KAAK,EAAEP,CAAC,CAACG,MADZ;AAEG,UAAA,IAAI,EAAE,CAFT;AAGG,UAAA,OAAO,EAAE,KAAKO;AAHjB,UAPF;AAAA;AAJF,MADF;AAoBD,G;;;EAvCyBQ,gB;;eA0CbZ,a","sourcesContent":["import { Component } from 'react';\r\n\r\nimport A from '../Comp'\r\n\r\nconst _drawModeOptions = [\r\n  { caption: \"TRIANGLES\", value: \"TRIANGLES\" },\r\n  { caption: \"TRIANGLE_STRIP\", value: \"TRIANGLE_STRIP\" },\r\n  { caption: \"TRIANGLE_FAN\", value: \"TRIANGLE_FAN\" },\r\n  { caption: \"LINES\", value: \"LINES\" },\r\n  { caption: \"LINE_STRIP\", value: \"LINE_STRIP\" },\r\n  { caption: \"LINE_LOOP\", value: \"LINE_LOOP\" },\r\n  { caption: \"POINTS\", value: \"POINTS\" },\r\n];\r\n\r\nimport STYLE from './Panel.Style';\r\n\r\nconst S = {\r\n  OC_DIV: {\r\n    paddingTop: 6\r\n  },\r\n  BT_SET: {\r\n    position: 'relative',\r\n    top: -6\r\n  }\r\n};\r\n\r\nclass PanelDrawMode extends Component {\r\n  /*\r\n  static propTypes = {\r\n    onGetComp : PropTypes.func.isRequired\r\n  }\r\n  */\r\n\r\n  _hSelectDrawMode = (item) => {\r\n    this.drawMode = item\r\n  }\r\n  _hSetDrawMode = () => {\r\n    const { drawMode } = this\r\n    if (drawMode){\r\n      const comp = this.props.onGetComp();\r\n      comp.drawMode = drawMode.value;\r\n    }\r\n  }\r\n\r\n  render(){\r\n    return (\r\n      <A.OpenClose\r\n        caption=\"DrawMode\"\r\n        style={STYLE.OPEN_CLOSE}\r\n      >\r\n        <div style={{ ...STYLE.OC_DIV, ...S.OC_DIV}}>\r\n          <A.InputSelect\r\n            width=\"170\"\r\n            options={_drawModeOptions}\r\n            styleRoot={STYLE.INPUT_SELECT}\r\n            onSelect={this._hSelectDrawMode}\r\n          />\r\n          <A.ButtonSet\r\n             style={S.BT_SET}\r\n             mode={1}\r\n             onClick={this._hSetDrawMode}\r\n          />\r\n        </div>\r\n      </A.OpenClose>\r\n    );\r\n  }\r\n}\r\n\r\nexport default PanelDrawMode\r\n"],"file":"PanelDrawMode.js"}
+{
+ "version": 3,
+ "sources": [
+  "../../../src/components/panel-config-gl/PanelDrawMode.js"
+ ],
+ "file": "../../../src/components/panel-config-gl/PanelDrawMode.js",
+ "names": [
+  "_drawModeOptions",
+  "caption",
+  "value",
+  "S_OC_DIV",
+  "OC_DIV",
+  "paddingTop",
+  "S_BT_SET",
+  "position",
+  "top",
+  "PanelDrawMode",
+  "_hSelectDrawMode",
+  "item",
+  "drawMode",
+  "_hSetDrawMode",
+  "comp",
+  "props",
+  "onGetComp",
+  "render",
+  "OPEN_CLOSE",
+  "INPUT_SELECT",
+  "Component"
+ ],
+ "mappings": ";;;;;;;;;;;;;AAAA;;AAEA;;AAYA;;;;AAVA,IAAMA,gBAAgB,GAAG,CACvB;AAAEC,EAAAA,OAAO,EAAE,WAAX;AAAwBC,EAAAA,KAAK,EAAE;AAA/B,CADuB,EAEvB;AAAED,EAAAA,OAAO,EAAE,gBAAX;AAA6BC,EAAAA,KAAK,EAAE;AAApC,CAFuB,EAGvB;AAAED,EAAAA,OAAO,EAAE,cAAX;AAA2BC,EAAAA,KAAK,EAAE;AAAlC,CAHuB,EAIvB;AAAED,EAAAA,OAAO,EAAE,OAAX;AAAoBC,EAAAA,KAAK,EAAE;AAA3B,CAJuB,EAKvB;AAAED,EAAAA,OAAO,EAAE,YAAX;AAAyBC,EAAAA,KAAK,EAAE;AAAhC,CALuB,EAMvB;AAAED,EAAAA,OAAO,EAAE,WAAX;AAAwBC,EAAAA,KAAK,EAAE;AAA/B,CANuB,EAOvB;AAAED,EAAAA,OAAO,EAAE,QAAX;AAAqBC,EAAAA,KAAK,EAAE;AAA5B,CAPuB,CAAzB;AAgBA,IAAMC,QAAQ,iCACTC,aADS;AAEZC,EAAAA,UAAU,EAAE;AAFA,EAAd;AAAA,IAIEC,QAAQ,GAAG;AACXC,EAAAA,QAAQ,EAAE,UADC;AAEXC,EAAAA,GAAG,EAAE,CAAC;AAFK,CAJb;;IAUMC,a;;;;;;;;;;;;UAOJC,gB,GAAmB,UAACC,IAAD,EAAU;AAC3B,YAAKC,QAAL,GAAgBD,IAAhB;AACD,K;;UACDE,a,GAAgB,YAAM;AACpB;AAAA,UAAQD,QAAR,yBAAQA,QAAR;;AACA,UAAIA,QAAJ,EAAa;AACX,YAAME,IAAI,GAAG,MAAKC,KAAL,CAAWC,SAAX,EAAb;;AACAF,QAAAA,IAAI,CAACF,QAAL,GAAgBA,QAAQ,CAACV,KAAzB;AACD;AACF,K;;;;;;;SAEDe,M,GAAA,kBAAQ;AACN,wBACE,qBAAC,gBAAD,CAAG,SAAH;AACE,MAAA,OAAO,EAAC,UADV;AAEE,MAAA,KAAK,EAAEC,iBAFT;AAAA,6BAIE;AAAK,QAAA,KAAK,EAAEf,QAAZ;AAAA,gCACE,qBAAC,gBAAD,CAAG,WAAH;AACE,UAAA,KAAK,EAAC,KADR;AAEE,UAAA,OAAO,EAAEH,gBAFX;AAGE,UAAA,SAAS,EAAEmB,mBAHb;AAIE,UAAA,QAAQ,EAAE,KAAKT;AAJjB,UADF,eAOE,qBAAC,gBAAD,CAAG,SAAH;AACG,UAAA,KAAK,EAAEJ,QADV;AAEG,UAAA,IAAI,EAAE,CAFT;AAGG,UAAA,OAAO,EAAE,KAAKO;AAHjB,UAPF;AAAA;AAJF,MADF;AAoBD,G;;;EAvCyBO,gB;;eA0CbX,a"
+}

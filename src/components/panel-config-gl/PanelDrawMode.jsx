@@ -12,17 +12,21 @@ const _drawModeOptions = [
   { caption: "POINTS", value: "POINTS" },
 ];
 
-import STYLE from './Panel.Style';
+import {
+  OC_DIV,
+  INPUT_SELECT,
+  OPEN_CLOSE
+} from './Panel.Style';
 
-const S = {
-  OC_DIV: {
-    paddingTop: 6
-  },
-  BT_SET: {
-    position: 'relative',
-    top: -6
-  }
+const S_OC_DIV = {
+  ...OC_DIV,
+  paddingTop: 6
+}
+, S_BT_SET = {
+  position: 'relative',
+  top: -6
 };
+
 
 class PanelDrawMode extends Component {
   /*
@@ -46,17 +50,17 @@ class PanelDrawMode extends Component {
     return (
       <A.OpenClose
         caption="DrawMode"
-        style={STYLE.OPEN_CLOSE}
+        style={OPEN_CLOSE}
       >
-        <div style={{ ...STYLE.OC_DIV, ...S.OC_DIV}}>
+        <div style={S_OC_DIV}>
           <A.InputSelect
             width="170"
             options={_drawModeOptions}
-            styleRoot={STYLE.INPUT_SELECT}
+            styleRoot={INPUT_SELECT}
             onSelect={this._hSelectDrawMode}
           />
           <A.ButtonSet
-             style={S.BT_SET}
+             style={S_BT_SET}
              mode={1}
              onClick={this._hSetDrawMode}
           />

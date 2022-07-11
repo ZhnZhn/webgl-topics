@@ -3,20 +3,26 @@ import PanelPerspective from './PanelPerspective';
 import PanelTranslate from './PanelTranslate';
 import PanelRotate from './PanelRotate';
 
-import STYLE from './Panel.Style';
+import {
+  ROOT,
+  ROOT_CAPTION
+} from './Panel.Style';
 
 const PanelConfigGL = ({
   onGetComp,
   valuesForInit
 }) => {
   const {
-      perspectiveNear, perspectiveFar,
+      perspectiveNear,
+      perspectiveFar,
       zMatrixTranslate,
-      rX, rY, rZ
+      rX,
+      rY,
+      rZ
     } = valuesForInit;
   return (
-    <div style={STYLE.ROOT}>
-       <span style={STYLE.ROOT_CAPTION}>
+    <div style={ROOT}>
+       <span style={ROOT_CAPTION}>
          Config WebGL Topic
        </span>
       <PanelDrawMode

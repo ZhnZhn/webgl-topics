@@ -1,14 +1,20 @@
-
 import OpenClose from '../zhn-atoms/OpenClose';
 import RowProp from './RowProp';
 
-import STYLE from './Panel.Style'
+import {
+  OPEN_CLOSE
+} from './Panel.Style'
 
-const PanelRotate = ({ rX, rY, rZ, onGetComp }) => (
+const PanelRotate = ({
+  rX,
+  rY,
+  rZ,
+  onGetComp
+}) => (
   <OpenClose
      isClose={true}
      caption="Rotate"
-     style={STYLE.OPEN_CLOSE}
+     style={OPEN_CLOSE}
   >
     <RowProp
        labelBy="X:"
