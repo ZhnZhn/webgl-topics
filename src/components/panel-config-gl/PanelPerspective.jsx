@@ -1,7 +1,4 @@
-import { 
-  useRef,
-  getRefValue
-} from '../uiApi';
+import useRefValue from '../hooks/useRefValue'
 
 import OpenClose from '../zhn-atoms/OpenClose';
 import RowProp from './RowProp';
@@ -16,9 +13,9 @@ const PanelPerspective = ({
   perspectiveFar,
   onGetComp
 }) => {
-  const _fnAfterSet = getRefValue(useRef((comp) => {
+  const _fnAfterSet = useRefValue(comp => {
     comp.createPerspective(comp)
-  }));
+  });
   return (
     <OpenClose
        caption="Perspective"

@@ -5,7 +5,7 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 exports.__esModule = true;
 exports["default"] = void 0;
 
-var _uiApi = require("../uiApi");
+var _useRefValue = _interopRequireDefault(require("../hooks/useRefValue"));
 
 var _OpenClose = _interopRequireDefault(require("../zhn-atoms/OpenClose"));
 
@@ -20,9 +20,9 @@ var PanelPerspective = function PanelPerspective(_ref) {
       perspectiveFar = _ref.perspectiveFar,
       onGetComp = _ref.onGetComp;
 
-  var _fnAfterSet = (0, _uiApi.getRefValue)((0, _uiApi.useRef)(function (comp) {
+  var _fnAfterSet = (0, _useRefValue["default"])(function (comp) {
     comp.createPerspective(comp);
-  }));
+  });
 
   return /*#__PURE__*/(0, _jsxRuntime.jsxs)(_OpenClose["default"], {
     caption: "Perspective",
