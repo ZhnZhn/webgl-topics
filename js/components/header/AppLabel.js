@@ -15,14 +15,6 @@ var AppLabel = function AppLabel(_ref) {
     children: caption
   });
 };
-/*
-AppLabel.propTypes = {
-  className: PropTypes.string,
-  style: PropTypes.object,
-  caption: PropTypes.string
-}
-*/
-
 
 var _default = AppLabel;
 exports["default"] = _default;

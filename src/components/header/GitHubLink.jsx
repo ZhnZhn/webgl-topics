@@ -1,6 +1,8 @@
-
-
-const GitHubLink = ({ className, title, href }) => (
+const GitHubLink = ({ 
+  className,
+  title,
+  href
+}) => (
   <a
     className={className}
     title={title}
@@ -17,6 +19,5 @@ const GitHubLink = ({ className, title, href }) => (
     </svg>
   </a>
 );
-
 
 export default GitHubLink

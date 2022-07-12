@@ -52,13 +52,6 @@ var IconAppLogo = function IconAppLogo(_ref) {
     })
   });
 };
-/*
-IconAppLogo.propTypes = {
-  className: PropTypes.string,
-  title: PropTypes.string
-}
-*/
-
 
 var _default = IconAppLogo;
 exports["default"] = _default;

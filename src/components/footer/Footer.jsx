@@ -1,5 +1,10 @@
+const CL_CONTAINER_FOOTER = "container__footer";
+
 const Footer = () => (
-  <div className="container__footer" role="complementary" />
+  <div
+    role="complementary"
+    className={CL_CONTAINER_FOOTER}
+  />
 );
 
 export default Footer

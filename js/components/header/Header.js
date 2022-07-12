@@ -14,19 +14,23 @@ var _GitHubLink = _interopRequireDefault(require("./GitHubLink"));
 var _jsxRuntime = require("react/jsx-runtime");
 
 var TITLE = 'WebGL Topics v0.1.0';
+var HEADER = "header",
+    CL_ICON_APP = HEADER + "__icon-app",
+    CL_LABEL_APP = HEADER + "__label-app",
+    CL_GITHUB_LINK = HEADER + "__github-link";
 
 var Header = function Header() {
   return /*#__PURE__*/(0, _jsxRuntime.jsxs)("header", {
     className: "header",
     role: "banner",
     children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_IconAppLogo["default"], {
-      className: "header__icon-app",
+      className: CL_ICON_APP,
       title: TITLE
     }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_AppLabel["default"], {
-      className: "header__label-app",
+      className: CL_LABEL_APP,
       caption: TITLE
     }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_GitHubLink["default"], {
-      className: "header__github-link",
+      className: CL_GITHUB_LINK,
       title: "GitHub Repository",
       href: "https://github.com/zhnzhn/webgl-topics/"
     })]

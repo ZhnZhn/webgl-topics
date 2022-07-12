@@ -1,6 +1,8 @@
 
-
-const IconAppLogo = ({ className, title }) => (
+const IconAppLogo = ({
+  className,
+  title
+}) => (
   <span
      className={className}
      title={title}
@@ -46,13 +48,5 @@ const IconAppLogo = ({ className, title }) => (
     </svg>
   </span>
 );
-
-
-/*
-IconAppLogo.propTypes = {
-  className: PropTypes.string,
-  title: PropTypes.string
-}
-*/
 
 export default IconAppLogo
