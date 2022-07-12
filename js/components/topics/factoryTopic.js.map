@@ -1,1 +1,35 @@
-{"version":3,"sources":["../../../src/components/topics/factoryTopic.js"],"names":["_rTopic","DEFAULT","props","RandomTriangles","ID","RANDOM_TRIANGLES","CROWN","CoronaSample","PLANE","Plane","CUBE","Cube","TEXTURE_IMAGE","TextureImage","CUBE_WITH_LIGHT","CubeWithLight","CUBE_TRANSPARENT","CubeTransparent","factoryTopic","topicId","config","key","Date","now","Comp","WebGLTopic"],"mappings":";;;;;;;AAAA;;AAEA;;AAEA;;AACA;;AACA;;AACA;;AACA;;AACA;;AACA;;;;AAEA,IAAMA,OAAO;AACXC,EAAAA,OAAO,EAAG;AAAEC,IAAAA,KAAK,EAAGC;AAAV;AADC,YAGVC,eAAGC,gBAHO,IAGa;AAAEH,EAAAA,KAAK,EAAGC;AAAV,CAHb,WAIVC,eAAGE,KAJO,IAIE;AAAEJ,EAAAA,KAAK,EAAGK;AAAV,CAJF,WAKVH,eAAGI,KALO,IAKE;AAAEN,EAAAA,KAAK,EAAGO;AAAV,CALF,WAMVL,eAAGM,IANO,IAMC;AAAER,EAAAA,KAAK,EAAGS;AAAV,CAND,WAOVP,eAAGQ,aAPO,IAOU;AAAEV,EAAAA,KAAK,EAAEW;AAAT,CAPV,WAQVT,eAAGU,eARO,IAQY;AAAEZ,EAAAA,KAAK,EAAEa;AAAT,CARZ,WASVX,eAAGY,gBATO,IASa;AAAEd,EAAAA,KAAK,EAAGe;AAAV,CATb,WAAb;;AAYA,IAAMC,YAAY,GAAG,SAAfA,YAAe,CAACC,OAAD,EAAa;AAChC,MAAMC,MAAM,GAAIpB,OAAO,CAACmB,OAAD,CAAvB;AAAA,MACMjB,KAAK,GAAIkB,MAAD,GACJA,MAAM,CAAClB,KADH,GAEJF,OAAO,CAACC,OAAR,CAAgBC,KAH1B;AAKAA,EAAAA,KAAK,CAACmB,GAAN,GAAYF,OAAO,GAAGG,IAAI,CAACC,GAAL,EAAtB;AACA,SAAO;AAAEC,IAAAA,IAAI,EAAGC,sBAAT;AAAqBvB,IAAAA,KAAK,EAALA;AAArB,GAAP;AACD,CARD;;eAWegB,Y","sourcesContent":["import WebGLTopic from './WebGLTopic';\r\n\r\nimport ID from './ID';\r\n\r\nimport RandomTriangles from './gl-props/RandomTriangles';\r\nimport CoronaSample from './gl-props/CoronaSample';\r\nimport Plane from './gl-props/Plane';\r\nimport Cube from './gl-props/Cube';\r\nimport TextureImage from './gl-props/TextureImage';\r\nimport CubeWithLight from './gl-props/CubeWithLight';\r\nimport CubeTransparent from './gl-props/CubeTransparent';\r\n\r\nconst _rTopic = {\r\n  DEFAULT : { props : RandomTriangles },\r\n\r\n  [ID.RANDOM_TRIANGLES] : { props : RandomTriangles },\r\n  [ID.CROWN] : { props : CoronaSample },\r\n  [ID.PLANE] : { props : Plane },\r\n  [ID.CUBE] : { props : Cube },\r\n  [ID.TEXTURE_IMAGE] : { props: TextureImage },\r\n  [ID.CUBE_WITH_LIGHT] : { props: CubeWithLight },\r\n  [ID.CUBE_TRANSPARENT] : { props : CubeTransparent }\r\n}\r\n\r\nconst factoryTopic = (topicId) => {\r\n  const config  = _rTopic[topicId]\r\n      , props = (config)\r\n          ? config.props\r\n          : _rTopic.DEFAULT.props;\r\n\r\n  props.key = topicId + Date.now()\r\n  return { Comp : WebGLTopic, props };\r\n};\r\n\r\n\r\nexport default factoryTopic\r\n"],"file":"factoryTopic.js"}
+{
+ "version": 3,
+ "sources": [
+  "../../../src/components/topics/factoryTopic.js"
+ ],
+ "file": "../../../src/components/topics/factoryTopic.js",
+ "names": [
+  "_rTopic",
+  "DF",
+  "props",
+  "RandomTriangles",
+  "ID_RANDOM_TRIANGLES",
+  "ID_CROWN",
+  "CoronaSample",
+  "ID_PLANE",
+  "Plane",
+  "ID_CUBE",
+  "Cube",
+  "ID_TEXTURE_IMAGE",
+  "TextureImage",
+  "ID_CUBE_WITH_LIGHT",
+  "CubeWithLight",
+  "ID_CUBE_TRANSPARENT",
+  "CubeTransparent",
+  "factoryTopic",
+  "topicId",
+  "config",
+  "key",
+  "Date",
+  "now",
+  "Comp",
+  "WebGLTopic"
+ ],
+ "mappings": ";;;;;;;AAAA;;AAEA;;AAUA;;AACA;;AACA;;AACA;;AACA;;AACA;;AACA;;;;AAEA,IAAMA,OAAO;AACXC,EAAAA,EAAE,EAAG;AAAEC,IAAAA,KAAK,EAAGC;AAAV;AADM,YAGVC,uBAHU,IAGa;AAAEF,EAAAA,KAAK,EAAGC;AAAV,CAHb,WAIVE,YAJU,IAIE;AAAEH,EAAAA,KAAK,EAAGI;AAAV,CAJF,WAKVC,YALU,IAKE;AAAEL,EAAAA,KAAK,EAAGM;AAAV,CALF,WAMVC,WANU,IAMC;AAAEP,EAAAA,KAAK,EAAGQ;AAAV,CAND,WAOVC,oBAPU,IAOU;AAAET,EAAAA,KAAK,EAAEU;AAAT,CAPV,WAQVC,sBARU,IAQY;AAAEX,EAAAA,KAAK,EAAEY;AAAT,CARZ,WASVC,uBATU,IASa;AAAEb,EAAAA,KAAK,EAAGc;AAAV,CATb,WAAb;;AAYA,IAAMC,YAAY,GAAG,SAAfA,YAAe,CACnBC,OADmB,EAEhB;AACH,MAAMC,MAAM,GAAID,OAAO,IAAIlB,OAAO,CAACkB,OAAD,CAAlC;AAAA,MACEhB,KAAK,GAAGiB,MAAM,GACVA,MAAM,CAACjB,KADG,GAEVF,OAAO,CAACC,EAAR,CAAWC,KAHjB;AAKAA,EAAAA,KAAK,CAACkB,GAAN,GAAYF,OAAO,GAAGG,IAAI,CAACC,GAAL,EAAtB;AACA,SAAO;AAAEC,IAAAA,IAAI,EAAEC,sBAAR;AAAoBtB,IAAAA,KAAK,EAALA;AAApB,GAAP;AACD,CAVD;;eAaee,Y"
+}

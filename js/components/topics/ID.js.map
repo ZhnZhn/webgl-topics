@@ -1,1 +1,17 @@
-{"version":3,"sources":["../../../src/components/topics/ID.js"],"names":["ID","RANDOM_TRIANGLES","CROWN","PLANE","CUBE","TEXTURE_IMAGE","CUBE_WITH_LIGHT","CUBE_TRANSPARENT"],"mappings":";;;;AAEA,IAAMA,EAAE,GAAG;AACTC,EAAAA,gBAAgB,EAAG,kBADV;AAETC,EAAAA,KAAK,EAAG,OAFC;AAGTC,EAAAA,KAAK,EAAG,OAHC;AAITC,EAAAA,IAAI,EAAG,MAJE;AAKTC,EAAAA,aAAa,EAAG,eALP;AAMTC,EAAAA,eAAe,EAAG,iBANT;AAOTC,EAAAA,gBAAgB,EAAG;AAPV,CAAX;eAUeP,E","sourcesContent":["\r\n\r\nconst ID = {\r\n  RANDOM_TRIANGLES : 'RANDOM_TRIANGLES',\r\n  CROWN : 'CROWN',\r\n  PLANE : 'PLANE',\r\n  CUBE : 'CUBE',\r\n  TEXTURE_IMAGE : 'TEXTURE_IMAGE',\r\n  CUBE_WITH_LIGHT : 'CUBE_WITH_LIGHT',\r\n  CUBE_TRANSPARENT : 'CUBE_TRANSPARENT'\r\n}\r\n\r\nexport default ID\r\n"],"file":"ID.js"}
+{
+ "version": 3,
+ "sources": [
+  "../../../src/components/topics/ID.js"
+ ],
+ "file": "../../../src/components/topics/ID.js",
+ "names": [
+  "ID_RANDOM_TRIANGLES",
+  "ID_CROWN",
+  "ID_PLANE",
+  "ID_CUBE",
+  "ID_TEXTURE_IMAGE",
+  "ID_CUBE_WITH_LIGHT",
+  "ID_CUBE_TRANSPARENT"
+ ],
+ "mappings": ";;;;AACO,IAAMA,mBAAmB,GAAG,kBAA5B;;AACA,IAAMC,QAAQ,GAAG,OAAjB;;AACA,IAAMC,QAAQ,GAAG,OAAjB;;AACA,IAAMC,OAAO,GAAG,MAAhB;;AACA,IAAMC,gBAAgB,GAAG,eAAzB;;AACA,IAAMC,kBAAkB,GAAG,iBAA3B;;AACA,IAAMC,mBAAmB,GAAG,kBAA5B"
+}

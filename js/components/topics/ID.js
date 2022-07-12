@@ -1,16 +1,19 @@
 "use strict";
 
 exports.__esModule = true;
-exports["default"] = void 0;
-var ID = {
-  RANDOM_TRIANGLES: 'RANDOM_TRIANGLES',
-  CROWN: 'CROWN',
-  PLANE: 'PLANE',
-  CUBE: 'CUBE',
-  TEXTURE_IMAGE: 'TEXTURE_IMAGE',
-  CUBE_WITH_LIGHT: 'CUBE_WITH_LIGHT',
-  CUBE_TRANSPARENT: 'CUBE_TRANSPARENT'
-};
-var _default = ID;
-exports["default"] = _default;
+exports.ID_TEXTURE_IMAGE = exports.ID_RANDOM_TRIANGLES = exports.ID_PLANE = exports.ID_CUBE_WITH_LIGHT = exports.ID_CUBE_TRANSPARENT = exports.ID_CUBE = exports.ID_CROWN = void 0;
+var ID_RANDOM_TRIANGLES = 'RANDOM_TRIANGLES';
+exports.ID_RANDOM_TRIANGLES = ID_RANDOM_TRIANGLES;
+var ID_CROWN = 'CROWN';
+exports.ID_CROWN = ID_CROWN;
+var ID_PLANE = 'PLANE';
+exports.ID_PLANE = ID_PLANE;
+var ID_CUBE = 'CUBE';
+exports.ID_CUBE = ID_CUBE;
+var ID_TEXTURE_IMAGE = 'TEXTURE_IMAGE';
+exports.ID_TEXTURE_IMAGE = ID_TEXTURE_IMAGE;
+var ID_CUBE_WITH_LIGHT = 'CUBE_WITH_LIGHT';
+exports.ID_CUBE_WITH_LIGHT = ID_CUBE_WITH_LIGHT;
+var ID_CUBE_TRANSPARENT = 'CUBE_TRANSPARENT';
+exports.ID_CUBE_TRANSPARENT = ID_CUBE_TRANSPARENT;
 //# sourceMappingURL=ID.js.map
