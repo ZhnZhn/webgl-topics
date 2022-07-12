@@ -11,18 +11,15 @@ var _OpenClose = _interopRequireDefault(require("../zhn-atoms/OpenClose"));
 
 var _jsxRuntime = require("react/jsx-runtime");
 
-var STYLE = {
-  ROOT: {
-    lineHeight: 2.5,
-    backgroundColor: '#24282A'
-  },
-  ITEM: {
-    color: 'gray'
-  },
-  ITEM_CURRENT: {
-    //borderRight: '8px solid #80c040'
-    borderRight: '8px solid #1b75bb'
-  }
+var S_ROOT = {
+  lineHeight: 2.5,
+  backgroundColor: '#24282A'
+},
+    S_ITEM = {
+  color: 'gray'
+},
+    S_ITEM_CURRENT = {
+  borderRight: '8px solid #1b75bb'
 };
 
 var _renderMenuItems = function _renderMenuItems(items, topicId) {
@@ -31,26 +28,29 @@ var _renderMenuItems = function _renderMenuItems(items, topicId) {
         title = item.title,
         onClick = item.onClick,
         className = index % 2 ? 'row__topic__even not-selected' : 'row__topic__odd not-selected',
-        _style = id === topicId ? STYLE.ITEM_CURRENT : void 0;
+        _style = id === topicId ? S_ITEM_CURRENT : void 0;
 
     return /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
       className: className,
-      style: (0, _extends2["default"])({}, STYLE.ITEM, _style),
+      style: (0, _extends2["default"])({}, S_ITEM, _style),
       onClick: onClick,
       children: title
     }, id);
   });
 };
 
-var MenuPart = function MenuPart(props) {
-  var dataModel = props.dataModel,
-      topicId = props.topicId,
-      toogleStyle = props.toogleStyle,
-      caption = dataModel.caption,
-      items = dataModel.items;
+var MenuPart = function MenuPart(_ref) {
+  var dataModel = _ref.dataModel,
+      topicId = _ref.topicId,
+      toogleStyle = _ref.toogleStyle;
+
+  var _ref2 = dataModel || {},
+      caption = _ref2.caption,
+      items = _ref2.items;
+
   return /*#__PURE__*/(0, _jsxRuntime.jsx)(_OpenClose["default"], {
     caption: caption,
-    style: STYLE.ROOT,
+    style: S_ROOT,
     toogleStyle: toogleStyle,
     children: _renderMenuItems(items, topicId)
   });
