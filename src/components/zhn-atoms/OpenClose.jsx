@@ -1,4 +1,4 @@
-import { Component } from '../uiApi';
+import useToggle from '../hooks/useToggle';
 
 const CL_NOT_SELECTED = "not-selected"
 , CL_SHOW_POPUP = 'show-popup'
@@ -25,88 +25,66 @@ const CL_NOT_SELECTED = "not-selected"
 , S_NONE = { display: 'none' };
 
 
+const PATH_OPEN = 'M 2,14 L 14,14 14,2 2,14'
+, FILL_OPEN = 'yellow'
+, PATH_CLOSE = 'M 2,2 L 14,8 2,14 2,2'
+, FILL_CLOSE = '#33373A'
 
-class OpenClose extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      isOpen: props.isClose ? false : true,
-      pathOpen: "M 2,14 L 14,14 14,2 2,14",
-      fillOpen: "yellow",
-      pathClose: "M 2,2 L 14,8 2,14 2,2",
-      fillClose: "#33373A"
-    }
-  }
+const OpenClose = ({
+  isClose,
+  style,
+  toogleStyle,
+  caption,
+  children
+}) => {
+  const [
+    isOpen,
+    toggleIsOpen
+  ] = useToggle(!isClose)
+  , [
+    pathV,
+    fillV,
+    divStyle,
+    classShow
+  ] = isOpen
+   ? [PATH_OPEN, FILL_OPEN, S_BLOCK, CL_SHOW_POPUP]
+   : [PATH_CLOSE, FILL_CLOSE, S_NONE]
 
-  _hClickOpenClose = () => {
-    this.setState(prevState => ({
-      isOpen: !prevState.isOpen
-    }));
-  }
-
-  render(){
-    const {
-      style,
-      toogleStyle,
-      caption,
-      children
-    } = this.props
-    , {
-      isOpen,
-      pathOpen,
-      fillOpen,
-      pathClose,
-      fillClose
-    } = this.state;
-    let pathV, fillV, divStyle, classShow;
-    if (isOpen){
-      pathV = pathOpen;
-      fillV = fillOpen;
-      divStyle = S_BLOCK;
-      classShow = CL_SHOW_POPUP;
-
-    } else {
-      pathV = pathClose;
-      fillV = fillClose;
-      divStyle = S_NONE;
-      classShow = null;
-    }
-
-    return (
-      <div style={{...S_ROOT_DIV, ...style}}>
-        <div className={CL_NOT_SELECTED}
-             style={toogleStyle}
-             onClick={this._hClickOpenClose}
-        >
-          <div style={S_DIV_SVG}>
-             <svg
-                viewBox="0 0 16 16"
-                width="100%"
-                height="100%"
-                preserveAspectRatio="none"
-                xmlns="http://www.w3.org/2000/svg"
-                style={S_SVG}
-              >
-             <path
-                d={pathV}
-                fill={fillV}
-                strokeWidth="1" stroke="yellow"
-             />
-             </svg>
-         </div>
-         <span style={S_CAPTION} >
-            {caption}
-         </span>
-      </div>
+  return (
+    <div style={{...S_ROOT_DIV, ...style}}>
       <div
-        className={classShow}
-        style={divStyle}
+         className={CL_NOT_SELECTED}
+         style={toogleStyle}
+         onClick={toggleIsOpen}
       >
-        {children}
-      </div>
-     </div>
-    );
-  }
+        <div style={S_DIV_SVG}>
+           <svg
+              viewBox="0 0 16 16"
+              width="100%"
+              height="100%"
+              preserveAspectRatio="none"
+              xmlns="http://www.w3.org/2000/svg"
+              style={S_SVG}
+            >
+           <path
+              d={pathV}
+              fill={fillV}
+              strokeWidth="1" stroke="yellow"
+           />
+           </svg>
+       </div>
+       <span style={S_CAPTION} >
+          {caption}
+       </span>
+    </div>
+    <div
+      className={classShow}
+      style={divStyle}
+    >
+      {children}
+    </div>
+   </div>
+  );
 }
 
 export default OpenClose
