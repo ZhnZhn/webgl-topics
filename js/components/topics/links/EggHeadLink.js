@@ -1,44 +1,44 @@
 "use strict";
 
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
 exports.__esModule = true;
 exports["default"] = void 0;
 
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
+
 var _jsxRuntime = require("react/jsx-runtime");
 
-var STYLE = {
-  LINK: {
-    display: 'table-cell'
-  },
-  PRO: {
-    marginLeft: 4,
-    padding: '3px 7px',
-    display: 'inline-block',
-    borderRadius: 3,
-    color: '#ffffff',
-    textDecoration: 'none',
-    background: '#ef494f',
-    fontWeight: '700'
-  }
+var CL_NATIVE_LINK = 'native-link',
+    S_LINK = {
+  display: 'table-cell'
+},
+    S_PRO = {
+  display: 'inline-block',
+  color: '#ffffff',
+  marginLeft: 4,
+  padding: '3px 7px',
+  borderRadius: 3,
+  fontWeight: '700',
+  textDecoration: 'none',
+  background: '#ef494f'
 };
 
 var EggHeadLink = function EggHeadLink(_ref) {
-  var style = _ref.style,
+  var isPro = _ref.isPro,
+      style = _ref.style,
       title = _ref.title,
-      href = _ref.href,
-      isPro = _ref.isPro;
-
-  var _proEl = isPro ? /*#__PURE__*/(0, _jsxRuntime.jsx)("span", {
-    style: STYLE.PRO,
-    children: "P"
-  }) : undefined;
-
+      href = _ref.href;
   return /*#__PURE__*/(0, _jsxRuntime.jsxs)("a", {
-    className: "native-link",
-    style: Object.assign({}, STYLE.LINK, style),
+    className: CL_NATIVE_LINK,
+    style: (0, _extends2["default"])({}, S_LINK, style),
     href: href,
     children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("span", {
       children: title
-    }), _proEl]
+    }), isPro ? /*#__PURE__*/(0, _jsxRuntime.jsx)("span", {
+      style: S_PRO,
+      children: "P"
+    }) : null]
   });
 };
 

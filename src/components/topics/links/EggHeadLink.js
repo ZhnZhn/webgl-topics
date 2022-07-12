@@ -1,33 +1,34 @@
-const STYLE = {
-  LINK : {
-    display: 'table-cell'
-  },
-  PRO : {
-    marginLeft: 4,
-    padding: '3px 7px',
-    display: 'inline-block',
-    borderRadius: 3,
-    color: '#ffffff',
-    textDecoration: 'none',
-    background: '#ef494f',
-    fontWeight: '700'
-  }
-}
+const CL_NATIVE_LINK = 'native-link'
+, S_LINK = { display: 'table-cell' }
+, S_PRO = {
+   display: 'inline-block',
+   color: '#ffffff',
+   marginLeft: 4,
+   padding: '3px 7px',
+   borderRadius: 3,
+   fontWeight: '700',
+   textDecoration: 'none',
+   background: '#ef494f',
+};
 
-const EggHeadLink = ({ style, title, href, isPro }) => {
-  const _proEl = (isPro)
-          ? (<span style={STYLE.PRO}>P</span>)
-          : undefined;
-  return (
-    <a
-       className="native-link"
-       style={Object.assign({}, STYLE.LINK, style)}
-       href={href}
-    >
-      <span>{title}</span>
-      {_proEl}
-    </a>
-  );
-}
+const EggHeadLink = ({
+  isPro,
+  style,
+  title,
+  href
+}) => (
+  <a
+     className={CL_NATIVE_LINK}
+     style={{...S_LINK, ...style}}
+     href={href}
+  >
+    <span>{title}</span>
+    {
+      isPro
+        ? <span style={S_PRO}>P</span>
+        : null
+    }
+  </a>
+);
 
 export default EggHeadLink
