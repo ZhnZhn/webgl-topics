@@ -9,16 +9,6 @@ var _MenuPart = _interopRequireDefault(require("./MenuPart"));
 
 var _jsxRuntime = require("react/jsx-runtime");
 
-var _renderMenuParts = function _renderMenuParts(toogleStyle, menuModel, topicId) {
-  return menuModel.map(function (menuPart, index) {
-    return /*#__PURE__*/(0, _jsxRuntime.jsx)(_MenuPart["default"], {
-      toogleStyle: toogleStyle,
-      dataModel: menuPart,
-      topicId: topicId
-    }, index);
-  });
-};
-
 var Menu = function Menu(_ref) {
   var style = _ref.style,
       toogleStyle = _ref.toogleStyle,
@@ -26,7 +16,13 @@ var Menu = function Menu(_ref) {
       topicId = _ref.topicId;
   return /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
     style: style,
-    children: _renderMenuParts(toogleStyle, menuModel, topicId)
+    children: menuModel.map(function (menuPart) {
+      return /*#__PURE__*/(0, _jsxRuntime.jsx)(_MenuPart["default"], {
+        toogleStyle: toogleStyle,
+        dataModel: menuPart,
+        topicId: topicId
+      }, topicId);
+    })
   });
 };
 
