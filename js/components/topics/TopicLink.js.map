@@ -1,0 +1,15 @@
+{
+ "version": 3,
+ "sources": [
+  "../../../src/components/topics/TopicLink.js"
+ ],
+ "file": "../../../src/components/topics/TopicLink.js",
+ "names": [
+  "TopicLink",
+  "config",
+  "topicLink",
+  "type",
+  "RouterLink"
+ ],
+ "mappings": ";;;;;;;AAAA;;AAEA,IAAMA,SAAS,GAAG,SAAZA,SAAY,OAEZ;AAAA,MADJC,MACI,QADJA,MACI;;AACJ,MAAI,CAACA,MAAL,EAAY;AACV,WAAO,IAAP;AACD,GAFD,MAEO;AACC,QAAEC,SAAF,GAAgBD,MAAhB,CAAEC,SAAF;AAAA,gBACOA,SAAS,IAAI,EADpB;AAAA,QACFC,IADE,SACFA,IADE;;AAEN,WAAOA,IAAI,IAAIC,uBAAWD,IAAX,CAAR,IAA4B,IAAnC;AACD;AACF,CAVD;;eAYeH,S"
+}

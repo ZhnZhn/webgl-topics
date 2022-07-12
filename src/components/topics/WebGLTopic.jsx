@@ -1,7 +1,5 @@
 import { Component } from 'react';
 
-import RouterLink from './links/RouterLink';
-
 import initGL from './gl-decorators/initGL';
 import createShaders from './gl-decorators/createShaders';
 import createPerspective from './gl-decorators/createPerspective';
@@ -11,6 +9,7 @@ import draw from './gl-decorators/draw';
 import startAnimation from './gl-decorators/startAnimation';
 
 import Button from '../zhn-atoms/Button';
+import TopicLink from './TopicLink';
 
 const WIDTH = 500
 , HEIGHT = 500
@@ -57,24 +56,9 @@ class WebGLTopic extends Component {
     this.isStopDraw = true
   }
 
-  _handleClickCanvas = () => {
+  _hClickCanvas = () => {
     this.isAnimate = !this.isAnimate
     this.forceUpdate();
-  }
-
-  _renderTopicLink = (
-    valuesForInit
-  ) => {
-    if (!valuesForInit){
-      return null;
-    } else {
-      const { topicLink } = valuesForInit
-      , { type } = topicLink || {}
-      , Comp = RouterLink[type];
-      return typeof Comp === 'undefined'
-        ? null
-        : <Comp {...topicLink} />;
-    }
   }
 
   _refCanvas = el => this.canvas = el
@@ -88,22 +72,21 @@ class WebGLTopic extends Component {
            width={WIDTH}
            height={HEIGHT}
            style={S_CANVAS}
-           onClick={this._handleClickCanvas}
+           onClick={this._hClickCanvas}
         >
           Your browser doesn't appear to support the
           <code>&lt;canvas&gt;</code> element.
         </canvas>
         {
-          (this.isAnimate === false) &&
-          <Button
+          !this.isAnimate && <Button
             caption="Run Animation"
             style={S_BT_RUN}
-            onClick={this._handleClickCanvas}
+            onClick={this._hClickCanvas}
          />
         }
-        {
-          this._renderTopicLink(valuesForInit)
-        }
+        <TopicLink
+          config={valuesForInit}
+        />
       </div>
     );
   }

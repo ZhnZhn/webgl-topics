@@ -5,13 +5,9 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 exports.__esModule = true;
 exports["default"] = void 0;
 
-var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
-
 var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inheritsLoose"));
 
 var _react = require("react");
-
-var _RouterLink = _interopRequireDefault(require("./links/RouterLink"));
 
 var _initGL = _interopRequireDefault(require("./gl-decorators/initGL"));
 
@@ -28,6 +24,8 @@ var _draw = _interopRequireDefault(require("./gl-decorators/draw"));
 var _startAnimation = _interopRequireDefault(require("./gl-decorators/startAnimation"));
 
 var _Button = _interopRequireDefault(require("../zhn-atoms/Button"));
+
+var _TopicLink = _interopRequireDefault(require("./TopicLink"));
 
 var _jsxRuntime = require("react/jsx-runtime");
 
@@ -62,23 +60,10 @@ var WebGLTopic = (0, _initGL["default"])(_class = (0, _createShaders["default"])
     _this.isAnimate = true;
     _this.isStopDraw = false;
 
-    _this._handleClickCanvas = function () {
+    _this._hClickCanvas = function () {
       _this.isAnimate = !_this.isAnimate;
 
       _this.forceUpdate();
-    };
-
-    _this._renderTopicLink = function (valuesForInit) {
-      if (!valuesForInit) {
-        return null;
-      } else {
-        var topicLink = valuesForInit.topicLink,
-            _ref = topicLink || {},
-            type = _ref.type,
-            Comp = _RouterLink["default"][type];
-
-        return typeof Comp === 'undefined' ? null : /*#__PURE__*/(0, _jsxRuntime.jsx)(Comp, (0, _extends2["default"])({}, topicLink));
-      }
     };
 
     _this._refCanvas = function (el) {
@@ -113,15 +98,17 @@ var WebGLTopic = (0, _initGL["default"])(_class = (0, _createShaders["default"])
         width: WIDTH,
         height: HEIGHT,
         style: S_CANVAS,
-        onClick: this._handleClickCanvas,
+        onClick: this._hClickCanvas,
         children: ["Your browser doesn't appear to support the", /*#__PURE__*/(0, _jsxRuntime.jsx)("code", {
           children: "<canvas>"
         }), " element."]
-      }), this.isAnimate === false && /*#__PURE__*/(0, _jsxRuntime.jsx)(_Button["default"], {
+      }), !this.isAnimate && /*#__PURE__*/(0, _jsxRuntime.jsx)(_Button["default"], {
         caption: "Run Animation",
         style: S_BT_RUN,
-        onClick: this._handleClickCanvas
-      }), this._renderTopicLink(valuesForInit)]
+        onClick: this._hClickCanvas
+      }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_TopicLink["default"], {
+        config: valuesForInit
+      })]
     });
   };
 
