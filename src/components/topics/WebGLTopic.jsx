@@ -13,19 +13,19 @@ import startAnimation from './gl-decorators/startAnimation';
 import Button from '../zhn-atoms/Button';
 
 const WIDTH = 500
-    , HEIGHT = 500
-    , STYLE = {
-      ROOT : {
-        position : 'relative',
-        float : 'left'
-      },
-      BT_RUN : {
-        position: 'absolute',
-        top: '8px',
-        right : '8px'
-      }
-    };
-
+, HEIGHT = 500
+, S_ROOT = {
+  position : 'relative',
+  float : 'left'
+}
+, S_CANVAS = {
+  borderRadius: '2px'
+}
+, S_BT_RUN = {
+  position: 'absolute',
+  top: 8,
+  right : 8
+};
 
 @initGL
 @createShaders
@@ -41,15 +41,12 @@ class WebGLTopic extends Component {
    }
    */
 
-
-
   isAnimate = true
   isStopDraw = false
 
-
   componentDidMount(){
-    const { startAnimation } = this.props
-    if ( typeof startAnimation === "function"){
+    const { startAnimation } = this.props;
+    if (typeof startAnimation === "function"){
       startAnimation(this)
     } else {
       this.startAnimation(this);
@@ -65,29 +62,32 @@ class WebGLTopic extends Component {
     this.forceUpdate();
   }
 
-  _renderTopicLink = (valuesForInit) => {
+  _renderTopicLink = (
+    valuesForInit
+  ) => {
     if (!valuesForInit){
-      return undefined;
+      return null;
     } else {
-      const { topicLink={} } = valuesForInit
-          , { type } = topicLink
-          , Comp = RouterLink[type];
-      if (typeof Comp === 'undefined'){
-        return undefined;
-      } else
-        return (<Comp {...topicLink} />);
+      const { topicLink } = valuesForInit
+      , { type } = topicLink || {}
+      , Comp = RouterLink[type];
+      return typeof Comp === 'undefined'
+        ? null
+        : <Comp {...topicLink} />;
     }
   }
+
+  _refCanvas = el => this.canvas = el
 
   render(){
     const { valuesForInit } = this.props
     return (
-      <div style={STYLE.ROOT}>
+      <div style={S_ROOT}>
         <canvas
-           ref={ el => this.canvas = el }
+           ref={this._refCanvas}
            width={WIDTH}
            height={HEIGHT}
-           style={{ borderRadius: '2px' }}
+           style={S_CANVAS}
            onClick={this._handleClickCanvas}
         >
           Your browser doesn't appear to support the
@@ -97,7 +97,7 @@ class WebGLTopic extends Component {
           (this.isAnimate === false) &&
           <Button
             caption="Run Animation"
-            style={STYLE.BT_RUN}
+            style={S_BT_RUN}
             onClick={this._handleClickCanvas}
          />
         }

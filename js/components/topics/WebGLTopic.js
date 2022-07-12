@@ -35,16 +35,17 @@ var _class;
 
 var WIDTH = 500,
     HEIGHT = 500,
-    STYLE = {
-  ROOT: {
-    position: 'relative',
-    "float": 'left'
-  },
-  BT_RUN: {
-    position: 'absolute',
-    top: '8px',
-    right: '8px'
-  }
+    S_ROOT = {
+  position: 'relative',
+  "float": 'left'
+},
+    S_CANVAS = {
+  borderRadius: '2px'
+},
+    S_BT_RUN = {
+  position: 'absolute',
+  top: 8,
+  right: 8
 };
 
 var WebGLTopic = (0, _initGL["default"])(_class = (0, _createShaders["default"])(_class = (0, _createPerspective["default"])(_class = (0, _setPointSize["default"])(_class = (0, _configMatrix["default"])(_class = (0, _draw["default"])(_class = (0, _startAnimation["default"])(_class = /*#__PURE__*/function (_Component) {
@@ -69,17 +70,19 @@ var WebGLTopic = (0, _initGL["default"])(_class = (0, _createShaders["default"])
 
     _this._renderTopicLink = function (valuesForInit) {
       if (!valuesForInit) {
-        return undefined;
+        return null;
       } else {
-        var _valuesForInit$topicL = valuesForInit.topicLink,
-            topicLink = _valuesForInit$topicL === void 0 ? {} : _valuesForInit$topicL,
-            type = topicLink.type,
+        var topicLink = valuesForInit.topicLink,
+            _ref = topicLink || {},
+            type = _ref.type,
             Comp = _RouterLink["default"][type];
 
-        if (typeof Comp === 'undefined') {
-          return undefined;
-        } else return /*#__PURE__*/(0, _jsxRuntime.jsx)(Comp, (0, _extends2["default"])({}, topicLink));
+        return typeof Comp === 'undefined' ? null : /*#__PURE__*/(0, _jsxRuntime.jsx)(Comp, (0, _extends2["default"])({}, topicLink));
       }
+    };
+
+    _this._refCanvas = function (el) {
+      return _this.canvas = el;
     };
 
     return _this;
@@ -102,27 +105,21 @@ var WebGLTopic = (0, _initGL["default"])(_class = (0, _createShaders["default"])
   };
 
   _proto.render = function render() {
-    var _this2 = this;
-
     var valuesForInit = this.props.valuesForInit;
     return /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
-      style: STYLE.ROOT,
+      style: S_ROOT,
       children: [/*#__PURE__*/(0, _jsxRuntime.jsxs)("canvas", {
-        ref: function ref(el) {
-          return _this2.canvas = el;
-        },
+        ref: this._refCanvas,
         width: WIDTH,
         height: HEIGHT,
-        style: {
-          borderRadius: '2px'
-        },
+        style: S_CANVAS,
         onClick: this._handleClickCanvas,
         children: ["Your browser doesn't appear to support the", /*#__PURE__*/(0, _jsxRuntime.jsx)("code", {
           children: "<canvas>"
         }), " element."]
       }), this.isAnimate === false && /*#__PURE__*/(0, _jsxRuntime.jsx)(_Button["default"], {
         caption: "Run Animation",
-        style: STYLE.BT_RUN,
+        style: S_BT_RUN,
         onClick: this._handleClickCanvas
       }), this._renderTopicLink(valuesForInit)]
     });
