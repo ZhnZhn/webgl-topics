@@ -6,7 +6,17 @@ import ArrowCell from './ArrowCell';
 import BtCircle from '../zhn-atoms/ButtonCircle2';
 import ItemOptionDf from './ItemOptionDf'
 import OptionsFooter from './OptionsFooter'
-import CL from './CL'
+import {
+  CL_ROOT,
+  CL_INPUT,
+  CL_SPINNER,
+  CL_SPINNER_FAILED,
+  CL_INPUT_HR,
+  CL_OPTIONS,
+  CL_OPTIONS_DIV,
+  CL_OPTIONS_ROW,
+  CL_OPTIONS_ROW_ACTIVE
+} from './CL'
 
 const MAX_WITHOUT_ANIMATION = 800;
 
@@ -43,17 +53,12 @@ const _crFooterIndex = ({ options, initialOptions }) => ({
   _nAll: initialOptions ? initialOptions.length : 0
 });
 
-const S = {
-  BLOCK: {
-    display: 'block'
-  },
-  NONE: {
-    display: 'none'
-  },
-  ARROW_SHOW: {
-    borderColor: '#1b75bb transparent transparent'
-  }
-};
+const S_BLOCK = { display: 'block' }
+, S_NONE = { display: 'none' }
+, S_ARROW_SHOW = {
+  borderColor: '#1b75bb transparent transparent'
+}
+
 
 const _crInitialStateFromProps = ({ optionName, optionNames, options }) => ({
   value: '',
@@ -148,7 +153,7 @@ class InputSelect extends Component {
   }
   _decorateActiveRowComp = (comp) => {
     if (comp){
-      comp.classList.add(CL.OPTIONS_ROW_ACTIVE);
+      comp.classList.add(CL_OPTIONS_ROW_ACTIVE);
     }
     if (this.indexNode) {
       this.indexNode.textContent = this.indexActiveOption + 1
@@ -157,7 +162,7 @@ class InputSelect extends Component {
   _undecorateActiveRowComp = (comp) => {
      const _comp = comp || this._getActiveItemComp();
      if (_comp){
-      _comp.classList.remove(CL.OPTIONS_ROW_ACTIVE);
+      _comp.classList.remove(CL_OPTIONS_ROW_ACTIVE);
      }
   }
 
@@ -374,7 +379,7 @@ class InputSelect extends Component {
               aria-selected={this.indexActiveOption === index}
               tabIndex="0"
               key={index}
-              className={CL.OPTIONS_ROW}
+              className={CL_OPTIONS_ROW}
               ref={c => this[`v${index}`] = c}
               onClick={this._hClickItem.bind(null, item, index)}
             >
@@ -397,19 +402,19 @@ class InputSelect extends Component {
     const { rootOptionsStyle, width } = this.props
     , { isShowOption } = this.state
     , _domOptions = this._createDomOptionsWithCache()
-    , _styleOptions = isShowOption ? S.BLOCK : S.NONE
+    , _styleOptions = isShowOption ? S_BLOCK : S_NONE
     , _rootWidthStyle = _crWidthStyle(width, _styleOptions)
     , { _nFiltered, _nAll } = _crFooterIndex(this.state);
 
     return (
         <div
-           className={CL.OPTIONS}
+           className={CL_OPTIONS}
            style={_rootWidthStyle}
            data-scrollable={true}
          >
           <div
              ref={this._refOptionsComp}
-             className={CL.OPTIONS_DIV}
+             className={CL_OPTIONS_DIV}
              style={{...rootOptionsStyle, ..._rootWidthStyle}}
            >
             {_domOptions}
@@ -442,7 +447,7 @@ class InputSelect extends Component {
        _afterInputEl = (
          <ArrowCell
            ref={this._refArrowCell}
-           arrowStyle={isShowOption ? S.ARROW_SHOW : void 0}
+           arrowStyle={isShowOption ? S_ARROW_SHOW : void 0}
            onClick={this._hToggleOptions}
          />
       );
@@ -450,7 +455,7 @@ class InputSelect extends Component {
       _placeholder = `Loading ${optionNames}...`;
       _afterInputEl = (
         <span
-          className={CL.SPINNER}
+          className={CL_SPINNER}
           data-loader="circle"
         />
       );
@@ -458,7 +463,7 @@ class InputSelect extends Component {
        _placeholder=`Loading ${optionNames} Failed`;
        _afterInputEl = (
          <BtCircle
-           className={CL.SPINNER_FAILED}
+           className={CL_SPINNER_FAILED}
            data-loader="circle-failed"
            onClick={onLoadOption}
          />
@@ -473,22 +478,32 @@ class InputSelect extends Component {
   _refDomInputText = c => this.domInputText = c
 
   render(){
-    const { rootStyle, width } = this.props
-    , { value, isLocalMode, isShowOption } = this.state
+    const {
+      rootStyle,
+      width
+    } = this.props
+    , {
+      value,
+      isLocalMode,
+      isShowOption
+    } = this.state
     , _rootWidthStyle = _crWidthStyle(width, rootStyle)
-    , { afterInputEl, placeholder } = this._crAfterInputEl();
+    , {
+      afterInputEl,
+      placeholder
+    } = this._crAfterInputEl();
 
     return (
       <div
-        className={CL.ROOT}
+        className={CL_ROOT}
         style={_rootWidthStyle}
       >
         <input
            ref={this._refDomInputText}
-           className={CL.INPUT}
+           className={CL_INPUT}
            type="text"
            name="select"
-           autoComplete="off"
+           //autoComplete="off"
            autoCorrect="off"
            autoCapitalize="off"
            spellCheck={false}
@@ -498,7 +513,7 @@ class InputSelect extends Component {
            onKeyDown={this._hInputKeyDown}
         />
         {afterInputEl}
-        <hr className={CL.INPUT_HR} />
+        <hr className={CL_INPUT_HR} />
         {(isLocalMode || isShowOption) && this.renderOptions()}
       </div>
     )

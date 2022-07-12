@@ -1,23 +1,28 @@
 import { forwardRef } from 'react'
 
 import BtCircle from '../zhn-atoms/ButtonCircle2';
-import CL from './CL';
+import {
+  CL_FOOTER,
+  CL_NOT_SELECTED,
+  CL_FOOTER_BTS,
+  CL_FOOTER_INDEX,
+  CL_FOOTER_MARGIN
+} from './CL';
 
-const S = {
-  BT_CIRCLE: {
-    backgroundColor: '#949ab4'
-  }
+const S_BT_CIRCLE = {
+  backgroundColor: '#949ab4'
 };
 
 const OptionsFooter = forwardRef(({
   indexActiveOption,
-  nFiltered, nAll,
+  nFiltered,
+  nAll,
   onStepDown,
   onStepUp,
   onClear
 }, ref) => (
-  <div className={`${CL.FOOTER} ${CL.NOT_SELECTED}`}>
-    <span className={CL.FOOTER_INDEX}>
+  <div className={`${CL_FOOTER} ${CL_NOT_SELECTED}`}>
+    <span className={CL_FOOTER_INDEX}>
       <span ref={ref}>
         {indexActiveOption}
       </span>
@@ -25,21 +30,21 @@ const OptionsFooter = forwardRef(({
          : {nFiltered}: {nAll}
       </span>
     </span>
-    <span className={CL.FOOTER_BTS}>
+    <span className={CL_FOOTER_BTS}>
       <BtCircle
-         className={CL.FOOTER_MARGIN}
-         style={S.BT_CIRCLE}
+         className={CL_FOOTER_MARGIN}
+         style={S_BT_CIRCLE}
          caption="Dn"
          onClick={onStepDown}
       />
       <BtCircle
-         className={CL.FOOTER_MARGIN}
-         style={S.BT_CIRCLE}
+         className={CL_FOOTER_MARGIN}
+         style={S_BT_CIRCLE}
          caption="Up"
          onClick={onStepUp}
       />
       <BtCircle
-         style={S.BT_CIRCLE}
+         style={S_BT_CIRCLE}
          caption="CL"
          onClick={onClear}
       />
