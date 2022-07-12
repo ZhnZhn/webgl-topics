@@ -18,29 +18,28 @@ import TextureImage from './gl-props/TextureImage';
 import CubeWithLight from './gl-props/CubeWithLight';
 import CubeTransparent from './gl-props/CubeTransparent';
 
-const _rTopic = {
-  DF : { props : RandomTriangles },
+const _rTopicProps = {
+  DF: RandomTriangles,
 
-  [ID_RANDOM_TRIANGLES] : { props : RandomTriangles },
-  [ID_CROWN] : { props : CoronaSample },
-  [ID_PLANE] : { props : Plane },
-  [ID_CUBE] : { props : Cube },
-  [ID_TEXTURE_IMAGE] : { props: TextureImage },
-  [ID_CUBE_WITH_LIGHT] : { props: CubeWithLight },
-  [ID_CUBE_TRANSPARENT] : { props : CubeTransparent }
+  [ID_RANDOM_TRIANGLES]: RandomTriangles,
+  [ID_CROWN]: CoronaSample,
+  [ID_PLANE]: Plane,
+  [ID_CUBE]: Cube,
+  [ID_TEXTURE_IMAGE]: TextureImage,
+  [ID_CUBE_WITH_LIGHT]: CubeWithLight,
+  [ID_CUBE_TRANSPARENT]: CubeTransparent
 }
 
 const factoryTopic = (
   topicId
 ) => {
-  const config  = topicId && _rTopic[topicId]
-  , props = config
-      ? config.props
-      : _rTopic.DF.props;
-
+  const props = topicId && _rTopicProps[topicId]
+    || _rTopicProps.DF;
   props.key = topicId + Date.now()
-  return { Comp: WebGLTopic, props };
+  return {
+    Comp: WebGLTopic,
+    props
+  };
 };
-
 
 export default factoryTopic

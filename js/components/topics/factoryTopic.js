@@ -23,31 +23,14 @@ var _CubeWithLight = _interopRequireDefault(require("./gl-props/CubeWithLight"))
 
 var _CubeTransparent = _interopRequireDefault(require("./gl-props/CubeTransparent"));
 
-var _rTopic2;
+var _rTopicProps2;
 
-var _rTopic = (_rTopic2 = {
-  DF: {
-    props: _RandomTriangles["default"]
-  }
-}, _rTopic2[_ID.ID_RANDOM_TRIANGLES] = {
-  props: _RandomTriangles["default"]
-}, _rTopic2[_ID.ID_CROWN] = {
-  props: _CoronaSample["default"]
-}, _rTopic2[_ID.ID_PLANE] = {
-  props: _Plane["default"]
-}, _rTopic2[_ID.ID_CUBE] = {
-  props: _Cube["default"]
-}, _rTopic2[_ID.ID_TEXTURE_IMAGE] = {
-  props: _TextureImage["default"]
-}, _rTopic2[_ID.ID_CUBE_WITH_LIGHT] = {
-  props: _CubeWithLight["default"]
-}, _rTopic2[_ID.ID_CUBE_TRANSPARENT] = {
-  props: _CubeTransparent["default"]
-}, _rTopic2);
+var _rTopicProps = (_rTopicProps2 = {
+  DF: _RandomTriangles["default"]
+}, _rTopicProps2[_ID.ID_RANDOM_TRIANGLES] = _RandomTriangles["default"], _rTopicProps2[_ID.ID_CROWN] = _CoronaSample["default"], _rTopicProps2[_ID.ID_PLANE] = _Plane["default"], _rTopicProps2[_ID.ID_CUBE] = _Cube["default"], _rTopicProps2[_ID.ID_TEXTURE_IMAGE] = _TextureImage["default"], _rTopicProps2[_ID.ID_CUBE_WITH_LIGHT] = _CubeWithLight["default"], _rTopicProps2[_ID.ID_CUBE_TRANSPARENT] = _CubeTransparent["default"], _rTopicProps2);
 
 var factoryTopic = function factoryTopic(topicId) {
-  var config = topicId && _rTopic[topicId],
-      props = config ? config.props : _rTopic.DF.props;
+  var props = topicId && _rTopicProps[topicId] || _rTopicProps.DF;
   props.key = topicId + Date.now();
   return {
     Comp: _WebGLTopic["default"],
