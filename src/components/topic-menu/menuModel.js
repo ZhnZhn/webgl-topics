@@ -32,10 +32,10 @@ const ITEM_CONFIG = [
     'Cube',
   ],[
     ID_CUBE_WITH_LIGHT,
-    'CubeWithLight'
+    'Cube With Light'
   ],[
     ID_CUBE_TRANSPARENT,
-    'CubeTransparent'
+    'Cube Transparent'
   ]
 ];
 

@@ -19,7 +19,7 @@ var _crItem = function _crItem(id, title) {
   };
 };
 
-var ITEM_CONFIG = [[_ID.ID_RANDOM_TRIANGLES, 'Random Triangles'], [_ID.ID_CROWN, 'Crown Sample'], [_ID.ID_PLANE, 'Plane'], [_ID.ID_CUBE, 'Cube'], [_ID.ID_CUBE_WITH_LIGHT, 'CubeWithLight'], [_ID.ID_CUBE_TRANSPARENT, 'CubeTransparent']];
+var ITEM_CONFIG = [[_ID.ID_RANDOM_TRIANGLES, 'Random Triangles'], [_ID.ID_CROWN, 'Crown Sample'], [_ID.ID_PLANE, 'Plane'], [_ID.ID_CUBE, 'Cube'], [_ID.ID_CUBE_WITH_LIGHT, 'Cube With Light'], [_ID.ID_CUBE_TRANSPARENT, 'Cube Transparent']];
 var menuModel = [{
   caption: 'WebGL with gl-matrix',
   items: ITEM_CONFIG.map(function (config) {
