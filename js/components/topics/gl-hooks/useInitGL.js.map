@@ -1,0 +1,23 @@
+{
+ "version": 3,
+ "sources": [
+  "../../../../src/components/topics/gl-hooks/useInitGL.js"
+ ],
+ "file": "../../../../src/components/topics/gl-hooks/useInitGL.js",
+ "names": [
+  "useInitGL",
+  "refCanvas",
+  "refConfig",
+  "canvas",
+  "width",
+  "height",
+  "gl",
+  "current",
+  "getContext",
+  "enable",
+  "DEPTH_TEST",
+  "viewport",
+  "clearColor"
+ ],
+ "mappings": ";;;;;AAAA;;AAKA,IAAMA,SAAS,GAAG,SAAZA,SAAY,CAChBC,SADgB,EAEhBC,SAFgB,EAGb;AACH;AACA,wBAAU,YAAK;AACP,QAAAC,MAAM,GAAG,wBAAYF,SAAZ,CAAT;AAAA,QACFG,KADE,GACgBD,MADhB,CACFC,KADE;AAAA,QACKC,MADL,GACgBF,MADhB,CACKE,MADL;AAAA,QAEJC,EAFI,GAECJ,SAAS,CAACK,OAAV,CAAkBD,EAAlB,GAAuBH,MAAM,CAACK,UAAP,CAAkB,OAAlB,CAFxB;AAINF,IAAAA,EAAE,CAACG,MAAH,CAAUH,EAAE,CAACI,UAAb;AACAJ,IAAAA,EAAE,CAACK,QAAH,CAAY,CAAZ,EAAe,CAAf,EAAkBP,KAAlB,EAAyBC,MAAzB;AACAC,IAAAA,EAAE,CAACM,UAAH,CAAc,GAAd,EAAmB,GAAnB,EAAwB,GAAxB,EAA6B,CAA7B;AACD,GARD,EAQG,EARH,EAFG,CAWH;;AACA;AACD,CAhBD;;eAkBeZ,S"
+}

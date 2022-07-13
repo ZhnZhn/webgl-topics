@@ -1,0 +1,21 @@
+{
+ "version": 3,
+ "sources": [
+  "../../../../src/components/topics/gl-hooks/configMatrix.js"
+ ],
+ "file": "../../../../src/components/topics/gl-hooks/configMatrix.js",
+ "names": [
+  "configMatrix",
+  "config",
+  "gl",
+  "shaderProgram",
+  "zMatrixTranslate",
+  "matrix",
+  "mat4",
+  "create",
+  "translate",
+  "matrixLocation",
+  "getUniformLocation"
+ ],
+ "mappings": ";;;;;AAAA;;AAEA,IAAMA,YAAY,GAAG,SAAfA,YAAe,CACnBC,MADmB,EAEhB;AACH,MACEC,EADF,GAIID,MAJJ,CACEC,EADF;AAAA,MAEEC,aAFF,GAIIF,MAJJ,CAEEE,aAFF;AAAA,8BAIIF,MAJJ,CAGEG,gBAHF;AAAA,MAGEA,gBAHF,sCAGmB,CAAC,CAHpB;AAAA,MAKCC,MALD,GAKUJ,MAAM,CAACI,MAAP,GAAgBC,eAAKC,MAAL,EAL1B;;AAOAD,iBAAKE,SAAL,CAAeH,MAAf,EAAuBA,MAAvB,EAA+B,CAAC,CAAD,EAAI,CAAJ,EAAOD,gBAAP,CAA/B;;AACAH,EAAAA,MAAM,CAACQ,cAAP,GAAwBP,EAAE,CAACQ,kBAAH,CAAsBP,aAAtB,EAAqC,iBAArC,CAAxB;AACD,CAZD;;eAceH,Y"
+}

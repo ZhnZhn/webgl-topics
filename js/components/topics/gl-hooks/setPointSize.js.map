@@ -1,0 +1,16 @@
+{
+ "version": 3,
+ "sources": [
+  "../../../../src/components/topics/gl-hooks/setPointSize.js"
+ ],
+ "file": "../../../../src/components/topics/gl-hooks/setPointSize.js",
+ "names": [
+  "setPointSize",
+  "gl",
+  "shaderProgram",
+  "pointSize",
+  "getAttribLocation",
+  "vertexAttrib1f"
+ ],
+ "mappings": ";;;;;AAAA,IAAMA,YAAY,GAAG,SAAfA,YAAe,OAGf;AAAA,MAFJC,EAEI,QAFJA,EAEI;AAAA,MADJC,aACI,QADJA,aACI;AACJ,MAAMC,SAAS,GAAGF,EAAE,CAACG,iBAAH,CAAqBF,aAArB,EAAoC,WAApC,CAAlB;AACAD,EAAAA,EAAE,CAACI,cAAH,CAAkBF,SAAlB,EAA6B,EAA7B;AACD,CAND;;eAQeH,Y"
+}

@@ -1,0 +1,21 @@
+{
+ "version": 3,
+ "sources": [
+  "../../../../src/components/topics/gl-hooks/initGl.js"
+ ],
+ "file": "../../../../src/components/topics/gl-hooks/initGl.js",
+ "names": [
+  "initGl",
+  "config",
+  "canvas",
+  "width",
+  "height",
+  "gl",
+  "getContext",
+  "enable",
+  "DEPTH_TEST",
+  "viewport",
+  "clearColor"
+ ],
+ "mappings": ";;;;;AAAA,IAAMA,MAAM,GAAG,SAATA,MAAS,CACbC,MADa,EAEV;AACG,MAAEC,MAAF,GAAaD,MAAb,CAAEC,MAAF;AAAA,MACFC,KADE,GACgBD,MADhB,CACFC,KADE;AAAA,MACKC,MADL,GACgBF,MADhB,CACKE,MADL;AAAA,MAEJC,EAFI,GAECJ,MAAM,CAACI,EAAP,GAAYH,MAAM,CAACI,UAAP,CAAkB,OAAlB,CAFb;AAIND,EAAAA,EAAE,CAACE,MAAH,CAAUF,EAAE,CAACG,UAAb;AACAH,EAAAA,EAAE,CAACI,QAAH,CAAY,CAAZ,EAAe,CAAf,EAAkBN,KAAlB,EAAyBC,MAAzB;AACAC,EAAAA,EAAE,CAACK,UAAH,CAAc,GAAd,EAAmB,GAAnB,EAAwB,GAAxB,EAA6B,CAA7B;AACD,CAVD;;eAYeV,M"
+}

@@ -1,0 +1,26 @@
+{
+ "version": 3,
+ "sources": [
+  "../../../../src/components/topics/gl-hooks/createPerspective.js"
+ ],
+ "file": "../../../../src/components/topics/gl-hooks/createPerspective.js",
+ "names": [
+  "createPerspective",
+  "config",
+  "canvas",
+  "gl",
+  "shaderProgram",
+  "perspectiveNear",
+  "perspectiveFar",
+  "_perspectiveMatrix",
+  "mat4",
+  "create",
+  "perspective",
+  "width",
+  "height",
+  "_perspectiveLocation",
+  "getUniformLocation",
+  "uniformMatrix4fv"
+ ],
+ "mappings": ";;;;;AAAA;;AAEA,IAAMA,iBAAiB,GAAG,SAApBA,iBAAoB,CACxBC,MADwB,EAErB;AACH,MACEC,MADF,GAMID,MANJ,CACEC,MADF;AAAA,MAEEC,EAFF,GAMIF,MANJ,CAEEE,EAFF;AAAA,MAGEC,aAHF,GAMIH,MANJ,CAGEG,aAHF;AAAA,MAIEC,eAJF,GAMIJ,MANJ,CAIEI,eAJF;AAAA,MAKEC,cALF,GAMIL,MANJ,CAKEK,cALF;AAAA,MAOEC,kBAPF,GAOuBC,eAAKC,MAAL,EAPvB;;AASAD,iBAAKE,WAAL,CACEH,kBADF,EAEE,CAFF,EAGEL,MAAM,CAACS,KAAP,GAAaT,MAAM,CAACU,MAHtB,EAIEP,eAJF,EAKEC,cALF;;AAQA,MAAMO,oBAAoB,GAAGV,EAAE,CAACW,kBAAH,CAAsBV,aAAtB,EAAqC,mBAArC,CAA7B;;AACAD,EAAAA,EAAE,CAACY,gBAAH,CAAoBF,oBAApB,EAA0C,KAA1C,EAAiDN,kBAAjD;AACD,CAtBD;;eAwBeP,iB"
+}
