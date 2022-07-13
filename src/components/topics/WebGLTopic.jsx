@@ -1,12 +1,13 @@
-import { Component } from 'react';
+import {
+  forwardRef,
+  useRef,
+  useCallback,
+  useImperativeHandle,
+  getRefValue
+} from '../uiApi';
 
-import initGL from './gl-decorators/initGL';
-import createShaders from './gl-decorators/createShaders';
-import createPerspective from './gl-decorators/createPerspective';
-import setPointSize from './gl-decorators/setPointSize';
-import configMatrix from './gl-decorators/configMatrix';
-import draw from './gl-decorators/draw';
-import startAnimation from './gl-decorators/startAnimation';
+import useRerender from '../hooks/useRerender';
+import useAnimationGL from './gl-hooks/useAnimationGL';
 
 import Button from '../zhn-atoms/Button';
 import TopicLink from './TopicLink';
@@ -26,70 +27,59 @@ const WIDTH = 500
   right : 8
 };
 
-@initGL
-@createShaders
-@createPerspective
-@setPointSize
-@configMatrix
-@draw
-@startAnimation
-class WebGLTopic extends Component {
-   /*
-   static propTypes = {
-     valuesForInit: PropTypes.object
-   }
-   */
 
-  isAnimate = true
-  isStopDraw = false
+const WebGLTopic = forwardRef((
+  props,
+  ref
+) => {
+  const _refCanvas = useRef()
+  , _refConfig = useRef({
+    isAnimate: true,
+    isStopDraw: false
+  })
+  , rerender = useRerender()
+  /*eslint-disable react-hooks/exhaustive-deps */
+  , _hClickCanvas = useCallback(() => {
+    _refConfig.current.isAnimate = !getRefValue(_refConfig).isAnimate
+    rerender()
+  }, [])
+  //rerender
+  /*eslint-enable react-hooks/exhaustive-deps */
 
-  componentDidMount(){
-    const { startAnimation } = this.props;
-    if (typeof startAnimation === "function"){
-      startAnimation(this)
-    } else {
-      this.startAnimation(this);
-    }
-  }
+  useAnimationGL(_refCanvas, _refConfig, props)
+  useImperativeHandle(ref, () => getRefValue(_refConfig))
 
-  componentWillUnmount(){
-    this.isStopDraw = true
-  }
+  const {
+    valuesForInit
+  } = props
+  , {
+    isAnimate
+  } = getRefValue(_refConfig) || {};
 
-  _hClickCanvas = () => {
-    this.isAnimate = !this.isAnimate
-    this.forceUpdate();
-  }
-
-  _refCanvas = el => this.canvas = el
-
-  render(){
-    const { valuesForInit } = this.props
-    return (
-      <div style={S_ROOT}>
-        <canvas
-           ref={this._refCanvas}
-           width={WIDTH}
-           height={HEIGHT}
-           style={S_CANVAS}
-           onClick={this._hClickCanvas}
-        >
-          Your browser doesn't appear to support the
-          <code>&lt;canvas&gt;</code> element.
-        </canvas>
-        {
-          !this.isAnimate && <Button
-            caption="Run Animation"
-            style={S_BT_RUN}
-            onClick={this._hClickCanvas}
-         />
-        }
-        <TopicLink
-          config={valuesForInit}
-        />
-      </div>
-    );
-  }
-}
+  return (
+    <div style={S_ROOT}>
+      <canvas
+         ref={_refCanvas}
+         width={WIDTH}
+         height={HEIGHT}
+         style={S_CANVAS}
+         onClick={_hClickCanvas}
+      >
+        Your browser doesn't appear to support the
+        <code>&lt;canvas&gt;</code> element.
+      </canvas>
+      {
+        !isAnimate && <Button
+          caption="Run Animation"
+          style={S_BT_RUN}
+          onClick={_hClickCanvas}
+       />
+      }
+      <TopicLink
+        config={valuesForInit}
+      />
+    </div>
+  );
+})
 
 export default WebGLTopic

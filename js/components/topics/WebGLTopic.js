@@ -76,13 +76,7 @@ var WebGLTopic = (0, _initGL["default"])(_class = (0, _createShaders["default"])
   var _proto = WebGLTopic.prototype;
 
   _proto.componentDidMount = function componentDidMount() {
-    var startAnimation = this.props.startAnimation;
-
-    if (typeof startAnimation === "function") {
-      startAnimation(this);
-    } else {
-      this.startAnimation(this);
-    }
+    this.startAnimation(this);
   };
 
   _proto.componentWillUnmount = function componentWillUnmount() {

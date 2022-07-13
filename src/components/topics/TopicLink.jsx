@@ -7,8 +7,11 @@ const TopicLink = ({
     return null;
   } else {
     const { topicLink } = config
-    , { type } = topicLink || {};
-    return type && RouterLink[type] || null;
+    , { type, ...restProps } = topicLink || {}
+    , Comp = type && RouterLink[type];
+    return Comp
+      ? <Comp {...restProps} />
+      : null;
   }
 }
 
