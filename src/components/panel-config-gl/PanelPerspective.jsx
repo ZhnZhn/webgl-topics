@@ -5,6 +5,7 @@ import RowProp from './RowProp';
 
 import {
   OPEN_CLOSE,
+  OC_CHILDREN,
   LABEL_PERSPECTIVE
 } from './Panel.Style';
 
@@ -20,6 +21,7 @@ const PanelPerspective = ({
     <OpenClose
        caption="Perspective"
        style={OPEN_CLOSE}
+       childrenStyle={OC_CHILDREN}
     >
       <RowProp
          labelBy="Near:"

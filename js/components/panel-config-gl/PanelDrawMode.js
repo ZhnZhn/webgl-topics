@@ -5,8 +5,6 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 exports.__esModule = true;
 exports["default"] = void 0;
 
-var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
-
 var _uiApi = require("../uiApi");
 
 var _useProperty2 = _interopRequireDefault(require("../hooks/useProperty"));
@@ -39,10 +37,7 @@ var DRAW_MODE_OPTIONS = [{
   caption: "POINTS",
   value: "POINTS"
 }];
-var S_OC_DIV = (0, _extends2["default"])({}, _Panel.OC_DIV, {
-  paddingTop: 6
-}),
-    S_BT_SET = {
+var S_BT_SET = {
   position: 'relative',
   top: -6
 };
@@ -65,8 +60,9 @@ var PanelDrawMode = function PanelDrawMode(_ref) {
   return /*#__PURE__*/(0, _jsxRuntime.jsx)(_Comp["default"].OpenClose, {
     caption: "DrawMode",
     style: _Panel.OPEN_CLOSE,
+    childrenStyle: _Panel.OC_CHILDREN,
     children: /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
-      style: S_OC_DIV,
+      style: _Panel.OC_DIV,
       children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_Comp["default"].InputSelect, {
         width: "170",
         options: DRAW_MODE_OPTIONS,

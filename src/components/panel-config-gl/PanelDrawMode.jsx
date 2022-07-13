@@ -4,9 +4,10 @@ import useProperty from '../hooks/useProperty';
 import A from '../Comp';
 
 import {
+  OPEN_CLOSE,
+  OC_CHILDREN,
   OC_DIV,
-  INPUT_SELECT,
-  OPEN_CLOSE
+  INPUT_SELECT
 } from './Panel.Style';
 
 const DRAW_MODE_OPTIONS = [
@@ -19,11 +20,7 @@ const DRAW_MODE_OPTIONS = [
   { caption: "POINTS", value: "POINTS" }
 ];
 
-const S_OC_DIV = {
-  ...OC_DIV,
-  paddingTop: 6
-}
-, S_BT_SET = {
+const S_BT_SET = {
   position: 'relative',
   top: -6
 };
@@ -47,8 +44,9 @@ const PanelDrawMode = ({
     <A.OpenClose
       caption="DrawMode"
       style={OPEN_CLOSE}
+      childrenStyle={OC_CHILDREN}
     >
-      <div style={S_OC_DIV}>
+      <div style={OC_DIV}>
         <A.InputSelect
           width="170"
           options={DRAW_MODE_OPTIONS}

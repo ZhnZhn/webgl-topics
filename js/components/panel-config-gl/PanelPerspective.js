@@ -27,6 +27,7 @@ var PanelPerspective = function PanelPerspective(_ref) {
   return /*#__PURE__*/(0, _jsxRuntime.jsxs)(_OpenClose["default"], {
     caption: "Perspective",
     style: _Panel.OPEN_CLOSE,
+    childrenStyle: _Panel.OC_CHILDREN,
     children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_RowProp["default"], {
       labelBy: "Near:",
       inputId: "pNear",

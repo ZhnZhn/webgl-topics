@@ -26,6 +26,7 @@ var PanelTranslate = function PanelTranslate(_ref) {
   return /*#__PURE__*/(0, _jsxRuntime.jsx)(_OpenClose["default"], {
     caption: "Translate",
     style: _Panel.OPEN_CLOSE,
+    childrenStyle: _Panel.OC_CHILDREN,
     children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_RowProp["default"], {
       labelBy: "Z:",
       inputId: "tZ",

@@ -4,7 +4,8 @@ import OpenClose from '../zhn-atoms/OpenClose';
 import RowProp from './RowProp';
 
 import {
-  OPEN_CLOSE
+  OPEN_CLOSE,
+  OC_CHILDREN
 } from './Panel.Style';
 
 const PanelTranslate = ({
@@ -18,6 +19,7 @@ const PanelTranslate = ({
     <OpenClose
       caption="Translate"
       style={OPEN_CLOSE}
+      childrenStyle={OC_CHILDREN}
     >
       <RowProp
         labelBy="Z:"

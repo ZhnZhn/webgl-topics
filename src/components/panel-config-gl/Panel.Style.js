@@ -8,13 +8,15 @@ export const ROOT_CAPTION = {
   fontWeight: 'bold'
 }
 export const OPEN_CLOSE = {
-  padding: '8px 0',
-  lineHeight: 1,
   backgroundColor: '#33373a'
 }
 export const OC_DIV = {
   display: 'flex',
-  alignItems: 'center'
+  alignItems: 'center',
+  paddingTop: 6
+}
+export const OC_CHILDREN = {
+  paddingBottom: 8
 }
 export const INPUT_SELECT = {
   margin: '8px 0 16px 0'
