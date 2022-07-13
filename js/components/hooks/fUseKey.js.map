@@ -1,0 +1,17 @@
+{
+ "version": 3,
+ "sources": [
+  "../../../src/components/hooks/fUseKey.js"
+ ],
+ "file": "../../../src/components/hooks/fUseKey.js",
+ "names": [
+  "fUseKey",
+  "isKey",
+  "fn",
+  "deps",
+  "event",
+  "preventDefault",
+  "stopPropagation"
+ ],
+ "mappings": ";;;;;AAAA;;AAEA;AACA,IAAMA,OAAO,GAAG,SAAVA,OAAU,CAAAC,KAAK;AAAA,SAAI,UACvBC,EADuB,EAEvBC,IAFuB;AAAA,WAGpB,wBAAY,UAAAC,KAAK,EAAI;AACxB,UAAIH,KAAK,CAACG,KAAD,CAAT,EAAkB;AAChBA,QAAAA,KAAK,CAACC,cAAN;AACAD,QAAAA,KAAK,CAACE,eAAN;AACAJ,QAAAA,EAAE,CAACE,KAAD,CAAF;AACD;AACF,KANI,EAMFD,IAAI,IAAI,EANN,CAHoB;AAAA,GAAJ;AAAA,CAArB;AAUA;;;eAEeH,O"
+}
