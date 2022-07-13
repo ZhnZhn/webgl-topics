@@ -5,9 +5,13 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 exports.__esModule = true;
 exports["default"] = void 0;
 
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
+
 var _WebGLTopic = _interopRequireDefault(require("./WebGLTopic"));
 
 var _ID = require("./ID");
+
+var _dfValues = _interopRequireDefault(require("./gl-props/dfValues"));
 
 var _RandomTriangles = _interopRequireDefault(require("./gl-props/RandomTriangles"));
 
@@ -31,7 +35,8 @@ var _rTopicProps = (_rTopicProps2 = {
 
 var factoryTopic = function factoryTopic(topicId) {
   var props = topicId && _rTopicProps[topicId] || _rTopicProps.DF;
-  props.key = topicId + Date.now();
+  props.valuesForInit = (0, _extends2["default"])({}, _dfValues["default"], props.valuesForInit);
+  props.key = topicId;
   return {
     Comp: _WebGLTopic["default"],
     props: props

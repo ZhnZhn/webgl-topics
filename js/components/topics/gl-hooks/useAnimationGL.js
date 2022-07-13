@@ -11,8 +11,6 @@ var _uiApi = require("../../uiApi");
 
 var _is = require("../../../utils/is");
 
-var _dfValues = _interopRequireDefault(require("../gl-props/dfValues"));
-
 var _initGl = _interopRequireDefault(require("./initGl"));
 
 var _createShaders = _interopRequireDefault(require("./createShaders"));
@@ -37,7 +35,7 @@ var useAnimationGL = function useAnimationGL(refCanvas, refConfig, props) {
         createIndices = props.createIndices,
         loadTexture = props.loadTexture;
 
-    _assign(config, (0, _extends2["default"])({}, _dfValues["default"], valuesForInit, {
+    _assign(config, (0, _extends2["default"])({}, valuesForInit, {
       canvas: canvas,
       props: props,
       configMatrix: _configMatrix["default"],

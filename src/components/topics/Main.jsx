@@ -1,7 +1,7 @@
 import {
-  useState,
   useRef,
-  useCallback
+  useState,
+  useMemo
 } from '../uiApi';
 
 import useListen from '../hooks/useListen';
@@ -10,8 +10,6 @@ import { RouterTopicActionTypes } from '../../flux/actions/RouterTopicActions';
 
 import factoryTopic from './factoryTopic';
 import PanelConfigGL from '../panel-config-gl/PanelConfigGL';
-
-import dfValues from './gl-props/dfValues';
 
 const CL_CONTAINER = 'container'
 , CL_CONTENT = `${CL_CONTAINER}__content`;
@@ -24,23 +22,18 @@ const TopicWrapper = ({
     setTopicId
   ] = useState()
   , refComp = useRef(null)
-  , getComponentTopic = useCallback(() => refComp.current, []);
+  , getComponentTopic = useMemo(() => () => refComp.current, [])
+  , {
+    Comp,
+    props:compProps
+  } = useMemo(() => factoryTopic(topicId), [topicId])
+  , { valuesForInit } = compProps;
 
   useListen(store, (actionType, state) => {
     if (actionType === RouterTopicActionTypes.VIEW_TOPIC){
       setTopicId(state.topicId)
     }
   })
-
-  const {
-    Comp,
-    props:compProps
-  } = factoryTopic(topicId)
-  , { valuesForInit } = compProps
-  , _valuesForInit = {
-      ...dfValues,
-      ...valuesForInit
-  };
 
   return (
     <div className={CL_CONTAINER} role="document">
@@ -51,7 +44,7 @@ const TopicWrapper = ({
              {...compProps}
           />
           <PanelConfigGL
-             valuesForInit={_valuesForInit}
+             valuesForInit={valuesForInit}
              onGetComp={getComponentTopic}
           />
         </div>

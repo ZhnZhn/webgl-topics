@@ -10,6 +10,7 @@ import {
   ID_CUBE_TRANSPARENT
 } from './ID';
 
+import dfValues from './gl-props/dfValues';
 import RandomTriangles from './gl-props/RandomTriangles';
 import CoronaSample from './gl-props/CoronaSample';
 import Plane from './gl-props/Plane';
@@ -35,7 +36,11 @@ const factoryTopic = (
 ) => {
   const props = topicId && _rTopicProps[topicId]
     || _rTopicProps.DF;
-  props.key = topicId + Date.now()
+  props.valuesForInit = {
+    ...dfValues,
+    ...props.valuesForInit
+  }
+  props.key = topicId
   return {
     Comp: WebGLTopic,
     props

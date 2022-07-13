@@ -5,8 +5,6 @@ import {
 
 import { isFunction } from '../../../utils/is';
 
-import dfValues from '../gl-props/dfValues';
-
 import initGl from './initGl';
 import createShaders from './createShaders';
 import createPerspective from './createPerspective';
@@ -33,7 +31,6 @@ const useAnimationGL = (
     } = props
 
     _assign(config, {
-      ...dfValues,
       ...valuesForInit,
       canvas,
       props,
