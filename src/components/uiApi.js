@@ -3,6 +3,7 @@ export {
   forwardRef,
   useRef,
   useState,
+  useReducer,
   useMemo,
   useCallback,
   useEffect,
