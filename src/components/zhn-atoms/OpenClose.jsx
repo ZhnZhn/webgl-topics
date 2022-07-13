@@ -1,16 +1,16 @@
 import useToggle from '../hooks/useToggle';
+import useKeyEnter from '../hooks/useKeyEnter';
 
-const CL_NOT_SELECTED = "not-selected"
+const CL_OPEN_CLOSE = "zhn-oc not-selected"
 , CL_SHOW_POPUP = 'show-popup'
+, DF_CAPTION_COLOR = '#af94dc'
 , S_ROOT_DIV = {
   lineHeight: 1.5,
   backgroundColor: '#4d4d4d'
 }
 , S_CAPTION = {
+  color: DF_CAPTION_COLOR,
   paddingLeft: 4,
-  verticalAlign: 'top',
-  color: 'rgba(164, 135, 212, 1)',
-  fontFamily: 'Roboto, Arial Unicode MS, Arial, sans-serif',
   fontWeight: 'bold',
   fontSize: '16px',
   cursor: 'pointer'
@@ -24,9 +24,8 @@ const CL_NOT_SELECTED = "not-selected"
 , S_BLOCK = { display: 'block' }
 , S_NONE = { display: 'none' };
 
-
 const PATH_OPEN = 'M 2,14 L 14,14 14,2 2,14'
-, FILL_OPEN = 'yellow'
+, FILL_OPEN = DF_CAPTION_COLOR
 , PATH_CLOSE = 'M 2,2 L 14,8 2,14 2,2'
 , FILL_CLOSE = '#33373A'
 
@@ -34,6 +33,7 @@ const OpenClose = ({
   isClose,
   style,
   toogleStyle,
+  childrenStyle,
   caption,
   children
 }) => {
@@ -41,6 +41,7 @@ const OpenClose = ({
     isOpen,
     toggleIsOpen
   ] = useToggle(!isClose)
+  , _hKeyDown = useKeyEnter(toggleIsOpen)
   , [
     pathV,
     fillV,
@@ -48,14 +49,17 @@ const OpenClose = ({
     classShow
   ] = isOpen
    ? [PATH_OPEN, FILL_OPEN, S_BLOCK, CL_SHOW_POPUP]
-   : [PATH_CLOSE, FILL_CLOSE, S_NONE]
+   : [PATH_CLOSE, FILL_CLOSE, S_NONE];
 
   return (
     <div style={{...S_ROOT_DIV, ...style}}>
       <div
-         className={CL_NOT_SELECTED}
+         role="button"
+         tabIndex="0"
+         className={CL_OPEN_CLOSE}
          style={toogleStyle}
          onClick={toggleIsOpen}
+         onKeyDown={_hKeyDown}
       >
         <div style={S_DIV_SVG}>
            <svg
@@ -69,7 +73,8 @@ const OpenClose = ({
            <path
               d={pathV}
               fill={fillV}
-              strokeWidth="1" stroke="yellow"
+              strokeWidth="1"
+              stroke={DF_CAPTION_COLOR}
            />
            </svg>
        </div>
@@ -78,8 +83,9 @@ const OpenClose = ({
        </span>
     </div>
     <div
+      aria-expanded={isOpen}
       className={classShow}
-      style={divStyle}
+      style={{...childrenStyle, ...divStyle}}
     >
       {children}
     </div>

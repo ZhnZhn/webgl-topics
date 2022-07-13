@@ -1,0 +1,9 @@
+.zhn-oc {
+  line-height: 2.2;
+}
+
+.zhn-oc:focus,
+.zhn-oc:active {
+  outline: none;
+  background-color: rgba(0, 0, 0, 0.15);
+}

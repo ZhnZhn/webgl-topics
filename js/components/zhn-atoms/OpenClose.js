@@ -9,19 +9,20 @@ var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends")
 
 var _useToggle2 = _interopRequireDefault(require("../hooks/useToggle"));
 
+var _useKeyEnter = _interopRequireDefault(require("../hooks/useKeyEnter"));
+
 var _jsxRuntime = require("react/jsx-runtime");
 
-var CL_NOT_SELECTED = "not-selected",
+var CL_OPEN_CLOSE = "zhn-oc not-selected",
     CL_SHOW_POPUP = 'show-popup',
+    DF_CAPTION_COLOR = '#af94dc',
     S_ROOT_DIV = {
   lineHeight: 1.5,
   backgroundColor: '#4d4d4d'
 },
     S_CAPTION = {
+  color: DF_CAPTION_COLOR,
   paddingLeft: 4,
-  verticalAlign: 'top',
-  color: 'rgba(164, 135, 212, 1)',
-  fontFamily: 'Roboto, Arial Unicode MS, Arial, sans-serif',
   fontWeight: 'bold',
   fontSize: '16px',
   cursor: 'pointer'
@@ -41,7 +42,7 @@ var CL_NOT_SELECTED = "not-selected",
   display: 'none'
 };
 var PATH_OPEN = 'M 2,14 L 14,14 14,2 2,14',
-    FILL_OPEN = 'yellow',
+    FILL_OPEN = DF_CAPTION_COLOR,
     PATH_CLOSE = 'M 2,2 L 14,8 2,14 2,2',
     FILL_CLOSE = '#33373A';
 
@@ -55,6 +56,7 @@ var OpenClose = function OpenClose(_ref) {
   var _useToggle = (0, _useToggle2["default"])(!isClose),
       isOpen = _useToggle[0],
       toggleIsOpen = _useToggle[1],
+      _hKeyDown = (0, _useKeyEnter["default"])(toggleIsOpen),
       _ref2 = isOpen ? [PATH_OPEN, FILL_OPEN, S_BLOCK, CL_SHOW_POPUP] : [PATH_CLOSE, FILL_CLOSE, S_NONE],
       pathV = _ref2[0],
       fillV = _ref2[1],
@@ -64,9 +66,12 @@ var OpenClose = function OpenClose(_ref) {
   return /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
     style: (0, _extends2["default"])({}, S_ROOT_DIV, style),
     children: [/*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
-      className: CL_NOT_SELECTED,
+      role: "button",
+      tabIndex: "0",
+      className: CL_OPEN_CLOSE,
       style: toogleStyle,
       onClick: toggleIsOpen,
+      onKeyDown: _hKeyDown,
       children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
         style: S_DIV_SVG,
         children: /*#__PURE__*/(0, _jsxRuntime.jsx)("svg", {
@@ -80,7 +85,7 @@ var OpenClose = function OpenClose(_ref) {
             d: pathV,
             fill: fillV,
             strokeWidth: "1",
-            stroke: "yellow"
+            stroke: DF_CAPTION_COLOR
           })
         })
       }), /*#__PURE__*/(0, _jsxRuntime.jsx)("span", {
@@ -88,6 +93,7 @@ var OpenClose = function OpenClose(_ref) {
         children: caption
       })]
     }), /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
+      "aria-expanded": isOpen,
       className: classShow,
       style: divStyle,
       children: children
