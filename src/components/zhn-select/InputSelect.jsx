@@ -121,15 +121,7 @@ class InputSelect extends Component {
     this.indexActiveOption = 0
     this.propCaption = propCaption
   }
-
-  static getDerivedStateFromProps(props, state){
-     //Init state for new options from props
-     if (props.options !== state.initialOptions) {
-       return _crInitialStateFromProps(props);
-     }
-     return null;
-  }
-
+  
   componentDidUpdate(prevProps, prevState){
     // Init from props for new options from props
     if (prevState.initialOptions !== this.state.initialOptions) {

@@ -533,15 +533,6 @@ var InputSelect = /*#__PURE__*/function (_Component) {
     return _this;
   }
 
-  InputSelect.getDerivedStateFromProps = function getDerivedStateFromProps(props, state) {
-    //Init state for new options from props
-    if (props.options !== state.initialOptions) {
-      return _crInitialStateFromProps(props);
-    }
-
-    return null;
-  };
-
   var _proto = InputSelect.prototype;
 
   _proto.componentDidUpdate = function componentDidUpdate(prevProps, prevState) {
