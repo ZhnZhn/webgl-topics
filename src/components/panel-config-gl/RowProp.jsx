@@ -1,13 +1,26 @@
-import { Component } from '../uiApi';
-
-import A from '../Comp'
 import {
-  ROW,
-  LABEL,
-  INPUT_FLOAT
-} from './Row.Style'
+  useRef,
+  useCallback,
+  getRefValue
+} from '../uiApi';
 
-const _isFn = fn => typeof fn === 'function';
+import A from '../Comp';
+
+const S_ROW = {
+  marginTop: 12,
+  display: 'flex',
+  alignItems: 'center'
+}
+, S_LABEL = {
+  color: 'grey',
+  paddingLeft: 24,
+  fontWeight: 'bold',
+  fontSize: '16px'
+}
+, S_INPUT_FLOAT = {
+  width: 45
+}
+, FN_NOOP = () => {};
 
 const _getInputMode = (
   inputMode
@@ -17,89 +30,84 @@ const _getInputMode = (
       ? 1
       : 2;
 
-class RowProp extends Component {
-  /*
-  static propTypes = {
-    labelBy: PropTypes.string.isRequired,
-    value: PropTypes.number.isRequired,
-    propKey: PropTypes.string.isRequired,
-    styleLabel: PropTypes.object,
-    onGetComp: PropTypes.func.isRequired,
-    fnAfterSet: PropTypes.func
-  }
-  */
-  mode = {
-    inputFloat : 2,
-    bt : 2
-  }
+const INPUT_KEY = 'inputFloat';
 
-
-  _onChangeMode = (inputKey, mode) => {
-    const _btMode = this.mode.bt;
-    this.mode[inputKey] = mode;
-    const _nextBtMode = _getInputMode(this.mode.inputFloat);
-    if (_btMode !== _nextBtMode){
-      this.mode.bt = _nextBtMode
-      this.bt.setMode(_nextBtMode)
-    }
-  }
-
-  _setModeToAll = (value) => {
-    for(const key in this.mode){
-      this.mode[key] = value
-      this[key].setMode(value)
-    }
-  }
-
-  _handleSetValue = () => {
-    const {
-      onGetComp, 
-      propKey,
-      fnAfterSet
-    } = this.props
-    , comp = onGetComp();
-    comp[propKey] = this.inputFloat.getValue();
-
-    if (_isFn(fnAfterSet)){
+const RowProp = ({
+  inputId,
+  labelBy,
+  value,
+  propKey,
+  styleLabel,
+  onGetComp,
+  fnAfterSet=FN_NOOP
+}) => {
+  const _refInputFloat = useRef()
+  , _refBt = useRef()
+  , _refMode = useRef({
+      [INPUT_KEY]: 2,
+      bt: 2
+  })
+  , _onChangeMode = useCallback((
+       inputKey,
+       nextMode
+     ) => {
+        const mode = getRefValue(_refMode)
+        mode[INPUT_KEY] = nextMode;
+        const _nextBtMode = _getInputMode(nextMode);
+        if (mode.bt !== _nextBtMode){
+          mode.bt = _nextBtMode
+          getRefValue(_refBt).setMode(_nextBtMode)
+        }
+  }, [])
+  , _setModeToAll = useCallback(value => {
+      const mode = getRefValue(_refMode);
+      mode[INPUT_KEY] = value
+      mode.bt = value
+      getRefValue(_refInputFloat).setMode(value)
+      getRefValue(_refBt).setMode(value)
+  }, [])
+  , _hSetValue = useCallback(() => {
+      const comp = onGetComp();
+      comp[propKey] = getRefValue(_refInputFloat).getValue();
       fnAfterSet(comp);
-    }
-    this._setModeToAll(2);
-  }
+      _setModeToAll(2);
+  }, [propKey, onGetComp, fnAfterSet, _setModeToAll]);
 
-  _refInputFloat = comp => this.inputFloat = comp
-  _refBt = bt => this.bt = bt
+  return (
+    <div style={S_ROW}>
+      <A.Label
+        id={inputId}
+        style={{...S_LABEL, ...styleLabel}}
+        title={labelBy}
+      />
+      <A.InputFloat
+        ref={_refInputFloat}
+        id={inputId}
+        inputKey={INPUT_KEY}
+        inputStyle={S_INPUT_FLOAT}
+        value={value}
+        step={0.001}
+        onChangeMode={_onChangeMode}
+        onKeyDownEnter={_hSetValue}
+      />
+      <A.ButtonSet
+        ref={_refBt}
+        onClick={_hSetValue}
+      />
+    </div>
+  );
+};
 
-  render(){
-    const {
-      labelBy,
-      inputId,
-      value,
-      styleLabel
-    } = this.props;
-    return (
-      <div style={ROW}>
-        <A.Label
-          style={{...LABEL, ...styleLabel}}
-          title={labelBy}
-          id={inputId}
-        />
-        <A.InputFloat
-          ref={this._refInputFloat}
-          id={inputId}
-          inputKey="inputFloat"
-          inputStyle={INPUT_FLOAT}
-          value={value}
-          step={0.001}
-          onChangeMode={this._onChangeMode}
-          onKeyDownEnter={this._handleSetValue}
-        />
-        <A.ButtonSet
-            ref={this._refBt}
-            onClick={this._handleSetValue}
-        />
-      </div>
-    );
-  }
+/*
+RowProp.ropTypes = {
+  inputId: PropTypes.string.isRequired,
+  labelBy: PropTypes.string.isRequired,
+  value: PropTypes.number.isRequired,
+  propKey: PropTypes.string.isRequired,
+  styleLabel: PropTypes.object,
+  onGetComp: PropTypes.func.isRequired,
+  fnAfterSet: PropTypes.func
 }
+*/
 
 export default RowProp
