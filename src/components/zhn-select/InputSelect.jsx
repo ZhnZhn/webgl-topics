@@ -1,22 +1,23 @@
 //import PropTypes from 'prop-types'
 import { Component } from '../uiApi';
 
-import ArrowCell from './ArrowCell';
+//import ArrowCell from './ArrowCell';
 
-import BtCircle from '../zhn-atoms/ButtonCircle2';
+//import BtCircle from '../zhn-atoms/ButtonCircle2';
 import ItemOptionDf from './ItemOptionDf'
 import DivOptions from './DivOptions';
 import {
   CL_ROOT,
   CL_INPUT,
-  CL_SPINNER,
-  CL_SPINNER_FAILED,
+  //CL_SPINNER,
+  //CL_SPINNER_FAILED,
   CL_INPUT_HR,
   CL_OPTIONS_ROW,
   CL_OPTIONS_ROW_ACTIVE
 } from './CL';
 
 import crStyleWidth from './crStyleWidth';
+import crAfterInputEl from './crAfterInputEl';
 
 const MAX_WITHOUT_ANIMATION = 800;
 
@@ -58,9 +59,11 @@ const _crFooterIndex = ({
      : 0
 ];
 
+/*
 const S_ARROW_SHOW = {
   borderColor: '#1b75bb transparent transparent'
 };
+*/
 
 const _crInitialStateFromProps = ({
   optionName,
@@ -410,46 +413,43 @@ class InputSelect extends Component {
 
   _refArrowCell = c => this.arrowCell = c
 
+  /*
   _crAfterInputEl = () => {
     const {
-       isLoading, isLoadingFailed,
-       placeholder, optionName, onLoadOption
+       isLoading,
+       isLoadingFailed,
+       placeholder,
+       optionName,
+       onLoadOption
      } = this.props
-    , { isShowOption, optionNames } = this.state;
+    , {
+      isShowOption,
+      optionNames
+    } = this.state;
 
-    let _placeholder, _afterInputEl;
-    if (!isLoading && !isLoadingFailed){
-       _placeholder = placeholder || `Select ${optionName}...`;
-       _afterInputEl = (
-         <ArrowCell
-           ref={this._refArrowCell}
-           arrowStyle={isShowOption ? S_ARROW_SHOW : void 0}
-           onClick={this._hToggleOptions}
-         />
-      );
-    } else if (isLoading){
-      _placeholder = `Loading ${optionNames}...`;
-      _afterInputEl = (
-        <span
-          className={CL_SPINNER}
-          data-loader="circle"
-        />
-      );
-    } else if (isLoadingFailed) {
-       _placeholder=`Loading ${optionNames} Failed`;
-       _afterInputEl = (
-         <BtCircle
-           className={CL_SPINNER_FAILED}
-           data-loader="circle-failed"
-           onClick={onLoadOption}
-         />
-       )
-    }
-    return {
-      placeholder: _placeholder,
-      afterInputEl: _afterInputEl
-    };
+    return !isLoading && !isLoadingFailed
+      ? [placeholder || `Select ${optionName}...`,
+          (<ArrowCell
+            ref={this._refArrowCell}
+            arrowStyle={isShowOption ? S_ARROW_SHOW : void 0}
+            onClick={this._hToggleOptions}
+         />)]
+      : isLoading
+          ? [`Loading ${optionNames}...`,
+               (<span
+                   className={CL_SPINNER}
+                   data-loader="circle"
+            />)]
+          : isLoadingFailed
+              ? [`Loading ${optionNames} Failed`,
+                 (<BtCircle
+                     className={CL_SPINNER_FAILED}
+                     data-loader="circle-failed"
+                     onClick={onLoadOption}
+               />)]
+              : [];
   }
+  */
 
   _refDomInputText = c => this.domInputText = c
 
@@ -465,10 +465,15 @@ class InputSelect extends Component {
       isShowOption
     } = this.state
     , _rootWidthStyle = crStyleWidth(width, rootStyle)
-    , {
-      afterInputEl,
-      placeholder
-    } = this._crAfterInputEl()
+    , [
+      placeholder,
+      afterInputEl
+    ] = crAfterInputEl(
+       this.props,
+       this.state,
+       this._refArrowCell,
+       this._hToggleOptions
+     )
     , domOptions = this._createDomOptionsWithCache()
     , [
       nFiltered,

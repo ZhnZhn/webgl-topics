@@ -9,10 +9,6 @@ var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inh
 
 var _uiApi = require("../uiApi");
 
-var _ArrowCell = _interopRequireDefault(require("./ArrowCell"));
-
-var _ButtonCircle = _interopRequireDefault(require("../zhn-atoms/ButtonCircle2"));
-
 var _ItemOptionDf = _interopRequireDefault(require("./ItemOptionDf"));
 
 var _DivOptions = _interopRequireDefault(require("./DivOptions"));
@@ -21,9 +17,13 @@ var _CL = require("./CL");
 
 var _crStyleWidth = _interopRequireDefault(require("./crStyleWidth"));
 
+var _crAfterInputEl2 = _interopRequireDefault(require("./crAfterInputEl"));
+
 var _jsxRuntime = require("react/jsx-runtime");
 
 //import PropTypes from 'prop-types'
+//import ArrowCell from './ArrowCell';
+//import BtCircle from '../zhn-atoms/ButtonCircle2';
 var MAX_WITHOUT_ANIMATION = 800;
 var INPUT_PREFIX = 'From input:';
 
@@ -47,10 +47,12 @@ var _crFooterIndex = function _crFooterIndex(_ref3) {
       initialOptions = _ref3.initialOptions;
   return [options[0] && options[0].value !== 'noresult' ? options.length : 0, initialOptions ? initialOptions.length : 0];
 };
-
-var S_ARROW_SHOW = {
+/*
+const S_ARROW_SHOW = {
   borderColor: '#1b75bb transparent transparent'
 };
+*/
+
 
 var _crInitialStateFromProps = function _crInitialStateFromProps(_ref4) {
   var optionName = _ref4.optionName,
@@ -423,47 +425,6 @@ var InputSelect = /*#__PURE__*/function (_Component) {
       return _this.arrowCell = c;
     };
 
-    _this._crAfterInputEl = function () {
-      var _this$props = _this.props,
-          isLoading = _this$props.isLoading,
-          isLoadingFailed = _this$props.isLoadingFailed,
-          placeholder = _this$props.placeholder,
-          optionName = _this$props.optionName,
-          onLoadOption = _this$props.onLoadOption,
-          _this$state3 = _this.state,
-          isShowOption = _this$state3.isShowOption,
-          optionNames = _this$state3.optionNames;
-
-      var _placeholder, _afterInputEl;
-
-      if (!isLoading && !isLoadingFailed) {
-        _placeholder = placeholder || "Select " + optionName + "...";
-        _afterInputEl = /*#__PURE__*/(0, _jsxRuntime.jsx)(_ArrowCell["default"], {
-          ref: _this._refArrowCell,
-          arrowStyle: isShowOption ? S_ARROW_SHOW : void 0,
-          onClick: _this._hToggleOptions
-        });
-      } else if (isLoading) {
-        _placeholder = "Loading " + optionNames + "...";
-        _afterInputEl = /*#__PURE__*/(0, _jsxRuntime.jsx)("span", {
-          className: _CL.CL_SPINNER,
-          "data-loader": "circle"
-        });
-      } else if (isLoadingFailed) {
-        _placeholder = "Loading " + optionNames + " Failed";
-        _afterInputEl = /*#__PURE__*/(0, _jsxRuntime.jsx)(_ButtonCircle["default"], {
-          className: _CL.CL_SPINNER_FAILED,
-          "data-loader": "circle-failed",
-          onClick: onLoadOption
-        });
-      }
-
-      return {
-        placeholder: _placeholder,
-        afterInputEl: _afterInputEl
-      };
-    };
-
     _this._refDomInputText = function (c) {
       return _this.domInputText = c;
     };
@@ -503,18 +464,18 @@ var InputSelect = /*#__PURE__*/function (_Component) {
   };
 
   _proto.render = function render() {
-    var _this$props2 = this.props,
-        rootStyle = _this$props2.rootStyle,
-        width = _this$props2.width,
-        rootOptionsStyle = _this$props2.rootOptionsStyle,
-        _this$state4 = this.state,
-        value = _this$state4.value,
-        isLocalMode = _this$state4.isLocalMode,
-        isShowOption = _this$state4.isShowOption,
+    var _this$props = this.props,
+        rootStyle = _this$props.rootStyle,
+        width = _this$props.width,
+        rootOptionsStyle = _this$props.rootOptionsStyle,
+        _this$state3 = this.state,
+        value = _this$state3.value,
+        isLocalMode = _this$state3.isLocalMode,
+        isShowOption = _this$state3.isShowOption,
         _rootWidthStyle = (0, _crStyleWidth["default"])(width, rootStyle),
-        _this$_crAfterInputEl = this._crAfterInputEl(),
-        afterInputEl = _this$_crAfterInputEl.afterInputEl,
-        placeholder = _this$_crAfterInputEl.placeholder,
+        _crAfterInputEl = (0, _crAfterInputEl2["default"])(this.props, this.state, this._refArrowCell, this._hToggleOptions),
+        placeholder = _crAfterInputEl[0],
+        afterInputEl = _crAfterInputEl[1],
         domOptions = this._createDomOptionsWithCache(),
         _crFooterIndex2 = _crFooterIndex(this.state),
         nFiltered = _crFooterIndex2[0],
