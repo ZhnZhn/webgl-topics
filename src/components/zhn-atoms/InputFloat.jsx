@@ -1,7 +1,15 @@
-import { Component } from '../uiApi';
-import Big from 'big.js'
+import Big from 'big.js';
+import {
+  forwardRef,
+  useRef,
+  useState,
+  useEffect,
+  useImperativeHandle
+} from '../uiApi';
 
-import { isFunction, isFloat } from '../../utils/is'
+import {
+  isFloat
+} from '../../utils/is';
 
 const S_ROOT = {
   position: 'relative',
@@ -43,218 +51,204 @@ const S_ROOT = {
   borderWidth: '12px 6px 4px',
   cursor: 'pointer'
 }
-, S_ARROW_PLUS = {
+, S_BT_PLUS = {
+  ...S_ARROW,
   transform: 'rotateX(180deg)',
   margin: '0 6px',
   top: -16
 }
-, S_ARROW_MINUS = {
+, S_BT_MINUS = {
+  ...S_ARROW,
   top: -12,
   marginRight: 6
 };
 
+const FN_NOOP = () => {};
+
 const _hmModeStyle = {
-  0 : S_NOT_VALID,
-  1 : S_VALID_CHANGED,
-  2 : S_VALID_NOT_CHANGED
-}
+  0: S_NOT_VALID,
+  1: S_VALID_CHANGED,
+  2: S_VALID_NOT_CHANGED
+};
 
-class InputFloat extends Component {
-  /*
-   static propTypes = {
-     inputKey: PropTypes.string,
-     inputStyle: PropTypes.object,
-     value: PropTypes.oneOfType([
-       PropTypes.string,
-       PropTypes.number
-     ]),
-     step: PropTypes.number,
-     onChangeMode: PropTypes.func,
-     onKeyDownEnter: PropTypes.func
-   }
-   */
-   static defaultProps = {
-     inputKey: 'dfKey',
-     value: '0',
-     step: 0.1,
-     onChangeMode: () => {},
-     onKeyDownEnter: () => {}
-   }
+const _calcMode = (
+  initialValue,
+  value
+) => !isFloat(value)
+   ? 0
+     // isChanged
+   : initialValue !== parseFloat(value)
+        ? 1
+        : 2;
 
-  _getInitedState = (props) => {
-     const { value, step, onChangeMode, onKeyDownEnter } = props
+const _crInitialState = ({
+  initialValue='0',
+}) => ({
+  mode: isFloat(initialValue) ? 2 : 0,
+  value: initialValue,
+  initedValue: initialValue
+})
 
-     this.isOnChangeModeFn = isFunction(onChangeMode);
-     this.isOnKeyDownEnterFn = isFunction(onKeyDownEnter);
+const _crNextState = (
+  prevState,
+  nextMode,
+  nextValue
+) => {
+  prevState.mode = nextMode
+  prevState.value = nextValue
+  return {...prevState};
+};
 
-     return {
-       mode : (this._onTest(value)) ? 2 : 0,
-       value : value,
-       initedValue : value,
-       step : step
-     };
-  }
+const DF_INPUT_KEY = 'dfKey'
+, DF_STEP = 0.1
 
-  constructor(props){
-    super(props);
-
-    this.state = this._getInitedState(props);
-  }
-
-  UNSAFE_componentWillReceiveProps(nextProps){
-    if (nextProps !== this.props){
-      this.setState(this._getInitedState(nextProps))
-    }
-  }
-
-  _calcMode = (value) => {
-    if (!this._onTest(value)){
-      return 0;
-    }
-    if (this._isChanged(value)){
-      return 1;
-    }
-    return 2;
-  }
-
-  _onTest = (strOrNumber) => {
-     return isFloat(strOrNumber);
-  }
-
-  _isChanged = (value) => {
-     return this.state.initedValue !== parseFloat(value);
-  }
-
-  _increaseOnStep = () => {
-    const { value, step } = this.state
-          , valueNext = (new Big(value)).plus(step).toString()
-          , nextMode = this._calcMode(valueNext)
-     this._callOnChangeMode(nextMode);
-     this.setState({
-        mode : nextMode,
-        value : valueNext
-     })
-  }
-
-  _decreaseOnStep = () => {
-    const { value, step } = this.state
-          , valueNext = (new Big(value)).minus(step).toString()
-          , nextMode = this._calcMode(valueNext)
-     this._callOnChangeMode(nextMode);
-     this.setState({
-        mode : nextMode,
-        value : valueNext
-     })
-  }
-
-  _handleClickRoot = () => {
-    this.input.focus();
-  }
-
-  _handleInputChange = (event) => {
-    const strValue = event.target.value
-    this._updateValue(strValue)
-  }
-
-  _handleInputKeyDown = (event) => {
-    switch(event.keyCode){
-      // enter
-       case 13 : {
-         if (this.isOnKeyDownEnterFn){
-           this.props.onKeyDownEnter();
-         }
-       break;}
-      // esc
-       case 27 :{
-          const { value, initedValue } = this.state
-          if ( value !== initedValue || ""+initedValue === "0") {
-            this._callOnChangeMode(2);
-            this.setState({ mode : 2, value : initedValue })
-          } else {
-            this._callOnChangeMode(1);
-            this.setState({ mode : 1, value : 0 })
-          }
-       break;}
-       //up
-       case 38 : {
-         event.preventDefault();
-         this._increaseOnStep();
-       break;}
-       //down
-       case 40 : {
-        event.preventDefault();
-        this._decreaseOnStep();
-       break;}
-       default : return undefined;
-    }
-  }
-
-  _callOnChangeMode = (nextMode) => {
-    const { mode } = this.state
-    if (this.isOnChangeModeFn && mode !== nextMode){
-      const { inputKey, onChangeMode } = this.props
+const InputFloat = forwardRef((
+  props,
+  ref
+) => {
+  const {
+    id,
+    inputStyle,
+    inputKey=DF_INPUT_KEY,
+    step=DF_STEP,
+    onChangeMode=FN_NOOP,
+    onKeyDownEnter=FN_NOOP
+  } = props
+  , _refInput = useRef()
+  , [
+    state,
+    setState
+  ] = useState(() => _crInitialState(props))
+  , {
+    mode,
+    value,
+    initedValue
+  } = state
+  , _callOnChangeMode = (nextMode) => {
+    if (mode !== nextMode){
       onChangeMode(inputKey, nextMode);
     }
   }
-
-  _updateValue = (strValue) => {
-    const nextMode = this._calcMode(strValue)
-    this._callOnChangeMode(nextMode);
-    this.setState({
-      mode : nextMode,
-      value : strValue
-    })
+  , _increaseOnStep = () => {
+    const nextValue = (new Big(value)).plus(step).toString()
+    , nextMode = _calcMode(initedValue, nextValue)
+    _callOnChangeMode(nextMode);
+    setState(prevState => _crNextState(
+      prevState,
+      nextMode,
+      nextValue
+    ))
   }
-
-  _refInput = input => this.input = input
-
-  render(){
-    const { inputStyle, id } = this.props
-        , { value, mode } = this.state
-        , _hrStyle = _hmModeStyle[mode]
-
-    return (
-      <div
-         style={S_ROOT}
-         onClick={this._handleClickRoot}
-      >
-        <button
-           style={{...S_ARROW, ...S_ARROW_PLUS}}
-           onClick={this._increaseOnStep}
-        />
-        <div style={S_DIV_INPUT}>
-          <input
-            ref={this._refInput}
-            id={id}
-            type="text"
-            style={{...S_INPUT, ...inputStyle}}
-            value={value}
-            onChange={this._handleInputChange}
-            onKeyDown={this._handleInputKeyDown}
-          />
-          <hr style={{...S_HR, ..._hrStyle}} />
-        </div>
-        <button
-           style={{...S_ARROW, ...S_ARROW_MINUS}}
-           onClick={this._decreaseOnStep}
-        />
-      </div>
-    );
+  , _decreaseOnStep = () => {
+    const nextValue = (new Big(value)).minus(step).toString()
+    , nextMode = _calcMode(initedValue, nextValue)
+    _callOnChangeMode(nextMode);
+    setState(prevState => _crNextState(
+      prevState,
+      nextMode,
+      nextValue
+    ))
   }
-
-  getValue(){
-    return parseFloat(this.state.value);
+  , _hInputChange = (event) => {
+    const strValue = event.target.value
+    , nextMode = _calcMode(initedValue, strValue)
+    _callOnChangeMode(nextMode);
+    setState(prevState => _crNextState(
+      prevState,
+      nextMode,
+      strValue
+    ))
   }
-
-  setMode(mode){
-    if ( mode === 2){
-      const { value } = this.state
-      this.setState({ mode, initedValue : value })
-    } else {
-      this.setState({ mode })
+  , _hInputKeyDown = (event) => {
+    switch(event.keyCode){
+      // enter
+       case 13: {
+          onKeyDownEnter();
+       break; }
+      // esc
+       case 27: {
+          const _nextMode = value !== initedValue || ""+initedValue === "0"
+            ? 2
+            : 1
+          _callOnChangeMode(_nextMode);
+          setState(prevState => _crNextState(
+            prevState,
+            _nextMode,
+            initedValue
+          ))
+       break; }
+       //up
+       case 38: {
+         event.preventDefault();
+         _increaseOnStep();
+       break; }
+       //down
+       case 40: {
+        event.preventDefault();
+        _decreaseOnStep();
+       break; }
+       default: return;
     }
-  }
+  };
 
-}
+
+  useEffect(() => {
+    setState(_crInitialState(props))
+  }, [props])
+
+  useImperativeHandle(ref, () => ({
+    getValue: () => parseFloat(value),
+    setMode: (mode) => {
+      setState(prevState => {
+        prevState.mode = mode
+        if (mode === 2) {
+         prevState.initedValue = value
+        }
+        return {...prevState};
+      })
+    }
+  }))
+
+  const _hrStyle = _hmModeStyle[mode];
+
+  return (
+    <div style={S_ROOT}>
+      <button
+         style={S_BT_PLUS}
+         onClick={_increaseOnStep}
+      />
+      <div style={S_DIV_INPUT}>
+        <input
+          ref={_refInput}
+          id={id}
+          type="text"
+          style={{...S_INPUT, ...inputStyle}}
+          value={value}
+          onChange={_hInputChange}
+          onKeyDown={_hInputKeyDown}
+        />
+        <hr style={{...S_HR, ..._hrStyle}} />
+      </div>
+      <button
+         style={S_BT_MINUS}
+         onClick={_decreaseOnStep}
+      />
+    </div>
+  );
+})
+
+/*
+ InputFloat.propTypes = {
+   inputKey: PropTypes.string,
+   inputStyle: PropTypes.object,
+   value: PropTypes.oneOfType([
+     PropTypes.string,
+     PropTypes.number
+   ]),
+   step: PropTypes.number,
+   onChangeMode: PropTypes.func,
+   onKeyDownEnter: PropTypes.func
+ }
+ */
 
 export default InputFloat

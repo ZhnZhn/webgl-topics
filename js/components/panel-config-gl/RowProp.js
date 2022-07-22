@@ -87,7 +87,7 @@ var RowProp = function RowProp(_ref) {
       id: inputId,
       inputKey: INPUT_KEY,
       inputStyle: S_INPUT_FLOAT,
-      value: value,
+      initialValue: value,
       step: 0.001,
       onChangeMode: _onChangeMode,
       onKeyDownEnter: _hSetValue
