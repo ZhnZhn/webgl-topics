@@ -1,22 +1,23 @@
 import { Component } from '../uiApi';
 
-import setModeToAll from './decorators/setModeToAll';
-import onChangeMode from './decorators/onChangeMode';
-import calcInputMode from './decorators/calcInputMode';
-
 import A from '../Comp'
 import {
   ROW,
-  LABEL_ROW,
-  INPUT_FLOAT_3
+  LABEL,
+  INPUT_FLOAT
 } from './Row.Style'
 
 const _isFn = fn => typeof fn === 'function';
 
-@setModeToAll
-@onChangeMode
-@calcInputMode
-class RowProp extends Component{
+const _getInputMode = (
+  inputMode
+) => inputMode === 0
+  ? 0
+  : inputMode === 1
+      ? 1
+      : 2;
+
+class RowProp extends Component {
   /*
   static propTypes = {
     labelBy: PropTypes.string.isRequired,
@@ -27,19 +28,36 @@ class RowProp extends Component{
     fnAfterSet: PropTypes.func
   }
   */
+  mode = {
+    inputFloat : 2,
+    bt : 2
+  }
 
-  constructor(props){
-    super(props)
-    this.mode = {
-      inputFloat : 2,
-      bt : 2
+
+  _onChangeMode = (inputKey, mode) => {
+    const _btMode = this.mode.bt;
+    this.mode[inputKey] = mode;
+    const _nextBtMode = _getInputMode(this.mode.inputFloat);
+    if (_btMode !== _nextBtMode){
+      this.mode.bt = _nextBtMode
+      this.bt.setMode(_nextBtMode)
     }
-    this._onChangeMode = this._onChangeMode.bind(this)
+  }
+
+  _setModeToAll = (value) => {
+    for(const key in this.mode){
+      this.mode[key] = value
+      this[key].setMode(value)
+    }
   }
 
   _handleSetValue = () => {
-    const { onGetComp, propKey, fnAfterSet } = this.props
-        , comp = onGetComp();
+    const {
+      onGetComp, 
+      propKey,
+      fnAfterSet
+    } = this.props
+    , comp = onGetComp();
     comp[propKey] = this.inputFloat.getValue();
 
     if (_isFn(fnAfterSet)){
@@ -52,11 +70,16 @@ class RowProp extends Component{
   _refBt = bt => this.bt = bt
 
   render(){
-    const { labelBy, inputId, value, styleLabel } = this.props;
+    const {
+      labelBy,
+      inputId,
+      value,
+      styleLabel
+    } = this.props;
     return (
       <div style={ROW}>
         <A.Label
-          style={{...LABEL_ROW, ...styleLabel}}
+          style={{...LABEL, ...styleLabel}}
           title={labelBy}
           id={inputId}
         />
@@ -64,7 +87,7 @@ class RowProp extends Component{
           ref={this._refInputFloat}
           id={inputId}
           inputKey="inputFloat"
-          inputStyle={INPUT_FLOAT_3}
+          inputStyle={INPUT_FLOAT}
           value={value}
           step={0.001}
           onChangeMode={this._onChangeMode}
