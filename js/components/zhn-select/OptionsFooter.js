@@ -5,7 +5,7 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 exports.__esModule = true;
 exports["default"] = void 0;
 
-var _react = require("react");
+var _uiApi = require("../uiApi");
 
 var _ButtonCircle = _interopRequireDefault(require("../zhn-atoms/ButtonCircle2"));
 
@@ -16,7 +16,7 @@ var _jsxRuntime = require("react/jsx-runtime");
 var S_BT_CIRCLE = {
   backgroundColor: '#949ab4'
 };
-var OptionsFooter = /*#__PURE__*/(0, _react.forwardRef)(function (_ref, ref) {
+var OptionsFooter = (0, _uiApi.forwardRef)(function (_ref, ref) {
   var indexActiveOption = _ref.indexActiveOption,
       nFiltered = _ref.nFiltered,
       nAll = _ref.nAll,

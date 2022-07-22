@@ -9,7 +9,7 @@ var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inh
 
 var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
 
-var _react = require("react");
+var _uiApi = require("../uiApi");
 
 var _ArrowCell = _interopRequireDefault(require("./ArrowCell"));
 
@@ -604,7 +604,7 @@ var InputSelect = /*#__PURE__*/function (_Component) {
   };
 
   return InputSelect;
-}(_react.Component);
+}(_uiApi.Component);
 
 InputSelect.defaultProps = {
   propCaption: 'caption',

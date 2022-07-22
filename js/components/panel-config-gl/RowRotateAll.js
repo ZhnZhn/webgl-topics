@@ -9,7 +9,7 @@ var _assertThisInitialized2 = _interopRequireDefault(require("@babel/runtime/hel
 
 var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inheritsLoose"));
 
-var _react = require("react");
+var _uiApi = require("../uiApi");
 
 var _setModeToAll = _interopRequireDefault(require("./decorators/setModeToAll"));
 
@@ -134,7 +134,7 @@ var RowRotateAll = (0, _setModeToAll["default"])(_class = (0, _onChangeMode["def
   };
 
   return RowRotateAll;
-}(_react.Component)) || _class) || _class) || _class;
+}(_uiApi.Component)) || _class) || _class) || _class;
 
 var _default = RowRotateAll;
 exports["default"] = _default;

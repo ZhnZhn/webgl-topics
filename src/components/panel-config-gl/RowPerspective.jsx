@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { Component } from '../uiApi';
 
 import setModeToAll from './decorators/setModeToAll';
 import onChangeMode from './decorators/onChangeMode';

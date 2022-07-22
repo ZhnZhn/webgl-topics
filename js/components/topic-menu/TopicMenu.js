@@ -5,7 +5,7 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 exports.__esModule = true;
 exports["default"] = void 0;
 
-var _react = require("react");
+var _uiApi = require("../uiApi");
 
 var _useListen = _interopRequireDefault(require("../hooks/useListen"));
 
@@ -32,7 +32,7 @@ var SIDEBAR = "sidebar",
 var TopicMenu = function TopicMenu(_ref) {
   var store = _ref.store;
 
-  var _useState = (0, _react.useState)(store.state.topicId),
+  var _useState = (0, _uiApi.useState)(store.state.topicId),
       topicId = _useState[0],
       setTopicId = _useState[1];
 

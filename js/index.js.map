@@ -1,1 +1,13 @@
-{"version":3,"sources":["../src/index.jsx"],"names":["Store","document","getElementById"],"mappings":";;;;AAAA;;AAEA;;AACA;;;;AAEA,oCAAO,qBAAC,yBAAD;AAAK,EAAA,KAAK,EAAEA;AAAZ,EAAP,EAA8BC,QAAQ,CAACC,cAAT,CAAwB,KAAxB,CAA9B","sourcesContent":["import { render } from 'react-dom';\r\n\r\nimport App from './components/AppWebGLTopic';\r\nimport Store from './flux/stores/WebGlTopicStore';\r\n\r\nrender(<App store={Store} />, document.getElementById(\"app\"));\r\n"],"file":"index.js"}
+{
+ "version": 3,
+ "sources": [
+  "../src/index.js"
+ ],
+ "file": "../src/index.js",
+ "names": [
+  "Store",
+  "document",
+  "getElementById"
+ ],
+ "mappings": ";;;;AAAA;;AAEA;;AACA;;;;AAEA,iCACE,qBAAC,yBAAD;AAAK,EAAA,KAAK,EAAEA;AAAZ,EADF,EAEEC,QAAQ,CAACC,cAAT,CAAwB,KAAxB,CAFF"
+}

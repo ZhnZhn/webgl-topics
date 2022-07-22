@@ -1,4 +1,8 @@
 export {
+  render
+} from 'react-dom';
+
+export {
   Component,
   forwardRef,
   useRef,
