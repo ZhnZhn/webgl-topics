@@ -1,27 +1,31 @@
-import { Component } from '../uiApi';
 //import PropTypes from 'prop-types'
+import { Component } from '../uiApi';
 
 import ArrowCell from './ArrowCell';
 
 import BtCircle from '../zhn-atoms/ButtonCircle2';
 import ItemOptionDf from './ItemOptionDf'
-import OptionsFooter from './OptionsFooter'
+import DivOptions from './DivOptions';
 import {
   CL_ROOT,
   CL_INPUT,
   CL_SPINNER,
   CL_SPINNER_FAILED,
   CL_INPUT_HR,
-  CL_OPTIONS,
-  CL_OPTIONS_DIV,
   CL_OPTIONS_ROW,
   CL_OPTIONS_ROW_ACTIVE
-} from './CL'
+} from './CL';
+
+import crStyleWidth from './crStyleWidth';
 
 const MAX_WITHOUT_ANIMATION = 800;
 
 const INPUT_PREFIX = 'From input:';
-const _fnNoItem = (propCaption, inputValue, isWithInput) => {
+const _fnNoItem = (
+  propCaption,
+  inputValue,
+  isWithInput
+) => {
   const _inputValue = String(inputValue)
     .replace(INPUT_PREFIX,'').trim()
     , _caption = isWithInput
@@ -34,33 +38,35 @@ const _fnNoItem = (propCaption, inputValue, isWithInput) => {
   };
 };
 
-const _toItem = (item, propCaption) => ({
+const _toItem = (
+  item,
+  propCaption
+) => ({
   [propCaption]: 'From Input',
   value: item.inputValue
 });
 
-const _crWidthStyle = (width, style) => {
-  return width
-    ? ((''+width).indexOf('%') !== -1)
-        ? { ...style, width: width }
-        : { ...style, width: width + 'px'}
-    : null;
+const _crFooterIndex = ({
+  options,
+  initialOptions
+}) => [
+  options[0] && options[0].value !== 'noresult'
+     ? options.length
+     : 0,
+  initialOptions
+     ? initialOptions.length
+     : 0
+];
+
+const S_ARROW_SHOW = {
+  borderColor: '#1b75bb transparent transparent'
 };
 
-const _crFooterIndex = ({ options, initialOptions }) => ({
-  _nFiltered: (options[0] && (options[0].value !== 'noresult'))
-      ? options.length : 0,
-  _nAll: initialOptions ? initialOptions.length : 0
-});
-
-const S_BLOCK = { display: 'block' }
-, S_NONE = { display: 'none' }
-, S_ARROW_SHOW = {
-  borderColor: '#1b75bb transparent transparent'
-}
-
-
-const _crInitialStateFromProps = ({ optionName, optionNames, options }) => ({
+const _crInitialStateFromProps = ({
+  optionName,
+  optionNames,
+  options
+}) => ({
   value: '',
   isShowOption: false,
   initialOptions: options,
@@ -69,6 +75,20 @@ const _crInitialStateFromProps = ({ optionName, optionNames, options }) => ({
   isValidDomOptionsCache: false,
   isLocalMode: false
 });
+
+const FN_NOOP = () => {};
+
+const _filterOptions = (
+  options,
+  value,
+  caption
+) => {
+   const valueFor = value.toLowerCase();
+   return options.filter(option => option[caption]
+      .toLowerCase()
+      .indexOf(valueFor) !== -1
+   );
+}
 
 class InputSelect extends Component {
   /*
@@ -105,9 +125,8 @@ class InputSelect extends Component {
     optionName: '',
     optionNames: '',
     isWithInput: false,
-    //prefixInput: 'From Input:',
-    onSelect: () => {},
-    onLoadOption: () => {}
+    onSelect: FN_NOOP,
+    onLoadOption: FN_NOOP
   }
 
   constructor(props){
@@ -121,7 +140,7 @@ class InputSelect extends Component {
     this.indexActiveOption = 0
     this.propCaption = propCaption
   }
-  
+
   componentDidUpdate(prevProps, prevState){
     // Init from props for new options from props
     if (prevState.initialOptions !== this.state.initialOptions) {
@@ -159,7 +178,7 @@ class InputSelect extends Component {
   }
 
   _makeVisibleActiveRowComp = comp => {
-    if (comp){
+    if (comp) {
       const  { offsetTop } = comp
       , { scrollTop } = this.optionsComp;
       if (offsetTop - scrollTop > 70){
@@ -171,20 +190,19 @@ class InputSelect extends Component {
     }
   }
 
-  _filterOptions = (options, value) => {
-     const valueFor = value.toLowerCase()
-     , _caption = this.propCaption;
-     return options.filter(option => option[_caption]
-        .toLowerCase()
-        .indexOf(valueFor) !== -1
-     );
-  }
-
   _crFilterOptions = (token, tokenLn, valueLn) => {
-    const { options, initialOptions } = this.state
+    const {
+      options,
+      initialOptions
+    } = this.state
     , _options = tokenLn > valueLn
-        ? options : initialOptions
-    , _arr = this._filterOptions(_options, token);
+        ? options
+        : initialOptions
+    , _arr = _filterOptions(
+        _options,
+        token,
+        this.propCaption
+    );
     if (_arr.length === 0){
       _arr.push(_fnNoItem(
         this.propCaption, token, this.props.isWithInput
@@ -390,40 +408,6 @@ class InputSelect extends Component {
     return _domOptions;
   }
 
-  renderOptions = () => {
-    const { rootOptionsStyle, width } = this.props
-    , { isShowOption } = this.state
-    , _domOptions = this._createDomOptionsWithCache()
-    , _styleOptions = isShowOption ? S_BLOCK : S_NONE
-    , _rootWidthStyle = _crWidthStyle(width, _styleOptions)
-    , { _nFiltered, _nAll } = _crFooterIndex(this.state);
-
-    return (
-        <div
-           className={CL_OPTIONS}
-           style={_rootWidthStyle}
-           data-scrollable={true}
-         >
-          <div
-             ref={this._refOptionsComp}
-             className={CL_OPTIONS_DIV}
-             style={{...rootOptionsStyle, ..._rootWidthStyle}}
-           >
-            {_domOptions}
-          </div>
-          <OptionsFooter
-            ref={this._refIndexNode}
-            indexActiveOption={this.indexActiveOption}
-            nAll={_nAll}
-            nFiltered={_nFiltered}
-            onStepUp={this._stepUpOption}
-            onStepDown={this._stepDownOption}
-            onClear={this.clearInput}
-          />
-        </div>
-    );
-  }
-
   _refArrowCell = c => this.arrowCell = c
 
   _crAfterInputEl = () => {
@@ -472,18 +456,25 @@ class InputSelect extends Component {
   render(){
     const {
       rootStyle,
-      width
+      width,
+      rootOptionsStyle
     } = this.props
     , {
       value,
       isLocalMode,
       isShowOption
     } = this.state
-    , _rootWidthStyle = _crWidthStyle(width, rootStyle)
+    , _rootWidthStyle = crStyleWidth(width, rootStyle)
     , {
       afterInputEl,
       placeholder
-    } = this._crAfterInputEl();
+    } = this._crAfterInputEl()
+    , domOptions = this._createDomOptionsWithCache()
+    , [
+      nFiltered,
+      nAll
+    ] = _crFooterIndex(this.state);
+
 
     return (
       <div
@@ -506,7 +497,21 @@ class InputSelect extends Component {
         />
         {afterInputEl}
         <hr className={CL_INPUT_HR} />
-        {(isLocalMode || isShowOption) && this.renderOptions()}
+        {(isLocalMode || isShowOption)
+          && <DivOptions
+          refOptionsComp={this._refOptionsComp}
+          refIndexNode={this._refIndexNode}
+          rootOptionsStyle={rootOptionsStyle}
+          width={width}
+          isShowOption={isShowOption}
+          domOptions={domOptions}
+          indexActiveOption={this.indexActiveOption}
+          nFiltered={nFiltered}
+          nAll={nAll}
+          onStepUp={this._stepUpOption}
+          onStepDown={this._stepDownOption}
+          onClear={this.clearInput}
+          />}
       </div>
     )
   }

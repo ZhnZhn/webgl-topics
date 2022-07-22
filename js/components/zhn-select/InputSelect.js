@@ -7,8 +7,6 @@ exports["default"] = void 0;
 
 var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inheritsLoose"));
 
-var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
-
 var _uiApi = require("../uiApi");
 
 var _ArrowCell = _interopRequireDefault(require("./ArrowCell"));
@@ -17,9 +15,11 @@ var _ButtonCircle = _interopRequireDefault(require("../zhn-atoms/ButtonCircle2")
 
 var _ItemOptionDf = _interopRequireDefault(require("./ItemOptionDf"));
 
-var _OptionsFooter = _interopRequireDefault(require("./OptionsFooter"));
+var _DivOptions = _interopRequireDefault(require("./DivOptions"));
 
 var _CL = require("./CL");
+
+var _crStyleWidth = _interopRequireDefault(require("./crStyleWidth"));
 
 var _jsxRuntime = require("react/jsx-runtime");
 
@@ -42,30 +42,13 @@ var _toItem = function _toItem(item, propCaption) {
   return _ref2 = {}, _ref2[propCaption] = 'From Input', _ref2.value = item.inputValue, _ref2;
 };
 
-var _crWidthStyle = function _crWidthStyle(width, style) {
-  return width ? ('' + width).indexOf('%') !== -1 ? (0, _extends2["default"])({}, style, {
-    width: width
-  }) : (0, _extends2["default"])({}, style, {
-    width: width + 'px'
-  }) : null;
-};
-
 var _crFooterIndex = function _crFooterIndex(_ref3) {
   var options = _ref3.options,
       initialOptions = _ref3.initialOptions;
-  return {
-    _nFiltered: options[0] && options[0].value !== 'noresult' ? options.length : 0,
-    _nAll: initialOptions ? initialOptions.length : 0
-  };
+  return [options[0] && options[0].value !== 'noresult' ? options.length : 0, initialOptions ? initialOptions.length : 0];
 };
 
-var S_BLOCK = {
-  display: 'block'
-},
-    S_NONE = {
-  display: 'none'
-},
-    S_ARROW_SHOW = {
+var S_ARROW_SHOW = {
   borderColor: '#1b75bb transparent transparent'
 };
 
@@ -82,6 +65,15 @@ var _crInitialStateFromProps = function _crInitialStateFromProps(_ref4) {
     isValidDomOptionsCache: false,
     isLocalMode: false
   };
+};
+
+var FN_NOOP = function FN_NOOP() {};
+
+var _filterOptions = function _filterOptions(options, value, caption) {
+  var valueFor = value.toLowerCase();
+  return options.filter(function (option) {
+    return option[caption].toLowerCase().indexOf(valueFor) !== -1;
+  });
 };
 
 var InputSelect = /*#__PURE__*/function (_Component) {
@@ -166,20 +158,12 @@ var InputSelect = /*#__PURE__*/function (_Component) {
       }
     };
 
-    _this._filterOptions = function (options, value) {
-      var valueFor = value.toLowerCase(),
-          _caption = _this.propCaption;
-      return options.filter(function (option) {
-        return option[_caption].toLowerCase().indexOf(valueFor) !== -1;
-      });
-    };
-
     _this._crFilterOptions = function (token, tokenLn, valueLn) {
       var _this$state = _this.state,
           options = _this$state.options,
           initialOptions = _this$state.initialOptions,
           _options = tokenLn > valueLn ? options : initialOptions,
-          _arr = _this._filterOptions(_options, token);
+          _arr = _filterOptions(_options, token, _this.propCaption);
 
       if (_arr.length === 0) {
         _arr.push(_fnNoItem(_this.propCaption, token, _this.props.isWithInput));
@@ -435,50 +419,17 @@ var InputSelect = /*#__PURE__*/function (_Component) {
       return _domOptions;
     };
 
-    _this.renderOptions = function () {
-      var _this$props = _this.props,
-          rootOptionsStyle = _this$props.rootOptionsStyle,
-          width = _this$props.width,
-          isShowOption = _this.state.isShowOption,
-          _domOptions = _this._createDomOptionsWithCache(),
-          _styleOptions = isShowOption ? S_BLOCK : S_NONE,
-          _rootWidthStyle = _crWidthStyle(width, _styleOptions),
-          _crFooterIndex2 = _crFooterIndex(_this.state),
-          _nFiltered = _crFooterIndex2._nFiltered,
-          _nAll = _crFooterIndex2._nAll;
-
-      return /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
-        className: _CL.CL_OPTIONS,
-        style: _rootWidthStyle,
-        "data-scrollable": true,
-        children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
-          ref: _this._refOptionsComp,
-          className: _CL.CL_OPTIONS_DIV,
-          style: (0, _extends2["default"])({}, rootOptionsStyle, _rootWidthStyle),
-          children: _domOptions
-        }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_OptionsFooter["default"], {
-          ref: _this._refIndexNode,
-          indexActiveOption: _this.indexActiveOption,
-          nAll: _nAll,
-          nFiltered: _nFiltered,
-          onStepUp: _this._stepUpOption,
-          onStepDown: _this._stepDownOption,
-          onClear: _this.clearInput
-        })]
-      });
-    };
-
     _this._refArrowCell = function (c) {
       return _this.arrowCell = c;
     };
 
     _this._crAfterInputEl = function () {
-      var _this$props2 = _this.props,
-          isLoading = _this$props2.isLoading,
-          isLoadingFailed = _this$props2.isLoadingFailed,
-          placeholder = _this$props2.placeholder,
-          optionName = _this$props2.optionName,
-          onLoadOption = _this$props2.onLoadOption,
+      var _this$props = _this.props,
+          isLoading = _this$props.isLoading,
+          isLoadingFailed = _this$props.isLoadingFailed,
+          placeholder = _this$props.placeholder,
+          optionName = _this$props.optionName,
+          onLoadOption = _this$props.onLoadOption,
           _this$state3 = _this.state,
           isShowOption = _this$state3.isShowOption,
           optionNames = _this$state3.optionNames;
@@ -552,17 +503,22 @@ var InputSelect = /*#__PURE__*/function (_Component) {
   };
 
   _proto.render = function render() {
-    var _this$props3 = this.props,
-        rootStyle = _this$props3.rootStyle,
-        width = _this$props3.width,
+    var _this$props2 = this.props,
+        rootStyle = _this$props2.rootStyle,
+        width = _this$props2.width,
+        rootOptionsStyle = _this$props2.rootOptionsStyle,
         _this$state4 = this.state,
         value = _this$state4.value,
         isLocalMode = _this$state4.isLocalMode,
         isShowOption = _this$state4.isShowOption,
-        _rootWidthStyle = _crWidthStyle(width, rootStyle),
+        _rootWidthStyle = (0, _crStyleWidth["default"])(width, rootStyle),
         _this$_crAfterInputEl = this._crAfterInputEl(),
         afterInputEl = _this$_crAfterInputEl.afterInputEl,
-        placeholder = _this$_crAfterInputEl.placeholder;
+        placeholder = _this$_crAfterInputEl.placeholder,
+        domOptions = this._createDomOptionsWithCache(),
+        _crFooterIndex2 = _crFooterIndex(this.state),
+        nFiltered = _crFooterIndex2[0],
+        nAll = _crFooterIndex2[1];
 
     return /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
       className: _CL.CL_ROOT,
@@ -582,7 +538,20 @@ var InputSelect = /*#__PURE__*/function (_Component) {
         onKeyDown: this._hInputKeyDown
       }), afterInputEl, /*#__PURE__*/(0, _jsxRuntime.jsx)("hr", {
         className: _CL.CL_INPUT_HR
-      }), (isLocalMode || isShowOption) && this.renderOptions()]
+      }), (isLocalMode || isShowOption) && /*#__PURE__*/(0, _jsxRuntime.jsx)(_DivOptions["default"], {
+        refOptionsComp: this._refOptionsComp,
+        refIndexNode: this._refIndexNode,
+        rootOptionsStyle: rootOptionsStyle,
+        width: width,
+        isShowOption: isShowOption,
+        domOptions: domOptions,
+        indexActiveOption: this.indexActiveOption,
+        nFiltered: nFiltered,
+        nAll: nAll,
+        onStepUp: this._stepUpOption,
+        onStepDown: this._stepDownOption,
+        onClear: this.clearInput
+      })]
     });
   };
 
@@ -604,9 +573,8 @@ InputSelect.defaultProps = {
   optionName: '',
   optionNames: '',
   isWithInput: false,
-  //prefixInput: 'From Input:',
-  onSelect: function onSelect() {},
-  onLoadOption: function onLoadOption() {}
+  onSelect: FN_NOOP,
+  onLoadOption: FN_NOOP
 };
 var _default = InputSelect;
 exports["default"] = _default;
