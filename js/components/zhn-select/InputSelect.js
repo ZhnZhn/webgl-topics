@@ -19,45 +19,27 @@ var _crStyleWidth = _interopRequireDefault(require("./crStyleWidth"));
 
 var _crAfterInputEl2 = _interopRequireDefault(require("./crAfterInputEl"));
 
+var _crFilteredOptions = _interopRequireDefault(require("./crFilteredOptions"));
+
 var _jsxRuntime = require("react/jsx-runtime");
 
 //import PropTypes from 'prop-types'
-//import ArrowCell from './ArrowCell';
-//import BtCircle from '../zhn-atoms/ButtonCircle2';
-var MAX_WITHOUT_ANIMATION = 800;
-var INPUT_PREFIX = 'From input:';
-
-var _fnNoItem = function _fnNoItem(propCaption, inputValue, isWithInput) {
+var _toItem = function _toItem(item, propCaption) {
   var _ref;
 
-  var _inputValue = String(inputValue).replace(INPUT_PREFIX, '').trim(),
-      _caption = isWithInput ? INPUT_PREFIX + " " + _inputValue : 'No results found';
-
-  return _ref = {}, _ref[propCaption] = _caption, _ref.value = 'noresult', _ref.inputValue = _inputValue, _ref;
+  return _ref = {}, _ref[propCaption] = 'From Input', _ref.value = item.inputValue, _ref;
 };
 
-var _toItem = function _toItem(item, propCaption) {
-  var _ref2;
-
-  return _ref2 = {}, _ref2[propCaption] = 'From Input', _ref2.value = item.inputValue, _ref2;
-};
-
-var _crFooterIndex = function _crFooterIndex(_ref3) {
-  var options = _ref3.options,
-      initialOptions = _ref3.initialOptions;
+var _crFooterIndex = function _crFooterIndex(_ref2) {
+  var options = _ref2.options,
+      initialOptions = _ref2.initialOptions;
   return [options[0] && options[0].value !== 'noresult' ? options.length : 0, initialOptions ? initialOptions.length : 0];
 };
-/*
-const S_ARROW_SHOW = {
-  borderColor: '#1b75bb transparent transparent'
-};
-*/
 
-
-var _crInitialStateFromProps = function _crInitialStateFromProps(_ref4) {
-  var optionName = _ref4.optionName,
-      optionNames = _ref4.optionNames,
-      options = _ref4.options;
+var _crInitialStateFromProps = function _crInitialStateFromProps(_ref3) {
+  var optionName = _ref3.optionName,
+      optionNames = _ref3.optionNames,
+      options = _ref3.options;
   return {
     value: '',
     isShowOption: false,
@@ -71,11 +53,28 @@ var _crInitialStateFromProps = function _crInitialStateFromProps(_ref4) {
 
 var FN_NOOP = function FN_NOOP() {};
 
-var _filterOptions = function _filterOptions(options, value, caption) {
-  var valueFor = value.toLowerCase();
-  return options.filter(function (option) {
-    return option[caption].toLowerCase().indexOf(valueFor) !== -1;
-  });
+var _getDataIndex = function _getDataIndex(comp) {
+  var dataset = comp.dataset,
+      _ref4 = dataset || {},
+      index = _ref4.index;
+
+  return index;
+};
+
+var _makeVisibleActiveRowComp = function _makeVisibleActiveRowComp(comp) {
+  if (comp) {
+    var offsetTop = comp.offsetTop,
+        optionsElement = comp.parentElement,
+        scrollTop = optionsElement.scrollTop;
+
+    if (offsetTop - scrollTop > 70) {
+      optionsElement.scrollTop += offsetTop - scrollTop - 70;
+    }
+
+    if (offsetTop - scrollTop < 0) {
+      optionsElement.scrollTop = 0;
+    }
+  }
 };
 
 var InputSelect = /*#__PURE__*/function (_Component) {
@@ -86,7 +85,6 @@ var InputSelect = /*#__PURE__*/function (_Component) {
      propCaption: PropTypes.string,
      ItemOptionComp: PropTypes.element,
      width: PropTypes.string,
-     isShowOptionAnim: PropTypes.bool,
      options: PropTypes.arrayOf(PropTypes.shape({
         caption: PropTypes.string,
         value: PropTypes.oneOfType([
@@ -129,11 +127,14 @@ var InputSelect = /*#__PURE__*/function (_Component) {
 
     _this._decorateActiveRowComp = function (comp) {
       if (comp) {
+        _this._activeItem = comp;
         comp.classList.add(_CL.CL_OPTIONS_ROW_ACTIVE);
-      }
 
-      if (_this.indexNode) {
-        _this.indexNode.textContent = _this.indexActiveOption + 1;
+        var dataIndex = _getDataIndex(comp);
+
+        if (_this.indexNode && dataIndex) {
+          _this.indexNode.textContent = Number(dataIndex) + 1;
+        }
       }
     };
 
@@ -145,39 +146,14 @@ var InputSelect = /*#__PURE__*/function (_Component) {
       }
     };
 
-    _this._makeVisibleActiveRowComp = function (comp) {
-      if (comp) {
-        var offsetTop = comp.offsetTop,
-            scrollTop = _this.optionsComp.scrollTop;
-
-        if (offsetTop - scrollTop > 70) {
-          _this.optionsComp.scrollTop += offsetTop - scrollTop - 70;
-        }
-
-        if (offsetTop - scrollTop < 0) {
-          _this.optionsComp.scrollTop = 0;
-        }
-      }
-    };
-
-    _this._crFilterOptions = function (token, tokenLn, valueLn) {
-      var _this$state = _this.state,
-          options = _this$state.options,
-          initialOptions = _this$state.initialOptions,
-          _options = tokenLn > valueLn ? options : initialOptions,
-          _arr = _filterOptions(_options, token, _this.propCaption);
-
-      if (_arr.length === 0) {
-        _arr.push(_fnNoItem(_this.propCaption, token, _this.props.isWithInput));
-      }
-
-      return _arr;
-    };
-
     _this._hInputChange = function (event) {
       var token = event.target.value,
+          isWithInput = _this.props.isWithInput,
+          _this$state = _this.state,
+          value = _this$state.value,
+          options = _this$state.options,
+          initialOptions = _this$state.initialOptions,
           tokenLn = token.length,
-          value = _this.state.value,
           valueLn = value.length;
 
       if (tokenLn !== valueLn) {
@@ -189,37 +165,15 @@ var InputSelect = /*#__PURE__*/function (_Component) {
           value: token,
           isShowOption: true,
           isValidDomOptionsCache: false,
-          options: _this._crFilterOptions(token, tokenLn, valueLn)
+          options: (0, _crFilteredOptions["default"])(token, tokenLn > valueLn ? options : initialOptions, _this.propCaption, isWithInput)
         });
       }
     };
 
-    _this._startAfterInputAnimation = function () {
-      if (_this.state.options.length > MAX_WITHOUT_ANIMATION) {
-        _this.arrowCell.startAnimation();
-      }
-    };
-
-    _this._stopAfterInputAnimation = function () {
-      _this.arrowCell.stopAnimation();
-    };
-
-    _this._setShowOptions = function () {
+    _this._showOptions = function () {
       _this.setState({
         isShowOption: true
-      }, _this._stopAfterInputAnimation);
-    };
-
-    _this._showOptions = function (ms) {
-      if (_this.props.isShowOptionAnim) {
-        _this._startAfterInputAnimation();
-
-        setTimeout(_this._setShowOptions, ms);
-      } else {
-        _this.setState({
-          isShowOption: true
-        });
-      }
+      });
     };
 
     _this._stepDownOption = function () {
@@ -327,7 +281,7 @@ var InputSelect = /*#__PURE__*/function (_Component) {
         case 40:
           //down
           if (!_this.state.isShowOption) {
-            _this._showOptions(0);
+            _this._showOptions();
           } else {
             event.preventDefault();
 
@@ -357,7 +311,7 @@ var InputSelect = /*#__PURE__*/function (_Component) {
           isShowOption: false
         });
       } else {
-        _this._showOptions(1);
+        _this._showOptions();
       }
     };
 
@@ -403,6 +357,7 @@ var InputSelect = /*#__PURE__*/function (_Component) {
               ref: function ref(c) {
                 return _this["v" + index] = c;
               },
+              "data-index": index,
               onClick: _this._hClickItem.bind(null, item, index),
               children: /*#__PURE__*/(0, _jsxRuntime.jsx)(ItemOptionComp, {
                 item: item,
@@ -448,18 +403,14 @@ var InputSelect = /*#__PURE__*/function (_Component) {
   var _proto = InputSelect.prototype;
 
   _proto.componentDidUpdate = function componentDidUpdate(prevProps, prevState) {
-    // Init from props for new options from props
-    if (prevState.initialOptions !== this.state.initialOptions) {
-      this._initFromProps(this.props);
-    } //Decorate Active Option
-
-
+    //Decorate Active Option
     if (this.state.isShowOption) {
       var comp = this._getActiveItemComp();
 
-      this._decorateActiveRowComp(comp);
+      this._decorateActiveRowComp(comp); //this.optionsComp
 
-      this._makeVisibleActiveRowComp(comp);
+
+      _makeVisibleActiveRowComp(comp);
     }
   };
 

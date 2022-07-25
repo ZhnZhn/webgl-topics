@@ -1,16 +1,11 @@
 //import PropTypes from 'prop-types'
 import { Component } from '../uiApi';
 
-//import ArrowCell from './ArrowCell';
-
-//import BtCircle from '../zhn-atoms/ButtonCircle2';
 import ItemOptionDf from './ItemOptionDf'
 import DivOptions from './DivOptions';
 import {
   CL_ROOT,
   CL_INPUT,
-  //CL_SPINNER,
-  //CL_SPINNER_FAILED,
   CL_INPUT_HR,
   CL_OPTIONS_ROW,
   CL_OPTIONS_ROW_ACTIVE
@@ -18,26 +13,7 @@ import {
 
 import crStyleWidth from './crStyleWidth';
 import crAfterInputEl from './crAfterInputEl';
-
-const MAX_WITHOUT_ANIMATION = 800;
-
-const INPUT_PREFIX = 'From input:';
-const _fnNoItem = (
-  propCaption,
-  inputValue,
-  isWithInput
-) => {
-  const _inputValue = String(inputValue)
-    .replace(INPUT_PREFIX,'').trim()
-    , _caption = isWithInput
-           ? `${INPUT_PREFIX} ${_inputValue}`
-           : 'No results found';
-  return {
-    [propCaption]: _caption,
-    value: 'noresult',
-    inputValue: _inputValue
-  };
-};
+import crFilteredOptions from './crFilteredOptions';
 
 const _toItem = (
   item,
@@ -59,12 +35,6 @@ const _crFooterIndex = ({
      : 0
 ];
 
-/*
-const S_ARROW_SHOW = {
-  borderColor: '#1b75bb transparent transparent'
-};
-*/
-
 const _crInitialStateFromProps = ({
   optionName,
   optionNames,
@@ -81,16 +51,26 @@ const _crInitialStateFromProps = ({
 
 const FN_NOOP = () => {};
 
-const _filterOptions = (
-  options,
-  value,
-  caption
+const _getDataIndex = comp => {
+  const { dataset } = comp
+  , { index } = dataset || {};
+  return index;
+};
+
+const _makeVisibleActiveRowComp = (
+  comp
 ) => {
-   const valueFor = value.toLowerCase();
-   return options.filter(option => option[caption]
-      .toLowerCase()
-      .indexOf(valueFor) !== -1
-   );
+  if (comp) {
+    const  { offsetTop } = comp
+    , optionsElement = comp.parentElement
+    , { scrollTop } = optionsElement;
+    if (offsetTop - scrollTop > 70){
+       optionsElement.scrollTop += offsetTop - scrollTop - 70;
+    }
+    if (offsetTop - scrollTop < 0){
+      optionsElement.scrollTop = 0;
+    }
+  }
 }
 
 class InputSelect extends Component {
@@ -99,7 +79,6 @@ class InputSelect extends Component {
      propCaption: PropTypes.string,
      ItemOptionComp: PropTypes.element,
      width: PropTypes.string,
-     isShowOptionAnim: PropTypes.bool,
      options: PropTypes.arrayOf(PropTypes.shape({
         caption: PropTypes.string,
         value: PropTypes.oneOfType([
@@ -145,15 +124,12 @@ class InputSelect extends Component {
   }
 
   componentDidUpdate(prevProps, prevState){
-    // Init from props for new options from props
-    if (prevState.initialOptions !== this.state.initialOptions) {
-      this._initFromProps(this.props)
-    }
      //Decorate Active Option
      if (this.state.isShowOption){
        const comp = this._getActiveItemComp();
        this._decorateActiveRowComp(comp);
-       this._makeVisibleActiveRowComp(comp);
+       //this.optionsComp
+       _makeVisibleActiveRowComp(comp);
     }
   }
 
@@ -167,10 +143,12 @@ class InputSelect extends Component {
   }
   _decorateActiveRowComp = (comp) => {
     if (comp){
+      this._activeItem = comp
       comp.classList.add(CL_OPTIONS_ROW_ACTIVE);
-    }
-    if (this.indexNode) {
-      this.indexNode.textContent = this.indexActiveOption + 1
+      const dataIndex = _getDataIndex(comp);
+      if (this.indexNode && dataIndex) {
+        this.indexNode.textContent = Number(dataIndex) + 1
+      }
     }
   }
   _undecorateActiveRowComp = (comp) => {
@@ -180,45 +158,18 @@ class InputSelect extends Component {
      }
   }
 
-  _makeVisibleActiveRowComp = comp => {
-    if (comp) {
-      const  { offsetTop } = comp
-      , { scrollTop } = this.optionsComp;
-      if (offsetTop - scrollTop > 70){
-         this.optionsComp.scrollTop += offsetTop - scrollTop - 70;
-      }
-      if (offsetTop - scrollTop < 0){
-        this.optionsComp.scrollTop = 0;
-      }
-    }
-  }
-
-  _crFilterOptions = (token, tokenLn, valueLn) => {
-    const {
+  _hInputChange = (event) => {
+    const token = event.target.value
+    , {
+      isWithInput
+    } = this.props
+    , {
+      value,
       options,
       initialOptions
     } = this.state
-    , _options = tokenLn > valueLn
-        ? options
-        : initialOptions
-    , _arr = _filterOptions(
-        _options,
-        token,
-        this.propCaption
-    );
-    if (_arr.length === 0){
-      _arr.push(_fnNoItem(
-        this.propCaption, token, this.props.isWithInput
-      ))
-    }
-    return _arr;
-  }
-
-  _hInputChange = (event) => {
-    const token = event.target.value
     , tokenLn = token.length
-    , { value } = this.state
-    , valueLn = value.length;
+    , valueLn = value.length
     if (tokenLn !== valueLn){
       this._undecorateActiveRowComp()
       this.indexActiveOption = 0;
@@ -226,32 +177,20 @@ class InputSelect extends Component {
         value: token,
         isShowOption: true,
         isValidDomOptionsCache: false,
-        options: this._crFilterOptions(token, tokenLn, valueLn)
+        options: crFilteredOptions(
+          token,
+          tokenLn > valueLn
+            ? options
+            : initialOptions,
+          this.propCaption,
+          isWithInput
+        )
       })
     }
   }
 
-  _startAfterInputAnimation = () => {
-    if (this.state.options.length>MAX_WITHOUT_ANIMATION){
-      this.arrowCell.startAnimation()
-    }
-  }
-  _stopAfterInputAnimation = () => {
-    this.arrowCell.stopAnimation()
-  }
-  _setShowOptions = () => {
-    this.setState(
-      { isShowOption : true },
-      this._stopAfterInputAnimation
-    )
-  }
-  _showOptions = (ms) => {
-    if (this.props.isShowOptionAnim) {
-      this._startAfterInputAnimation()
-      setTimeout( this._setShowOptions, ms )
-    } else {
-      this.setState({ isShowOption: true })
-    }
+  _showOptions = () => {
+    this.setState({ isShowOption: true })
   }
 
   _stepDownOption = () => {
@@ -336,7 +275,7 @@ class InputSelect extends Component {
       break;}
       case 40: //down
         if (!this.state.isShowOption){
-          this._showOptions(0)
+          this._showOptions()
         } else {
           event.preventDefault()
           this._stepDownOption()
@@ -356,7 +295,7 @@ class InputSelect extends Component {
     if (this.state.isShowOption){
       this.setState({ isShowOption: false })
     } else {
-      this._showOptions(1)
+      this._showOptions()
     }
   }
 
@@ -394,6 +333,7 @@ class InputSelect extends Component {
               key={index}
               className={CL_OPTIONS_ROW}
               ref={c => this[`v${index}`] = c}
+              data-index={index}
               onClick={this._hClickItem.bind(null, item, index)}
             >
               <ItemOptionComp
@@ -412,45 +352,6 @@ class InputSelect extends Component {
   }
 
   _refArrowCell = c => this.arrowCell = c
-
-  /*
-  _crAfterInputEl = () => {
-    const {
-       isLoading,
-       isLoadingFailed,
-       placeholder,
-       optionName,
-       onLoadOption
-     } = this.props
-    , {
-      isShowOption,
-      optionNames
-    } = this.state;
-
-    return !isLoading && !isLoadingFailed
-      ? [placeholder || `Select ${optionName}...`,
-          (<ArrowCell
-            ref={this._refArrowCell}
-            arrowStyle={isShowOption ? S_ARROW_SHOW : void 0}
-            onClick={this._hToggleOptions}
-         />)]
-      : isLoading
-          ? [`Loading ${optionNames}...`,
-               (<span
-                   className={CL_SPINNER}
-                   data-loader="circle"
-            />)]
-          : isLoadingFailed
-              ? [`Loading ${optionNames} Failed`,
-                 (<BtCircle
-                     className={CL_SPINNER_FAILED}
-                     data-loader="circle-failed"
-                     onClick={onLoadOption}
-               />)]
-              : [];
-  }
-  */
-
   _refDomInputText = c => this.domInputText = c
 
   render(){
