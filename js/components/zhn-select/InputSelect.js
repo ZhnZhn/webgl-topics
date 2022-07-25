@@ -27,6 +27,8 @@ var _crFilteredOptions = _interopRequireDefault(require("./crFilteredOptions"));
 
 var _useOptionDecorator2 = _interopRequireDefault(require("./useOptionDecorator"));
 
+var _useStepHandlers2 = _interopRequireDefault(require("./useStepHandlers"));
+
 var _helperFns = require("./helperFns");
 
 var _jsxRuntime = require("react/jsx-runtime");
@@ -174,63 +176,9 @@ var InputSelect = function InputSelect(props) {
       });
     }
   },
-      _stepDownOption = (0, _uiApi.useCallback)(function (optionsLength) {
-    var prevComp = _getActiveItemComp();
-
-    if (prevComp) {
-      _undecorateActiveRowComp(prevComp);
-
-      var _optionsComp = (0, _uiApi.getRefValue)(_refOptionsComp);
-
-      setActiveIndexOption(getActiveIndexOption() + 1);
-
-      if (getActiveIndexOption() >= optionsLength) {
-        setActiveIndexOption(0);
-        _optionsComp.scrollTop = 0;
-      }
-
-      var nextComp = _getActiveItemComp();
-
-      _decorateActiveRowComp(nextComp);
-
-      var offsetTop = nextComp.offsetTop;
-      var scrollTop = _optionsComp.scrollTop;
-
-      if (offsetTop - scrollTop > 70) {
-        _optionsComp.scrollTop += offsetTop - scrollTop - 70;
-      }
-    }
-  }, []),
-      _stepUpOption = (0, _uiApi.useCallback)(function (optionsLength) {
-    var prevComp = _getActiveItemComp();
-
-    if (prevComp) {
-      _undecorateActiveRowComp(prevComp);
-
-      var _optionsComp = (0, _uiApi.getRefValue)(_refOptionsComp);
-
-      setActiveIndexOption(getActiveIndexOption() - 1);
-
-      if (getActiveIndexOption() < 0) {
-        setActiveIndexOption(optionsLength - 1);
-
-        var bottomComp = _getActiveItemComp();
-
-        _optionsComp.scrollTop = bottomComp.offsetTop;
-      }
-
-      var nextComp = _getActiveItemComp();
-
-      _decorateActiveRowComp(nextComp);
-
-      var offsetTop = nextComp.offsetTop;
-      var scrollTop = _optionsComp.scrollTop;
-
-      if (offsetTop - scrollTop < 70) {
-        _optionsComp.scrollTop -= 70 - (offsetTop - scrollTop);
-      }
-    }
-  }, []),
+      _useStepHandlers = (0, _useStepHandlers2["default"])(_refOptionsComp, _getActiveItemComp, _decorateActiveRowComp, _undecorateActiveRowComp, setActiveIndexOption, getActiveIndexOption),
+      _stepDownOption = _useStepHandlers[0],
+      _stepUpOption = _useStepHandlers[1],
       _hInputKeyDown = function _hInputKeyDown(event) {
     switch (event.keyCode) {
       // enter

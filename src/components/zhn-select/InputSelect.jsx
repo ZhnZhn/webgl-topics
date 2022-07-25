@@ -23,6 +23,7 @@ import crAfterInputEl from './crAfterInputEl';
 import crFilteredOptions from './crFilteredOptions';
 
 import useOptionDecorator from './useOptionDecorator';
+import useStepHandlers from './useStepHandlers';
 
 import {
   isNumber,
@@ -162,9 +163,6 @@ const InputSelect = (props) => {
       _refIndexNode,
       _getActiveItemComp
     )
-
-
-
   , _hInputChange = (event) => {
     const token = event.target.value
     , tokenLn = token.length
@@ -190,55 +188,17 @@ const InputSelect = (props) => {
       })
     }
   }
-  /*eslint-disable react-hooks/exhaustive-deps */
-  , _stepDownOption = useCallback((optionsLength) => {
-    const prevComp = _getActiveItemComp();
-
-    if (prevComp){
-       _undecorateActiveRowComp(prevComp);
-       const _optionsComp = getRefValue(_refOptionsComp)
-
-       setActiveIndexOption(getActiveIndexOption()+1)
-       if (getActiveIndexOption()>=optionsLength){
-          setActiveIndexOption(0)
-          _optionsComp.scrollTop = 0
-       }
-
-       const nextComp = _getActiveItemComp();
-       _decorateActiveRowComp(nextComp)
-
-       const offsetTop = nextComp.offsetTop
-       const scrollTop = _optionsComp.scrollTop;
-       if ( (offsetTop - scrollTop) > 70){
-          _optionsComp.scrollTop += (offsetTop - scrollTop - 70);
-       }
-    }
-  }, [])
-  , _stepUpOption = useCallback((optionsLength) => {
-    const prevComp = _getActiveItemComp();
-    if (prevComp){
-      _undecorateActiveRowComp(prevComp);
-      const _optionsComp = getRefValue(_refOptionsComp)
-
-      setActiveIndexOption(getActiveIndexOption() - 1)
-
-      if (getActiveIndexOption() < 0){
-        setActiveIndexOption(optionsLength - 1)
-        const bottomComp = _getActiveItemComp()
-        _optionsComp.scrollTop = bottomComp.offsetTop
-      }
-
-      const nextComp = _getActiveItemComp();
-      _decorateActiveRowComp(nextComp);
-
-      const offsetTop = nextComp.offsetTop;
-      const scrollTop = _optionsComp.scrollTop;
-      if ((offsetTop - scrollTop) < 70){
-        _optionsComp.scrollTop -= ( 70 - (offsetTop - scrollTop) );
-      }
-    }
-  }, [])
-  /*eslint-enable react-hooks/exhaustive-deps */
+  , [
+    _stepDownOption,
+    _stepUpOption
+  ] = useStepHandlers(
+    _refOptionsComp,
+    _getActiveItemComp,
+    _decorateActiveRowComp,
+    _undecorateActiveRowComp,
+    setActiveIndexOption,
+    getActiveIndexOption
+  )
   , _hInputKeyDown = (event) => {
     switch(event.keyCode){
       // enter
@@ -310,7 +270,6 @@ const InputSelect = (props) => {
   }, [])
   /*eslint-disable react-hooks/exhaustive-deps */
   , _hClickItem = useCallback((item, event) => {
-
     _undecorateActiveRowComp()
     setActiveIndexOption(getDataIndex(event.currentTarget))
     setState(prevState => ({
