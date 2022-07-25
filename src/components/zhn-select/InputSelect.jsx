@@ -3,17 +3,20 @@ import { Component } from '../uiApi';
 
 import ItemOptionDf from './ItemOptionDf'
 import DivOptions from './DivOptions';
+import OptionStack from './OptionStack';
 import {
   CL_ROOT,
   CL_INPUT,
   CL_INPUT_HR,
-  CL_OPTIONS_ROW,
   CL_OPTIONS_ROW_ACTIVE
 } from './CL';
 
 import crStyleWidth from './crStyleWidth';
 import crAfterInputEl from './crAfterInputEl';
 import crFilteredOptions from './crFilteredOptions';
+
+const _isNumber = n => typeof n === 'number'
+  && n-n === 0;
 
 const _toItem = (
   item,
@@ -54,7 +57,7 @@ const FN_NOOP = () => {};
 const _getDataIndex = comp => {
   const { dataset } = comp
   , { index } = dataset || {};
-  return index;
+  return Number(index);
 };
 
 const _makeVisibleActiveRowComp = (
@@ -117,10 +120,9 @@ class InputSelect extends Component {
     this.state = _crInitialStateFromProps(props)
   }
 
-  _initFromProps = ({ propCaption }) => {
+  _initFromProps = () => {
     this.domOptionsCache = null
     this.indexActiveOption = 0
-    this.propCaption = propCaption
   }
 
   componentDidUpdate(prevProps, prevState){
@@ -128,7 +130,6 @@ class InputSelect extends Component {
      if (this.state.isShowOption){
        const comp = this._getActiveItemComp();
        this._decorateActiveRowComp(comp);
-       //this.optionsComp
        _makeVisibleActiveRowComp(comp);
     }
   }
@@ -139,15 +140,15 @@ class InputSelect extends Component {
   }
 
   _getActiveItemComp = () => {
-    return this[`v${this.indexActiveOption}`];
+    return ((this.optionsComp || {}).childNodes || [])[this.indexActiveOption];
   }
   _decorateActiveRowComp = (comp) => {
     if (comp){
       this._activeItem = comp
       comp.classList.add(CL_OPTIONS_ROW_ACTIVE);
       const dataIndex = _getDataIndex(comp);
-      if (this.indexNode && dataIndex) {
-        this.indexNode.textContent = Number(dataIndex) + 1
+      if (this.indexNode && _isNumber(dataIndex)) {
+        this.indexNode.textContent = dataIndex + 1
       }
     }
   }
@@ -161,7 +162,8 @@ class InputSelect extends Component {
   _hInputChange = (event) => {
     const token = event.target.value
     , {
-      isWithInput
+      isWithInput,
+      propCaption
     } = this.props
     , {
       value,
@@ -182,25 +184,21 @@ class InputSelect extends Component {
           tokenLn > valueLn
             ? options
             : initialOptions,
-          this.propCaption,
+          propCaption,
           isWithInput
         )
       })
     }
   }
 
-  _showOptions = () => {
-    this.setState({ isShowOption: true })
-  }
-
-  _stepDownOption = () => {
+  _stepDownOption = (optionsLength) => {
     const prevComp = this._getActiveItemComp();
 
     if (prevComp){
        this._undecorateActiveRowComp(prevComp);
 
        this.indexActiveOption += 1;
-       if (this.indexActiveOption>=this.state.options.length){
+       if (this.indexActiveOption>=optionsLength){
           this.indexActiveOption = 0;
           this.optionsComp.scrollTop = 0;
        }
@@ -216,14 +214,14 @@ class InputSelect extends Component {
     }
   }
 
-  _stepUpOption = () => {
+  _stepUpOption = (optionsLength) => {
     const prevComp = this._getActiveItemComp();
     if (prevComp){
       this._undecorateActiveRowComp(prevComp);
 
       this.indexActiveOption -= 1;
       if (this.indexActiveOption < 0){
-        this.indexActiveOption = this.state.options.length - 1;
+        this.indexActiveOption = optionsLength - 1;        
         const bottomComp = this._getActiveItemComp()
         this.optionsComp.scrollTop = bottomComp.offsetTop
       }
@@ -243,23 +241,29 @@ class InputSelect extends Component {
     switch(event.keyCode){
       // enter
       case 13:{
-         const item = this.state.options[this.indexActiveOption];
+         const {
+           onSelect,
+           isWithInput,
+           propCaption
+         } = this.props;
+         if (_isNumber(this.indexActiveOption)) {
+            const item = this.state.options[this.indexActiveOption];
 
-         if (item && item[this.propCaption]){
-           this.setState({
-             value : item[this.propCaption],
-             isShowOption : false,
-             isValidDomOptionsCache : true
-           });
-
-           if (item.value !== 'noresult'){
-             this.props.onSelect(item);
-           } else {
-             const _item = this.props.isWithInput
-               ? _toItem(item, this.propCaption)
-               : void 0;
-             this.props.onSelect(_item);
-           }
+            if (item && item[propCaption]){
+              const _item = item.value !== 'noresult'
+                ? item
+                : isWithInput
+                    ? _toItem(item, propCaption)
+                    : void 0
+              onSelect(_item)
+              this.setState({
+                value: item[propCaption],
+                isShowOption: false,
+                isValidDomOptionsCache: true
+              });
+            }
+         } else {
+           onSelect()
          }
       break; }
       //escape, delete
@@ -270,43 +274,56 @@ class InputSelect extends Component {
         } else {
           this._undecorateActiveRowComp();
           this._setStateToInit(this.props);
-          this.props.onSelect(void 0);
+          this.props.onSelect();
         }
       break;}
-      case 40: //down
-        if (!this.state.isShowOption){
-          this._showOptions()
+      //down
+      case 40: {
+        const {
+          isShowOption,
+          options
+        } = this.state;
+        if (!isShowOption){
+          this.setState({ isShowOption: true })
         } else {
           event.preventDefault()
-          this._stepDownOption()
+          this._stepDownOption(options.length)
         }
-        break;
-      case 38: //up
-        if (this.state.isShowOption){
+        break;}
+      //up
+      case 38: {
+        const {
+          isShowOption,
+          options
+        } = this.state;
+        if (isShowOption){
           event.preventDefault()
-          this._stepUpOption()
+          this._stepUpOption(options.length)
         }
-        break;
+        break;}
       default: return;
     }
   }
 
   _hToggleOptions = () => {
-    if (this.state.isShowOption){
-      this.setState({ isShowOption: false })
-    } else {
-      this._showOptions()
-    }
+    this.setState(prevState => ({
+      ...prevState,
+      isShowOption: !prevState.isShowOption
+    }))
   }
 
-  _hClickItem = (item, index) => {
+  _hClickItem = (item, event) => {
+    const {
+      propCaption,
+      onSelect
+    } = this.props
     this._undecorateActiveRowComp()
-    this.indexActiveOption = index;
+    this.indexActiveOption = _getDataIndex(event.currentTarget)
     this.setState({
-      value: item[this.propCaption],
+      value: item[propCaption],
       isShowOption: false
     });
-    this.props.onSelect(item);
+    onSelect(item);
   }
 
   _refOptionsComp = c => this.optionsComp = c
@@ -314,41 +331,34 @@ class InputSelect extends Component {
 
   _createDomOptionsWithCache = () => {
     const {
-      ItemOptionComp
+      ItemOptionComp,
+      propCaption
     } = this.props
     , {
       options,
       isValidDomOptionsCache
-    } = this.state
-    , _propCaption = this.propCaption;
+    } = this.state;
 
-    let _domOptions;
-    if (options){
-      if (!isValidDomOptionsCache){
-         /*eslint-disable jsx-a11y/click-events-have-key-events*/
-         _domOptions = options.map((item, index)=>( <div
-              role="option"
-              aria-selected={this.indexActiveOption === index}
-              tabIndex="0"
-              key={index}
-              className={CL_OPTIONS_ROW}
-              ref={c => this[`v${index}`] = c}
-              data-index={index}
-              onClick={this._hClickItem.bind(null, item, index)}
-            >
-              <ItemOptionComp
-                 item={item}
-                 propCaption={_propCaption}
-              />
-            </div>
-         ));
-         /*eslint-enable jsx-a11y/click-events-have-key-events*/
-         this.domOptionsCache = _domOptions;
-       } else {
-         _domOptions = this.domOptionsCache;
-       }
-    }
+    const _domOptions = isValidDomOptionsCache
+      ? this.domOptionsCache
+      : (<OptionStack
+           options={options}
+           indexActiveOption={this.indexActiveOption}
+           propCaption={propCaption}
+           ItemOptionComp={ItemOptionComp}
+           onClick={this._hClickItem}
+         />);
+
+    this.domOptionsCache = _domOptions
+    this._optionCacheLength = options.length
     return _domOptions;
+  }
+
+  _hClickBtUp = () => {
+    this._stepUpOption(this._optionCacheLength)
+  }
+  _hClickBtDown = () => {
+    this._stepDownOption(this._optionCacheLength)
   }
 
   _refArrowCell = c => this.arrowCell = c
@@ -405,18 +415,18 @@ class InputSelect extends Component {
         <hr className={CL_INPUT_HR} />
         {(isLocalMode || isShowOption)
           && <DivOptions
-          refOptionsComp={this._refOptionsComp}
-          refIndexNode={this._refIndexNode}
-          rootOptionsStyle={rootOptionsStyle}
-          width={width}
-          isShowOption={isShowOption}
-          domOptions={domOptions}
-          indexActiveOption={this.indexActiveOption}
-          nFiltered={nFiltered}
-          nAll={nAll}
-          onStepUp={this._stepUpOption}
-          onStepDown={this._stepDownOption}
-          onClear={this.clearInput}
+            refOptionsComp={this._refOptionsComp}
+            refIndexNode={this._refIndexNode}
+            rootOptionsStyle={rootOptionsStyle}
+            width={width}
+            isShowOption={isShowOption}
+            domOptions={domOptions}
+            indexActiveOption={this.indexActiveOption}
+            nFiltered={nFiltered}
+            nAll={nAll}
+            onStepUp={this._hClickBtUp}
+            onStepDown={this._hClickBtDown}
+            onClear={this.clearInput}
           />}
       </div>
     )

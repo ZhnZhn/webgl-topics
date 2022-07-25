@@ -5,6 +5,8 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 exports.__esModule = true;
 exports["default"] = void 0;
 
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
+
 var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inheritsLoose"));
 
 var _uiApi = require("../uiApi");
@@ -12,6 +14,8 @@ var _uiApi = require("../uiApi");
 var _ItemOptionDf = _interopRequireDefault(require("./ItemOptionDf"));
 
 var _DivOptions = _interopRequireDefault(require("./DivOptions"));
+
+var _OptionStack = _interopRequireDefault(require("./OptionStack"));
 
 var _CL = require("./CL");
 
@@ -24,6 +28,10 @@ var _crFilteredOptions = _interopRequireDefault(require("./crFilteredOptions"));
 var _jsxRuntime = require("react/jsx-runtime");
 
 //import PropTypes from 'prop-types'
+var _isNumber = function _isNumber(n) {
+  return typeof n === 'number' && n - n === 0;
+};
+
 var _toItem = function _toItem(item, propCaption) {
   var _ref;
 
@@ -58,7 +66,7 @@ var _getDataIndex = function _getDataIndex(comp) {
       _ref4 = dataset || {},
       index = _ref4.index;
 
-  return index;
+  return Number(index);
 };
 
 var _makeVisibleActiveRowComp = function _makeVisibleActiveRowComp(comp) {
@@ -108,11 +116,9 @@ var InputSelect = /*#__PURE__*/function (_Component) {
 
     _this = _Component.call(this, _props) || this;
 
-    _this._initFromProps = function (_ref5) {
-      var propCaption = _ref5.propCaption;
+    _this._initFromProps = function () {
       _this.domOptionsCache = null;
       _this.indexActiveOption = 0;
-      _this.propCaption = propCaption;
     };
 
     _this._setStateToInit = function (props) {
@@ -122,7 +128,7 @@ var InputSelect = /*#__PURE__*/function (_Component) {
     };
 
     _this._getActiveItemComp = function () {
-      return _this["v" + _this.indexActiveOption];
+      return ((_this.optionsComp || {}).childNodes || [])[_this.indexActiveOption];
     };
 
     _this._decorateActiveRowComp = function (comp) {
@@ -132,8 +138,8 @@ var InputSelect = /*#__PURE__*/function (_Component) {
 
         var dataIndex = _getDataIndex(comp);
 
-        if (_this.indexNode && dataIndex) {
-          _this.indexNode.textContent = Number(dataIndex) + 1;
+        if (_this.indexNode && _isNumber(dataIndex)) {
+          _this.indexNode.textContent = dataIndex + 1;
         }
       }
     };
@@ -148,7 +154,9 @@ var InputSelect = /*#__PURE__*/function (_Component) {
 
     _this._hInputChange = function (event) {
       var token = event.target.value,
-          isWithInput = _this.props.isWithInput,
+          _this$props = _this.props,
+          isWithInput = _this$props.isWithInput,
+          propCaption = _this$props.propCaption,
           _this$state = _this.state,
           value = _this$state.value,
           options = _this$state.options,
@@ -165,18 +173,12 @@ var InputSelect = /*#__PURE__*/function (_Component) {
           value: token,
           isShowOption: true,
           isValidDomOptionsCache: false,
-          options: (0, _crFilteredOptions["default"])(token, tokenLn > valueLn ? options : initialOptions, _this.propCaption, isWithInput)
+          options: (0, _crFilteredOptions["default"])(token, tokenLn > valueLn ? options : initialOptions, propCaption, isWithInput)
         });
       }
     };
 
-    _this._showOptions = function () {
-      _this.setState({
-        isShowOption: true
-      });
-    };
-
-    _this._stepDownOption = function () {
+    _this._stepDownOption = function (optionsLength) {
       var prevComp = _this._getActiveItemComp();
 
       if (prevComp) {
@@ -184,7 +186,7 @@ var InputSelect = /*#__PURE__*/function (_Component) {
 
         _this.indexActiveOption += 1;
 
-        if (_this.indexActiveOption >= _this.state.options.length) {
+        if (_this.indexActiveOption >= optionsLength) {
           _this.indexActiveOption = 0;
           _this.optionsComp.scrollTop = 0;
         }
@@ -202,7 +204,7 @@ var InputSelect = /*#__PURE__*/function (_Component) {
       }
     };
 
-    _this._stepUpOption = function () {
+    _this._stepUpOption = function (optionsLength) {
       var prevComp = _this._getActiveItemComp();
 
       if (prevComp) {
@@ -211,7 +213,7 @@ var InputSelect = /*#__PURE__*/function (_Component) {
         _this.indexActiveOption -= 1;
 
         if (_this.indexActiveOption < 0) {
-          _this.indexActiveOption = _this.state.options.length - 1;
+          _this.indexActiveOption = optionsLength - 1;
 
           var bottomComp = _this._getActiveItemComp();
 
@@ -236,22 +238,27 @@ var InputSelect = /*#__PURE__*/function (_Component) {
         // enter
         case 13:
           {
-            var item = _this.state.options[_this.indexActiveOption];
+            var _this$props2 = _this.props,
+                onSelect = _this$props2.onSelect,
+                isWithInput = _this$props2.isWithInput,
+                propCaption = _this$props2.propCaption;
 
-            if (item && item[_this.propCaption]) {
-              _this.setState({
-                value: item[_this.propCaption],
-                isShowOption: false,
-                isValidDomOptionsCache: true
-              });
+            if (_isNumber(_this.indexActiveOption)) {
+              var item = _this.state.options[_this.indexActiveOption];
 
-              if (item.value !== 'noresult') {
-                _this.props.onSelect(item);
-              } else {
-                var _item = _this.props.isWithInput ? _toItem(item, _this.propCaption) : void 0;
+              if (item && item[propCaption]) {
+                var _item = item.value !== 'noresult' ? item : isWithInput ? _toItem(item, propCaption) : void 0;
 
-                _this.props.onSelect(_item);
+                onSelect(_item);
+
+                _this.setState({
+                  value: item[propCaption],
+                  isShowOption: false,
+                  isValidDomOptionsCache: true
+                });
               }
+            } else {
+              onSelect();
             }
 
             break;
@@ -272,33 +279,47 @@ var InputSelect = /*#__PURE__*/function (_Component) {
 
               _this._setStateToInit(_this.props);
 
-              _this.props.onSelect(void 0);
+              _this.props.onSelect();
             }
 
             break;
           }
+        //down
 
         case 40:
-          //down
-          if (!_this.state.isShowOption) {
-            _this._showOptions();
-          } else {
-            event.preventDefault();
+          {
+            var _this$state2 = _this.state,
+                isShowOption = _this$state2.isShowOption,
+                options = _this$state2.options;
 
-            _this._stepDownOption();
+            if (!isShowOption) {
+              _this.setState({
+                isShowOption: true
+              });
+            } else {
+              event.preventDefault();
+
+              _this._stepDownOption(options.length);
+            }
+
+            break;
           }
-
-          break;
+        //up
 
         case 38:
-          //up
-          if (_this.state.isShowOption) {
-            event.preventDefault();
+          {
+            var _this$state3 = _this.state,
+                _isShowOption = _this$state3.isShowOption,
+                _options = _this$state3.options;
 
-            _this._stepUpOption();
+            if (_isShowOption) {
+              event.preventDefault();
+
+              _this._stepUpOption(_options.length);
+            }
+
+            break;
           }
-
-          break;
 
         default:
           return;
@@ -306,26 +327,28 @@ var InputSelect = /*#__PURE__*/function (_Component) {
     };
 
     _this._hToggleOptions = function () {
-      if (_this.state.isShowOption) {
-        _this.setState({
-          isShowOption: false
+      _this.setState(function (prevState) {
+        return (0, _extends2["default"])({}, prevState, {
+          isShowOption: !prevState.isShowOption
         });
-      } else {
-        _this._showOptions();
-      }
+      });
     };
 
-    _this._hClickItem = function (item, index) {
+    _this._hClickItem = function (item, event) {
+      var _this$props3 = _this.props,
+          propCaption = _this$props3.propCaption,
+          onSelect = _this$props3.onSelect;
+
       _this._undecorateActiveRowComp();
 
-      _this.indexActiveOption = index;
+      _this.indexActiveOption = _getDataIndex(event.currentTarget);
 
       _this.setState({
-        value: item[_this.propCaption],
+        value: item[propCaption],
         isShowOption: false
       });
 
-      _this.props.onSelect(item);
+      onSelect(item);
     };
 
     _this._refOptionsComp = function (c) {
@@ -337,43 +360,32 @@ var InputSelect = /*#__PURE__*/function (_Component) {
     };
 
     _this._createDomOptionsWithCache = function () {
-      var ItemOptionComp = _this.props.ItemOptionComp,
-          _this$state2 = _this.state,
-          options = _this$state2.options,
-          isValidDomOptionsCache = _this$state2.isValidDomOptionsCache,
-          _propCaption = _this.propCaption;
+      var _this$props4 = _this.props,
+          ItemOptionComp = _this$props4.ItemOptionComp,
+          propCaption = _this$props4.propCaption,
+          _this$state4 = _this.state,
+          options = _this$state4.options,
+          isValidDomOptionsCache = _this$state4.isValidDomOptionsCache;
 
-      var _domOptions;
+      var _domOptions = isValidDomOptionsCache ? _this.domOptionsCache : /*#__PURE__*/(0, _jsxRuntime.jsx)(_OptionStack["default"], {
+        options: options,
+        indexActiveOption: _this.indexActiveOption,
+        propCaption: propCaption,
+        ItemOptionComp: ItemOptionComp,
+        onClick: _this._hClickItem
+      });
 
-      if (options) {
-        if (!isValidDomOptionsCache) {
-          /*eslint-disable jsx-a11y/click-events-have-key-events*/
-          _domOptions = options.map(function (item, index) {
-            return /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
-              role: "option",
-              "aria-selected": _this.indexActiveOption === index,
-              tabIndex: "0",
-              className: _CL.CL_OPTIONS_ROW,
-              ref: function ref(c) {
-                return _this["v" + index] = c;
-              },
-              "data-index": index,
-              onClick: _this._hClickItem.bind(null, item, index),
-              children: /*#__PURE__*/(0, _jsxRuntime.jsx)(ItemOptionComp, {
-                item: item,
-                propCaption: _propCaption
-              })
-            }, index);
-          });
-          /*eslint-enable jsx-a11y/click-events-have-key-events*/
-
-          _this.domOptionsCache = _domOptions;
-        } else {
-          _domOptions = _this.domOptionsCache;
-        }
-      }
-
+      _this.domOptionsCache = _domOptions;
+      _this._optionCacheLength = options.length;
       return _domOptions;
+    };
+
+    _this._hClickBtUp = function () {
+      _this._stepUpOption(_this._optionCacheLength);
+    };
+
+    _this._hClickBtDown = function () {
+      _this._stepDownOption(_this._optionCacheLength);
     };
 
     _this._refArrowCell = function (c) {
@@ -407,22 +419,21 @@ var InputSelect = /*#__PURE__*/function (_Component) {
     if (this.state.isShowOption) {
       var comp = this._getActiveItemComp();
 
-      this._decorateActiveRowComp(comp); //this.optionsComp
-
+      this._decorateActiveRowComp(comp);
 
       _makeVisibleActiveRowComp(comp);
     }
   };
 
   _proto.render = function render() {
-    var _this$props = this.props,
-        rootStyle = _this$props.rootStyle,
-        width = _this$props.width,
-        rootOptionsStyle = _this$props.rootOptionsStyle,
-        _this$state3 = this.state,
-        value = _this$state3.value,
-        isLocalMode = _this$state3.isLocalMode,
-        isShowOption = _this$state3.isShowOption,
+    var _this$props5 = this.props,
+        rootStyle = _this$props5.rootStyle,
+        width = _this$props5.width,
+        rootOptionsStyle = _this$props5.rootOptionsStyle,
+        _this$state5 = this.state,
+        value = _this$state5.value,
+        isLocalMode = _this$state5.isLocalMode,
+        isShowOption = _this$state5.isShowOption,
         _rootWidthStyle = (0, _crStyleWidth["default"])(width, rootStyle),
         _crAfterInputEl = (0, _crAfterInputEl2["default"])(this.props, this.state, this._refArrowCell, this._hToggleOptions),
         placeholder = _crAfterInputEl[0],
@@ -460,8 +471,8 @@ var InputSelect = /*#__PURE__*/function (_Component) {
         indexActiveOption: this.indexActiveOption,
         nFiltered: nFiltered,
         nAll: nAll,
-        onStepUp: this._stepUpOption,
-        onStepDown: this._stepDownOption,
+        onStepUp: this._hClickBtUp,
+        onStepDown: this._hClickBtDown,
         onClear: this.clearInput
       })]
     });
