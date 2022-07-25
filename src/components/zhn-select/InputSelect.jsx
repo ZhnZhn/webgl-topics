@@ -16,15 +16,18 @@ import {
   CL_ROOT,
   CL_INPUT,
   CL_INPUT_HR,
-  CL_OPTIONS_ROW_ACTIVE
 } from './CL';
 
 import crStyleWidth from './crStyleWidth';
 import crAfterInputEl from './crAfterInputEl';
 import crFilteredOptions from './crFilteredOptions';
 
-const _isNumber = n => typeof n === 'number'
-  && n-n === 0;
+import useOptionDecorator from './useOptionDecorator';
+
+import {
+  isNumber,
+  getDataIndex
+} from './helperFns';
 
 const _toItem = (
   item,
@@ -62,12 +65,6 @@ const _crInitialStateFromProps = ({
 });
 
 const FN_NOOP = () => {};
-
-const _getDataIndex = comp => {
-  const { dataset } = comp
-  , { index } = dataset || {};
-  return Number(index);
-};
 
 const _makeVisibleActiveRowComp = (
   comp
@@ -158,22 +155,15 @@ const InputSelect = (props) => {
   , _getActiveItemComp = useCallback(() =>{
     return ((getRefValue(_refOptionsComp) || {}).childNodes || [])[getActiveIndexOption()];
   }, [getActiveIndexOption])
-  , _decorateActiveRowComp = useCallback((comp) => {
-    if (comp){
-      comp.classList.add(CL_OPTIONS_ROW_ACTIVE);
-      const dataIndex = _getDataIndex(comp)
-      , _indexElement = getRefValue(_refIndexNode);
-      if (_indexElement && _isNumber(dataIndex)) {
-        _indexElement.textContent = dataIndex + 1
-      }
-    }
-  }, [])
-  , _undecorateActiveRowComp = useCallback((comp) => {
-     const _comp = comp || _getActiveItemComp();
-     if (_comp){
-      _comp.classList.remove(CL_OPTIONS_ROW_ACTIVE);
-     }
-  }, [_getActiveItemComp])
+  , [
+    _decorateActiveRowComp,
+    _undecorateActiveRowComp
+  ] = useOptionDecorator(
+      _refIndexNode,
+      _getActiveItemComp
+    )
+
+
 
   , _hInputChange = (event) => {
     const token = event.target.value
@@ -254,7 +244,7 @@ const InputSelect = (props) => {
       // enter
       case 13:{
          const _indexActiveOption = getActiveIndexOption()
-         if (_isNumber(_indexActiveOption)) {
+         if (isNumber(_indexActiveOption)) {
             const item = options[_indexActiveOption];
 
             if (item && item[propCaption]){
@@ -322,7 +312,7 @@ const InputSelect = (props) => {
   , _hClickItem = useCallback((item, event) => {
 
     _undecorateActiveRowComp()
-    setActiveIndexOption(_getDataIndex(event.currentTarget))
+    setActiveIndexOption(getDataIndex(event.currentTarget))
     setState(prevState => ({
       ...prevState,
       value: item[propCaption],

@@ -25,13 +25,13 @@ var _crAfterInputEl2 = _interopRequireDefault(require("./crAfterInputEl"));
 
 var _crFilteredOptions = _interopRequireDefault(require("./crFilteredOptions"));
 
+var _useOptionDecorator2 = _interopRequireDefault(require("./useOptionDecorator"));
+
+var _helperFns = require("./helperFns");
+
 var _jsxRuntime = require("react/jsx-runtime");
 
 //import PropTypes from 'prop-types'
-var _isNumber = function _isNumber(n) {
-  return typeof n === 'number' && n - n === 0;
-};
-
 var _toItem = function _toItem(item, propCaption) {
   var _ref;
 
@@ -63,14 +63,6 @@ var _crInitialStateFromProps = function _crInitialStateFromProps(_ref3) {
 };
 
 var FN_NOOP = function FN_NOOP() {};
-
-var _getDataIndex = function _getDataIndex(comp) {
-  var dataset = comp.dataset,
-      _ref4 = dataset || {},
-      index = _ref4.index;
-
-  return Number(index);
-};
 
 var _makeVisibleActiveRowComp = function _makeVisibleActiveRowComp(comp) {
   if (comp) {
@@ -157,25 +149,9 @@ var InputSelect = function InputSelect(props) {
       _getActiveItemComp = (0, _uiApi.useCallback)(function () {
     return (((0, _uiApi.getRefValue)(_refOptionsComp) || {}).childNodes || [])[getActiveIndexOption()];
   }, [getActiveIndexOption]),
-      _decorateActiveRowComp = (0, _uiApi.useCallback)(function (comp) {
-    if (comp) {
-      comp.classList.add(_CL.CL_OPTIONS_ROW_ACTIVE);
-
-      var dataIndex = _getDataIndex(comp),
-          _indexElement = (0, _uiApi.getRefValue)(_refIndexNode);
-
-      if (_indexElement && _isNumber(dataIndex)) {
-        _indexElement.textContent = dataIndex + 1;
-      }
-    }
-  }, []),
-      _undecorateActiveRowComp = (0, _uiApi.useCallback)(function (comp) {
-    var _comp = comp || _getActiveItemComp();
-
-    if (_comp) {
-      _comp.classList.remove(_CL.CL_OPTIONS_ROW_ACTIVE);
-    }
-  }, [_getActiveItemComp]),
+      _useOptionDecorator = (0, _useOptionDecorator2["default"])(_refIndexNode, _getActiveItemComp),
+      _decorateActiveRowComp = _useOptionDecorator[0],
+      _undecorateActiveRowComp = _useOptionDecorator[1],
       _hInputChange = function _hInputChange(event) {
     var token = event.target.value,
         tokenLn = token.length,
@@ -262,7 +238,7 @@ var InputSelect = function InputSelect(props) {
         {
           var _indexActiveOption = getActiveIndexOption();
 
-          if (_isNumber(_indexActiveOption)) {
+          if ((0, _helperFns.isNumber)(_indexActiveOption)) {
             var item = options[_indexActiveOption];
 
             if (item && item[propCaption]) {
@@ -354,7 +330,7 @@ var InputSelect = function InputSelect(props) {
       _hClickItem = (0, _uiApi.useCallback)(function (item, event) {
     _undecorateActiveRowComp();
 
-    setActiveIndexOption(_getDataIndex(event.currentTarget));
+    setActiveIndexOption((0, _helperFns.getDataIndex)(event.currentTarget));
     setState(function (prevState) {
       return (0, _extends2["default"])({}, prevState, {
         value: item[propCaption],
