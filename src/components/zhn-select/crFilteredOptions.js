@@ -1,5 +1,7 @@
+const DF_OPTIONS = []
+
 const _crFilteredOptions = (
-  options,
+  options=DF_OPTIONS,
   value,
   caption
 ) => {

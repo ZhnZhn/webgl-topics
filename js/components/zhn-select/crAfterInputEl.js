@@ -21,7 +21,8 @@ var crAfterInputEl = function crAfterInputEl(props, state, refArrowCell, hToggle
   var isLoading = props.isLoading,
       isLoadingFailed = props.isLoadingFailed,
       placeholder = props.placeholder,
-      optionName = props.optionName,
+      _props$optionName = props.optionName,
+      optionName = _props$optionName === void 0 ? '' : _props$optionName,
       onLoadOption = props.onLoadOption,
       isShowOption = state.isShowOption,
       optionNames = state.optionNames;

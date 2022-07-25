@@ -20,7 +20,7 @@ const crAfterInputEl = (
      isLoading,
      isLoadingFailed,
      placeholder,
-     optionName,
+     optionName='',
      onLoadOption
    } = props
   , {

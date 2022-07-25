@@ -3,7 +3,6 @@ export {
 } from 'react-dom';
 
 export {
-  Component,
   forwardRef,
   useRef,
   useState,
