@@ -107,6 +107,7 @@ var DF_INPUT_KEY = 'dfKey',
 var InputFloat = (0, _uiApi.forwardRef)(function (props, ref) {
   var id = props.id,
       inputStyle = props.inputStyle,
+      initialValue = props.initialValue,
       _props$inputKey = props.inputKey,
       inputKey = _props$inputKey === void 0 ? DF_INPUT_KEY : _props$inputKey,
       _props$step = props.step,
@@ -208,10 +209,15 @@ var InputFloat = (0, _uiApi.forwardRef)(function (props, ref) {
         return;
     }
   };
+  /*eslint-disable react-hooks/exhaustive-deps */
+
 
   (0, _uiApi.useEffect)(function () {
     setState(_crInitialState(props));
-  }, [props]);
+  }, [initialValue]); // props
+
+  /*eslint-enable react-hooks/exhaustive-deps */
+
   (0, _uiApi.useImperativeHandle)(ref, function () {
     return {
       getValue: function getValue() {

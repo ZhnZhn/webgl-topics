@@ -109,6 +109,7 @@ const InputFloat = forwardRef((
   const {
     id,
     inputStyle,
+    initialValue,
     inputKey=DF_INPUT_KEY,
     step=DF_STEP,
     onChangeMode=FN_NOOP,
@@ -192,9 +193,13 @@ const InputFloat = forwardRef((
   };
 
 
+  /*eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
     setState(_crInitialState(props))
-  }, [props])
+  }, [initialValue])
+  // props
+  /*eslint-enable react-hooks/exhaustive-deps */
+
 
   useImperativeHandle(ref, () => ({
     getValue: () => parseFloat(value),

@@ -1,9 +1,7 @@
 export {
-  render
-} from 'react-dom';
-
-export {
+  render,
   forwardRef,
+
   useRef,
   useState,
   useReducer,
@@ -11,6 +9,6 @@ export {
   useCallback,
   useEffect,
   useImperativeHandle
-} from 'react';
+} from 'preact/compat';
 
 export const getRefValue = ref => (ref || {}).current

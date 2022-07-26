@@ -17,6 +17,8 @@ var _factoryTopic = _interopRequireDefault(require("./factoryTopic"));
 
 var _PanelConfigGL = _interopRequireDefault(require("../panel-config-gl/PanelConfigGL"));
 
+var _react = require("react");
+
 var _jsxRuntime = require("react/jsx-runtime");
 
 var CL_CONTAINER = 'container',
@@ -54,9 +56,10 @@ var TopicWrapper = function TopicWrapper(_ref) {
       role: "main",
       children: /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
         className: "row",
-        children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(Comp, (0, _extends2["default"])({
-          ref: refComp
-        }, compProps)), /*#__PURE__*/(0, _jsxRuntime.jsx)(_PanelConfigGL["default"], {
+        children: [/*#__PURE__*/(0, _react.createElement)(Comp, (0, _extends2["default"])({}, compProps, {
+          ref: refComp,
+          key: compProps.key
+        })), /*#__PURE__*/(0, _jsxRuntime.jsx)(_PanelConfigGL["default"], {
           valuesForInit: valuesForInit,
           onGetComp: getComponentTopic
         })]

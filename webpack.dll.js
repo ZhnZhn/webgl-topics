@@ -8,10 +8,12 @@ const path = require('path')
 module.exports = {
   mode: "production",
   entry: {
-     lib: [
-            "react", "react-dom",
+     lib: [           
+            "preact",
+            "preact/compat",              
             "reflux-core",
-            "gl-matrix", "big.js"
+            "gl-matrix", 
+            "big.js"
           ]
   },
   output: {

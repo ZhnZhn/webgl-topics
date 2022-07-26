@@ -3,20 +3,17 @@
 exports.__esModule = true;
 exports.useState = exports.useRef = exports.useReducer = exports.useMemo = exports.useImperativeHandle = exports.useEffect = exports.useCallback = exports.render = exports.getRefValue = exports.forwardRef = void 0;
 
-var _reactDom = require("react-dom");
+var _compat = require("preact/compat");
 
-exports.render = _reactDom.render;
-
-var _react = require("react");
-
-exports.forwardRef = _react.forwardRef;
-exports.useRef = _react.useRef;
-exports.useState = _react.useState;
-exports.useReducer = _react.useReducer;
-exports.useMemo = _react.useMemo;
-exports.useCallback = _react.useCallback;
-exports.useEffect = _react.useEffect;
-exports.useImperativeHandle = _react.useImperativeHandle;
+exports.render = _compat.render;
+exports.forwardRef = _compat.forwardRef;
+exports.useRef = _compat.useRef;
+exports.useState = _compat.useState;
+exports.useReducer = _compat.useReducer;
+exports.useMemo = _compat.useMemo;
+exports.useCallback = _compat.useCallback;
+exports.useEffect = _compat.useEffect;
+exports.useImperativeHandle = _compat.useImperativeHandle;
 
 var getRefValue = function getRefValue(ref) {
   return (ref || {}).current;

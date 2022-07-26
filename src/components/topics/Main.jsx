@@ -39,9 +39,10 @@ const TopicWrapper = ({
     <div className={CL_CONTAINER} role="document">
       <main className={CL_CONTENT} role="main">
         <div className="row">
-          <Comp
-             ref={refComp}
+          <Comp          
              {...compProps}
+             ref={refComp}
+             key={compProps.key}
           />
           <PanelConfigGL
              valuesForInit={valuesForInit}
