@@ -9,7 +9,7 @@ var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends")
 
 var _uiApi = require("../uiApi");
 
-var _useProperty4 = _interopRequireDefault(require("../hooks/useProperty"));
+var _useProperty3 = _interopRequireDefault(require("../hooks/useProperty"));
 
 var _useToggle2 = _interopRequireDefault(require("../hooks/useToggle"));
 
@@ -98,15 +98,12 @@ var InputSelect = function InputSelect(props) {
       _refDomInputText = (0, _uiApi.useRef)(),
       _refOptionsComp = (0, _uiApi.useRef)(),
       _refIndexNode = (0, _uiApi.useRef)(),
-      _useProperty = (0, _useProperty4["default"])(null),
+      _useProperty = (0, _useProperty3["default"])(null),
       setOptionsCache = _useProperty[0],
       getOptionsCache = _useProperty[1],
-      _useProperty2 = (0, _useProperty4["default"])(0),
-      setOptionsCacheLength = _useProperty2[0],
-      getOptionsCacheLength = _useProperty2[1],
-      _useProperty3 = (0, _useProperty4["default"])(0),
-      setActiveIndexOption = _useProperty3[0],
-      getActiveIndexOption = _useProperty3[1],
+      _useProperty2 = (0, _useProperty3["default"])(0),
+      setActiveIndexOption = _useProperty2[0],
+      getActiveIndexOption = _useProperty2[1],
       _useState = (0, _uiApi.useState)(function () {
     return _crInitialStateFromProps(props);
   }),
@@ -124,8 +121,9 @@ var InputSelect = function InputSelect(props) {
       return _crInitialStateFromProps(props);
     });
     toggleIsShowOption(false);
-    setOptionsCache(null);
-    setOptionsCacheLength(0);
+    setOptionsCache(null); //setOptionsCacheLength(0)
+
+    //setOptionsCacheLength(0)
     setActiveIndexOption(0);
   }, [props]),
       _getActiveItemComp = (0, _uiApi.useCallback)(function () {
@@ -217,7 +215,7 @@ var InputSelect = function InputSelect(props) {
           } else {
             event.preventDefault();
 
-            _stepDownOption(options.length);
+            _stepDownOption();
           }
 
           break;
@@ -230,7 +228,7 @@ var InputSelect = function InputSelect(props) {
           if (isShowOption) {
             event.preventDefault();
 
-            _stepUpOption(options.length);
+            _stepUpOption();
           }
 
           break;
@@ -261,16 +259,11 @@ var InputSelect = function InputSelect(props) {
       onClick: _hClickItem
     });
 
-    setOptionsCache(_domOptions);
-    setOptionsCacheLength(options.length);
+    setOptionsCache(_domOptions); //setOptionsCacheLength(options.length)
+
+    //setOptionsCacheLength(options.length)
     return _domOptions;
   },
-      _hClickBtUp = (0, _uiApi.useCallback)(function () {
-    _stepUpOption(getOptionsCacheLength());
-  }, []),
-      _hClickBtDown = (0, _uiApi.useCallback)(function () {
-    _stepDownOption(getOptionsCacheLength());
-  }, []),
       clearInput = function clearInput() {
     _undecorateActiveRowComp();
 
@@ -331,8 +324,8 @@ var InputSelect = function InputSelect(props) {
       indexActiveOption: indexActiveOption,
       nFiltered: nFiltered,
       nAll: nAll,
-      onStepUp: _hClickBtUp,
-      onStepDown: _hClickBtDown,
+      onStepUp: _stepUpOption,
+      onStepDown: _stepDownOption,
       onClear: clearInput
     })]
   });

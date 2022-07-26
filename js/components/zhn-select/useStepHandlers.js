@@ -5,58 +5,63 @@ exports["default"] = void 0;
 
 var _uiApi = require("../uiApi");
 
+var _getItemLength = function _getItemLength(element) {
+  return (element.children || {}).length;
+};
 /*eslint-disable react-hooks/exhaustive-deps */
-var useStepHandlers = function useStepHandlers(refOptionsComp, getActiveElement, decorateActiveElement, undecorateActiveElement, setActiveIndexOption, getActiveIndexOption) {
+
+
+var useStepHandlers = function useStepHandlers(refOptionsElement, getActiveElement, decorateActiveElement, undecorateActiveElement, setActiveIndexOption, getActiveIndexOption) {
   return (0, _uiApi.useMemo)(function () {
     return [//stepDownOption
-    function (optionsLength) {
+    function () {
       var prevComp = getActiveElement();
 
       if (prevComp) {
         undecorateActiveElement(prevComp);
 
-        var _optionsComp = (0, _uiApi.getRefValue)(refOptionsComp);
+        var _optionsElement = (0, _uiApi.getRefValue)(refOptionsElement);
 
         setActiveIndexOption(getActiveIndexOption() + 1);
 
-        if (getActiveIndexOption() >= optionsLength) {
+        if (getActiveIndexOption() >= _getItemLength(_optionsElement)) {
           setActiveIndexOption(0);
-          _optionsComp.scrollTop = 0;
+          _optionsElement.scrollTop = 0;
         }
 
         var nextComp = getActiveElement();
         decorateActiveElement(nextComp);
-        var offsetTop = nextComp.offsetTop;
-        var scrollTop = _optionsComp.scrollTop;
+        var offsetTop = nextComp.offsetTop,
+            scrollTop = _optionsElement.scrollTop;
 
         if (offsetTop - scrollTop > 70) {
-          _optionsComp.scrollTop += offsetTop - scrollTop - 70;
+          _optionsElement.scrollTop += offsetTop - scrollTop - 70;
         }
       }
     }, //stepUpOption
-    function (optionsLength) {
+    function () {
       var prevComp = getActiveElement();
 
       if (prevComp) {
         undecorateActiveElement(prevComp);
 
-        var _optionsComp = (0, _uiApi.getRefValue)(refOptionsComp);
+        var _optionsElement = (0, _uiApi.getRefValue)(refOptionsElement);
 
         setActiveIndexOption(getActiveIndexOption() - 1);
 
         if (getActiveIndexOption() < 0) {
-          setActiveIndexOption(optionsLength - 1);
+          setActiveIndexOption(_getItemLength(_optionsElement) - 1);
           var bottomComp = getActiveElement();
-          _optionsComp.scrollTop = bottomComp.offsetTop;
+          _optionsElement.scrollTop = bottomComp.offsetTop;
         }
 
         var nextComp = getActiveElement();
         decorateActiveElement(nextComp);
-        var offsetTop = nextComp.offsetTop;
-        var scrollTop = _optionsComp.scrollTop;
+        var offsetTop = nextComp.offsetTop,
+            scrollTop = _optionsElement.scrollTop;
 
         if (offsetTop - scrollTop < 70) {
-          _optionsComp.scrollTop -= 70 - (offsetTop - scrollTop);
+          _optionsElement.scrollTop -= 70 - (offsetTop - scrollTop);
         }
       }
     }];

@@ -82,7 +82,9 @@ const _makeVisibleActiveRowComp = (
   }
 }
 
-const InputSelect = (props) => {
+const InputSelect = (
+  props
+) => {
   const {
     rootStyle,
     width,
@@ -102,10 +104,12 @@ const InputSelect = (props) => {
     setOptionsCache,
     getOptionsCache
   ] = useProperty(null)
+  /*
   , [
     setOptionsCacheLength,
     getOptionsCacheLength
   ] = useProperty(0)
+  */
   , [
     setActiveIndexOption,
     getActiveIndexOption
@@ -129,7 +133,7 @@ const InputSelect = (props) => {
     setState(() => _crInitialStateFromProps(props))
     toggleIsShowOption(false)
     setOptionsCache(null)
-    setOptionsCacheLength(0)
+    //setOptionsCacheLength(0)
     setActiveIndexOption(0)
   }, [props])
   /*eslint-enable react-hooks/exhaustive-deps */
@@ -183,7 +187,7 @@ const InputSelect = (props) => {
     switch(event.keyCode){
       // enter
       case 13:{
-         const _indexActiveOption = getActiveIndexOption()
+         const _indexActiveOption = getActiveIndexOption();
          if (isNumber(_indexActiveOption)) {
             const item = options[_indexActiveOption];
 
@@ -223,14 +227,14 @@ const InputSelect = (props) => {
           toggleIsShowOption(true)
         } else {
           event.preventDefault()
-          _stepDownOption(options.length)
+          _stepDownOption()
         }
         break;}
       //up
       case 38: {
         if (isShowOption){
           event.preventDefault()
-          _stepUpOption(options.length)
+          _stepUpOption()
         }
         break;}
       default: return;
@@ -261,17 +265,17 @@ const InputSelect = (props) => {
            onClick={_hClickItem}
          />);
     setOptionsCache(_domOptions)
-    setOptionsCacheLength(options.length)
+    //setOptionsCacheLength(options.length)
     return _domOptions;
   }
-  /*eslint-disable react-hooks/exhaustive-deps */
+  /*
   , _hClickBtUp = useCallback(() => {
     _stepUpOption(getOptionsCacheLength())
   }, [])
   , _hClickBtDown = useCallback(() => {
     _stepDownOption(getOptionsCacheLength())
   }, [])
-  /*eslint-enable react-hooks/exhaustive-deps */
+  */
   , clearInput = () => {
     _undecorateActiveRowComp()
     onSelect()
@@ -337,8 +341,8 @@ const InputSelect = (props) => {
           indexActiveOption={indexActiveOption}
           nFiltered={nFiltered}
           nAll={nAll}
-          onStepUp={_hClickBtUp}
-          onStepDown={_hClickBtDown}
+          onStepUp={_stepUpOption}
+          onStepDown={_stepDownOption}
           onClear={clearInput}
         />}
     </div>

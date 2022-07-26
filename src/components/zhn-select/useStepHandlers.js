@@ -3,9 +3,13 @@ import {
   getRefValue
 } from '../uiApi';
 
+const _getItemLength = (
+  element
+) => (element.children || {}).length;
+
 /*eslint-disable react-hooks/exhaustive-deps */
 const useStepHandlers = (
-  refOptionsComp,
+  refOptionsElement,
   getActiveElement,
   decorateActiveElement,
   undecorateActiveElement,
@@ -13,51 +17,51 @@ const useStepHandlers = (
   getActiveIndexOption
 ) => useMemo(() => [
   //stepDownOption
-  (optionsLength) => {
+  () => {
     const prevComp = getActiveElement();
 
     if (prevComp){
        undecorateActiveElement(prevComp);
-       const _optionsComp = getRefValue(refOptionsComp);
+       const _optionsElement = getRefValue(refOptionsElement);
 
        setActiveIndexOption(getActiveIndexOption()+1)
-       if (getActiveIndexOption() >= optionsLength){
+       if (getActiveIndexOption() >= _getItemLength(_optionsElement)){
           setActiveIndexOption(0)
-          _optionsComp.scrollTop = 0
+          _optionsElement.scrollTop = 0
        }
 
        const nextComp = getActiveElement();
        decorateActiveElement(nextComp)
 
        const offsetTop = nextComp.offsetTop
-       const scrollTop = _optionsComp.scrollTop;
+       , scrollTop = _optionsElement.scrollTop;
        if ((offsetTop - scrollTop) > 70){
-          _optionsComp.scrollTop += (offsetTop - scrollTop - 70);
+          _optionsElement.scrollTop += (offsetTop - scrollTop - 70);
        }
     }
   },
   //stepUpOption
-  (optionsLength) => {
+  () => {
     const prevComp = getActiveElement();
     if (prevComp){
       undecorateActiveElement(prevComp);
-      const _optionsComp = getRefValue(refOptionsComp);
+      const _optionsElement = getRefValue(refOptionsElement);
 
       setActiveIndexOption(getActiveIndexOption() - 1)
 
       if (getActiveIndexOption() < 0){
-        setActiveIndexOption(optionsLength - 1)
-        const bottomComp = getActiveElement()
-        _optionsComp.scrollTop = bottomComp.offsetTop
+        setActiveIndexOption(_getItemLength(_optionsElement) - 1)
+        const bottomComp = getActiveElement();
+        _optionsElement.scrollTop = bottomComp.offsetTop
       }
 
       const nextComp = getActiveElement();
       decorateActiveElement(nextComp);
 
-      const offsetTop = nextComp.offsetTop;
-      const scrollTop = _optionsComp.scrollTop;
+      const offsetTop = nextComp.offsetTop
+      , scrollTop = _optionsElement.scrollTop;
       if ((offsetTop - scrollTop) < 70){
-        _optionsComp.scrollTop -= (70 - (offsetTop - scrollTop) );
+        _optionsElement.scrollTop -= (70 - (offsetTop - scrollTop) );
       }
     }
   }
