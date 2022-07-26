@@ -8,6 +8,7 @@ import {
 } from '../uiApi';
 
 import useProperty from '../hooks/useProperty';
+import useToggle from '../hooks/useToggle';
 
 import ItemOptionDf from './ItemOptionDf'
 import DivOptions from './DivOptions';
@@ -57,12 +58,10 @@ const _crInitialStateFromProps = ({
   options=DF_OPTIONS
 }) => ({
   value: '',
-  isShowOption: false,
   initialOptions: options,
   options: options,
   optionNames: optionNames || optionName || '',
-  isValidDomOptionsCache: false,
-  isLocalMode: false
+  isValidDomOptionsCache: false
 });
 
 const FN_NOOP = () => {};
@@ -82,28 +81,6 @@ const _makeVisibleActiveRowComp = (
     }
   }
 }
-
-/*
-static propTypes = {
-   propCaption: PropTypes.string,
-   ItemOptionComp: PropTypes.element,
-   width: PropTypes.string,
-   options: PropTypes.arrayOf(PropTypes.shape({
-      caption: PropTypes.string,
-      value: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.number
-      ])
-   })),
-   optionName: PropTypes.string,
-   optionNames: PropTypes.string,
-   placeholder: PropTypes.string,
-   isWithInput: PropTypes.bool,
-   prefixInput: PropTypes.string
-
-   onSelect: PropTypes.func,
-}
-*/
 
 const InputSelect = (props) => {
   const {
@@ -138,16 +115,19 @@ const InputSelect = (props) => {
     setState
   ] = useState(() => _crInitialStateFromProps(props))
   , {
-    isShowOption,
     isValidDomOptionsCache,
-    isLocalMode,
     value,
     options,
     initialOptions
   } = state
+  , [
+    isShowOption,
+    toggleIsShowOption
+  ] = useToggle(false)
   /*eslint-disable react-hooks/exhaustive-deps */
   , _setStateToInit = useCallback(() => {
     setState(() => _crInitialStateFromProps(props))
+    toggleIsShowOption(false)
     setOptionsCache(null)
     setOptionsCacheLength(0)
     setActiveIndexOption(0)
@@ -175,7 +155,6 @@ const InputSelect = (props) => {
       }
       setState({
         value: token,
-        isShowOption: true,
         isValidDomOptionsCache: false,
         options: crFilteredOptions(
           token,
@@ -186,6 +165,7 @@ const InputSelect = (props) => {
           isWithInput
         )
       })
+      toggleIsShowOption(true)
     }
   }
   , [
@@ -214,10 +194,11 @@ const InputSelect = (props) => {
                     ? _toItem(item, propCaption)
                     : void 0
               onSelect(_item)
+
+              toggleIsShowOption(false)
               setState(prevState => ({
                 ...prevState,
                 value: item[propCaption],
-                isShowOption: false,
                 isValidDomOptionsCache: true
               }));
             }
@@ -229,10 +210,7 @@ const InputSelect = (props) => {
       case 27: case 46: {
         event.preventDefault()
         if (isShowOption){
-          setState(prevState => ({
-            ...prevState,
-            isShowOption: false
-          }))
+          toggleIsShowOption(false)
         } else {
           _undecorateActiveRowComp();
           _setStateToInit()
@@ -241,12 +219,8 @@ const InputSelect = (props) => {
       break;}
       //down
       case 40: {
-
         if (!isShowOption){
-          setState(prevState => ({
-            ...prevState,
-            isShowOption: true
-          }))
+          toggleIsShowOption(true)
         } else {
           event.preventDefault()
           _stepDownOption(options.length)
@@ -262,20 +236,15 @@ const InputSelect = (props) => {
       default: return;
     }
   }
-  , _hToggleOptions = useCallback(() => {
-    setState(prevState => ({
-      ...prevState,
-      isShowOption: !prevState.isShowOption
-    }))
-  }, [])
   /*eslint-disable react-hooks/exhaustive-deps */
   , _hClickItem = useCallback((item, event) => {
     _undecorateActiveRowComp()
     setActiveIndexOption(getDataIndex(event.currentTarget))
+
+    toggleIsShowOption(false)
     setState(prevState => ({
       ...prevState,
       value: item[propCaption],
-      isShowOption: false
     }))
     onSelect(item);
   }, [])
@@ -303,12 +272,11 @@ const InputSelect = (props) => {
     _stepDownOption(getOptionsCacheLength())
   }, [])
   /*eslint-enable react-hooks/exhaustive-deps */
-
   , clearInput = () => {
     _undecorateActiveRowComp()
     onSelect()
     _setStateToInit()
-  }
+  };
 
   /*eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
@@ -330,14 +298,13 @@ const InputSelect = (props) => {
      props,
      state,
      _refArrowCell,
-     _hToggleOptions
+     toggleIsShowOption
    )
   , domOptions = _createDomOptionsWithCache()
   , [
     nFiltered,
     nAll
   ] = _crFooterIndex(state);
-
 
   return (
     <div
@@ -360,8 +327,7 @@ const InputSelect = (props) => {
       />
       {afterInputEl}
       <hr className={CL_INPUT_HR} />
-      {(isLocalMode || isShowOption)
-        && <DivOptions
+      {isShowOption && <DivOptions
           refOptionsComp={_refOptionsComp}
           refIndexNode={_refIndexNode}
           rootOptionsStyle={rootOptionsStyle}
@@ -378,5 +344,27 @@ const InputSelect = (props) => {
     </div>
   );
 }
+
+/*
+InputSelect.propTypes = {
+   propCaption: PropTypes.string,
+   ItemOptionComp: PropTypes.element,
+   width: PropTypes.string,
+   options: PropTypes.arrayOf(PropTypes.shape({
+      caption: PropTypes.string,
+      value: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number
+      ])
+   })),
+   optionName: PropTypes.string,
+   optionNames: PropTypes.string,
+   placeholder: PropTypes.string,
+   isWithInput: PropTypes.bool,
+   prefixInput: PropTypes.string
+
+   onSelect: PropTypes.func,
+}
+*/
 
 export default InputSelect

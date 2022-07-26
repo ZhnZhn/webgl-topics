@@ -11,6 +11,8 @@ var _uiApi = require("../uiApi");
 
 var _useProperty4 = _interopRequireDefault(require("../hooks/useProperty"));
 
+var _useToggle2 = _interopRequireDefault(require("../hooks/useToggle"));
+
 var _ItemOptionDf = _interopRequireDefault(require("./ItemOptionDf"));
 
 var _DivOptions = _interopRequireDefault(require("./DivOptions"));
@@ -55,12 +57,10 @@ var _crInitialStateFromProps = function _crInitialStateFromProps(_ref3) {
       options = _ref3$options === void 0 ? DF_OPTIONS : _ref3$options;
   return {
     value: '',
-    isShowOption: false,
     initialOptions: options,
     options: options,
     optionNames: optionNames || optionName || '',
-    isValidDomOptionsCache: false,
-    isLocalMode: false
+    isValidDomOptionsCache: false
   };
 };
 
@@ -81,28 +81,6 @@ var _makeVisibleActiveRowComp = function _makeVisibleActiveRowComp(comp) {
     }
   }
 };
-/*
-static propTypes = {
-   propCaption: PropTypes.string,
-   ItemOptionComp: PropTypes.element,
-   width: PropTypes.string,
-   options: PropTypes.arrayOf(PropTypes.shape({
-      caption: PropTypes.string,
-      value: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.number
-      ])
-   })),
-   optionName: PropTypes.string,
-   optionNames: PropTypes.string,
-   placeholder: PropTypes.string,
-   isWithInput: PropTypes.bool,
-   prefixInput: PropTypes.string
-
-   onSelect: PropTypes.func,
-}
-*/
-
 
 var InputSelect = function InputSelect(props) {
   var rootStyle = props.rootStyle,
@@ -134,16 +112,18 @@ var InputSelect = function InputSelect(props) {
   }),
       state = _useState[0],
       setState = _useState[1],
-      isShowOption = state.isShowOption,
       isValidDomOptionsCache = state.isValidDomOptionsCache,
-      isLocalMode = state.isLocalMode,
       value = state.value,
       options = state.options,
       initialOptions = state.initialOptions,
+      _useToggle = (0, _useToggle2["default"])(false),
+      isShowOption = _useToggle[0],
+      toggleIsShowOption = _useToggle[1],
       _setStateToInit = (0, _uiApi.useCallback)(function () {
     setState(function () {
       return _crInitialStateFromProps(props);
     });
+    toggleIsShowOption(false);
     setOptionsCache(null);
     setOptionsCacheLength(0);
     setActiveIndexOption(0);
@@ -170,10 +150,10 @@ var InputSelect = function InputSelect(props) {
 
       setState({
         value: token,
-        isShowOption: true,
         isValidDomOptionsCache: false,
         options: (0, _crFilteredOptions["default"])(token, tokenLn > valueLn ? options : initialOptions, propCaption, isWithInput)
       });
+      toggleIsShowOption(true);
     }
   },
       _useStepHandlers = (0, _useStepHandlers2["default"])(_refOptionsComp, _getActiveItemComp, _decorateActiveRowComp, _undecorateActiveRowComp, setActiveIndexOption, getActiveIndexOption),
@@ -193,10 +173,10 @@ var InputSelect = function InputSelect(props) {
               var _item = item.value !== 'noresult' ? item : isWithInput ? _toItem(item, propCaption) : void 0;
 
               onSelect(_item);
+              toggleIsShowOption(false);
               setState(function (prevState) {
                 return (0, _extends2["default"])({}, prevState, {
                   value: item[propCaption],
-                  isShowOption: false,
                   isValidDomOptionsCache: true
                 });
               });
@@ -216,11 +196,7 @@ var InputSelect = function InputSelect(props) {
           event.preventDefault();
 
           if (isShowOption) {
-            setState(function (prevState) {
-              return (0, _extends2["default"])({}, prevState, {
-                isShowOption: false
-              });
-            });
+            toggleIsShowOption(false);
           } else {
             _undecorateActiveRowComp();
 
@@ -237,11 +213,7 @@ var InputSelect = function InputSelect(props) {
       case 40:
         {
           if (!isShowOption) {
-            setState(function (prevState) {
-              return (0, _extends2["default"])({}, prevState, {
-                isShowOption: true
-              });
-            });
+            toggleIsShowOption(true);
           } else {
             event.preventDefault();
 
@@ -268,21 +240,14 @@ var InputSelect = function InputSelect(props) {
         return;
     }
   },
-      _hToggleOptions = (0, _uiApi.useCallback)(function () {
-    setState(function (prevState) {
-      return (0, _extends2["default"])({}, prevState, {
-        isShowOption: !prevState.isShowOption
-      });
-    });
-  }, []),
       _hClickItem = (0, _uiApi.useCallback)(function (item, event) {
     _undecorateActiveRowComp();
 
     setActiveIndexOption((0, _helperFns.getDataIndex)(event.currentTarget));
+    toggleIsShowOption(false);
     setState(function (prevState) {
       return (0, _extends2["default"])({}, prevState, {
-        value: item[propCaption],
-        isShowOption: false
+        value: item[propCaption]
       });
     });
     onSelect(item);
@@ -330,7 +295,7 @@ var InputSelect = function InputSelect(props) {
 
   var indexActiveOption = getActiveIndexOption(),
       _rootWidthStyle = (0, _crStyleWidth["default"])(width, rootStyle),
-      _crAfterInputEl = (0, _crAfterInputEl2["default"])(props, state, _refArrowCell, _hToggleOptions),
+      _crAfterInputEl = (0, _crAfterInputEl2["default"])(props, state, _refArrowCell, toggleIsShowOption),
       placeholder = _crAfterInputEl[0],
       afterInputEl = _crAfterInputEl[1],
       domOptions = _createDomOptionsWithCache(),
@@ -356,7 +321,7 @@ var InputSelect = function InputSelect(props) {
       onKeyDown: _hInputKeyDown
     }), afterInputEl, /*#__PURE__*/(0, _jsxRuntime.jsx)("hr", {
       className: _CL.CL_INPUT_HR
-    }), (isLocalMode || isShowOption) && /*#__PURE__*/(0, _jsxRuntime.jsx)(_DivOptions["default"], {
+    }), isShowOption && /*#__PURE__*/(0, _jsxRuntime.jsx)(_DivOptions["default"], {
       refOptionsComp: _refOptionsComp,
       refIndexNode: _refIndexNode,
       rootOptionsStyle: rootOptionsStyle,
@@ -372,6 +337,28 @@ var InputSelect = function InputSelect(props) {
     })]
   });
 };
+/*
+InputSelect.propTypes = {
+   propCaption: PropTypes.string,
+   ItemOptionComp: PropTypes.element,
+   width: PropTypes.string,
+   options: PropTypes.arrayOf(PropTypes.shape({
+      caption: PropTypes.string,
+      value: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number
+      ])
+   })),
+   optionName: PropTypes.string,
+   optionNames: PropTypes.string,
+   placeholder: PropTypes.string,
+   isWithInput: PropTypes.bool,
+   prefixInput: PropTypes.string
+
+   onSelect: PropTypes.func,
+}
+*/
+
 
 var _default = InputSelect;
 exports["default"] = _default;
