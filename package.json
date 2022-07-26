@@ -23,10 +23,9 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.17.0",
-    "big.js": "^6.1.1",
+    "big.js": "^6.2.1",
     "gl-matrix": "^3.4.3",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "preact": "^10.10.0",
     "reflux-core": "^1.0.0"
   },
   "devDependencies": {
