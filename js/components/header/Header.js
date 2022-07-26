@@ -13,7 +13,7 @@ var _GitHubLink = _interopRequireDefault(require("./GitHubLink"));
 
 var _jsxRuntime = require("react/jsx-runtime");
 
-var TITLE = 'WebGL Topics v0.1.0';
+var TITLE = 'WebGL Topics v0.2.0';
 var HEADER = "header",
     CL_ICON_APP = HEADER + "__icon-app",
     CL_LABEL_APP = HEADER + "__label-app",
