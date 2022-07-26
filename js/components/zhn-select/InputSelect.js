@@ -9,7 +9,7 @@ var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends")
 
 var _uiApi = require("../uiApi");
 
-var _useProperty3 = _interopRequireDefault(require("../hooks/useProperty"));
+var _useProperty2 = _interopRequireDefault(require("../hooks/useProperty"));
 
 var _useToggle2 = _interopRequireDefault(require("../hooks/useToggle"));
 
@@ -59,8 +59,7 @@ var _crInitialStateFromProps = function _crInitialStateFromProps(_ref3) {
     value: '',
     initialOptions: options,
     options: options,
-    optionNames: optionNames || optionName || '',
-    isValidDomOptionsCache: false
+    optionNames: optionNames || optionName || ''
   };
 };
 
@@ -96,20 +95,16 @@ var InputSelect = function InputSelect(props) {
       onSelect = _props$onSelect === void 0 ? FN_NOOP : _props$onSelect,
       _refArrowCell = (0, _uiApi.useRef)(),
       _refDomInputText = (0, _uiApi.useRef)(),
-      _refOptionsComp = (0, _uiApi.useRef)(),
+      _refOptionsElement = (0, _uiApi.useRef)(),
       _refIndexNode = (0, _uiApi.useRef)(),
-      _useProperty = (0, _useProperty3["default"])(null),
-      setOptionsCache = _useProperty[0],
-      getOptionsCache = _useProperty[1],
-      _useProperty2 = (0, _useProperty3["default"])(0),
-      setActiveIndexOption = _useProperty2[0],
-      getActiveIndexOption = _useProperty2[1],
+      _useProperty = (0, _useProperty2["default"])(0),
+      setActiveIndexOption = _useProperty[0],
+      getActiveIndexOption = _useProperty[1],
       _useState = (0, _uiApi.useState)(function () {
     return _crInitialStateFromProps(props);
   }),
       state = _useState[0],
       setState = _useState[1],
-      isValidDomOptionsCache = state.isValidDomOptionsCache,
       value = state.value,
       options = state.options,
       initialOptions = state.initialOptions,
@@ -121,17 +116,14 @@ var InputSelect = function InputSelect(props) {
       return _crInitialStateFromProps(props);
     });
     toggleIsShowOption(false);
-    setOptionsCache(null); //setOptionsCacheLength(0)
-
-    //setOptionsCacheLength(0)
     setActiveIndexOption(0);
   }, [props]),
-      _getActiveItemComp = (0, _uiApi.useCallback)(function () {
-    return (((0, _uiApi.getRefValue)(_refOptionsComp) || {}).childNodes || [])[getActiveIndexOption()];
-  }, [getActiveIndexOption]),
-      _useOptionDecorator = (0, _useOptionDecorator2["default"])(_refIndexNode, _getActiveItemComp),
-      _decorateActiveRowComp = _useOptionDecorator[0],
-      _undecorateActiveRowComp = _useOptionDecorator[1],
+      _getActiveElement = (0, _uiApi.useCallback)(function () {
+    return (((0, _uiApi.getRefValue)(_refOptionsElement) || {}).childNodes || [])[getActiveIndexOption()];
+  }, []),
+      _useOptionDecorator = (0, _useOptionDecorator2["default"])(_refIndexNode, _getActiveElement),
+      _decorateActiveElement = _useOptionDecorator[0],
+      _undecorateActiveElement = _useOptionDecorator[1],
       _hInputChange = function _hInputChange(event) {
     var token = event.target.value,
         tokenLn = token.length,
@@ -141,20 +133,21 @@ var InputSelect = function InputSelect(props) {
       var _activeIndexOption = getActiveIndexOption();
 
       if (_activeIndexOption !== 0) {
-        _undecorateActiveRowComp();
+        _undecorateActiveElement();
 
         setActiveIndexOption(0);
       }
 
-      setState({
-        value: token,
-        isValidDomOptionsCache: false,
-        options: (0, _crFilteredOptions["default"])(token, tokenLn > valueLn ? options : initialOptions, propCaption, isWithInput)
+      setState(function (prevState) {
+        return (0, _extends2["default"])({}, prevState, {
+          value: token,
+          options: (0, _crFilteredOptions["default"])(token, tokenLn > valueLn ? options : initialOptions, propCaption, isWithInput)
+        });
       });
       toggleIsShowOption(true);
     }
   },
-      _useStepHandlers = (0, _useStepHandlers2["default"])(_refOptionsComp, _getActiveItemComp, _decorateActiveRowComp, _undecorateActiveRowComp, setActiveIndexOption, getActiveIndexOption),
+      _useStepHandlers = (0, _useStepHandlers2["default"])(_refOptionsElement, _getActiveElement, _decorateActiveElement, _undecorateActiveElement, setActiveIndexOption, getActiveIndexOption),
       _stepDownOption = _useStepHandlers[0],
       _stepUpOption = _useStepHandlers[1],
       _hInputKeyDown = function _hInputKeyDown(event) {
@@ -174,8 +167,7 @@ var InputSelect = function InputSelect(props) {
               toggleIsShowOption(false);
               setState(function (prevState) {
                 return (0, _extends2["default"])({}, prevState, {
-                  value: item[propCaption],
-                  isValidDomOptionsCache: true
+                  value: item[propCaption]
                 });
               });
             }
@@ -196,7 +188,7 @@ var InputSelect = function InputSelect(props) {
           if (isShowOption) {
             toggleIsShowOption(false);
           } else {
-            _undecorateActiveRowComp();
+            _undecorateActiveElement();
 
             _setStateToInit();
 
@@ -239,7 +231,7 @@ var InputSelect = function InputSelect(props) {
     }
   },
       _hClickItem = (0, _uiApi.useCallback)(function (item, event) {
-    _undecorateActiveRowComp();
+    _undecorateActiveElement();
 
     setActiveIndexOption((0, _helperFns.getDataIndex)(event.currentTarget));
     toggleIsShowOption(false);
@@ -250,22 +242,17 @@ var InputSelect = function InputSelect(props) {
     });
     onSelect(item);
   }, []),
-      _createDomOptionsWithCache = function _createDomOptionsWithCache() {
-    var _domOptions = isValidDomOptionsCache ? getOptionsCache() : /*#__PURE__*/(0, _jsxRuntime.jsx)(_OptionStack["default"], {
+      domOptions = (0, _uiApi.useMemo)(function () {
+    return /*#__PURE__*/(0, _jsxRuntime.jsx)(_OptionStack["default"], {
       options: options,
       indexActiveOption: getActiveIndexOption(),
       propCaption: propCaption,
       ItemOptionComp: ItemOptionComp,
       onClick: _hClickItem
     });
-
-    setOptionsCache(_domOptions); //setOptionsCacheLength(options.length)
-
-    //setOptionsCacheLength(options.length)
-    return _domOptions;
-  },
+  }, [options]),
       clearInput = function clearInput() {
-    _undecorateActiveRowComp();
+    _undecorateActiveElement();
 
     onSelect();
 
@@ -276,13 +263,13 @@ var InputSelect = function InputSelect(props) {
 
   (0, _uiApi.useEffect)(function () {
     if (isShowOption) {
-      var comp = _getActiveItemComp();
+      var comp = _getActiveElement();
 
-      _decorateActiveRowComp(comp);
+      _decorateActiveElement(comp);
 
       _makeVisibleActiveRowComp(comp);
     }
-  }, [isShowOption]); // _decorateActiveRowComp, _getActiveItemComp
+  }, [isShowOption]); // _decorateActiveElement, _getActiveElement
 
   /*eslint-enable react-hooks/exhaustive-deps */
 
@@ -291,7 +278,6 @@ var InputSelect = function InputSelect(props) {
       _crAfterInputEl = (0, _crAfterInputEl2["default"])(props, state, _refArrowCell, toggleIsShowOption),
       placeholder = _crAfterInputEl[0],
       afterInputEl = _crAfterInputEl[1],
-      domOptions = _createDomOptionsWithCache(),
       _crFooterIndex2 = _crFooterIndex(state),
       nFiltered = _crFooterIndex2[0],
       nAll = _crFooterIndex2[1];
@@ -315,7 +301,7 @@ var InputSelect = function InputSelect(props) {
     }), afterInputEl, /*#__PURE__*/(0, _jsxRuntime.jsx)("hr", {
       className: _CL.CL_INPUT_HR
     }), isShowOption && /*#__PURE__*/(0, _jsxRuntime.jsx)(_DivOptions["default"], {
-      refOptionsComp: _refOptionsComp,
+      refOptionsComp: _refOptionsElement,
       refIndexNode: _refIndexNode,
       rootOptionsStyle: rootOptionsStyle,
       width: width,

@@ -1,16 +1,15 @@
-const DF_OPTIONS = []
-
 const _crFilteredOptions = (
-  options=DF_OPTIONS,
+  options,
   value,
   caption
 ) => {
    const valueFor = value.toLowerCase();
-   return options.filter(option => option[caption]
-      .toLowerCase()
-      .indexOf(valueFor) !== -1
-   );
-}
+   return (options || [])
+     .filter(option => option[caption]
+        .toLowerCase()
+        .indexOf(valueFor) !== -1
+     );
+};
 
 const INPUT_PREFIX = 'From input:';
 const _crItemNotFounded = (

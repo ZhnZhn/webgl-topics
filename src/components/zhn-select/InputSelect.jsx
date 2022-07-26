@@ -3,6 +3,7 @@ import {
   useRef,
   useState,
   useCallback,
+  useMemo,
   useEffect,
   getRefValue
 } from '../uiApi';
@@ -60,8 +61,7 @@ const _crInitialStateFromProps = ({
   value: '',
   initialOptions: options,
   options: options,
-  optionNames: optionNames || optionName || '',
-  isValidDomOptionsCache: false
+  optionNames: optionNames || optionName || ''
 });
 
 const FN_NOOP = () => {};
@@ -98,18 +98,8 @@ const InputSelect = (
   } = props
   , _refArrowCell = useRef()
   , _refDomInputText = useRef()
-  , _refOptionsComp = useRef()
+  , _refOptionsElement = useRef()
   , _refIndexNode = useRef()
-  , [
-    setOptionsCache,
-    getOptionsCache
-  ] = useProperty(null)
-  /*
-  , [
-    setOptionsCacheLength,
-    getOptionsCacheLength
-  ] = useProperty(0)
-  */
   , [
     setActiveIndexOption,
     getActiveIndexOption
@@ -119,7 +109,6 @@ const InputSelect = (
     setState
   ] = useState(() => _crInitialStateFromProps(props))
   , {
-    isValidDomOptionsCache,
     value,
     options,
     initialOptions
@@ -128,38 +117,44 @@ const InputSelect = (
     isShowOption,
     toggleIsShowOption
   ] = useToggle(false)
+
   /*eslint-disable react-hooks/exhaustive-deps */
   , _setStateToInit = useCallback(() => {
     setState(() => _crInitialStateFromProps(props))
     toggleIsShowOption(false)
-    setOptionsCache(null)
-    //setOptionsCacheLength(0)
     setActiveIndexOption(0)
   }, [props])
+  // toggleIsShowOption, setActiveIndexOption
   /*eslint-enable react-hooks/exhaustive-deps */
-  , _getActiveItemComp = useCallback(() =>{
-    return ((getRefValue(_refOptionsComp) || {}).childNodes || [])[getActiveIndexOption()];
-  }, [getActiveIndexOption])
+
+  /*eslint-disable react-hooks/exhaustive-deps */
+  , _getActiveElement = useCallback(() => {
+    return ((getRefValue(_refOptionsElement) || {}).childNodes || [])[getActiveIndexOption()];
+  }, [])
+  // getActiveIndexOption
+  /*eslint-enable react-hooks/exhaustive-deps */
+
   , [
-    _decorateActiveRowComp,
-    _undecorateActiveRowComp
+    _decorateActiveElement,
+    _undecorateActiveElement
   ] = useOptionDecorator(
       _refIndexNode,
-      _getActiveItemComp
+      _getActiveElement
     )
   , _hInputChange = (event) => {
     const token = event.target.value
     , tokenLn = token.length
-    , valueLn = value.length
+    , valueLn = value.length;
     if (tokenLn !== valueLn){
       const _activeIndexOption = getActiveIndexOption();
       if (_activeIndexOption !== 0) {
-        _undecorateActiveRowComp()
+        _undecorateActiveElement()
         setActiveIndexOption(0)
       }
-      setState({
+
+      setState(prevState => ({
+        ...prevState,
         value: token,
-        isValidDomOptionsCache: false,
         options: crFilteredOptions(
           token,
           tokenLn > valueLn
@@ -168,7 +163,7 @@ const InputSelect = (
           propCaption,
           isWithInput
         )
-      })
+      }))
       toggleIsShowOption(true)
     }
   }
@@ -176,10 +171,10 @@ const InputSelect = (
     _stepDownOption,
     _stepUpOption
   ] = useStepHandlers(
-    _refOptionsComp,
-    _getActiveItemComp,
-    _decorateActiveRowComp,
-    _undecorateActiveRowComp,
+    _refOptionsElement,
+    _getActiveElement,
+    _decorateActiveElement,
+    _undecorateActiveElement,
     setActiveIndexOption,
     getActiveIndexOption
   )
@@ -202,8 +197,7 @@ const InputSelect = (
               toggleIsShowOption(false)
               setState(prevState => ({
                 ...prevState,
-                value: item[propCaption],
-                isValidDomOptionsCache: true
+                value: item[propCaption]
               }));
             }
          } else {
@@ -216,7 +210,7 @@ const InputSelect = (
         if (isShowOption){
           toggleIsShowOption(false)
         } else {
-          _undecorateActiveRowComp();
+          _undecorateActiveElement();
           _setStateToInit()
           onSelect();
         }
@@ -240,9 +234,10 @@ const InputSelect = (
       default: return;
     }
   }
+
   /*eslint-disable react-hooks/exhaustive-deps */
   , _hClickItem = useCallback((item, event) => {
-    _undecorateActiveRowComp()
+    _undecorateActiveElement()
     setActiveIndexOption(getDataIndex(event.currentTarget))
 
     toggleIsShowOption(false)
@@ -252,32 +247,25 @@ const InputSelect = (
     }))
     onSelect(item);
   }, [])
+  // _undecorateActiveElement, setActiveIndexOption
+  // toggleIsShowOption
   /*eslint-enable react-hooks/exhaustive-deps */
 
-  , _createDomOptionsWithCache = () => {
-    const _domOptions = isValidDomOptionsCache
-      ? getOptionsCache()
-      : (<OptionStack
-           options={options}
-           indexActiveOption={getActiveIndexOption()}
-           propCaption={propCaption}
-           ItemOptionComp={ItemOptionComp}
-           onClick={_hClickItem}
-         />);
-    setOptionsCache(_domOptions)
-    //setOptionsCacheLength(options.length)
-    return _domOptions;
-  }
-  /*
-  , _hClickBtUp = useCallback(() => {
-    _stepUpOption(getOptionsCacheLength())
-  }, [])
-  , _hClickBtDown = useCallback(() => {
-    _stepDownOption(getOptionsCacheLength())
-  }, [])
-  */
+  /*eslint-disable react-hooks/exhaustive-deps */
+  , domOptions = useMemo(() => (<OptionStack
+       options={options}
+       indexActiveOption={getActiveIndexOption()}
+       propCaption={propCaption}
+       ItemOptionComp={ItemOptionComp}
+       onClick={_hClickItem}
+     />
+    ), [options])
+    // getActiveIndexOption, _hClickItem
+    // propCaption, ItemOptionComp
+    /*eslint-enable react-hooks/exhaustive-deps */
+
   , clearInput = () => {
-    _undecorateActiveRowComp()
+    _undecorateActiveElement()
     onSelect()
     _setStateToInit()
   };
@@ -285,12 +273,12 @@ const InputSelect = (
   /*eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
     if (isShowOption) {
-      const comp = _getActiveItemComp();
-      _decorateActiveRowComp(comp);
+      const comp = _getActiveElement();
+      _decorateActiveElement(comp);
       _makeVisibleActiveRowComp(comp);
     }
   }, [isShowOption])
-  // _decorateActiveRowComp, _getActiveItemComp
+  // _decorateActiveElement, _getActiveElement
   /*eslint-enable react-hooks/exhaustive-deps */
 
   const indexActiveOption = getActiveIndexOption()
@@ -304,7 +292,6 @@ const InputSelect = (
      _refArrowCell,
      toggleIsShowOption
    )
-  , domOptions = _createDomOptionsWithCache()
   , [
     nFiltered,
     nAll
@@ -332,7 +319,7 @@ const InputSelect = (
       {afterInputEl}
       <hr className={CL_INPUT_HR} />
       {isShowOption && <DivOptions
-          refOptionsComp={_refOptionsComp}
+          refOptionsComp={_refOptionsElement}
           refIndexNode={_refIndexNode}
           rootOptionsStyle={rootOptionsStyle}
           width={width}

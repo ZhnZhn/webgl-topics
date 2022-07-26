@@ -2,15 +2,10 @@
 
 exports.__esModule = true;
 exports["default"] = void 0;
-var DF_OPTIONS = [];
 
 var _crFilteredOptions = function _crFilteredOptions(options, value, caption) {
-  if (options === void 0) {
-    options = DF_OPTIONS;
-  }
-
   var valueFor = value.toLowerCase();
-  return options.filter(function (option) {
+  return (options || []).filter(function (option) {
     return option[caption].toLowerCase().indexOf(valueFor) !== -1;
   });
 };
