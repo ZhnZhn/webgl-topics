@@ -3,7 +3,6 @@ node_modules
 _start_server.bat
 lint.txt
 npm-debug.log
-lib-dev
 min-css.js
 dev
 webpack.dev.js
