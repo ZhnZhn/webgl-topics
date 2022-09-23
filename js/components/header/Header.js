@@ -11,7 +11,7 @@ var _AppLabel = _interopRequireDefault(require("./AppLabel"));
 
 var _GitHubLink = _interopRequireDefault(require("./GitHubLink"));
 
-var _jsxRuntime = require("react/jsx-runtime");
+var _jsxRuntime = require("preact/jsx-runtime");
 
 var TITLE = 'WebGL Topics v0.2.0';
 var HEADER = "header",
@@ -20,19 +20,19 @@ var HEADER = "header",
     CL_GITHUB_LINK = HEADER + "__github-link";
 
 var Header = function Header() {
-  return /*#__PURE__*/(0, _jsxRuntime.jsxs)("header", {
+  return (0, _jsxRuntime.jsxs)("header", {
     className: "header",
     role: "banner",
-    children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_IconAppLogo["default"], {
+    children: [(0, _jsxRuntime.jsx)(_IconAppLogo["default"], {
       className: CL_ICON_APP,
       title: TITLE
-    }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_AppLabel["default"], {
+    }), (0, _jsxRuntime.jsx)(_AppLabel["default"], {
       className: CL_LABEL_APP,
       caption: TITLE
-    }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_GitHubLink["default"], {
+    }), (0, _jsxRuntime.jsx)(_GitHubLink["default"], {
       className: CL_GITHUB_LINK,
-      title: "GitHub Repository",
-      href: "https://github.com/zhnzhn/webgl-topics/"
+      href: "https://github.com/zhnzhn/webgl-topics/",
+      ariaLabel: "GitHub Repository"
     })]
   });
 };

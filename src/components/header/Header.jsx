@@ -21,8 +21,8 @@ const Header = () => (
     />
     <GitHubLink
        className={CL_GITHUB_LINK}
-       title="GitHub Repository"
        href="https://github.com/zhnzhn/webgl-topics/"
+       ariaLabel="GitHub Repository"
     />
   </header>
 )
