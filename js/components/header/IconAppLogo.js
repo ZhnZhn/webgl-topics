@@ -1,27 +1,30 @@
 "use strict";
 
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
 exports.__esModule = true;
 exports["default"] = void 0;
 
-var _jsxRuntime = require("react/jsx-runtime");
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
+
+var _SvgStyle = require("./SvgStyle");
+
+var _jsxRuntime = require("preact/jsx-runtime");
 
 var IconAppLogo = function IconAppLogo(_ref) {
   var className = _ref.className,
       title = _ref.title;
-  return /*#__PURE__*/(0, _jsxRuntime.jsx)("span", {
+  return (0, _jsxRuntime.jsx)("span", {
     className: className,
     title: title,
-    children: /*#__PURE__*/(0, _jsxRuntime.jsxs)("svg", {
+    children: (0, _jsxRuntime.jsxs)("svg", (0, _extends2["default"])({}, _SvgStyle.S_SVG, {
       viewBox: "0 0 32 32",
       xmlns: "http://www.w3.org/2000/svg",
-      fillRule: "evenodd",
-      clipRule: "evenodd",
-      strokeLinejoin: "round",
       strokeMiterlimit: "2",
       strokeWidth: "2",
-      children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("title", {
+      children: [(0, _jsxRuntime.jsx)("title", {
         children: title
-      }), /*#__PURE__*/(0, _jsxRuntime.jsx)("rect", {
+      }), (0, _jsxRuntime.jsx)("rect", {
         ry: "1.8825414",
         rx: "194.14471",
         y: "1.434558",
@@ -30,7 +33,7 @@ var IconAppLogo = function IconAppLogo(_ref) {
         width: "10.85316",
         fill: "#8ecc2d",
         stroke: "#8ecc2d"
-      }), /*#__PURE__*/(0, _jsxRuntime.jsx)("rect", {
+      }), (0, _jsxRuntime.jsx)("rect", {
         ry: "1.87537",
         rx: "204.478",
         y: "16.639841",
@@ -39,7 +42,7 @@ var IconAppLogo = function IconAppLogo(_ref) {
         width: "18.307165",
         fill: "#232f3b",
         stroke: "#232f3b"
-      }), /*#__PURE__*/(0, _jsxRuntime.jsx)("rect", {
+      }), (0, _jsxRuntime.jsx)("rect", {
         ry: "1.87537",
         rx: "204.478",
         y: "3.4229634",
@@ -49,7 +52,7 @@ var IconAppLogo = function IconAppLogo(_ref) {
         fill: "#a487d4",
         stroke: "#a487d4"
       })]
-    })
+    }))
   });
 };
 

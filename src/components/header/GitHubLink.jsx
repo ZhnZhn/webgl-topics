@@ -1,3 +1,5 @@
+import { S_SVG } from './SvgStyle';
+
 const GitHubLink = ({
   className,
   href,
@@ -8,10 +10,10 @@ const GitHubLink = ({
     className={className}
     href={href}
   >
-    <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"
-        fillRule="evenodd"
-        clipRule="evenodd"
-        strokeLinejoin="round"
+    <svg
+        {...S_SVG}
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
         strokeMiterlimit="1.414"
         aria-hidden="true"
      >

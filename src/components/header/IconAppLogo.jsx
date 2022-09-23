@@ -1,3 +1,4 @@
+import { S_SVG } from './SvgStyle';
 
 const IconAppLogo = ({
   className,
@@ -7,12 +8,12 @@ const IconAppLogo = ({
      className={className}
      title={title}
   >
-    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"
-         fillRule="evenodd"
-         clipRule="evenodd"
-         strokeLinejoin="round"
-         strokeMiterlimit="2"
-         strokeWidth="2"
+    <svg
+      {...S_SVG}
+      viewBox="0 0 32 32"
+      xmlns="http://www.w3.org/2000/svg"
+      strokeMiterlimit="2"
+      strokeWidth="2"
     >
       <title>{title}</title>
       <rect

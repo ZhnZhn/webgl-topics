@@ -1,0 +1,14 @@
+{
+ "version": 3,
+ "sources": [
+  "../../../src/components/header/SvgStyle.js"
+ ],
+ "file": "../../../src/components/header/SvgStyle.js",
+ "names": [
+  "S_SVG",
+  "fillRule",
+  "clipRule",
+  "strokeLinejoin"
+ ],
+ "mappings": ";;;;AAAO,IAAMA,KAAK,GAAG;EACnBC,QAAQ,EAAE,SADS;EAEnBC,QAAQ,EAAE,SAFS;EAGnBC,cAAc,EAAE;AAHG,CAAd"
+}
