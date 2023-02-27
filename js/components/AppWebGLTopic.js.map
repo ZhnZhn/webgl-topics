@@ -1,1 +1,26 @@
-{"version":3,"sources":["../../src/components/AppWebGLTopic.jsx"],"names":["AppWebGLTopic","store"],"mappings":";;;;;;;AAAA;;AACA;;AACA;;AACA;;;;AAEA,IAAMA,aAAa,GAAG,SAAhBA,aAAgB;AAAA,MAAGC,KAAH,QAAGA,KAAH;AAAA,sBACpB;AAAK,IAAA,SAAS,EAAC,KAAf;AAAqB,IAAA,IAAI,EAAC,aAA1B;AAAA,4BACE,qBAAC,kBAAD,KADF,eAEE,qBAAC,qBAAD;AAAW,MAAA,KAAK,EAAEA;AAAlB,MAFF,eAGE,qBAAC,gBAAD;AAAc,MAAA,KAAK,EAAEA;AAArB,MAHF,eAIE,qBAAC,kBAAD,KAJF;AAAA,IADoB;AAAA,CAAtB;;eAUeD,a","sourcesContent":["import Header from './header/Header';\r\nimport TopicMenu from './topic-menu/TopicMenu';\r\nimport TopicWrapper from './topics/Main';\r\nimport Footer from './footer/Footer';\r\n\r\nconst AppWebGLTopic = ({ store }) => (\r\n  <div className=\"app\" role=\"application\">\r\n    <Header />\r\n    <TopicMenu store={store} />\r\n    <TopicWrapper store={store} />\r\n    <Footer />\r\n  </div>\r\n);\r\n\r\n\r\nexport default AppWebGLTopic\r\n"],"file":"AppWebGLTopic.js"}
+{
+ "version": 3,
+ "sources": [
+  "../../src/components/AppWebGLTopic.js"
+ ],
+ "file": "../../src/components/AppWebGLTopic.js",
+ "names": [
+  "_Header",
+  "_interopRequireDefault",
+  "require",
+  "_TopicMenu",
+  "_Main",
+  "_jsxRuntime",
+  "AppWebGLTopic",
+  "_ref",
+  "store",
+  "jsxs",
+  "className",
+  "role",
+  "children",
+  "jsx",
+  "_default",
+  "exports"
+ ],
+ "mappings": ";;;;;AAAA,IAAAA,OAAA,GAAAC,sBAAA,CAAAC,OAAA;AACA,IAAAC,UAAA,GAAAF,sBAAA,CAAAC,OAAA;AACA,IAAAE,KAAA,GAAAH,sBAAA,CAAAC,OAAA;AAAyC,IAAAG,WAAA,GAAAH,OAAA;AAEzC,IAAMI,aAAa,GAAG,SAAhBA,aAAaA,CAAAC,IAAA;EAAA,IACjBC,KAAK,GAAAD,IAAA,CAALC,KAAK;EAAA,OAEL,IAAAH,WAAA,CAAAI,IAAA;IAAKC,SAAS,EAAC,KAAK;IAACC,IAAI,EAAC,aAAa;IAAAC,QAAA,GACrC,IAAAP,WAAA,CAAAQ,GAAA,EAACb,OAAA,WAAM,KAAG,EACV,IAAAK,WAAA,CAAAQ,GAAA,EAACV,UAAA,WAAS;MAACK,KAAK,EAAEA;IAAM,EAAG,EAC3B,IAAAH,WAAA,CAAAQ,GAAA,EAACT,KAAA,WAAY;MAACI,KAAK,EAAEA;IAAM,EAAG;EAAA,EAC1B;AAAA,CACP;AAAC,IAAAM,QAAA,GAEaR,aAAa;AAAAS,OAAA,cAAAD,QAAA"
+}
