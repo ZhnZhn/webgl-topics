@@ -10,7 +10,7 @@ const HEADER = "header"
 , CL_GITHUB_LINK = `${HEADER}__github-link`;
 
 const Header = () => (
-  <header className="header" role="banner">
+  <header className="header">
     <IconAppLogo
       className={CL_ICON_APP}
       title={TITLE}
