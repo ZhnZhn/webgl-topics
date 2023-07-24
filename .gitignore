@@ -5,4 +5,5 @@ lint.txt
 npm-debug.log
 min-css.js
 dev
+index-dev.ejs
 webpack.dev.js
