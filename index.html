@@ -6,7 +6,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge" >
   <meta http-equiv="Content-Security-Policy" content="
 default-src 'self'; 
-style-src 'self' 'sha256-zl8zWcuqqXu6bMMmpKXwMN6diRMi/Rbhadw3gkcLOJU=' 'sha256-rTZfewJSSSOM5g9ACuBY+VoGRs1GqgJDJ7zjTDPI554=';  
+style-src 'self' 'sha256-lOA1A8ZgSks31jfRVEWIKdzHxM9mJH35Qn05zejZOjg=' 'sha256-rTZfewJSSSOM5g9ACuBY+VoGRs1GqgJDJ7zjTDPI554=';  
 form-action 'none'; 
 require-trusted-types-for 'script';">
   <meta name="referrer" content="no-referrer" >
@@ -19,30 +19,14 @@ require-trusted-types-for 'script';">
   <base target="_blank">    
 
   <style>
-  [data-loader='circle']
-  {
-    width: 2.5em;
-    height: 2.5em;
-   -webkit-animation: circle infinite 1.25s linear;
-      -moz-animation: circle infinite 0.75s linear;
-        -o-animation: circle infinite 1.25s linear;
-           animation: circle infinite 1.25s linear;
-   border: 3px solid rgba(164, 135, 212, 1);
-   border-top-color: transparent;
-   border-radius: 100%;
- }
-@-webkit-keyframes circle
-{ 100% {
-  -webkit-transform: rotate(360deg);
-          transform: rotate(360deg);
-} }
-@-moz-keyframes circle
-{ 100% { transform: rotate(360deg);}}
-@-o-keyframes circle
-{ 100% {
-  -o-transform: rotate(360deg);
-    transform: rotate(360deg);
-} }
+[data-loader='circle'] {
+  width: 2.5em;
+  height: 2.5em;   
+  animation: circle infinite 1.25s linear;
+  border: 3px solid rgba(164, 135, 212, 1);
+  border-top-color: transparent;
+  border-radius: 100%;
+}
 @keyframes circle
 { 100% {transform: rotate(360deg);}}
 
@@ -51,7 +35,7 @@ require-trusted-types-for 'script';">
   top : 5%;
   left: 40%;
   background-color: rgb(77, 77, 77);
-  border: solid 2px #232F3B;
+  border: solid 2px #232f3b;
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 0px 6px;
   z-index: 100;
@@ -66,13 +50,13 @@ require-trusted-types-for 'script';">
    margin: 0.5em auto;
 }
 .spinner__descr {
-   position: absolute;
-   bottom: 0.2em;
-   left: 2em;
-   color: grey;
-   font-family: Roboto, Arial, Lato, sans-serif;
-   font-size: 1em;
-   font-weight: bold;
+  position: absolute;
+  bottom: 0.2em;
+  left: 2em;
+  color: grey;
+  font-family: "Roboto", Arial, Lato, sans-serif;
+  font-size: 1em;
+  font-weight: bold;
 }
 #app_name {
   color: #80c040;
@@ -123,9 +107,9 @@ require-trusted-types-for 'script';">
         </div>
       </div>
    </noscript>
-
-   <script src="app/lib_e1bbcefb0f13abe4ab13.js" defer></script> 
-   <script src="app/app_f643952b72f1d2811947.js" defer></script>    
+   
+   <script src="app/app_2a34ab1337d7922b224d.js" defer></script>    
+   <script src="app/lib_12d05cf9d6ced3e0966f.js" defer></script>    
 
 </body>
 </html>
