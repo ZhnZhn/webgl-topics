@@ -2,7 +2,7 @@ import IconAppLogo from './IconAppLogo';
 import AppLabel from './AppLabel';
 import GitHubLink from './GitHubLink';
 
-const TITLE = 'WebGL Topics v0.2.0';
+const TITLE = 'WebGL Topics v0.3.0';
 
 const HEADER = "header"
 , CL_ICON_APP = `${HEADER}__icon-app`
