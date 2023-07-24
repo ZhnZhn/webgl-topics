@@ -1,0 +1,24 @@
+{
+ "version": 3,
+ "sources": [
+  "../../src/flux/useWebGLStore.js"
+ ],
+ "file": "../../src/flux/useWebGLStore.js",
+ "names": [
+  "_zustand",
+  "require",
+  "_ID",
+  "useWebGLStore",
+  "create",
+  "set",
+  "topicId",
+  "ID_RANDOM_TRIANGLES",
+  "setTopicId",
+  "id",
+  "useTopicId",
+  "state",
+  "exports",
+  "getState"
+ ],
+ "mappings": ";;;;AAAA,IAAAA,QAAA,GAAAC,OAAA;AAEA,IAAAC,GAAA,GAAAD,OAAA;AAIA,MAAME,aAAa,GAAG,IAAAC,eAAM,EAAEC,GAAG,KAAM;EACrCC,OAAO,EAAEC,uBAAmB;EAC5BC,UAAU,EAAGC,EAAE,IAAKJ,GAAG,CAAC;IAAEC,OAAO,EAAEG;EAAG,CAAC;AACzC,CAAC,CAAC,CAAC;AAEI,MAAMC,UAAU,GAAGA,CAAA,KAAMP,aAAa,CAACQ,KAAK,IAAIA,KAAK,CAACL,OAAO,CAAC;AAAAM,OAAA,CAAAF,UAAA,GAAAA,UAAA;AAC9D,MAAMF,UAAU,GAAGL,aAAa,CAACU,QAAQ,CAAC,CAAC,CAACL,UAAU;AAAAI,OAAA,CAAAJ,UAAA,GAAAA,UAAA"
+}

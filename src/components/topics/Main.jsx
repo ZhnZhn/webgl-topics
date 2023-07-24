@@ -1,12 +1,9 @@
 import {
   useRef,
-  useState,
   useMemo
 } from '../uiApi';
 
-import useListen from '../hooks/useListen';
-
-import { RouterTopicActionTypes } from '../../flux/actions/RouterTopicActions';
+import { useTopicId } from '../../flux/useWebGLStore';
 
 import factoryTopic from './factoryTopic';
 import PanelConfigGL from '../panel-config-gl/PanelConfigGL';
@@ -14,32 +11,29 @@ import PanelConfigGL from '../panel-config-gl/PanelConfigGL';
 const CL_CONTAINER = 'container'
 , CL_CONTENT = `${CL_CONTAINER}__content`;
 
-const TopicWrapper = ({
-  store
-}) => {
-  const [
-    topicId,
-    setTopicId
-  ] = useState()
+const TopicWrapper = () => {
+  const topicId = useTopicId()
   , refComp = useRef(null)
-  , getComponentTopic = useMemo(() => () => refComp.current, [])
+  , getComponentTopic = useMemo(
+    () => () => refComp.current,
+    []
+  )
   , {
     Comp,
     props:compProps
-  } = useMemo(() => factoryTopic(topicId), [topicId])
-  , { valuesForInit } = compProps;
-
-  useListen(store, (actionType, state) => {
-    if (actionType === RouterTopicActionTypes.VIEW_TOPIC){
-      setTopicId(state.topicId)
-    }
-  })
+  } = useMemo(
+    () => factoryTopic(topicId),
+    [topicId]
+  )
+  , {
+    valuesForInit
+  } = compProps;
 
   return (
     <div className={CL_CONTAINER} role="document">
       <main className={CL_CONTENT} role="main">
         <div className="row">
-          <Comp          
+          <Comp
              {...compProps}
              ref={refComp}
              key={compProps.key}
@@ -53,13 +47,5 @@ const TopicWrapper = ({
     </div>
   );
 }
-
-/*
-TopicWrapper. propTypes = {
-  store: PropTypes.shape({
-    listen: PropTypes.func
-  })
-}
-*/
 
 export default TopicWrapper

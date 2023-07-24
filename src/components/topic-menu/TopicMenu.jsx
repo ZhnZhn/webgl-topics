@@ -1,8 +1,4 @@
-import { useState } from '../uiApi';
-
-import useListen from '../hooks/useListen';
-
-import { RouterTopicActionTypes } from '../../flux/actions/RouterTopicActions';
+import { useTopicId } from '../../flux/useWebGLStore';
 
 import Menu from '../zhn-moleculs/Menu';
 import menuModel from './menuModel';
@@ -14,20 +10,8 @@ const SIDEBAR = "sidebar"
 , S_MENU = { borderRight: '1px solid black' }
 , S_MENU_TOGGLE = { paddingLeft: 6 };
 
-const TopicMenu = ({
-  store
-}) => {
-  const [
-    topicId,
-    setTopicId
-  ] = useState(store.state.topicId)
-
-  useListen(store, (actionType, state) => {
-    if (actionType === RouterTopicActionTypes.VIEW_TOPIC){
-      setTopicId(state.topicId)
-    }
-  })
-
+const TopicMenu = () => {
+  const topicId = useTopicId();
   return (
     <section className={CL_SIDEBAR}>
       <div className={CL_SIDEBAR_MENU} role="navigation">

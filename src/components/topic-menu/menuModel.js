@@ -6,7 +6,7 @@ import {
   ID_CUBE_WITH_LIGHT,
   ID_CUBE_TRANSPARENT
 } from '../topics/ID';
-import Actions from '../../flux/actions/RouterTopicActions'
+import { setTopicId } from '../../flux/useWebGLStore';
 
 const _crItem = (
   id,
@@ -14,7 +14,7 @@ const _crItem = (
 ) => ({
   id,
   title,
-  onClick: () => Actions.viewTopic(id)
+  onClick: () => setTopicId(id)
 })
 
 const ITEM_CONFIG = [
