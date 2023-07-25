@@ -1,26 +1,25 @@
 .not-selected {
   -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none;   /* Chrome all / Safari all / Opera */
-  -khtml-user-select: none;    /* Konqueror */
-  -moz-user-select: none;      /* Firefox all */
-  -ms-user-select: none;       /* IE 10+ */
+  -webkit-user-select: none;   /* Chrome all / Safari all / Opera */  
   user-select: none;           /* Likely future */
 }
 
 .row__topic {
   line-height: 2.2;  
   color: black;  
-  padding-left: 18px;
+  margin-left: 1px;
+  padding-left: 9px;
   font-size: 16px;
   font-weight: bold;
-  border-bottom: 2px solid transparent;
+  border-left: 4px solid transparent;  
   cursor: pointer;
 }
 .row__topic:hover {
-  border-bottom: 2px solid #1b75bb;
-}
+  border-left: 4px solid rgb(27, 117, 187);
+}   
+
 .row__topic:focus,
 .row__topic:active {
   outline: none;
-  background-color: rgba(0, 0, 0, 0.15);  
+  background-color: rgba(0, 0, 0, 0.3);  
 }
