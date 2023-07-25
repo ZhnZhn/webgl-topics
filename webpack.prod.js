@@ -18,8 +18,7 @@ module.exports = {
        "preact",
        "preact/compat",       
        "zustand",
-       "gl-matrix",
-       "big.js"
+       "gl-matrix"
     ],
   },
   output: {

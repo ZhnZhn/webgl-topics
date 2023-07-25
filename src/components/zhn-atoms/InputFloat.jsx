@@ -1,4 +1,4 @@
-import Big from 'big.js';
+import Decimal from '../../math/decimal-light/decimalLight';
 import {
   forwardRef,
   useRef,
@@ -82,7 +82,7 @@ const _calcMode = (
         : 2;
 
 const _crInitialState = ({
-  initialValue='0',
+  initialValue='0'
 }) => ({
   mode: isFloat(initialValue) ? 2 : 0,
   value: initialValue,
@@ -131,7 +131,7 @@ const InputFloat = forwardRef((
     }
   }
   , _increaseOnStep = () => {
-    const nextValue = (new Big(value)).plus(step).toString()
+    const nextValue = (new Decimal(value)).add(step).toString()
     , nextMode = _calcMode(initedValue, nextValue)
     _callOnChangeMode(nextMode);
     setState(prevState => _crNextState(
@@ -141,7 +141,7 @@ const InputFloat = forwardRef((
     ))
   }
   , _decreaseOnStep = () => {
-    const nextValue = (new Big(value)).minus(step).toString()
+    const nextValue = (new Decimal(value)).sub(step).toString()
     , nextMode = _calcMode(initedValue, nextValue)
     _callOnChangeMode(nextMode);
     setState(prevState => _crNextState(
