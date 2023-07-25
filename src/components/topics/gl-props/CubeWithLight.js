@@ -1,8 +1,9 @@
-import fnGL from '../gl-fn/fnGL'
+import fnGL from '../gl-fn/fnGL';
+import { crTopicLink } from './helperFn';
 
 
 const CubeWithLight = {
-  vertexShaderCode : `
+  vertexShaderCode: `
   attribute vec4 coords;
   uniform mat4 transformMatrix;
   uniform mat4 perspectiveMatrix;
@@ -23,7 +24,7 @@ const CubeWithLight = {
   }
   `,
 
-  fragmentShaderCode : `
+  fragmentShaderCode: `
   precision mediump float;
   varying vec4 varyingColors;
   void main(void) {
@@ -31,19 +32,14 @@ const CubeWithLight = {
   }
   `,
 
-  valuesForInit : {
-    zMatrixTranslate : -4,
-    isWithoutPointSize : true,
-    isDrawElemnts : true,
-    topicLink : {
-      type : 'EGGHEAD',
-      title : 'Egghead: Build Complex 3D models with WebGL',
-      href : 'https://egghead.io/courses/build-complex-3d-models-with-webgl',
-      isPro : true
-    }
+  valuesForInit: {
+    zMatrixTranslate: -4,
+    isWithoutPointSize: true,
+    isDrawElemnts: true,
+    topicLink: crTopicLink()
   },
 
-  createVertices : (target) => {
+  createVertices: (target) => {
     const vertices = target.vertices = [
   -1, -1, -1,
    1, -1, -1,
@@ -56,7 +52,7 @@ const CubeWithLight = {
 ];
 
 target.vertexCount = vertices.length / 3;
-const { gl, shaderProgram } = target
+const { gl, shaderProgram } = target;
 
 target.buffer = fnGL.createBuffer(gl, new Float32Array(vertices))
 fnGL.createAttrib(
@@ -86,7 +82,7 @@ fnGL.createAttrib(
 
   },
 
- createIndices : (target) => {
+ createIndices: (target) => {
    const indices = target.indices = [
     0, 1, 2,   1, 2, 3,
     2, 3, 4,   3, 4, 5,
@@ -102,8 +98,8 @@ fnGL.createAttrib(
   )
 },
 
-clearBuffers : (target) => {
-  const { gl, buffer, indexBuffer } = target
+clearBuffers: (target) => {
+  const { gl, buffer, indexBuffer } = target;
   gl.deleteBuffer(buffer);
   gl.deleteBuffer(indexBuffer)
 }

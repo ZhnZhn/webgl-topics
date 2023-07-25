@@ -1,4 +1,5 @@
-import fnGL from '../gl-fn/fnGL'
+import fnGL from '../gl-fn/fnGL';
+import { crTopicLink } from './helperFn';
 
 const _fnAddVertice = (vertices, i) => {
   vertices.push(Math.cos(i))
@@ -14,17 +15,12 @@ const _fnAddColor = (vertices, i) => {
 }
 
 const Plane = {
-  valuesForInit : {
-    drawMode : "TRIANGLE_FAN",
-    topicLink : {
-      type : 'EGGHEAD',
-      title : 'Egghead: Build Complex 3D models with WebGL',
-      href : 'https://egghead.io/courses/build-complex-3d-models-with-webgl',
-      isPro : true
-    }
+  valuesForInit: {
+    drawMode: "TRIANGLE_FAN",
+    topicLink: crTopicLink()
   },
 
-  createVertices : (target) => {
+  createVertices: (target) => {
     const vertices = target.vertices = [];
     //vertices.push( 0, 0, 0,  0, 0, 0, 1);
     vertices.push( 0, 0.9, 0.3,  1, 1, 1, 1);
@@ -38,7 +34,7 @@ const Plane = {
 
     target.vertexCount = vertices.length / 7;
 
-    const { gl, shaderProgram } = target
+    const { gl, shaderProgram } = target;
     target.buffer = fnGL.createBuffer(gl, new Float32Array(vertices))
     fnGL.createAttrib(
         gl, shaderProgram, "coords", 3,
@@ -51,8 +47,8 @@ const Plane = {
     );
 },
 
- clearBuffers : (target) => {
-   const { gl, buffer } = target
+ clearBuffers: (target) => {
+   const { gl, buffer } = target;
    gl.deleteBuffer(buffer)
  }
 }

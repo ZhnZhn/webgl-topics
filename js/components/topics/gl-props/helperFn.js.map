@@ -1,0 +1,15 @@
+{
+ "version": 3,
+ "sources": [
+  "../../../../src/components/topics/gl-props/helperFn.js"
+ ],
+ "file": "../../../../src/components/topics/gl-props/helperFn.js",
+ "names": [
+  "crTopicLink",
+  "type",
+  "title",
+  "href",
+  "exports"
+ ],
+ "mappings": ";;;;AAAO,MAAMA,WAAW,GAAGA,CAAA,MAAO;EAChCC,IAAI,EAAE,SAAS;EACfC,KAAK,EAAE,6CAA6C;EACpDC,IAAI,EAAE;AACR,CAAC,CAAC;AAAAC,OAAA,CAAAJ,WAAA,GAAAA,WAAA"
+}

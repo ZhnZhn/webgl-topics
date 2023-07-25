@@ -1,17 +1,13 @@
 import fnGL from '../gl-fn/fnGL';
+import { crTopicLink } from './helperFn';
 
 const CoronaSample = {
 
   valuesForInit : {
-    topicLink : {
-      type : 'EGGHEAD',
-      title : 'Egghead: Build Complex 3D models with WebGL',
-      href : 'https://egghead.io/courses/build-complex-3d-models-with-webgl',
-      isPro : true
-    }
+    topicLink : crTopicLink()
   },
 
-  createVertices : (target) => {
+  createVertices: (target) => {
     const vertices = target.vertices = [
       0.88, -0.25, -0.18,  1, 0, 0, 1,
       0.9, 0.25, 0,        1, 0, 0, 1,
@@ -36,7 +32,7 @@ const CoronaSample = {
 
     target.vertexCount = vertices.length / 7
 
-    const { gl, shaderProgram } = target
+    const { gl, shaderProgram } = target;
 
     target.buffer = fnGL.createBuffer(gl, new Float32Array(vertices))
     fnGL.createAttrib(
@@ -50,8 +46,8 @@ const CoronaSample = {
     );
   },
 
-  clearBuffers : (target) => {
-    const { gl, buffer } = target
+  clearBuffers: (target) => {
+    const { gl, buffer } = target;
     gl.deleteBuffer(buffer)
   }
 };

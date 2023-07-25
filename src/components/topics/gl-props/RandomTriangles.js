@@ -1,27 +1,26 @@
 import fnGL from '../gl-fn/fnGL';
+import { crTopicLink } from './helperFn';
+
+const _mathRandom = Math.random;
 
 const RandomTriangles = {
-  valuesForInit : {
-    topicLink : {
-      type : 'EGGHEAD',
-      title : 'Egghead: Build Complex 3D models with WebGL',
-      href : 'https://egghead.io/courses/build-complex-3d-models-with-webgl'
-    }
+  valuesForInit: {
+    topicLink: crTopicLink()
   },
 
-  createVertices : (target) => {
+  createVertices: (target) => {
     const { gl, shaderProgram } = target
-        , vertices = target.vertices = []
-        , colors = target.colors = []
-        , vertexCount = target.vertexCount = 30;
+    , vertices = target.vertices = []
+    , colors = target.colors = []
+    , vertexCount = target.vertexCount = 30;
 
     for (var i=0; i< vertexCount; i++){
-      vertices.push(Math.random()*2 - 1);
-      vertices.push(Math.random()*2 - 1);
-      vertices.push(Math.random()*2 - 1);
-      colors.push(Math.random());
-      colors.push(Math.random());
-      colors.push(Math.random());
+      vertices.push(_mathRandom()*2 - 1);
+      vertices.push(_mathRandom()*2 - 1);
+      vertices.push(_mathRandom()*2 - 1);
+      colors.push(_mathRandom());
+      colors.push(_mathRandom());
+      colors.push(_mathRandom());
       colors.push(1);
     }
 
@@ -32,8 +31,8 @@ const RandomTriangles = {
     fnGL.createAttrib(gl, shaderProgram, "colors", 4)
   },
 
-  clearBuffers : (target) => {
-    const { gl, buffer, colorBuffer } = target
+  clearBuffers: (target) => {
+    const { gl, buffer, colorBuffer } = target;
     gl.deleteBuffer(buffer)
     gl.deleteBuffer(colorBuffer)
   }

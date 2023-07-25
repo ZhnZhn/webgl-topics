@@ -1,18 +1,14 @@
-import fnGL from '../gl-fn/fnGL'
+import fnGL from '../gl-fn/fnGL';
+import { crTopicLink } from './helperFn';
 
 const Cube = {
-  valuesForInit : {
-    zMatrixTranslate : -4,
-    isDrawElemnts : true,
-    topicLink : {
-      type : 'EGGHEAD',
-      title : 'Egghead: Build Complex 3D models with WebGL',
-      href : 'https://egghead.io/courses/build-complex-3d-models-with-webgl',
-      isPro : true
-    }
+  valuesForInit: {
+    zMatrixTranslate: -4,
+    isDrawElemnts: true,
+    topicLink: crTopicLink()
   },
 
-  createVertices : (target) => {
+  createVertices: (target) => {
     const vertices = target.vertices = [
       -1, -1, -1,   1, 0, 0, 1,
        1, -1, -1,   1, 1, 0, 1,
@@ -40,7 +36,7 @@ const Cube = {
     );
   },
 
- createIndices : (target) => {
+ createIndices: (target) => {
    const indices = target.indices = [
     0, 1, 2,   1, 2, 3,
     2, 3, 4,   3, 4, 5,
@@ -56,7 +52,7 @@ const Cube = {
   );
 },
 
-clearBuffers : (target) => {
+clearBuffers: (target) => {
   const { gl, buffer, indexBuffer } = target
   gl.deleteBuffer(buffer);
   gl.deleteBuffer(indexBuffer)
