@@ -10,7 +10,7 @@ var _PanelConfigGL = _interopRequireDefault(require("../panel-config-gl/PanelCon
 var _preact = require("preact");
 var _jsxRuntime = require("preact/jsx-runtime");
 const CL_CONTAINER = 'container',
-  CL_CONTENT = CL_CONTAINER + "__content";
+  CL_CONTENT = `${CL_CONTAINER}__content`;
 const TopicWrapper = () => {
   const topicId = (0, _useWebGLStore.useTopicId)(),
     refComp = (0, _uiApi.useRef)(null),
@@ -27,7 +27,6 @@ const TopicWrapper = () => {
     role: "document",
     children: (0, _jsxRuntime.jsx)("main", {
       className: CL_CONTENT,
-      role: "main",
       children: (0, _jsxRuntime.jsxs)("div", {
         className: "row",
         children: [(0, _preact.createElement)(Comp, {
@@ -42,6 +41,5 @@ const TopicWrapper = () => {
     })
   });
 };
-var _default = TopicWrapper;
-exports.default = _default;
+var _default = exports.default = TopicWrapper;
 //# sourceMappingURL=Main.js.map

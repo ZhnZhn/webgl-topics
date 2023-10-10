@@ -31,7 +31,7 @@ const TopicWrapper = () => {
 
   return (
     <div className={CL_CONTAINER} role="document">
-      <main className={CL_CONTENT} role="main">
+      <main className={CL_CONTENT}>
         <div className="row">
           <Comp
              {...compProps}
