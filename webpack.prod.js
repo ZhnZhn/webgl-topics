@@ -17,7 +17,6 @@ module.exports = {
     lib: [
        "preact",
        "preact/compat",       
-       "zustand",
        "gl-matrix"
     ],
   },

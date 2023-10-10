@@ -2,16 +2,19 @@
 
 exports.__esModule = true;
 exports.useTopicId = exports.setTopicId = void 0;
-var _zustand = require("zustand");
+var _storeApi = require("./storeApi");
 var _ID = require("../components/topics/ID");
-const useWebGLStore = (0, _zustand.create)(set => ({
-  topicId: _ID.ID_RANDOM_TRIANGLES,
-  setTopicId: id => set({
-    topicId: id
-  })
-}));
-const useTopicId = () => useWebGLStore(state => state.topicId);
-exports.useTopicId = useTopicId;
-const setTopicId = useWebGLStore.getState().setTopicId;
+const _crStore = () => ({
+    topicId: _ID.ID_RANDOM_TRIANGLES
+  }),
+  _store = (0, _storeApi.createStoreWithSelector)(_crStore),
+  _selectTopicId = state => state.topicId,
+  [_set] = (0, _storeApi.getStoreApi)(_store);
+const useTopicId = exports.useTopicId = (0, _storeApi.fUseStoreState)(_store, _selectTopicId);
+const setTopicId = topicId => {
+  _set({
+    topicId
+  });
+};
 exports.setTopicId = setTopicId;
 //# sourceMappingURL=useWebGLStore.js.map
