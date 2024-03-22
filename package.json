@@ -23,7 +23,7 @@
   "dependencies": {
     "@babel/runtime": "^7.24.1",
     "gl-matrix": "^3.4.3",
-    "preact": "^10.19.7"
+    "preact": "^10.20.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.24.1",
