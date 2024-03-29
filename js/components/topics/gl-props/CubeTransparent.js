@@ -1,13 +1,10 @@
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
-
 exports.__esModule = true;
-exports["default"] = void 0;
-
+exports.default = void 0;
 var _fnGL = _interopRequireDefault(require("../gl-fn/fnGL"));
-
-var CubeTransparent = {
+const CubeTransparent = {
   valuesForInit: {
     zMatrixTranslate: -4,
     isDrawElemnts: true,
@@ -19,37 +16,60 @@ var CubeTransparent = {
     minTrZ: -10,
     maxTrZ: -2
   },
-  createVertices: function createVertices(target) {
-    var vertices = target.vertices = [0, 0, 0, 1, 1, 1, 1, -1, -1, -1, 1, 0, 0, 1, //1df
-    1, -1, -1, 1, 1, 0, 1, //2df
-    -1, 1, -1, 1, 0, 0, 1, //3uf
-    1, 1, -1, 1, 1, 0, 1, //4uf
-    -1, -1, 1, 1, 0, 0, 1, //5dn
-    1, -1, 1, 1, 1, 0, 1, //6dn
-    -1, 1, 1, 1, 0, 0, 1, //7un
+  createVertices: target => {
+    const vertices = target.vertices = [
+    //0, 0, 0,     1, 1, 1, 1,
+    -1, -1, -1, 1, 0, 0, 1,
+    //1df
+    1, -1, -1, 1, 1, 0, 1,
+    //2df
+    -1, 1, -1, 1, 0, 0, 1,
+    //3uf
+    1, 1, -1, 1, 1, 0, 1,
+    //4uf
+    -1, -1, 1, 1, 0, 0, 1,
+    //5dn
+    1, -1, 1, 1, 1, 0, 1,
+    //6dn
+    -1, 1, 1, 1, 0, 0, 1,
+    //7un
     1, 1, 1, 1, 1, 0, 1 //8un
     ];
     target.vertexCount = vertices.length / 7;
-    var gl = target.gl,
-        shaderProgram = target.shaderProgram;
-    target.buffer = _fnGL["default"].createBuffer(gl, new Float32Array(vertices));
-
-    _fnGL["default"].createAttrib(gl, shaderProgram, "coords", 3, Float32Array.BYTES_PER_ELEMENT * 7, 0, false).createAttrib(gl, shaderProgram, "colors", 4, Float32Array.BYTES_PER_ELEMENT * 7, Float32Array.BYTES_PER_ELEMENT * 3);
+    const {
+      gl,
+      shaderProgram
+    } = target;
+    target.buffer = _fnGL.default.createBuffer(gl, new Float32Array(vertices));
+    _fnGL.default.createAttrib(gl, shaderProgram, "coords", 3, Float32Array.BYTES_PER_ELEMENT * 7, 0, false).createAttrib(gl, shaderProgram, "colors", 4, Float32Array.BYTES_PER_ELEMENT * 7, Float32Array.BYTES_PER_ELEMENT * 3);
   },
-  createIndices: function createIndices(target) {
-    var indices = target.indices = [0, 1, 0, 2, 0, 3, 0, 4, 0, 5, 0, 6, 0, 7, 0, 8, 1, 2, 2, 4, 4, 3, 3, 1, 1, 5, 5, 6, 6, 2, 6, 8, 8, 7, 7, 5, 8, 4, 7, 3];
+  createIndices: target => {
+    /*
+    const indices = target.indices = [
+     0, 1,  0, 2,  0, 3,  0, 4,
+     0, 5,  0, 6,  0, 7,  0, 8,
+     1, 2,  2, 4,  4, 3,  3, 1,
+     1, 5,  5, 6,  6, 2,
+     6, 8,  8, 7,  7, 5,
+     8, 4,  7, 3
+    ];
+    */
+    const indices = target.indices = [0, 2, 3, 1, 0, 1, 2, 3, 4, 6, 7, 5, 4, 5, 6, 7, 0, 4, 2, 6, 3, 7, 1, 5];
     target.indexCount = indices.length;
-    var gl = target.gl;
-    target.indexBuffer = _fnGL["default"].createBuffer(gl, new Uint8Array(indices), "ELEMENT_ARRAY_BUFFER");
+    const {
+      gl
+    } = target;
+    target.indexBuffer = _fnGL.default.createBuffer(gl, new Uint8Array(indices), "ELEMENT_ARRAY_BUFFER");
   },
-  clearBuffers: function clearBuffers(target) {
-    var gl = target.gl,
-        buffer = target.buffer,
-        indexBuffer = target.indexBuffer;
+  clearBuffers: target => {
+    const {
+      gl,
+      buffer,
+      indexBuffer
+    } = target;
     gl.deleteBuffer(buffer);
     gl.deleteBuffer(indexBuffer);
   }
 };
-var _default = CubeTransparent;
-exports["default"] = _default;
+var _default = exports.default = CubeTransparent;
 //# sourceMappingURL=CubeTransparent.js.map
