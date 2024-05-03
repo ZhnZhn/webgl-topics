@@ -42,7 +42,7 @@ const DivOptions = ({
         {domOptions}
       </div>
       <OptionsFooter
-        ref={refIndexNode}
+        refIndexNode={refIndexNode}
         indexActiveOption={indexActiveOption}
         nAll={nAll}
         nFiltered={nFiltered}

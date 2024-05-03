@@ -35,7 +35,7 @@ const TopicWrapper = () => {
         <div className="row">
           <Comp
              {...compProps}
-             ref={refComp}
+             refEl={refComp}
              key={compProps.key}
           />
           <PanelConfigGL

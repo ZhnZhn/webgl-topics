@@ -1,6 +1,5 @@
 export {
   render,
-  forwardRef,
 
   useRef,
   useState,

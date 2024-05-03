@@ -1,5 +1,4 @@
 import {
-  forwardRef,
   useState,
   useImperativeHandle
 } from '../uiApi';
@@ -35,14 +34,15 @@ const HM_MODE_STYLE = {
   2 : {...S_BT, ...S_VALID_NOT_CHANGED},
 };
 
-const ButtonSet = forwardRef(({
+const ButtonSet = ({
+  refEl,
   mode=2,
   style,
   onClick
-}, ref) => {
+}) => {
   const [btMode, setBtMode] = useState(mode);
 
-  useImperativeHandle(ref, () => ({
+  useImperativeHandle(refEl, () => ({
     setMode: setBtMode
   }), [])
 
@@ -60,7 +60,7 @@ const ButtonSet = forwardRef(({
      Set
     </button>
   );
-});
+};
 
 /*
 ButtonSet.propTypes = {

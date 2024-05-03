@@ -81,7 +81,7 @@ const RowProp = ({
         title={labelBy}
       />
       <A.InputFloat
-        ref={_refInputFloat}
+        refEl={_refInputFloat}
         id={inputId}
         inputKey={INPUT_KEY}
         inputStyle={S_INPUT_FLOAT}
@@ -91,7 +91,7 @@ const RowProp = ({
         onKeyDownEnter={_hSetValue}
       />
       <A.ButtonSet
-        ref={_refBt}
+        refEl={_refBt}
         onClick={_hSetValue}
       />
     </div>

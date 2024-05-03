@@ -1,5 +1,4 @@
 import {
-  forwardRef,
   useRef,
   useImperativeHandle,
   getRefValue
@@ -35,14 +34,15 @@ const _getRefNodeStyle = ref => {
     : {}
 };
 
-const ArrowCell = forwardRef(({
+const ArrowCell = ({
+  refEl,
   arrowStyle,
   onClick
-}, ref) => {
+}) => {
   const _refArrowCell = useRef()
   , _refArrow = useRef();
 
-  useImperativeHandle(ref, () => ({
+  useImperativeHandle(refEl, () => ({
     startAnimation: () => {
       _getRefNodeStyle(_refArrowCell).animation = ANIMATION_CIRCLE;
       _getRefNodeStyle(_refArrow).borderColor = BORDER_COLOR;
@@ -64,6 +64,6 @@ const ArrowCell = forwardRef(({
       />
     </button>
   );
-})
+};
 
 export default ArrowCell

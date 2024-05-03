@@ -1,6 +1,5 @@
 import Decimal from '../../math/decimal-light/decimalLight';
 import {
-  forwardRef,
   useRef,
   useState,
   useEffect,
@@ -102,11 +101,11 @@ const _crNextState = (
 const DF_INPUT_KEY = 'dfKey'
 , DF_STEP = 0.1
 
-const InputFloat = forwardRef((
-  props,
-  ref
+const InputFloat = (
+  props
 ) => {
   const {
+    refEl,
     id,
     inputStyle,
     initialValue,
@@ -201,7 +200,7 @@ const InputFloat = forwardRef((
   /*eslint-enable react-hooks/exhaustive-deps */
 
 
-  useImperativeHandle(ref, () => ({
+  useImperativeHandle(refEl, () => ({
     getValue: () => parseFloat(value),
     setMode: (mode) => {
       setState(prevState => {
@@ -240,7 +239,7 @@ const InputFloat = forwardRef((
       />
     </div>
   );
-})
+}
 
 /*
  InputFloat.propTypes = {

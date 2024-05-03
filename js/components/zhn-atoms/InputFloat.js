@@ -94,8 +94,9 @@ const _crNextState = (prevState, nextMode, nextValue) => {
 };
 const DF_INPUT_KEY = 'dfKey',
   DF_STEP = 0.1;
-const InputFloat = (0, _uiApi.forwardRef)((props, ref) => {
+const InputFloat = props => {
   const {
+      refEl,
       id,
       inputStyle,
       initialValue,
@@ -176,7 +177,7 @@ const InputFloat = (0, _uiApi.forwardRef)((props, ref) => {
   // props
   /*eslint-enable react-hooks/exhaustive-deps */
 
-  (0, _uiApi.useImperativeHandle)(ref, () => ({
+  (0, _uiApi.useImperativeHandle)(refEl, () => ({
     getValue: () => parseFloat(value),
     setMode: mode => {
       setState(prevState => {
@@ -220,7 +221,7 @@ const InputFloat = (0, _uiApi.forwardRef)((props, ref) => {
       onClick: _decreaseOnStep
     })]
   });
-});
+};
 
 /*
  InputFloat.propTypes = {
@@ -235,6 +236,5 @@ const InputFloat = (0, _uiApi.forwardRef)((props, ref) => {
    onKeyDownEnter: PropTypes.func
  }
  */
-var _default = InputFloat;
-exports.default = _default;
+var _default = exports.default = InputFloat;
 //# sourceMappingURL=InputFloat.js.map

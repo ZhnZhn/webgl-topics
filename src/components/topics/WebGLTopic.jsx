@@ -1,5 +1,4 @@
 import {
-  forwardRef,
   useRef,
   useCallback,
   useImperativeHandle,
@@ -28,11 +27,11 @@ const WIDTH = 500
 };
 
 
-const WebGLTopic = forwardRef((
-  props,
-  ref
+const WebGLTopic = (
+  props
 ) => {
-  const _refCanvas = useRef()
+  const { refEl } = props
+  , _refCanvas = useRef()
   , _refConfig = useRef({
     isAnimate: true,
     isStopDraw: false
@@ -47,7 +46,7 @@ const WebGLTopic = forwardRef((
   /*eslint-enable react-hooks/exhaustive-deps */
 
   useAnimationGL(_refCanvas, _refConfig, props)
-  useImperativeHandle(ref, () => getRefValue(_refConfig))
+  useImperativeHandle(refEl, () => getRefValue(_refConfig))
 
   const {
     valuesForInit
@@ -80,6 +79,6 @@ const WebGLTopic = forwardRef((
       />
     </div>
   );
-})
+}
 
 export default WebGLTopic

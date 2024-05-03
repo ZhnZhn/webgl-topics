@@ -1,55 +1,49 @@
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
-
 exports.__esModule = true;
-exports["default"] = void 0;
-
-var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
-
+exports.default = void 0;
 var _CL = require("./CL");
-
 var _crStyleWidth = _interopRequireDefault(require("./crStyleWidth"));
-
 var _OptionsFooter = _interopRequireDefault(require("./OptionsFooter"));
-
-var _jsxRuntime = require("react/jsx-runtime");
-
-var S_BLOCK = {
-  display: 'block'
-},
-    S_NONE = {
-  display: 'none'
-};
-
-var DivOptions = function DivOptions(_ref) {
-  var refOptionsComp = _ref.refOptionsComp,
-      refIndexNode = _ref.refIndexNode,
-      rootOptionsStyle = _ref.rootOptionsStyle,
-      width = _ref.width,
-      isShowOption = _ref.isShowOption,
-      domOptions = _ref.domOptions,
-      indexActiveOption = _ref.indexActiveOption,
-      nFiltered = _ref.nFiltered,
-      nAll = _ref.nAll,
-      onStepUp = _ref.onStepUp,
-      onStepDown = _ref.onStepDown,
-      onClear = _ref.onClear;
-
-  var _styleOptions = isShowOption ? S_BLOCK : S_NONE,
-      _rootWidthStyle = (0, _crStyleWidth["default"])(width, _styleOptions);
-
-  return /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
+var _jsxRuntime = require("preact/jsx-runtime");
+const S_BLOCK = {
+    display: 'block'
+  },
+  S_NONE = {
+    display: 'none'
+  };
+const DivOptions = _ref => {
+  let {
+    refOptionsComp,
+    refIndexNode,
+    rootOptionsStyle,
+    width,
+    isShowOption,
+    domOptions,
+    indexActiveOption,
+    nFiltered,
+    nAll,
+    onStepUp,
+    onStepDown,
+    onClear
+  } = _ref;
+  const _styleOptions = isShowOption ? S_BLOCK : S_NONE,
+    _rootWidthStyle = (0, _crStyleWidth.default)(width, _styleOptions);
+  return (0, _jsxRuntime.jsxs)("div", {
     className: _CL.CL_OPTIONS,
     style: _rootWidthStyle,
     "data-scrollable": true,
-    children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
+    children: [(0, _jsxRuntime.jsx)("div", {
       ref: refOptionsComp,
       className: _CL.CL_OPTIONS_DIV,
-      style: (0, _extends2["default"])({}, rootOptionsStyle, _rootWidthStyle),
+      style: {
+        ...rootOptionsStyle,
+        ..._rootWidthStyle
+      },
       children: domOptions
-    }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_OptionsFooter["default"], {
-      ref: refIndexNode,
+    }), (0, _jsxRuntime.jsx)(_OptionsFooter.default, {
+      refIndexNode: refIndexNode,
       indexActiveOption: indexActiveOption,
       nAll: nAll,
       nFiltered: nFiltered,
@@ -59,7 +53,5 @@ var DivOptions = function DivOptions(_ref) {
     })]
   });
 };
-
-var _default = DivOptions;
-exports["default"] = _default;
+var _default = exports.default = DivOptions;
 //# sourceMappingURL=DivOptions.js.map
