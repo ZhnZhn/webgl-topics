@@ -19,14 +19,14 @@ const _crItem = (
 
 const ITEM_CONFIG = [
   [
+    ID_PLANE,
+    'Plane'
+  ],[
     ID_RANDOM_TRIANGLES,
     'Random Triangles'
   ],[
     ID_CROWN,
     'Crown Sample'
-  ],[
-    ID_PLANE,
-    'Plane'
   ],[
     ID_CUBE,
     'Cube',

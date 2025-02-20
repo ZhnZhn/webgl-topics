@@ -20,7 +20,7 @@ import CubeWithLight from './gl-props/CubeWithLight';
 import CubeTransparent from './gl-props/CubeTransparent';
 
 const _rTopicProps = {
-  DF: RandomTriangles,
+  DF: Plane,
 
   [ID_RANDOM_TRIANGLES]: RandomTriangles,
   [ID_CROWN]: CoronaSample,

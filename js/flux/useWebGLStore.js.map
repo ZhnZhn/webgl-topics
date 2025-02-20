@@ -10,7 +10,7 @@
   "_ID",
   "_crStore",
   "topicId",
-  "ID_RANDOM_TRIANGLES",
+  "ID_PLANE",
   "_store",
   "createStoreWithSelector",
   "_selectTopicId",

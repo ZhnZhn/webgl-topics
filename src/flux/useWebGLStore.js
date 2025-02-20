@@ -5,11 +5,11 @@ import {
 } from './storeApi';
 
 import {
-  ID_RANDOM_TRIANGLES
+  ID_PLANE
 } from '../components/topics/ID';
 
 const _crStore = () => ({
-  topicId: ID_RANDOM_TRIANGLES
+  topicId: ID_PLANE
 })
 , _store = createStoreWithSelector(_crStore)
 , _selectTopicId = state => state.topicId

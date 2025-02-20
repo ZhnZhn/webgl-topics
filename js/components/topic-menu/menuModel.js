@@ -9,11 +9,10 @@ const _crItem = (id, title) => ({
   title,
   onClick: () => (0, _useWebGLStore.setTopicId)(id)
 });
-const ITEM_CONFIG = [[_ID.ID_RANDOM_TRIANGLES, 'Random Triangles'], [_ID.ID_CROWN, 'Crown Sample'], [_ID.ID_PLANE, 'Plane'], [_ID.ID_CUBE, 'Cube'], [_ID.ID_CUBE_WITH_LIGHT, 'Cube With Light'], [_ID.ID_CUBE_TRANSPARENT, 'Cube Transparent']];
+const ITEM_CONFIG = [[_ID.ID_PLANE, 'Plane'], [_ID.ID_RANDOM_TRIANGLES, 'Random Triangles'], [_ID.ID_CROWN, 'Crown Sample'], [_ID.ID_CUBE, 'Cube'], [_ID.ID_CUBE_WITH_LIGHT, 'Cube With Light'], [_ID.ID_CUBE_TRANSPARENT, 'Cube Transparent']];
 const menuModel = [{
   caption: 'WebGL with gl-matrix',
   items: ITEM_CONFIG.map(config => _crItem(config[0], config[1]))
 }];
-var _default = menuModel;
-exports.default = _default;
+var _default = exports.default = menuModel;
 //# sourceMappingURL=menuModel.js.map
