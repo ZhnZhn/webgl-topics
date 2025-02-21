@@ -96,7 +96,6 @@ const InputSelect = (
     isWithInput=false,
     onSelect=FN_NOOP
   } = props
-  , _refArrowCell = useRef()
   , _refDomInputText = useRef()
   , _refOptionsElement = useRef()
   , _refIndexNode = useRef()
@@ -289,7 +288,7 @@ const InputSelect = (
   ] = crAfterInputEl(
      props,
      state,
-     _refArrowCell,
+     isShowOption,
      toggleIsShowOption
    )
   , [
