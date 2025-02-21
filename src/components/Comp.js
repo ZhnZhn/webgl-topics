@@ -1,9 +1,7 @@
 import A from './zhn-atoms/A'
-import InputSelect from './zhn-select/InputSelect'
 
 const Comp = {
-  ...A,
-  InputSelect
+  ...A
 };
 
 export default Comp

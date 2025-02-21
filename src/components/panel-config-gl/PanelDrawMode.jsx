@@ -2,6 +2,7 @@ import { useCallback } from '../uiApi';
 import useProperty from '../hooks/useProperty';
 
 import A from '../Comp';
+import InputSelect from '../zhn-select/InputSelect';
 
 import {
   OPEN_CLOSE,
@@ -47,7 +48,7 @@ const PanelDrawMode = ({
       childrenStyle={OC_CHILDREN}
     >
       <div style={OC_DIV}>
-        <A.InputSelect
+        <InputSelect
           width="170"
           options={DRAW_MODE_OPTIONS}
           styleRoot={INPUT_SELECT}
