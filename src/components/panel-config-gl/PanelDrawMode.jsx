@@ -1,7 +1,8 @@
 import { useCallback } from '../uiApi';
 import useProperty from '../hooks/useProperty';
 
-import A from '../Comp';
+import OpenClose from '../zhn-atoms/OpenClose';
+import ButtonSet from '../zhn-atoms/ButtonSet';
 import InputSelect from '../zhn-select/InputSelect';
 
 import {
@@ -42,7 +43,7 @@ const PanelDrawMode = ({
   }, [onGetComp, getDrawMode]);
 
   return (
-    <A.OpenClose
+    <OpenClose
       caption="DrawMode"
       style={OPEN_CLOSE}
       childrenStyle={OC_CHILDREN}
@@ -54,13 +55,13 @@ const PanelDrawMode = ({
           styleRoot={INPUT_SELECT}
           onSelect={setDrawMode}
         />
-        <A.ButtonSet
+        <ButtonSet
            style={S_BT_SET}
            mode={1}
            onClick={_hSetDrawMode}
         />
       </div>
-    </A.OpenClose>
+    </OpenClose>
   );
 }
 

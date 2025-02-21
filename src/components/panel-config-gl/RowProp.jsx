@@ -4,7 +4,9 @@ import {
   getRefValue
 } from '../uiApi';
 
-import A from '../Comp';
+import Label from '../zhn-atoms/Label';
+import InputFloat from '../zhn-atoms/InputFloat';
+import ButtonSet from '../zhn-atoms/ButtonSet';
 
 const S_ROW = {
   marginTop: 12,
@@ -75,12 +77,12 @@ const RowProp = ({
 
   return (
     <div style={S_ROW}>
-      <A.Label
+      <Label
         id={inputId}
         style={{...S_LABEL, ...styleLabel}}
         title={labelBy}
       />
-      <A.InputFloat
+      <InputFloat
         refEl={_refInputFloat}
         id={inputId}
         inputKey={INPUT_KEY}
@@ -90,7 +92,7 @@ const RowProp = ({
         onChangeMode={_onChangeMode}
         onKeyDownEnter={_hSetValue}
       />
-      <A.ButtonSet
+      <ButtonSet
         refEl={_refBt}
         onClick={_hSetValue}
       />

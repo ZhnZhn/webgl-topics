@@ -5,7 +5,8 @@ exports.__esModule = true;
 exports.default = void 0;
 var _uiApi = require("../uiApi");
 var _useProperty = _interopRequireDefault(require("../hooks/useProperty"));
-var _Comp = _interopRequireDefault(require("../Comp"));
+var _OpenClose = _interopRequireDefault(require("../zhn-atoms/OpenClose"));
+var _ButtonSet = _interopRequireDefault(require("../zhn-atoms/ButtonSet"));
 var _InputSelect = _interopRequireDefault(require("../zhn-select/InputSelect"));
 var _Panel = require("./Panel.Style");
 var _jsxRuntime = require("preact/jsx-runtime");
@@ -47,7 +48,7 @@ const PanelDrawMode = _ref => {
         comp.drawMode = drawMode.value;
       }
     }, [onGetComp, getDrawMode]);
-  return (0, _jsxRuntime.jsx)(_Comp.default.OpenClose, {
+  return (0, _jsxRuntime.jsx)(_OpenClose.default, {
     caption: "DrawMode",
     style: _Panel.OPEN_CLOSE,
     childrenStyle: _Panel.OC_CHILDREN,
@@ -58,7 +59,7 @@ const PanelDrawMode = _ref => {
         options: DRAW_MODE_OPTIONS,
         styleRoot: _Panel.INPUT_SELECT,
         onSelect: setDrawMode
-      }), (0, _jsxRuntime.jsx)(_Comp.default.ButtonSet, {
+      }), (0, _jsxRuntime.jsx)(_ButtonSet.default, {
         style: S_BT_SET,
         mode: 1,
         onClick: _hSetDrawMode

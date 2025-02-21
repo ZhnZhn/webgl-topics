@@ -4,7 +4,9 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 exports.__esModule = true;
 exports.default = void 0;
 var _uiApi = require("../uiApi");
-var _Comp = _interopRequireDefault(require("../Comp"));
+var _Label = _interopRequireDefault(require("../zhn-atoms/Label"));
+var _InputFloat = _interopRequireDefault(require("../zhn-atoms/InputFloat"));
+var _ButtonSet = _interopRequireDefault(require("../zhn-atoms/ButtonSet"));
 var _jsxRuntime = require("preact/jsx-runtime");
 const S_ROW = {
     marginTop: 12,
@@ -63,14 +65,14 @@ const RowProp = _ref => {
     }, [propKey, onGetComp, fnAfterSet, _setModeToAll]);
   return (0, _jsxRuntime.jsxs)("div", {
     style: S_ROW,
-    children: [(0, _jsxRuntime.jsx)(_Comp.default.Label, {
+    children: [(0, _jsxRuntime.jsx)(_Label.default, {
       id: inputId,
       style: {
         ...S_LABEL,
         ...styleLabel
       },
       title: labelBy
-    }), (0, _jsxRuntime.jsx)(_Comp.default.InputFloat, {
+    }), (0, _jsxRuntime.jsx)(_InputFloat.default, {
       refEl: _refInputFloat,
       id: inputId,
       inputKey: INPUT_KEY,
@@ -79,7 +81,7 @@ const RowProp = _ref => {
       step: 0.001,
       onChangeMode: _onChangeMode,
       onKeyDownEnter: _hSetValue
-    }), (0, _jsxRuntime.jsx)(_Comp.default.ButtonSet, {
+    }), (0, _jsxRuntime.jsx)(_ButtonSet.default, {
       refEl: _refBt,
       onClick: _hSetValue
     })]
