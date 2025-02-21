@@ -17,6 +17,7 @@ const Button = ({
   onClick
 }) => (
   <button
+    type="button"
     className={CL_BT}
     style={{...S_BT, ...style}}
     onClick={onClick}

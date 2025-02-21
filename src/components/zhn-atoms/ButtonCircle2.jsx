@@ -11,6 +11,7 @@ const ButtonCircle2 = ({
 }) => (
   <button
      {...rest}
+     type="button"
      className={crCn(CL_BT_CIRCLE_2, className)}
      style={style}
      onClick={onClick}
