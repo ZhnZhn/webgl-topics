@@ -22,7 +22,7 @@ const PanelTranslate = ({
       childrenStyle={OC_CHILDREN}
     >
       <RowProp
-        labelBy="Z:"
+        labelBy="Z"
         inputId="tZ"
         value={zMatrixTranslate}
         propKey="zMatrixTranslate"

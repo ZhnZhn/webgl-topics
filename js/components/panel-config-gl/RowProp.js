@@ -15,7 +15,8 @@ const S_ROW = {
   },
   S_LABEL = {
     color: 'grey',
-    paddingLeft: 24,
+    paddingLeft: 20,
+    paddingRight: 4,
     fontWeight: 'bold',
     fontSize: '16px'
   },

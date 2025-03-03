@@ -24,7 +24,7 @@ const PanelPerspective = ({
        childrenStyle={OC_CHILDREN}
     >
       <RowProp
-         labelBy="Near:"
+         labelBy="Near"
          inputId="pNear"
          value={perspectiveNear}
          propKey="perspectiveNear"
@@ -33,7 +33,7 @@ const PanelPerspective = ({
          fnAfterSet={_fnAfterSet}
       />
       <RowProp
-         labelBy="Far:"
+         labelBy="Far"
          inputId="pFar"
          value={perspectiveFar}
          styleLabel={LABEL_PERSPECTIVE}

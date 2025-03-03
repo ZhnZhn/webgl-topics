@@ -17,21 +17,21 @@ const PanelRotate = ({
      style={OPEN_CLOSE}
   >
     <RowProp
-       labelBy="X:"
+       labelBy="X"
        inputId="rX"
        value={rX}
        propKey="rX"
        onGetComp={onGetComp}
     />
     <RowProp
-       labelBy="Y:"
+       labelBy="Y"
        inputId="rY"
        value={rY}
        propKey="rY"
        onGetComp={onGetComp}
     />
     <RowProp
-       labelBy="Z:"
+       labelBy="Z"
        inputId="rZ"
        value={rZ}
        propKey="rZ"
