@@ -10,7 +10,8 @@ import {
   isFloat
 } from '../../utils/is';
 
-const S_ROOT = {
+const CL_BT_ARROW = 'bt-arrow'
+, S_ROOT = {
   position: 'relative',
   display: 'inline-block',
   backgroundColor: 'rgb(225, 225, 203)',
@@ -42,6 +43,7 @@ const S_ROOT = {
 , S_VALID_CHANGED = { borderColor: '#673ab7' }
 , S_VALID_NOT_CHANGED = { borderColor: '#9e9e9e' }
 , S_NOT_VALID = { borderColor: '#f44336' }
+/*
 , S_ARROW = {
   display: 'inline-block',
   position: 'relative',
@@ -50,14 +52,13 @@ const S_ROOT = {
   borderWidth: '12px 6px 4px',
   cursor: 'pointer'
 }
+*/
 , S_BT_PLUS = {
-  ...S_ARROW,
-  transform: 'rotateX(180deg)',
+  top: -16,
   margin: '0 6px',
-  top: -16
+  transform: 'rotateX(180deg)'
 }
 , S_BT_MINUS = {
-  ...S_ARROW,
   top: -12,
   marginRight: 6
 };
@@ -218,6 +219,7 @@ const InputFloat = (
   return (
     <div style={S_ROOT}>
       <button
+         className={CL_BT_ARROW}
          style={S_BT_PLUS}
          onClick={_increaseOnStep}
       />
@@ -234,6 +236,7 @@ const InputFloat = (
         <hr style={{...S_HR, ..._hrStyle}} />
       </div>
       <button
+         className={CL_BT_ARROW}
          style={S_BT_MINUS}
          onClick={_decreaseOnStep}
       />
