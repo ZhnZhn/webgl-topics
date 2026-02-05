@@ -1,22 +1,42 @@
-module.exports = {
-  "parser": "@babel/eslint-parser",
-  "env": {
-     "es6": true,
-     "browser": true,
-     "jest": true
+const { defineConfig } = require("eslint/config");
+const js = require("@eslint/js");
+
+const babelParser = require("@babel/eslint-parser");
+
+const react = require("eslint-plugin-react");
+const reactHooks = require("eslint-plugin-react-hooks");
+const jsxA11y = require("eslint-plugin-jsx-a11y");
+
+module.exports = defineConfig([ 
+  jsxA11y.flatConfigs.recommended, {
+  ignores: [
+    "js/*",
+    "node_modules/*"   
+  ],
+  languageOptions: {
+    globals: {      
+      window: true,
+      document: true,              
+    },
+    parser: babelParser,
+    parserOptions: {
+      ecmaFeatures: {
+        jsx: true,
+      }
+    }
   },
-  "plugins": [
-     "react",
-     "react-hooks",
-     "jsx-a11y"
+  
+  files: ["**/*.{js,jsx}"],  
+  plugins: {
+    js,
+    react,
+    "react-hooks": reactHooks
+  },
+  extends: [
+    "js/recommended"
   ],
-  "extends": [
-    "eslint:recommended",
-    "plugin:jsx-a11y/recommended"
-  ],
-
-  "rules": {
-
+     
+  rules: {
     //edit eslint rules
     "for-direction": 0,
 
@@ -28,7 +48,8 @@ module.exports = {
     "jsx-quotes": [2, "prefer-double"],
     "no-unused-expressions": 1,
     "no-unused-vars": [1, {"args": "none"}],
-
+    "no-use-before-define": ["error", { "variables": false }],
+   
     //set react rules
     "react/display-name": 0,
     "react/jsx-boolean-value": [1, "always"],
@@ -67,6 +88,7 @@ module.exports = {
 
     //edit jsx-a11y rules
     "jsx-a11y/no-access-key": 0,
-    "jsx-a11y/label-has-for": 0
+    "jsx-a11y/label-has-for": 0    
   }
-}
+ }
+]);

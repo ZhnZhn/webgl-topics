@@ -2,8 +2,10 @@ import { S_SVG } from './SvgStyle';
 
 const _crRect = (
   rx,
-  y, x,
-  height, width,
+  y,
+  x,
+  height,
+  width,
   color
 ) => (
   <rect
@@ -18,13 +20,10 @@ const _crRect = (
   />
 );
 
-const IconAppLogo = ({
-  className,
-  title
-}) => (
+const IconAppLogo = (props) => (
   <span
-     className={className}
-     title={title}
+     className={props.className}
+     title={props.title}
   >
     <svg
       {...S_SVG}
@@ -32,8 +31,8 @@ const IconAppLogo = ({
       xmlns="http://www.w3.org/2000/svg"
       strokeMiterlimit="2"
       strokeWidth="2"
-    >
-      <title>{title}</title>
+      aria-hidden="true"
+    >      
       {_crRect(194, 1.5, 19, 12.5, 11, "#8ecc2d")}
       {_crRect(204.5, 17.5, 9, 13.5, 18, "#232f3b")}
       {_crRect(204.5, 3.5, 2.5, 11, 10, "#a487d4")}

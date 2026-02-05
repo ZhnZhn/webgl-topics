@@ -11,22 +11,14 @@ const S_BT_CIRCLE = {
   backgroundColor: '#949ab4'
 };
 
-const OptionsFooter = ({
-  refIndexNode,
-  indexActiveOption,
-  nFiltered,
-  nAll,
-  onStepDown,
-  onStepUp,
-  onClear
-}) => (
+const OptionsFooter = (props) => (
   <div className={`${CL_FOOTER} ${CL_NOT_SELECTED}`}>
     <span className={CL_FOOTER_INDEX}>
-      <span ref={refIndexNode}>
-        {indexActiveOption}
+      <span ref={props.refIndexNode}>
+        {props.indexActiveOption}
       </span>
       <span>
-         : {nFiltered}: {nAll}
+         : {props.nFiltered}: {props.nAll}
       </span>
     </span>
     <span className={CL_FOOTER_BTS}>
@@ -34,18 +26,18 @@ const OptionsFooter = ({
          className={CL_FOOTER_MARGIN}
          style={S_BT_CIRCLE}
          caption="Dn"
-         onClick={onStepDown}
+         onClick={props.onStepDown}
       />
       <BtCircle
          className={CL_FOOTER_MARGIN}
          style={S_BT_CIRCLE}
          caption="Up"
-         onClick={onStepUp}
+         onClick={props.onStepUp}
       />
       <BtCircle
          style={S_BT_CIRCLE}
          caption="CL"
-         onClick={onClear}
+         onClick={props.onClear}
       />
     </span>
   </div>

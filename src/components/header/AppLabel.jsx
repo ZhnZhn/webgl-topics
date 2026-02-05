@@ -1,10 +1,6 @@
-const AppLabel = ({
-  className,
-  style,
-  caption
-}) => (
-  <span className={className} style={style}>
-    {caption}
+const AppLabel = (props) => (
+  <span className={props.className} style={props.style}>
+    {props.caption}
   </span>
 );
 

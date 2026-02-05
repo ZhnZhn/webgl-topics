@@ -11,18 +11,14 @@ const CL_BT = "bt"
   borderRadius: 8
 };
 
-const Button = ({
-  caption,
-  style,
-  onClick
-}) => (
+const Button = (props) => (
   <button
     type="button"
     className={CL_BT}
-    style={{...S_BT, ...style}}
-    onClick={onClick}
+    style={{...S_BT, ...props.style}}
+    onClick={props.onClick}
   >
-   {caption}
+   {props.caption}
   </button>
 );
 

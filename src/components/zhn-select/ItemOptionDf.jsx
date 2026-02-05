@@ -1,9 +1,6 @@
-const ItemOptionDf = ({
-  item,
-  propCaption
-}) => (
+const ItemOptionDf = (props) => (
   <span>
-    {item[propCaption]}
+    {props.item[props.propCaption]}
   </span>
 );
 

@@ -3,7 +3,6 @@ import {
   useEffect
 } from '../uiApi';
 
-/*eslint-disable react-hooks/exhaustive-deps */
 const useSubscribeState = (
   store,
   selector
@@ -13,15 +12,16 @@ const useSubscribeState = (
     setState
   ] = useState();
 
+/*eslint-disable react-hooks/exhaustive-deps */
   useEffect(
     () => store.subscribe(selector, setState),
     []
   )
   //store, selector
-
+  /*eslint-enable react-hooks/exhaustive-deps */
+  
   return state;
-
 }
-/*eslint-disable react-hooks/exhaustive-deps */
+
 
 export default useSubscribeState

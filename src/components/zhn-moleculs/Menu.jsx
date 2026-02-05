@@ -1,18 +1,13 @@
 import MenuPart from './MenuPart';
 
-const Menu = ({
-  style,
-  toogleStyle,
-  menuModel,
-  topicId
-}) => (
-  <div style={style}>
-    {menuModel.map(menuPart => (
+const Menu = (props) => (
+  <div style={props.style}>
+    {props.menuModel.map(menuPart => (
         <MenuPart
-          key={topicId}
-          toogleStyle={toogleStyle}
+          key={props.topicId}
+          toogleStyle={props.toogleStyle}
+          topicId={props.topicId}
           dataModel={menuPart}
-          topicId={topicId}
         />
     ))}
   </div>

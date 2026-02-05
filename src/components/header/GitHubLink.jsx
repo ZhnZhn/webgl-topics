@@ -1,14 +1,10 @@
 import { S_SVG } from './SvgStyle';
 
-const GitHubLink = ({
-  className,
-  href,
-  ariaLabel
-}) => (
+const GitHubLink = (props) => (
   <a
-    aria-label={ariaLabel}
-    className={className}
-    href={href}
+    aria-label={props.ariaLabel}
+    className={props.className}
+    href={props.href}
   >
     <svg
         {...S_SVG}

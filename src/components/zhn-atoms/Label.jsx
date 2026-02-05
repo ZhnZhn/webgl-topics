@@ -1,16 +1,12 @@
 const CL_NOT_SELECTED = "not-selected";
 
-const Label = ({
-  id,
-  style,
-  title
-}) => (
+const Label = (props) => (
   <label
      className={CL_NOT_SELECTED}
-     style={style}
-     htmlFor={id}
+     style={props.style}
+     htmlFor={props.id}
   >
-    {title}
+    {props.title}
   </label>
 );
 

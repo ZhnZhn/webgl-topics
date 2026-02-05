@@ -14,22 +14,15 @@ const CL_BT = "bt",
     border: '2px solid #673ab7',
     borderRadius: 8
   };
-const Button = _ref => {
-  let {
-    caption,
-    style,
-    onClick
-  } = _ref;
-  return (0, _jsxRuntime.jsx)("button", {
-    type: "button",
-    className: CL_BT,
-    style: {
-      ...S_BT,
-      ...style
-    },
-    onClick: onClick,
-    children: caption
-  });
-};
+const Button = props => (0, _jsxRuntime.jsx)("button", {
+  type: "button",
+  className: CL_BT,
+  style: {
+    ...S_BT,
+    ...props.style
+  },
+  onClick: props.onClick,
+  children: props.caption
+});
 var _default = exports.default = Button;
 //# sourceMappingURL=Button.js.map

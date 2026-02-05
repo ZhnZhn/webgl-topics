@@ -27,20 +27,13 @@ const CL_OPEN_CLOSE = "zhn-oc not-selected"
 const PATH_OPEN = 'M 2,14 L 14,14 14,2 2,14'
 , FILL_OPEN = DF_CAPTION_COLOR
 , PATH_CLOSE = 'M 2,2 L 14,8 2,14 2,2'
-, FILL_CLOSE = '#33373A'
+, FILL_CLOSE = '#33373A';
 
-const OpenClose = ({
-  isClose,
-  style,
-  toogleStyle,
-  childrenStyle,
-  caption,
-  children
-}) => {
+const OpenClose = (props) => {
   const [
     isOpen,
     toggleIsOpen
-  ] = useToggle(!isClose)
+  ] = useToggle(!props.isClose)
   , _hKeyDown = useKeyEnter(toggleIsOpen)
   , [
     pathV,
@@ -52,12 +45,12 @@ const OpenClose = ({
    : [PATH_CLOSE, FILL_CLOSE, S_NONE];
 
   return (
-    <div style={{...S_ROOT_DIV, ...style}}>
+    <div style={{...S_ROOT_DIV, ...props.style}}>
       <div
          role="button"
          tabIndex="0"
          className={CL_OPEN_CLOSE}
-         style={toogleStyle}
+         style={props.toogleStyle}
          onClick={toggleIsOpen}
          onKeyDown={_hKeyDown}
       >
@@ -79,15 +72,15 @@ const OpenClose = ({
            </svg>
        </div>
        <span style={S_CAPTION} >
-          {caption}
+          {props.caption}
        </span>
     </div>
     <div
       aria-expanded={isOpen}
       className={classShow}
-      style={{...childrenStyle, ...divStyle}}
+      style={{...props.childrenStyle, ...divStyle}}
     >
-      {children}
+      {props.children}
     </div>
    </div>
   );
