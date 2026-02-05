@@ -11,6 +11,7 @@
     "dev": "webpack serve --config webpack.dev.js",
     "transpile": "babel ./src --out-dir ./js --source-maps --ignore ./**/__tests__",
     "transpile:all": "babel ./src --out-dir ./js --source-maps",
+    "lint:one": "eslint -c eslint.config.js",
     "build:prod": "webpack --color --progress --config webpack.prod.js",
     "css:min": "node min-css"
   },
@@ -44,7 +45,7 @@
     "jest": "^30.2.0",
     "react-refresh": "^0.18.0",
     "terser-webpack-plugin": "^5.3.16",
-    "webpack": "^5.104.1",
+    "webpack": "^5.105.0",
     "webpack-cli": "^6.0.1",
     "webpack-dev-server": "^5.2.3"
   },
