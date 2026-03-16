@@ -41,7 +41,9 @@ const _compileShader = (
   gl.compileShader(shader);
 
   if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+      /*eslint-disable no-undef*/
       console.log(gl.getShaderInfoLog(shader));
+      /*eslint-enable no-undef*/
       return null;
   }
 
