@@ -7,3 +7,4 @@ min-css.js
 dev
 index-dev.ejs
 webpack.dev.js
+rspack.dev.js
