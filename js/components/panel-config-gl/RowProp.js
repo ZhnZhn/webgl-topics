@@ -4,9 +4,9 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 exports.__esModule = true;
 exports.default = void 0;
 var _uiApi = require("../uiApi");
-var _Label = _interopRequireDefault(require("../zhn-atoms/Label"));
-var _InputFloat = _interopRequireDefault(require("../zhn-atoms/InputFloat"));
-var _ButtonSet = _interopRequireDefault(require("../zhn-atoms/ButtonSet"));
+var _Label = _interopRequireDefault(require("../zhn/Label"));
+var _InputFloat = _interopRequireDefault(require("../zhn/InputFloat"));
+var _ButtonSet = _interopRequireDefault(require("../zhn/ButtonSet"));
 var _jsxRuntime = require("preact/jsx-runtime");
 const S_ROW = {
     marginTop: 12,
@@ -26,16 +26,15 @@ const S_ROW = {
   FN_NOOP = () => {};
 const _getInputMode = inputMode => inputMode === 0 ? 0 : inputMode === 1 ? 1 : 2;
 const INPUT_KEY = 'inputFloat';
-const RowProp = _ref => {
-  let {
-    inputId,
-    labelBy,
-    value,
-    propKey,
-    styleLabel,
-    onGetComp,
-    fnAfterSet = FN_NOOP
-  } = _ref;
+const RowProp = ({
+  inputId,
+  labelBy,
+  value,
+  propKey,
+  styleLabel,
+  onGetComp,
+  fnAfterSet = FN_NOOP
+}) => {
   const _refInputFloat = (0, _uiApi.useRef)(),
     _refBt = (0, _uiApi.useRef)(),
     _refMode = (0, _uiApi.useRef)({

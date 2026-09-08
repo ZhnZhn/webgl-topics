@@ -1,9 +1,9 @@
 {
  "version": 3,
  "sources": [
-  "../../../src/components/zhn-atoms/Label.js"
+  "../../../src/components/zhn/Label.js"
  ],
- "file": "../../../src/components/zhn-atoms/Label.js",
+ "file": "../../../src/components/zhn/Label.js",
  "names": [
   "CL_NOT_SELECTED",
   "Label",

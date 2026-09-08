@@ -1,4 +1,4 @@
-import OpenClose from '../zhn-atoms/OpenClose';
+import OpenClose from '../zhn/OpenClose';
 import RowProp from './RowProp';
 
 import {

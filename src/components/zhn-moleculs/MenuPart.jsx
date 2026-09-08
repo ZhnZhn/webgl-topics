@@ -1,5 +1,5 @@
 import { useKeyEnter } from '../hooks/fUseKey';
-import OpenClose from '../zhn-atoms/OpenClose';
+import OpenClose from '../zhn/OpenClose';
 
 const CL_ROW_TOPIC = 'row__topic'
 , S_ROOT = {

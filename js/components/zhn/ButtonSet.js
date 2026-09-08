@@ -42,13 +42,12 @@ const HM_MODE_STYLE = {
     ...S_VALID_NOT_CHANGED
   }
 };
-const ButtonSet = _ref => {
-  let {
-    refEl,
-    mode = 2,
-    style,
-    onClick
-  } = _ref;
+const ButtonSet = ({
+  refEl,
+  mode = 2,
+  style,
+  onClick
+}) => {
   const [btMode, setBtMode] = (0, _uiApi.useState)(mode);
   (0, _uiApi.useImperativeHandle)(refEl, () => ({
     setMode: setBtMode

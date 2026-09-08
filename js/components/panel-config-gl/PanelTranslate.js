@@ -4,15 +4,14 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 exports.__esModule = true;
 exports.default = void 0;
 var _useRefValue = _interopRequireDefault(require("../hooks/useRefValue"));
-var _OpenClose = _interopRequireDefault(require("../zhn-atoms/OpenClose"));
+var _OpenClose = _interopRequireDefault(require("../zhn/OpenClose"));
 var _RowProp = _interopRequireDefault(require("./RowProp"));
 var _Panel = require("./Panel.Style");
 var _jsxRuntime = require("preact/jsx-runtime");
-const PanelTranslate = _ref => {
-  let {
-    zMatrixTranslate,
-    onGetComp
-  } = _ref;
+const PanelTranslate = ({
+  zMatrixTranslate,
+  onGetComp
+}) => {
   const _fnAfterSet = (0, _useRefValue.default)(comp => {
     comp.configMatrix(comp);
   });

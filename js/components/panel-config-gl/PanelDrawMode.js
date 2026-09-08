@@ -5,8 +5,8 @@ exports.__esModule = true;
 exports.default = void 0;
 var _uiApi = require("../uiApi");
 var _useProperty = _interopRequireDefault(require("../hooks/useProperty"));
-var _OpenClose = _interopRequireDefault(require("../zhn-atoms/OpenClose"));
-var _ButtonSet = _interopRequireDefault(require("../zhn-atoms/ButtonSet"));
+var _OpenClose = _interopRequireDefault(require("../zhn/OpenClose"));
+var _ButtonSet = _interopRequireDefault(require("../zhn/ButtonSet"));
 var _InputSelect = _interopRequireDefault(require("../zhn-select/InputSelect"));
 var _Panel = require("./Panel.Style");
 var _jsxRuntime = require("preact/jsx-runtime");
@@ -36,10 +36,9 @@ const S_BT_SET = {
   position: 'relative',
   top: -6
 };
-const PanelDrawMode = _ref => {
-  let {
-    onGetComp
-  } = _ref;
+const PanelDrawMode = ({
+  onGetComp
+}) => {
   const [setDrawMode, getDrawMode] = (0, _useProperty.default)(),
     _hSetDrawMode = (0, _uiApi.useCallback)(() => {
       const drawMode = getDrawMode();

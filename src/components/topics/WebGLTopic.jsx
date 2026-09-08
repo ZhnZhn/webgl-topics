@@ -8,7 +8,7 @@ import {
 import useRerender from '../hooks/useRerender';
 import useAnimationGL from './gl-hooks/useAnimationGL';
 
-import Button from '../zhn-atoms/Button';
+import Button from '../zhn/Button';
 import TopicLink from './TopicLink';
 
 const WIDTH = 500

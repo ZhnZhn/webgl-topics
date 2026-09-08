@@ -4,9 +4,9 @@ import {
   getRefValue
 } from '../uiApi';
 
-import Label from '../zhn-atoms/Label';
-import InputFloat from '../zhn-atoms/InputFloat';
-import ButtonSet from '../zhn-atoms/ButtonSet';
+import Label from '../zhn/Label';
+import InputFloat from '../zhn/InputFloat';
+import ButtonSet from '../zhn/ButtonSet';
 
 const S_ROW = {
   marginTop: 12,

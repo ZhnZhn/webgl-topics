@@ -1,8 +1,8 @@
 import { useCallback } from '../uiApi';
 import useProperty from '../hooks/useProperty';
 
-import OpenClose from '../zhn-atoms/OpenClose';
-import ButtonSet from '../zhn-atoms/ButtonSet';
+import OpenClose from '../zhn/OpenClose';
+import ButtonSet from '../zhn/ButtonSet';
 import InputSelect from '../zhn-select/InputSelect';
 
 import {

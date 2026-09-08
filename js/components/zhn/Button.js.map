@@ -1,9 +1,9 @@
 {
  "version": 3,
  "sources": [
-  "../../../src/components/zhn-atoms/Button.js"
+  "../../../src/components/zhn/Button.js"
  ],
- "file": "../../../src/components/zhn-atoms/Button.js",
+ "file": "../../../src/components/zhn/Button.js",
  "names": [
   "CL_BT",
   "S_BT",
