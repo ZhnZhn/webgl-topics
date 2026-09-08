@@ -3,8 +3,8 @@
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 exports.__esModule = true;
 exports.default = void 0;
+var _fUseKey = require("../hooks/fUseKey");
 var _useToggle = _interopRequireDefault(require("../hooks/useToggle"));
-var _useKeyEnter = _interopRequireDefault(require("../hooks/useKeyEnter"));
 var _jsxRuntime = require("preact/jsx-runtime");
 const CL_OPEN_CLOSE = "zhn-oc not-selected",
   CL_SHOW_POPUP = 'show-popup',
@@ -40,7 +40,7 @@ const PATH_OPEN = 'M 2,14 L 14,14 14,2 2,14',
   FILL_CLOSE = '#33373A';
 const OpenClose = props => {
   const [isOpen, toggleIsOpen] = (0, _useToggle.default)(!props.isClose),
-    _hKeyDown = (0, _useKeyEnter.default)(toggleIsOpen),
+    _hKeyDown = (0, _fUseKey.useKeyEnter)(toggleIsOpen),
     [pathV, fillV, divStyle, classShow] = isOpen ? [PATH_OPEN, FILL_OPEN, S_BLOCK, CL_SHOW_POPUP] : [PATH_CLOSE, FILL_CLOSE, S_NONE];
   return (0, _jsxRuntime.jsxs)("div", {
     style: {

@@ -13,4 +13,8 @@ const fUseKey = isKey => (
 }, deps || []);
 /*eslint-enable react-hooks/exhaustive-deps */
 
-export default fUseKey
+const isKeyEnter = ({
+  keyCode
+}) => keyCode === 13 || keyCode === 32;
+
+export const useKeyEnter = fUseKey(isKeyEnter)
