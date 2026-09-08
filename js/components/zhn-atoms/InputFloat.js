@@ -4,8 +4,8 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 exports.__esModule = true;
 exports.default = void 0;
 var _decimalLight = _interopRequireDefault(require("../../math/decimal-light/decimalLight"));
+var _isTypeFn = require("../../utils/isTypeFn");
 var _uiApi = require("../uiApi");
-var _is = require("../../utils/is");
 var _jsxRuntime = require("preact/jsx-runtime");
 const CL_BT_ARROW = 'bt-arrow',
   S_ROOT = {
@@ -73,19 +73,16 @@ const _hmModeStyle = {
   1: S_VALID_CHANGED,
   2: S_VALID_NOT_CHANGED
 };
-const _calcMode = (initialValue, value) => !(0, _is.isFloat)(value) ? 0
+const _calcMode = (initialValue, value) => !(0, _isTypeFn.isFloat)(value) ? 0
 // isChanged
 : initialValue !== parseFloat(value) ? 1 : 2;
-const _crInitialState = _ref => {
-  let {
-    initialValue = '0'
-  } = _ref;
-  return {
-    mode: (0, _is.isFloat)(initialValue) ? 2 : 0,
-    value: initialValue,
-    initedValue: initialValue
-  };
-};
+const _crInitialState = ({
+  initialValue = '0'
+}) => ({
+  mode: (0, _isTypeFn.isFloat)(initialValue) ? 2 : 0,
+  value: initialValue,
+  initedValue: initialValue
+});
 const _crNextState = (prevState, nextMode, nextValue) => {
   prevState.mode = nextMode;
   prevState.value = nextValue;

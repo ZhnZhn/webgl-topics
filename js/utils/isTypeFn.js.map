@@ -1,0 +1,21 @@
+{
+ "version": 3,
+ "sources": [
+  "../../src/utils/isTypeFn.js"
+ ],
+ "file": "../../src/utils/isTypeFn.js",
+ "names": [
+  "isFn",
+  "fn",
+  "exports",
+  "regFloat",
+  "isFloat",
+  "strOrNumber",
+  "trimmed",
+  "trim",
+  "isNaN",
+  "parseFloat",
+  "test"
+ ],
+ "mappings": ";;;;AACO,MAAMA,IAAI,GAChBC,EAAE,IACE,OAAOA,EAAE,KAAK,UAAU;AAAAC,OAAA,CAAAF,IAAA,GAAAA,IAAA;AAE7B,MAAMG,QAAQ,GAAG,iBAAiB;AAC3B,MAAMC,OAAO,GAAIC,WAAW,IAAK;EACtC,MAAMC,OAAO,GAAG,CAAC,EAAE,GAACD,WAAW,EAAEE,IAAI,CAAC,CAAC;EAEvC,OAAOC,KAAK,CAACC,UAAU,CAACH,OAAO,CAAC,CAAC,GAC7B,KAAK,GACLA,OAAO,KAAK,EAAE,IAAIH,QAAQ,CAACO,IAAI,CAACJ,OAAO,CAAC;AAC9C,CAAC;AAAAJ,OAAA,CAAAE,OAAA,GAAAA,OAAA"
+}

@@ -1,14 +1,12 @@
 import Decimal from '../../math/decimal-light/decimalLight';
+import { isFloat } from '../../utils/isTypeFn';
+
 import {
   useRef,
   useState,
   useEffect,
   useImperativeHandle
 } from '../uiApi';
-
-import {
-  isFloat
-} from '../../utils/is';
 
 const CL_BT_ARROW = 'bt-arrow'
 , S_ROOT = {

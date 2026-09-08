@@ -1,9 +1,9 @@
+import { isFn } from '../../../utils/isTypeFn';
+
 import {
   useEffect,
   getRefValue
 } from '../../uiApi';
-
-import { isFunction } from '../../../utils/is';
 
 import initGl from './initGl';
 import createShaders from './createShaders';
@@ -52,14 +52,14 @@ const useAnimationGL = (
     }
     configMatrix(config);
 
-    if (isFunction(createIndices)) {
+    if (isFn(createIndices)) {
       createIndices(config)
     }
-    if(isFunction(loadTexture)) {
+    if(isFn(loadTexture)) {
       loadTexture(config)
     }
 
-   if(isFunction(config.draw)) {
+   if(isFn(config.draw)) {
      config.draw(config)
    }
 
