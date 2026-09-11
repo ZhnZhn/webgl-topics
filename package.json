@@ -15,7 +15,7 @@
     "lint:one": "eslint -c eslint.config.js",
     "lint:biome": "npx @biomejs/biome lint ./src > _lint.txt 2>&1",
     "build:prod": "webpack --color --progress --config webpack.prod.js",
-    "build:rspack:prod": "rspack build --config rspack.prod.js",   
+    "build:rspack:prod": "rspack build --config rspack.prod.js",
     "css:min": "node min-css"
   },
   "author": "Yevhenii Molodyi",
@@ -38,7 +38,7 @@
     "@babel/preset-env": "^7.29.7",
     "@babel/preset-react": "^7.29.7",
     "@biomejs/biome": "^2.5.12",
-    "@pmmmwh/react-refresh-webpack-plugin": "^0.6.2",
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.6.3",
     "@rspack/cli": "^2.2.2",
     "@rspack/core": "^2.2.2",
     "@rspack/dev-server": "^2.2.1",
