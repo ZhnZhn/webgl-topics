@@ -36,12 +36,12 @@
     "@babel/plugin-transform-runtime": "^7.29.7",
     "@babel/preset-env": "^7.29.7",
     "@babel/preset-react": "^7.29.7",
-    "@biomejs/biome": "^2.6.6",
+    "@biomejs/biome": "^2.6.7",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.6.3",
-    "@rspack/cli": "^2.2.9",
-    "@rspack/core": "^2.2.9",
+    "@rspack/cli": "^2.3.2",
+    "@rspack/core": "^2.3.2",
     "@rspack/dev-server": "^2.2.2",
-    "@rstest/core": "^0.12.5",
+    "@rstest/core": "^0.12.6",
     "@swc/helpers": "^0.5.24",
     "babel-loader": "^10.1.1",
     "clean-css": "^5.3.3",
@@ -53,7 +53,7 @@
     "react-refresh": "^0.18.0",
     "terser-webpack-plugin": "^5.6.1",
     "webpack": "^5.112.2",
-    "webpack-cli": "^7.2.3"
+    "webpack-cli": "^7.3.1"
   },
   "overrides": {
     "glob": "~14.0.3",
